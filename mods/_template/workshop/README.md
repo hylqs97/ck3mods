@@ -33,9 +33,17 @@
 
 同步或维护前应阅读 Workshop 描述、更新记录和与兼容性有关的评论；无法访问页面时必须使用并标记本地快照。
 
+## 本地快照回收
+
+每次 Agent 处理此 `workshop` mod 时，会先检查本机 Steam 游戏 mod 目录。如果本机快照发生变化且仓库没有冲突，Agent 自动将本机最新版回收至仓库；开关和同步记录以 `metadata.yaml` 的 `local_sync` 为准。
+
 ## 安装与加载顺序
 
 说明如何安装本 mod，以及它相对于前置 mod 或其他相关 mod 的加载顺序。
+
+## 本地 Steam 部署
+
+完成 CK3 游戏文件修改后，Agent 自动部署到本机 Steam 库的 `steamapps/common/Crusader Kings III/mod/`。仅修改说明、元数据或 `references/` 时不部署；具体路径解析和安全规则以根目录 `AGENTS.md` 为准。
 
 ## 已知冲突与限制
 

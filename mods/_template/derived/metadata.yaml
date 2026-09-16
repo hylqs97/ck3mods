@@ -23,3 +23,9 @@ publication:
   workshop_url: null
   last_published_at: null
 license_or_permission: "填写原作者许可或待确认"
+local_deployment:
+  enabled: true
+  steam_app_id: 1158310
+  game_name: "Crusader Kings III"
+  mod_dir_name: null
+  last_deployed_at: null

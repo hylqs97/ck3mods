@@ -45,6 +45,10 @@
 
 说明如何安装本 mod，以及它相对于上游 mod、前置 mod 或其他相关 mod 的加载顺序。
 
+## 本地 Steam 部署
+
+完成 CK3 游戏文件修改后，Agent 自动部署到本机 Steam 库的 `steamapps/common/Crusader Kings III/mod/`。仅修改说明、元数据或 `references/` 时不部署；具体路径解析和安全规则以根目录 `AGENTS.md` 为准。
+
 ## 已知冲突与限制
 
 说明已知冲突、兼容性限制、上游许可或尚未解决的问题；没有则填写“无”。

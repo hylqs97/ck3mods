@@ -55,10 +55,31 @@
 2. 新增第三方公开 mod 时，使用 `mods/_template/workshop/` 模板；新增个人优化版本时，使用 `mods/_template/derived/` 模板。
 3. 修改 mod 功能、前置关系、兼容版本、上游版本或加载顺序时，同步更新说明和元数据。
 4. 前置 mod 必须使用明确的 mod 名称或仓库内相对路径；如果前置关系不确定，保留待确认标记，不要猜测。
-5. 保持每个 mod 的变更隔离。除非用户明确要求，不要修改其他 mod 或共享游戏文件。
+5. 保持每个 mod 的变更隔离。除非用户明确要求（包括本地 Steam 部署），不要修改其他 mod 或共享游戏文件。
 6. 不要擅自覆盖或删除用户已有的 mod 文件；下载或更新时先保存到临时位置，比较后再替换。
 7. 不要把 Steam 凭据、访问令牌、Cookie 或其他秘密写入仓库。
 8. 新增或修改 CK3 脚本后，尽量运行项目已有的检查；如果没有自动化检查，至少核对文件路径、descriptor 配置、前置 mod 和加载顺序。
+
+## 本地 Steam 游戏目录部署
+
+完成 `mods/workshop/<mod-id>/` 或 `mods/derived/<mod-id>/` 中会影响 CK3 游戏内容的修改后，Agent 必须自动将新版 mod 部署到本机 Steam 库中对应游戏的 mod 目录。仅修改 `README.md`、`metadata.yaml` 或 `references/` 时不需要部署游戏文件。
+
+目标目录为：
+
+```text
+<SteamLibrary>/steamapps/common/Crusader Kings III/mod/<mod-directory-name>/
+```
+
+其中 `<SteamLibrary>` 应从本机 Steam 的 `steamapps/libraryfolders.vdf` 或标准 Steam 安装位置解析，不能写死其他机器的绝对路径；`local_deployment.enabled` 缺省或为 `true` 时启用部署，只有用户明确要求时才能设为 `false`。`<mod-directory-name>` 默认使用 `<mod-id>`，如 `metadata.yaml` 中存在非空的 `local_deployment.mod_dir_name` 则使用该值。CK3 的 Steam App ID 是 `1158310`。不得把文件复制到 `steamapps/workshop/content/1158310/`，该目录由 Steam 管理。
+
+部署时必须遵守以下流程：
+
+1. 先确认目标 Steam 库、CK3 游戏目录和目标 mod 目录，不能根据不确定的路径猜测；无法定位或没有权限时必须报告阻塞原因，不得伪造部署成功。
+2. 先在临时目录中整理并比较文件，再复制 `descriptor.mod` 和 CK3 游戏文件；排除仓库的 `README.md`、`metadata.yaml`、`references/`、`.git` 和模板文件。
+3. 保留仓库中的相对目录结构，不得修改其他 mod 目录或 Steam Workshop 管理目录。目标目录中仅存在于本机的文件不能被静默删除；如需删除旧文件，必须先报告并取得明确确认。
+4. 复制完成后检查目标 `descriptor.mod` 和本次变更文件确实存在，并报告实际部署路径。部署失败时保留仓库内容不变。
+
+本地部署不等于发布到 Steam Workshop；上传或发布仍然必须获得用户明确要求和相应授权。
 
 ## 第三方 Workshop mod 的同步
 
@@ -67,6 +88,17 @@
 ```text
 https://steamworkshopdownloader.io/
 ```
+
+每次 Agent 被调用处理 `mods/workshop/<mod-id>/` 时，在进行其他修改前必须先检查本机 Steam 游戏 mod 目录中的对应快照。检查使用本地部署规则解析的 `<SteamLibrary>/steamapps/common/Crusader Kings III/mod/<mod-directory-name>/`，不得使用 `steamapps/workshop/content/1158310/`。
+
+当 `metadata.yaml` 中 `local_sync.enabled` 缺省或为 `true`，且本机源目录存在时，Agent 必须：
+
+1. 只读取 `descriptor.mod` 和 CK3 游戏文件，计算本机源目录的文件指纹，并与仓库的 `source_revision` 及游戏文件进行比较。
+2. 如果本机源目录与仓库不同，先将本机内容复制到临时目录。仓库当前游戏文件仍等于已记录的 `source_revision` 时，将本机快照视为最新版并自动更新 `mods/workshop/<mod-id>/`；如果仓库也有未记录的游戏文件修改，则报告冲突，不得静默覆盖。
+3. 自动回收时只更新 CK3 游戏文件和 `descriptor.mod`，保留仓库的 `README.md`、`metadata.yaml` 和 `references/`；同时更新 `last_synced_at`、`source_revision`、README 中的同步信息和 `local_sync.last_imported_at`。
+4. 在替换仓库快照前完成差异检查；失败时保留原仓库内容，并明确报告失败原因。不能仅因为发现文件不同就声称已经确认是官方更新。
+
+本地源目录不存在、路径不明确或无法访问时，不执行本地回收，也不得伪造同步成功。`local_sync.enabled: false` 只有在用户明确要求停用本地自动回收时才能设置。该自动回收仅适用于 `workshop` 快照，不能将本机目录反向覆盖 `derived` mod。
 
 当用户要求同步、检查更新，或运行约定的定期同步任务时：
 
