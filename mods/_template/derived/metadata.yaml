@@ -1,0 +1,25 @@
+kind: derived
+mod_id: "填写仓库内唯一目录标识"
+name: "填写 Mod 名称"
+upstream:
+  workshop_item_id: "填写上游 Steam Workshop item ID"
+  workshop_url: "https://steamcommunity.com/sharedfiles/filedetails/?id=填写ID"
+  downloader_url: "https://steamworkshopdownloader.io/"
+  last_synced_at: null
+  source_revision: null
+  source_info:
+    description_url: "https://steamcommunity.com/sharedfiles/filedetails/?id=填写ID"
+    comments_url: "https://steamcommunity.com/sharedfiles/filedetails/?id=填写ID"
+    updates_url: "https://steamcommunity.com/sharedfiles/filedetails/?id=填写ID"
+    last_read_at: null
+    last_comments_read_at: null
+    last_updates_read_at: null
+    snapshot_dir: "references"
+local_changes:
+  - "填写相对于上游的修改"
+publication:
+  status: unpublished
+  workshop_item_id: null
+  workshop_url: null
+  last_published_at: null
+license_or_permission: "填写原作者许可或待确认"
