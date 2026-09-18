@@ -14,6 +14,8 @@ upstream:
     last_read_at: null
     last_comments_read_at: null
     last_updates_read_at: null
+    last_attempted_at: null
+    status: "not_read"
     snapshot_dir: "references"
 local_changes:
   - "填写相对于上游的修改"
@@ -29,3 +31,11 @@ local_deployment:
   game_name: "Crusader Kings III"
   mod_dir_name: null
   last_deployed_at: null
+
+version: null
+supported_version: null
+dependencies: []
+imported_at: null
+import_source: null
+source_revision: null
+additional_upstreams: []

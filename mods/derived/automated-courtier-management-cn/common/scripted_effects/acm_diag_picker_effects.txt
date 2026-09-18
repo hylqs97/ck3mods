@@ -1,0 +1,22 @@
+﻿acm_diag_picker_cleanup_effect = {
+ clear_variable_list = acm_diag_picker_children
+ remove_variable = acm_diag_slot_0
+ remove_variable = acm_diag_slot_1
+ remove_variable = acm_diag_slot_2
+ remove_variable = acm_diag_slot_3
+ remove_variable = acm_diag_slot_4
+ remove_variable = acm_diag_slot_5
+ remove_variable = acm_diag_slot_6
+ remove_variable = acm_diag_slot_7
+}
+acm_diag_picker_start_effect = {
+ acm_diag_cleanup_effect = yes
+ acm_diag_picker_cleanup_effect = yes
+ save_scope_as = acm_diag_owner
+ every_child = {
+  limit = { is_alive = yes is_adult = no }
+  save_scope_as = acm_diag_pick_child
+  scope:acm_diag_owner = { add_to_variable_list = { name = acm_diag_picker_children target = scope:acm_diag_pick_child } }
+ }
+ trigger_event = { id = acm_diag.4 }
+}

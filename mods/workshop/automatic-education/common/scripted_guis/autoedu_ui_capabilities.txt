@@ -1,0 +1,3 @@
+﻿autoedu_ui_has_child_examination = { is_shown = { has_tgp_dlc_trigger = yes government_allows = merit } }
+autoedu_ui_has_wards_and_wardens = { is_shown = { has_bp2_dlc_trigger = yes } }
+autoedu_ui_has_martial_training = { is_shown = { has_mpo_dlc_trigger = yes } }

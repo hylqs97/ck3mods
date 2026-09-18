@@ -1,0 +1,19 @@
+﻿texticon = {
+  icon = autoedu_close_family_icon
+  iconsize = {
+    texture = "gfx/interface/icons/modifiers/family_mixed.dds"
+    size = { 24 24 }
+    offset = { 0 6 }
+    fontsize = 16
+  }
+}
+
+texticon = {
+  icon = autoedu_house_icon
+  iconsize = {
+    texture = "gfx/interface/icons/flat_icons/house.dds"
+    size = { 24 24 }
+    offset = { 0 6 }
+    fontsize = 16
+  }
+}

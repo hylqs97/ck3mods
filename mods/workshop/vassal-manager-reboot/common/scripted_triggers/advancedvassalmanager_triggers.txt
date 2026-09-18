@@ -1,0 +1,19 @@
+﻿# Scripted triggers - v2.2
+#
+# Warnings shown in the decision tooltip. These are custom_tooltip wrappers
+# around a trigger that is ALWAYS TRUE, so they never block the decision -
+# they only put a line of text in front of the player before they commit.
+
+avm_domain_warning_trigger = {
+	custom_tooltip = {
+		text = avm_domain_warning_tt
+		always = yes
+	}
+}
+
+avm_vassal_limit_warning_trigger = {
+	custom_tooltip = {
+		text = avm_vassal_limit_warning_tt
+		always = yes
+	}
+}

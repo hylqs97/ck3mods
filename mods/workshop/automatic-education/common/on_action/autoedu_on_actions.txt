@@ -1,0 +1,35 @@
+﻿on_death = {
+  events = {
+    autoedu.0110
+  }
+}
+
+on_player_select_destiny_setup = {
+  on_actions = {
+    autoedu_on_player_select_destiny_setup
+  }
+}
+
+autoedu_on_player_select_destiny_setup = {
+  effect = {
+    if = {
+      limit = {
+        exists = scope:heir
+        OR = {
+          autoedu_editor_current_schema_valid_trigger = yes
+          autoedu_editor_schema_11_valid_trigger = yes
+          AND = { exists = var:autoedu_settings_initialized NOT = { exists = var:autoedu_editor_schema_version } }
+        }
+      }
+      if = { limit = { exists = var:autoedu_settings_initialized NOT = { exists = var:autoedu_editor_schema_version } } autoedu_release_migrate_legacy_1_10_effect = yes }
+      if = { limit = { autoedu_editor_schema_11_valid_trigger = yes } autoedu_editor_migrate_schema_11_to_12_effect = yes }
+      save_scope_as = autoedu_succession_predecessor
+      scope:heir = {
+        if = {
+          limit = { is_ai = no }
+          autoedu_copy_settings_from_predecessor_effect = yes
+        }
+      }
+    }
+  }
+}

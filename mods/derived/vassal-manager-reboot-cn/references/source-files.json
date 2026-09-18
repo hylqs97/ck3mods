@@ -1,0 +1,11 @@
+{
+  "source_revision": "sha256:49f02e12f84fb679e7d76027dfdd3673b5104814d586efcdb591346bd4122f06",
+  "files": {
+    "descriptor.mod": "ac00cf3f01b712d4971d2389ec90723af863088a5f630ef63134d1f737f4c5d9",
+    "localization/replace/simp_chinese/vassal_manager_reboot_l_simp_chinese.yml": "bd5f03de47ecab4ffb65d06688f7e0561f13304ada1c1ddbdf01863cb65bc29a"
+  },
+  "original_import_files": {
+    "descriptor.mod": "ac00cf3f01b712d4971d2389ec90723af863088a5f630ef63134d1f737f4c5d9",
+    "localization/replace/simp_chinese/vassal_manager_reboot_l_simp_chinese.yml": "bd5f03de47ecab4ffb65d06688f7e0561f13304ada1c1ddbdf01863cb65bc29a"
+  }
+}

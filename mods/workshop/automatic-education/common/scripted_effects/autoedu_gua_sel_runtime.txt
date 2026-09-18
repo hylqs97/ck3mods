@@ -1,0 +1,1520 @@
+﻿autoedu_gsel_cleanup_owner_scratch_effect = {
+  remove_variable = autoedu_gsel_has_scoring_focus
+  remove_variable = autoedu_gsel_cached_focus_code
+  remove_variable = autoedu_gsel_focus_code
+  remove_variable = autoedu_gsel_age
+  remove_variable = autoedu_gsel_cached_remaining_rolls
+  remove_variable = autoedu_gsel_cached_existing_patronage
+  remove_variable = autoedu_gsel_cached_child_s5_bonus
+  remove_variable = autoedu_gsel_cached_child_f5_bonus
+  remove_variable = autoedu_gsel_cached_university_extra
+  remove_variable = autoedu_gsel_cached_kin_extra
+  remove_variable = autoedu_gsel_cached_martial_worse
+  remove_variable = autoedu_gsel_cached_schoolhouse_bonus
+  remove_variable = autoedu_gsel_pat_eligible
+  remove_variable = autoedu_gsel_pat_tier2
+  remove_variable = autoedu_gsel_pat_tier3
+  remove_variable = autoedu_gsel_pat_low_penalty
+  remove_variable = autoedu_gsel_pat_high_bonus
+  remove_variable = autoedu_gsel_pat_bastard_penalty
+  remove_variable = autoedu_gsel_pat_chance
+  remove_variable = autoedu_gsel_beacon
+  remove_variable = autoedu_gsel_martial_worse
+  remove_variable = autoedu_gsel_schoolhouse_bonus
+  remove_variable = autoedu_gsel_focus_group
+  remove_variable = autoedu_gsel_tutor_apt
+  remove_variable = autoedu_gsel_tutor_boon
+  remove_variable = autoedu_gsel_tutor_conf
+  remove_variable = autoedu_gsel_hunt_apt
+}
+
+autoedu_gsel_cleanup_candidate_rank_effect = {
+  remove_variable = autoedu_gsel_p4_primary
+  remove_variable = autoedu_gsel_p3_secondary
+  remove_variable = autoedu_gsel_p2_tertiary
+  remove_variable = autoedu_gsel_stable
+}
+
+autoedu_gsel_prepare_child_invariants_effect = {
+  set_variable = { name = autoedu_gsel_has_scoring_focus value = 0 }
+  set_variable = { name = autoedu_gsel_cached_focus_code value = 0 }
+  if = {
+    limit = { scope:autoedu_child = { autoedu_child_has_education_focus_trigger = yes } }
+    set_variable = { name = autoedu_gsel_has_scoring_focus value = 1 }
+    if = { limit = { scope:autoedu_child = { has_focus = education_diplomacy } } set_variable = { name = autoedu_gsel_cached_focus_code value = 1 } }
+    else_if = { limit = { scope:autoedu_child = { has_focus = education_martial } } set_variable = { name = autoedu_gsel_cached_focus_code value = 2 } }
+    else_if = { limit = { scope:autoedu_child = { has_focus = education_stewardship } } set_variable = { name = autoedu_gsel_cached_focus_code value = 3 } }
+    else_if = { limit = { scope:autoedu_child = { has_focus = education_intrigue } } set_variable = { name = autoedu_gsel_cached_focus_code value = 4 } }
+    else_if = { limit = { scope:autoedu_child = { has_focus = education_learning } } set_variable = { name = autoedu_gsel_cached_focus_code value = 5 } }
+  }
+  else = {
+    scope:autoedu_child = { save_scope_as = autoedu_focus_subject }
+    autoedu_focus_resolve_expected_guardian_effect = yes
+    if = {
+      limit = { var:autoedu_focus_resolve_valid = 1 }
+      set_variable = { name = autoedu_gsel_cached_focus_code value = var:autoedu_focus_resolve_code }
+      set_variable = { name = autoedu_gsel_has_scoring_focus value = 1 }
+    }
+    clear_saved_scope = autoedu_focus_subject
+  }
+
+  set_variable = { name = autoedu_gsel_age value = scope:autoedu_child.age }
+  set_variable = { name = autoedu_gsel_cached_remaining_rolls value = autoedu_gsel_remaining_rolls_value }
+  set_variable = { name = autoedu_gsel_cached_existing_patronage value = autoedu_gsel_existing_patronage_points_value }
+
+  remove_variable = autoedu_gsel_cached_child_s5_bonus
+  set_variable = { name = autoedu_gsel_cached_child_f5_bonus value = 0 }
+  if = { limit = { scope:autoedu_child = { OR = { has_trait = intellect_bad_3 has_trait = inbred } } } change_variable = { name = autoedu_gsel_cached_child_f5_bonus add = 100 } }
+  if = { limit = { scope:autoedu_child = { has_trait = intellect_bad_2 } } change_variable = { name = autoedu_gsel_cached_child_f5_bonus add = 75 } }
+  if = { limit = { scope:autoedu_child = { OR = { has_trait = intellect_bad_1 has_trait = dull } } } change_variable = { name = autoedu_gsel_cached_child_f5_bonus add = 50 } }
+
+  set_variable = { name = autoedu_gsel_cached_university_extra value = 0 }
+  if = { limit = { scope:autoedu_child = { has_character_modifier = studying_at_university_modifier } } set_variable = { name = autoedu_gsel_cached_university_extra value = 1 } }
+  set_variable = { name = autoedu_gsel_cached_kin_extra value = 0 }
+  if = { limit = { scope:autoedu_child = { has_dynasty = yes dynasty = { has_dynasty_perk = kin_legacy_2 } } } set_variable = { name = autoedu_gsel_cached_kin_extra value = 1 } }
+
+  set_variable = { name = autoedu_gsel_cached_martial_worse value = 0 }
+  set_variable = { name = autoedu_gsel_cached_schoolhouse_bonus value = 0 }
+  if = {
+    limit = { var:autoedu_gsel_has_scoring_focus = 1 }
+    set_variable = { name = autoedu_gsel_focus_code value = var:autoedu_gsel_cached_focus_code }
+    set_variable = { name = autoedu_gsel_cached_child_s5_bonus value = 0 }
+    if = { limit = { scope:autoedu_child = { has_trait = intellect_good_3 } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = 100 } }
+    if = { limit = { scope:autoedu_child = { has_trait = intellect_good_2 } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = 75 } }
+    if = { limit = { scope:autoedu_child = { OR = { has_trait = intellect_good_1 has_trait = shrewd } } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = 50 } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 1 scope:autoedu_child = { has_diplomacy_education_affinity_childhood_trait_trigger = yes } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = { value = matching_childhood_trait_modifier_value multiply = 5 } } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 2 scope:autoedu_child = { has_martial_education_affinity_childhood_trait_trigger = yes } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = { value = matching_childhood_trait_modifier_value multiply = 5 } } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 3 scope:autoedu_child = { has_stewardship_education_affinity_childhood_trait_trigger = yes } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = { value = matching_childhood_trait_modifier_value multiply = 5 } } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 4 scope:autoedu_child = { has_intrigue_education_affinity_childhood_trait_trigger = yes } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = { value = matching_childhood_trait_modifier_value multiply = 5 } } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 5 scope:autoedu_child = { has_learning_education_affinity_childhood_trait_trigger = yes } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = { value = matching_childhood_trait_modifier_value multiply = 5 } } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 1 scope:autoedu_child = { has_diplomacy_education_disaffinity_childhood_trait_trigger = yes } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = { value = mismatching_childhood_trait_modifier_value multiply = 5 } } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 2 scope:autoedu_child = { has_martial_education_disaffinity_childhood_trait_trigger = yes } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = { value = mismatching_childhood_trait_modifier_value multiply = 5 } } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 3 scope:autoedu_child = { has_stewardship_education_disaffinity_childhood_trait_trigger = yes } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = { value = mismatching_childhood_trait_modifier_value multiply = 5 } } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 4 scope:autoedu_child = { has_intrigue_education_disaffinity_childhood_trait_trigger = yes } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = { value = mismatching_childhood_trait_modifier_value multiply = 5 } } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 5 scope:autoedu_child = { has_learning_education_disaffinity_childhood_trait_trigger = yes } } change_variable = { name = autoedu_gsel_cached_child_s5_bonus add = { value = mismatching_childhood_trait_modifier_value multiply = 5 } } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 2 scope:autoedu_child.culture = { has_cultural_parameter = martial_education_worse_outcomes } } set_variable = { name = autoedu_gsel_cached_martial_worse value = 1 } }
+    if = { limit = { var:autoedu_gsel_cached_focus_code = 2 scope:autoedu_child.house ?= { house_head ?= { domicile ?= { has_domicile_parameter = japanese_schoolhouse_education_boost_1 has_domicile_building = japanese_schoolhouse_01 } } } } set_variable = { name = autoedu_gsel_cached_schoolhouse_bonus value = 1 } }
+    else_if = { limit = { var:autoedu_gsel_cached_focus_code = 2 scope:autoedu_child.house ?= { house_head ?= { domicile ?= { has_domicile_parameter = japanese_schoolhouse_education_boost_1 has_domicile_building = japanese_schoolhouse_02 } } } } set_variable = { name = autoedu_gsel_cached_schoolhouse_bonus value = 2 } }
+    else_if = { limit = { var:autoedu_gsel_cached_focus_code = 2 scope:autoedu_child.house ?= { house_head ?= { domicile ?= { has_domicile_parameter = japanese_schoolhouse_education_boost_1 has_domicile_building = japanese_schoolhouse_03 } } } } set_variable = { name = autoedu_gsel_cached_schoolhouse_bonus value = 3 } }
+    else_if = { limit = { var:autoedu_gsel_cached_focus_code = 2 scope:autoedu_child.house ?= { house_head ?= { domicile ?= { has_domicile_parameter = japanese_schoolhouse_education_boost_1 has_domicile_building = japanese_schoolhouse_04 } } } } set_variable = { name = autoedu_gsel_cached_schoolhouse_bonus value = 4 } }
+  }
+}
+
+autoedu_gsel_resolve_target_environment_effect = {
+  clear_saved_scope = autoedu_gsel_target_host
+  clear_saved_scope = autoedu_gsel_target_court_owner
+  scope:autoedu_child.host ?= { save_scope_as = autoedu_gsel_target_host }
+  scope:autoedu_child.court_owner ?= { save_scope_as = autoedu_gsel_target_court_owner }
+  if = { limit = { scope:autoedu_gsel_guardian = { is_landed = yes } scope:autoedu_child = { is_landed = no is_hostage = no NOT = { scope:autoedu_gsel_guardian = host } } } scope:autoedu_gsel_guardian = { save_scope_as = autoedu_gsel_target_host court_owner ?= { save_scope_as = autoedu_gsel_target_court_owner } } }
+  else_if = { limit = { scope:autoedu_gsel_guardian = { is_landed = no is_hostage = no } scope:autoedu_child = { is_landed = yes NOT = { host = scope:autoedu_gsel_guardian } } } }
+  else_if = { limit = { scope:autoedu_gsel_guardian = { is_landed = no exists = host } scope:autoedu_child = { is_landed = no is_hostage = no NOT = { scope:autoedu_gsel_guardian.host = host } } } scope:autoedu_gsel_guardian.host = { save_scope_as = autoedu_gsel_target_host court_owner ?= { save_scope_as = autoedu_gsel_target_court_owner } } }
+}
+
+autoedu_gsel_prepare_patronage_effect = {
+  set_variable = { name = autoedu_gsel_pat_eligible value = 0 }
+  set_variable = { name = autoedu_gsel_pat_tier2 value = 0 }
+  set_variable = { name = autoedu_gsel_pat_tier3 value = 0 }
+  set_variable = { name = autoedu_gsel_pat_low_penalty value = 0 }
+  set_variable = { name = autoedu_gsel_pat_high_bonus value = 0 }
+  set_variable = { name = autoedu_gsel_pat_bastard_penalty value = 0 }
+  clear_saved_scope = councillor
+  clear_saved_scope = autoedu_gsel_pat_spouse
+  if = { limit = { exists = scope:autoedu_gsel_target_host.cp:councillor_spouse } scope:autoedu_gsel_target_host.cp:councillor_spouse = { save_scope_as = councillor save_scope_as = autoedu_gsel_pat_spouse } }
+  if = {
+    limit = {
+      exists = scope:autoedu_gsel_pat_spouse
+      scope:autoedu_gsel_target_host = { spouse_learning_tier_1_trigger = yes }
+      trigger_if = { limit = { scope:autoedu_child = { has_variable = patronage_spouse_tutor } } scope:autoedu_child.var:patronage_spouse_tutor = scope:autoedu_gsel_pat_spouse }
+    }
+    set_variable = { name = autoedu_gsel_pat_eligible value = 1 }
+    if = { limit = { scope:autoedu_gsel_target_host = { spouse_learning_tier_2_trigger = yes } } set_variable = { name = autoedu_gsel_pat_tier2 value = 1 } }
+    if = { limit = { scope:autoedu_gsel_target_host = { spouse_learning_tier_3_trigger = yes } } set_variable = { name = autoedu_gsel_pat_tier3 value = 1 } }
+    if = { limit = { scope:autoedu_child = { NOR = { is_child_of = scope:autoedu_gsel_pat_spouse reverse_opinion = { target = scope:autoedu_gsel_pat_spouse value >= 25 } } } } set_variable = { name = autoedu_gsel_pat_low_penalty value = 1 } }
+    if = { limit = { scope:autoedu_child = { reverse_opinion = { target = scope:autoedu_gsel_pat_spouse value >= 50 } } } set_variable = { name = autoedu_gsel_pat_high_bonus value = 1 } }
+    if = { limit = { scope:autoedu_child = { NOT = { is_child_of = scope:autoedu_gsel_pat_spouse } any_parent = { is_spouse_of = scope:autoedu_gsel_pat_spouse } OR = { has_trait = bastard has_trait = legitimized_bastard } } scope:autoedu_gsel_pat_spouse = { NOR = { ai_compassion >= high_positive_ai_value opinion = { target = scope:autoedu_child value >= 50 } } } } set_variable = { name = autoedu_gsel_pat_bastard_penalty value = 1 } }
+  }
+  set_variable = { name = autoedu_gsel_pat_chance value = autoedu_gsel_patronage_chance_value }
+  clear_saved_scope = councillor
+  clear_saved_scope = autoedu_gsel_pat_spouse
+}
+
+autoedu_gsel_prepare_focus_environment_effect = {
+  set_variable = { name = autoedu_gsel_beacon value = 0 }
+  set_variable = { name = autoedu_gsel_martial_worse value = 0 }
+  set_variable = { name = autoedu_gsel_schoolhouse_bonus value = 0 }
+  if = { limit = { scope:autoedu_gsel_guardian.culture = { has_cultural_parameter = guardian_education_better_outcomes } } set_variable = { name = autoedu_gsel_beacon value = 1 } }
+  if = {
+    limit = { var:autoedu_gsel_has_scoring_focus = 1 }
+    set_variable = { name = autoedu_gsel_martial_worse value = var:autoedu_gsel_cached_martial_worse }
+    set_variable = { name = autoedu_gsel_schoolhouse_bonus value = var:autoedu_gsel_cached_schoolhouse_bonus }
+  }
+}
+
+autoedu_gsel_p4r_accumulate_required_weight_effect = {
+  if = {
+    limit = { var:autoedu_gsel_p4r_required <= 15 }
+    if = {
+      limit = { var:autoedu_gsel_p4r_required <= 7 }
+      if = {
+        limit = { var:autoedu_gsel_p4r_required <= 3 }
+        if = {
+          limit = { var:autoedu_gsel_p4r_required <= 1 }
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 0 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_0 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_1 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+        else = {
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 2 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_2 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_3 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+      }
+      else = {
+        if = {
+          limit = { var:autoedu_gsel_p4r_required <= 5 }
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 4 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_4 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_5 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+        else = {
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 6 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_6 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_7 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+      }
+    }
+    else = {
+      if = {
+        limit = { var:autoedu_gsel_p4r_required <= 11 }
+        if = {
+          limit = { var:autoedu_gsel_p4r_required <= 9 }
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 8 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_8 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_9 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+        else = {
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 10 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_10 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_11 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+      }
+      else = {
+        if = {
+          limit = { var:autoedu_gsel_p4r_required <= 13 }
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 12 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_12 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_13 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+        else = {
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 14 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_14 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_15 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+      }
+    }
+  }
+  else = {
+    if = {
+      limit = { var:autoedu_gsel_p4r_required <= 23 }
+      if = {
+        limit = { var:autoedu_gsel_p4r_required <= 19 }
+        if = {
+          limit = { var:autoedu_gsel_p4r_required <= 17 }
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 16 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_16 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_17 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+        else = {
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 18 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_18 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_19 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+      }
+      else = {
+        if = {
+          limit = { var:autoedu_gsel_p4r_required <= 21 }
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 20 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_20 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_21 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+        else = {
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 22 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_22 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_23 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+      }
+    }
+    else = {
+      if = {
+        limit = { var:autoedu_gsel_p4r_required <= 27 }
+        if = {
+          limit = { var:autoedu_gsel_p4r_required <= 25 }
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 24 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_24 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_25 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+        else = {
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 26 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_26 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_27 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+      }
+      else = {
+        if = {
+          limit = { var:autoedu_gsel_p4r_required <= 29 }
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 28 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_28 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_29 add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+        else = {
+          if = {
+            limit = { var:autoedu_gsel_p4r_required <= 30 }
+            change_variable = { name = autoedu_gsel_p4r_required_weight_30 add = var:autoedu_gsel_p4r_component_weight }
+          }
+          else = {
+            change_variable = { name = autoedu_gsel_p4r_required_weight_overflow add = var:autoedu_gsel_p4r_component_weight }
+          }
+        }
+      }
+    }
+  }
+}
+
+autoedu_gsel_p4r_add_component_effect = {
+  set_variable = { name = autoedu_gsel_p4r_target value = var:autoedu_gsel_p4r_outcome_target }
+  if = { limit = { var:autoedu_gsel_martial_worse = 1 } change_variable = { name = autoedu_gsel_p4r_target add = 1 } }
+  change_variable = { name = autoedu_gsel_p4r_target add = { value = var:autoedu_gsel_schoolhouse_bonus multiply = -1 } }
+  change_variable = { name = autoedu_gsel_p4r_target add = { value = var:autoedu_gsel_p4r_late_bonus multiply = -1 } }
+  set_variable = { name = autoedu_gsel_p4r_required value = autoedu_gsel_p4r_required_value }
+  if = { limit = { var:autoedu_gsel_p4r_required > 30 } set_variable = { name = autoedu_gsel_p4r_required value = 31 } }
+  autoedu_gsel_p4r_accumulate_required_weight_effect = yes
+}
+
+autoedu_gsel_p4r_add_pre_distribution_effect = {
+  if = {
+    limit = { var:autoedu_gsel_cached_university_extra = 1 var:autoedu_gsel_cached_kin_extra = 1 }
+    set_variable = { name = autoedu_gsel_p4r_pre_bonus value = 4 }
+    set_variable = { name = autoedu_gsel_p4r_component_weight value = var:autoedu_gsel_p4r_late_weight }
+    change_variable = { name = autoedu_gsel_p4r_component_weight multiply = 36 }
+    autoedu_gsel_p4r_add_component_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_pre_bonus value = 5 }
+    set_variable = { name = autoedu_gsel_p4r_component_weight value = var:autoedu_gsel_p4r_late_weight }
+    change_variable = { name = autoedu_gsel_p4r_component_weight multiply = 48 }
+    autoedu_gsel_p4r_add_component_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_pre_bonus value = 6 }
+    set_variable = { name = autoedu_gsel_p4r_component_weight value = var:autoedu_gsel_p4r_late_weight }
+    change_variable = { name = autoedu_gsel_p4r_component_weight multiply = 16 }
+    autoedu_gsel_p4r_add_component_effect = yes
+  }
+  else_if = {
+    limit = { OR = { var:autoedu_gsel_cached_university_extra = 1 var:autoedu_gsel_cached_kin_extra = 1 } }
+    set_variable = { name = autoedu_gsel_p4r_pre_bonus value = 2 }
+    set_variable = { name = autoedu_gsel_p4r_component_weight value = var:autoedu_gsel_p4r_late_weight }
+    change_variable = { name = autoedu_gsel_p4r_component_weight multiply = 60 }
+    autoedu_gsel_p4r_add_component_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_pre_bonus value = 3 }
+    set_variable = { name = autoedu_gsel_p4r_component_weight value = var:autoedu_gsel_p4r_late_weight }
+    change_variable = { name = autoedu_gsel_p4r_component_weight multiply = 40 }
+    autoedu_gsel_p4r_add_component_effect = yes
+  }
+  else = {
+    set_variable = { name = autoedu_gsel_p4r_pre_bonus value = 0 }
+    set_variable = { name = autoedu_gsel_p4r_component_weight value = var:autoedu_gsel_p4r_late_weight }
+    autoedu_gsel_p4r_add_component_effect = yes
+  }
+}
+
+autoedu_gsel_p4r_emit_late_effect = {
+  if = { limit = { var:autoedu_gsel_p4r_late_weight > 0 } autoedu_gsel_p4r_add_pre_distribution_effect = yes }
+}
+
+autoedu_gsel_prepare_p4r_model_effect = {
+  autoedu_gsel_prepare_focus_environment_effect = yes
+  set_variable = { name = autoedu_gsel_p4r_invalid value = 0 }
+  if = { limit = { OR = { NOT = { exists = var:autoedu_gsel_cached_child_s5_bonus } NOT = { exists = var:autoedu_gsel_cached_child_f5_bonus } NOT = { exists = var:autoedu_gsel_cached_remaining_rolls } NOT = { exists = var:autoedu_gsel_cached_existing_patronage } } } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+  set_variable = { name = autoedu_gsel_p4r_n value = var:autoedu_gsel_cached_remaining_rolls }
+  set_variable = { name = autoedu_gsel_p4r_patronage_pct value = var:autoedu_gsel_pat_chance }
+  set_variable = { name = autoedu_gsel_p4r_base2 value = autoedu_gsel_current_points_value }
+  change_variable = { name = autoedu_gsel_p4r_base2 multiply = 2 }
+  change_variable = { name = autoedu_gsel_p4r_base2 add = { value = var:autoedu_gsel_cached_existing_patronage multiply = 2 } }
+
+  set_variable = { name = autoedu_gsel_p4r_s5 value = autoedu_gsel_standard_s5_value }
+  set_variable = { name = autoedu_gsel_p4r_f5 value = autoedu_gsel_standard_f5_value }
+  set_variable = { name = autoedu_gsel_p4r_u_num value = var:autoedu_gsel_p4r_s5 }
+  change_variable = { name = autoedu_gsel_p4r_u_num add = { value = var:autoedu_gsel_p4r_f5 multiply = -1 } }
+  set_variable = { name = autoedu_gsel_p4r_u_den value = var:autoedu_gsel_p4r_s5 }
+  change_variable = { name = autoedu_gsel_p4r_u_den add = var:autoedu_gsel_p4r_f5 }
+  change_variable = { name = autoedu_gsel_p4r_u_den multiply = 2 }
+  if = { limit = { var:autoedu_gsel_p4r_u_den <= 0 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+
+  set_variable = { name = autoedu_gsel_p4r_diplomacy_bonus value = 0 }
+  if = { limit = { var:autoedu_gsel_focus_code = 1 scope:autoedu_child.culture = { has_cultural_parameter = diplomacy_education_better_outcomes } } set_variable = { name = autoedu_gsel_p4r_diplomacy_bonus value = 1 } }
+
+  set_variable = { name = autoedu_gsel_focus_group value = 1 }
+  if = { limit = { OR = { var:autoedu_gsel_focus_code = 2 var:autoedu_gsel_focus_code = 4 } } set_variable = { name = autoedu_gsel_focus_group value = 2 } }
+  else_if = { limit = { OR = { var:autoedu_gsel_focus_code = 3 var:autoedu_gsel_focus_code = 5 } } set_variable = { name = autoedu_gsel_focus_group value = 3 } }
+
+  set_variable = { name = autoedu_gsel_p4r_has_tutor value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_tw2 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_tw3 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_tw4 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_ttotal value = 0 }
+  clear_saved_scope = autoedu_gsel_tutor
+  if = { limit = { exists = scope:autoedu_gsel_target_court_owner exists = scope:autoedu_gsel_target_court_owner.court_position:court_tutor_court_position } scope:autoedu_gsel_target_court_owner.court_position:court_tutor_court_position = { save_scope_as = autoedu_gsel_tutor } set_variable = { name = autoedu_gsel_tutor_apt value = scope:autoedu_gsel_tutor.aptitude:court_tutor_court_position } }
+  else_if = { limit = { exists = scope:autoedu_gsel_target_court_owner exists = scope:autoedu_gsel_target_court_owner.court_position:court_guru_court_position } scope:autoedu_gsel_target_court_owner.court_position:court_guru_court_position = { save_scope_as = autoedu_gsel_tutor } set_variable = { name = autoedu_gsel_tutor_apt value = scope:autoedu_gsel_tutor.aptitude:court_guru_court_position } }
+  if = {
+    limit = { exists = scope:autoedu_gsel_tutor }
+    set_variable = { name = autoedu_gsel_p4r_has_tutor value = 1 }
+    set_variable = { name = autoedu_gsel_tutor_boon value = 0 }
+    set_variable = { name = autoedu_gsel_tutor_conf value = 0 }
+    if = { limit = { scope:autoedu_gsel_tutor.var:booner_target ?= scope:autoedu_child } set_variable = { name = autoedu_gsel_tutor_boon value = 1 } }
+    if = { limit = { scope:autoedu_gsel_tutor = { has_trait = confucian_education } } set_variable = { name = autoedu_gsel_tutor_conf value = 1 } }
+    set_variable = { name = autoedu_gsel_p4r_tw2 value = autoedu_gsel_tutor_w2_value }
+    set_variable = { name = autoedu_gsel_p4r_tw3 value = autoedu_gsel_tutor_w3_value }
+    set_variable = { name = autoedu_gsel_p4r_tw4 value = autoedu_gsel_tutor_w4_value }
+    set_variable = { name = autoedu_gsel_p4r_ttotal value = var:autoedu_gsel_p4r_tw2 }
+    change_variable = { name = autoedu_gsel_p4r_ttotal add = var:autoedu_gsel_p4r_tw3 }
+    change_variable = { name = autoedu_gsel_p4r_ttotal add = var:autoedu_gsel_p4r_tw4 }
+  }
+  clear_saved_scope = autoedu_gsel_tutor
+
+  set_variable = { name = autoedu_gsel_p4r_has_hunt value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_hw2 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_hw3 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_hw4 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_htotal value = 0 }
+  clear_saved_scope = autoedu_gsel_hunt
+  if = {
+    limit = { var:autoedu_gsel_focus_code = 2 exists = scope:autoedu_gsel_target_court_owner exists = scope:autoedu_gsel_target_court_owner.court_position:huntperson_camp_officer }
+    scope:autoedu_gsel_target_court_owner.court_position:huntperson_camp_officer = { save_scope_as = autoedu_gsel_hunt }
+    set_variable = { name = autoedu_gsel_p4r_has_hunt value = 1 }
+    set_variable = { name = autoedu_gsel_hunt_apt value = scope:autoedu_gsel_hunt.aptitude:huntperson_camp_officer }
+    set_variable = { name = autoedu_gsel_p4r_hw2 value = autoedu_gsel_hunt_w2_value }
+    set_variable = { name = autoedu_gsel_p4r_hw3 value = autoedu_gsel_hunt_w3_value }
+    set_variable = { name = autoedu_gsel_p4r_hw4 value = autoedu_gsel_hunt_w4_value }
+    set_variable = { name = autoedu_gsel_p4r_htotal value = var:autoedu_gsel_p4r_hw2 }
+    change_variable = { name = autoedu_gsel_p4r_htotal add = var:autoedu_gsel_p4r_hw3 }
+    change_variable = { name = autoedu_gsel_p4r_htotal add = var:autoedu_gsel_p4r_hw4 }
+  }
+  clear_saved_scope = autoedu_gsel_hunt
+
+  set_variable = { name = autoedu_gsel_p4r_pre_den value = 1 }
+  if = { limit = { OR = { var:autoedu_gsel_cached_university_extra = 1 var:autoedu_gsel_cached_kin_extra = 1 } } set_variable = { name = autoedu_gsel_p4r_pre_den value = 100 } }
+
+}
+
+autoedu_gsel_p4r_evaluate_required_weights_effect = {
+  set_variable = { name = autoedu_gsel_p4r_term value = 100.00000 }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_0 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_term value = 100.00000 }
+    change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_0 }
+    change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_1 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 1 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_1 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_2 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 2 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_2 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_3 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 3 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_3 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_4 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 4 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_4 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_5 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 5 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_5 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_6 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 6 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_6 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_7 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 7 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_7 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_8 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 8 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_8 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_9 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 9 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_9 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_10 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 10 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_10 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_11 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 11 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_11 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_12 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 12 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_12 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_13 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 13 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_13 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_14 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 14 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_14 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_15 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 15 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_15 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_16 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 16 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_16 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_17 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 17 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_17 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_18 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 18 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_18 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_19 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 19 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_19 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_20 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 20 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_20 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_21 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 21 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_21 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_22 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 22 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_22 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_23 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 23 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_23 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_24 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 24 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_24 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_25 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 25 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_25 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_26 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 26 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_26 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_27 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 27 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_27 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_28 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 28 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_28 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_29 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 29 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_29 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_30 > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 30 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_30 }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+  if = {
+    limit = { var:autoedu_gsel_p4r_required_weight_overflow > 0 }
+    set_variable = { name = autoedu_gsel_p4r_required value = 31 }
+    set_variable = { name = autoedu_gsel_p4r_term value = autoedu_gsel_p4r_tail_value }
+    if = { limit = { var:autoedu_gsel_p4r_term < -0.00100 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+    else = {
+      change_variable = { name = autoedu_gsel_p4r_term multiply = var:autoedu_gsel_p4r_required_weight_overflow }
+      change_variable = { name = autoedu_gsel_p4r_total add = var:autoedu_gsel_p4r_term }
+    }
+  }
+}
+
+autoedu_gsel_evaluate_prepared_p4r_target_effect = {
+  set_variable = { name = autoedu_gsel_p4r_total value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_0 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_1 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_2 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_3 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_4 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_5 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_6 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_7 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_8 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_9 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_10 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_11 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_12 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_13 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_14 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_15 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_16 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_17 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_18 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_19 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_20 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_21 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_22 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_23 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_24 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_25 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_26 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_27 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_28 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_29 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_30 value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_required_weight_overflow value = 0 }
+  if = {
+    limit = { var:autoedu_gsel_p4r_has_tutor = 1 var:autoedu_gsel_p4r_has_hunt = 1 }
+    set_variable = { name = autoedu_gsel_p4r_late_den value = var:autoedu_gsel_p4r_ttotal }
+    change_variable = { name = autoedu_gsel_p4r_late_den multiply = var:autoedu_gsel_p4r_htotal }
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 4 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = var:autoedu_gsel_p4r_tw2 }
+    change_variable = { name = autoedu_gsel_p4r_late_weight multiply = var:autoedu_gsel_p4r_hw2 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 5 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = { value = var:autoedu_gsel_p4r_tw2 multiply = var:autoedu_gsel_p4r_hw3 } }
+    change_variable = { name = autoedu_gsel_p4r_late_weight add = { value = var:autoedu_gsel_p4r_tw3 multiply = var:autoedu_gsel_p4r_hw2 } }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 6 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = { value = var:autoedu_gsel_p4r_tw2 multiply = var:autoedu_gsel_p4r_hw4 } }
+    change_variable = { name = autoedu_gsel_p4r_late_weight add = { value = var:autoedu_gsel_p4r_tw3 multiply = var:autoedu_gsel_p4r_hw3 } }
+    change_variable = { name = autoedu_gsel_p4r_late_weight add = { value = var:autoedu_gsel_p4r_tw4 multiply = var:autoedu_gsel_p4r_hw2 } }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 7 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = { value = var:autoedu_gsel_p4r_tw3 multiply = var:autoedu_gsel_p4r_hw4 } }
+    change_variable = { name = autoedu_gsel_p4r_late_weight add = { value = var:autoedu_gsel_p4r_tw4 multiply = var:autoedu_gsel_p4r_hw3 } }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 8 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = var:autoedu_gsel_p4r_tw4 }
+    change_variable = { name = autoedu_gsel_p4r_late_weight multiply = var:autoedu_gsel_p4r_hw4 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_gsel_p4r_has_tutor = 1 var:autoedu_gsel_p4r_diplomacy_bonus = 1 }
+    set_variable = { name = autoedu_gsel_p4r_late_den value = var:autoedu_gsel_p4r_ttotal }
+    change_variable = { name = autoedu_gsel_p4r_late_den multiply = 100 }
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 2 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = { value = var:autoedu_gsel_p4r_tw2 multiply = 40 } }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 3 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = { value = var:autoedu_gsel_p4r_tw3 multiply = 40 } }
+    change_variable = { name = autoedu_gsel_p4r_late_weight add = { value = var:autoedu_gsel_p4r_tw2 multiply = 60 } }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 4 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = { value = var:autoedu_gsel_p4r_tw4 multiply = 40 } }
+    change_variable = { name = autoedu_gsel_p4r_late_weight add = { value = var:autoedu_gsel_p4r_tw3 multiply = 60 } }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 5 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = { value = var:autoedu_gsel_p4r_tw4 multiply = 60 } }
+    autoedu_gsel_p4r_emit_late_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_gsel_p4r_has_tutor = 1 }
+    set_variable = { name = autoedu_gsel_p4r_late_den value = var:autoedu_gsel_p4r_ttotal }
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 2 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = var:autoedu_gsel_p4r_tw2 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 3 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = var:autoedu_gsel_p4r_tw3 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 4 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = var:autoedu_gsel_p4r_tw4 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_gsel_p4r_has_hunt = 1 }
+    set_variable = { name = autoedu_gsel_p4r_late_den value = var:autoedu_gsel_p4r_htotal }
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 2 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = var:autoedu_gsel_p4r_hw2 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 3 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = var:autoedu_gsel_p4r_hw3 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 4 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = var:autoedu_gsel_p4r_hw4 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_gsel_p4r_diplomacy_bonus = 1 }
+    set_variable = { name = autoedu_gsel_p4r_late_den value = 100 }
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 0 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = 40 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 1 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = 60 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+  }
+  else = {
+    set_variable = { name = autoedu_gsel_p4r_late_den value = 1 }
+    set_variable = { name = autoedu_gsel_p4r_late_bonus value = 0 }
+    set_variable = { name = autoedu_gsel_p4r_late_weight value = 1 }
+    autoedu_gsel_p4r_emit_late_effect = yes
+  }
+
+  autoedu_gsel_p4r_evaluate_required_weights_effect = yes
+
+  set_variable = { name = autoedu_gsel_p4r_den value = var:autoedu_gsel_p4r_pre_den }
+  change_variable = { name = autoedu_gsel_p4r_den multiply = var:autoedu_gsel_p4r_late_den }
+  if = { limit = { var:autoedu_gsel_p4r_den <= 0 } set_variable = { name = autoedu_gsel_p4r_invalid value = 1 } }
+  if = {
+    limit = { var:autoedu_gsel_p4r_invalid = 0 }
+    set_variable = { name = autoedu_gsel_p4r_score value = { value = var:autoedu_gsel_p4r_total divide = var:autoedu_gsel_p4r_den multiply = 100 round = yes } }
+  }
+  else = { set_variable = { name = autoedu_gsel_p4r_score value = -1 } }
+}
+
+
+autoedu_gsel_p4r_cleanup_effect = {
+  remove_variable = autoedu_gsel_p4r_invalid
+  remove_variable = autoedu_gsel_p4r_total
+  remove_variable = autoedu_gsel_p4r_required_weight_0
+  remove_variable = autoedu_gsel_p4r_required_weight_1
+  remove_variable = autoedu_gsel_p4r_required_weight_2
+  remove_variable = autoedu_gsel_p4r_required_weight_3
+  remove_variable = autoedu_gsel_p4r_required_weight_4
+  remove_variable = autoedu_gsel_p4r_required_weight_5
+  remove_variable = autoedu_gsel_p4r_required_weight_6
+  remove_variable = autoedu_gsel_p4r_required_weight_7
+  remove_variable = autoedu_gsel_p4r_required_weight_8
+  remove_variable = autoedu_gsel_p4r_required_weight_9
+  remove_variable = autoedu_gsel_p4r_required_weight_10
+  remove_variable = autoedu_gsel_p4r_required_weight_11
+  remove_variable = autoedu_gsel_p4r_required_weight_12
+  remove_variable = autoedu_gsel_p4r_required_weight_13
+  remove_variable = autoedu_gsel_p4r_required_weight_14
+  remove_variable = autoedu_gsel_p4r_required_weight_15
+  remove_variable = autoedu_gsel_p4r_required_weight_16
+  remove_variable = autoedu_gsel_p4r_required_weight_17
+  remove_variable = autoedu_gsel_p4r_required_weight_18
+  remove_variable = autoedu_gsel_p4r_required_weight_19
+  remove_variable = autoedu_gsel_p4r_required_weight_20
+  remove_variable = autoedu_gsel_p4r_required_weight_21
+  remove_variable = autoedu_gsel_p4r_required_weight_22
+  remove_variable = autoedu_gsel_p4r_required_weight_23
+  remove_variable = autoedu_gsel_p4r_required_weight_24
+  remove_variable = autoedu_gsel_p4r_required_weight_25
+  remove_variable = autoedu_gsel_p4r_required_weight_26
+  remove_variable = autoedu_gsel_p4r_required_weight_27
+  remove_variable = autoedu_gsel_p4r_required_weight_28
+  remove_variable = autoedu_gsel_p4r_required_weight_29
+  remove_variable = autoedu_gsel_p4r_required_weight_30
+  remove_variable = autoedu_gsel_p4r_required_weight_overflow
+  remove_variable = autoedu_gsel_p4r_n
+  remove_variable = autoedu_gsel_p4r_patronage_pct
+  remove_variable = autoedu_gsel_p4r_base2
+  remove_variable = autoedu_gsel_p4r_s5
+  remove_variable = autoedu_gsel_p4r_f5
+  remove_variable = autoedu_gsel_p4r_u_num
+  remove_variable = autoedu_gsel_p4r_u_den
+  remove_variable = autoedu_gsel_p4r_diplomacy_bonus
+  remove_variable = autoedu_gsel_p4r_has_tutor
+  remove_variable = autoedu_gsel_p4r_tw2
+  remove_variable = autoedu_gsel_p4r_tw3
+  remove_variable = autoedu_gsel_p4r_tw4
+  remove_variable = autoedu_gsel_p4r_ttotal
+  remove_variable = autoedu_gsel_p4r_has_hunt
+  remove_variable = autoedu_gsel_p4r_hw2
+  remove_variable = autoedu_gsel_p4r_hw3
+  remove_variable = autoedu_gsel_p4r_hw4
+  remove_variable = autoedu_gsel_p4r_htotal
+  remove_variable = autoedu_gsel_p4r_pre_den
+  remove_variable = autoedu_gsel_p4r_late_den
+  remove_variable = autoedu_gsel_p4r_late_bonus
+  remove_variable = autoedu_gsel_p4r_late_weight
+  remove_variable = autoedu_gsel_p4r_pre_bonus
+  remove_variable = autoedu_gsel_p4r_component_weight
+  remove_variable = autoedu_gsel_p4r_outcome_target
+  remove_variable = autoedu_gsel_p4r_target
+  remove_variable = autoedu_gsel_p4r_required
+  remove_variable = autoedu_gsel_p4r_term
+  remove_variable = autoedu_gsel_p4r_den
+  remove_variable = autoedu_gsel_p4r_score
+  remove_variable = autoedu_gsel_p4r_scan_invalid
+}
+
+autoedu_gsel_evaluate_p4_candidate_effect = {
+  save_scope_as = autoedu_gsel_guardian
+  scope:autoedu_owner = {
+    autoedu_gsel_resolve_target_environment_effect = yes
+    autoedu_gsel_prepare_patronage_effect = yes
+    if = {
+      limit = { var:autoedu_gsel_has_scoring_focus = 1 }
+      set_variable = { name = autoedu_gsel_focus_code value = var:autoedu_gsel_cached_focus_code }
+      autoedu_gsel_prepare_p4r_model_effect = yes
+      set_variable = { name = autoedu_gsel_p4r_outcome_target value = 17 }
+      autoedu_gsel_evaluate_prepared_p4r_target_effect = yes
+      scope:autoedu_gsel_guardian = { set_variable = { name = autoedu_gsel_p4_primary value = scope:autoedu_owner.var:autoedu_gsel_p4r_score } }
+      if = { limit = { var:autoedu_gsel_p4r_invalid = 1 } set_variable = { name = autoedu_gsel_p4r_scan_invalid value = 1 } }
+    }
+    else = { set_variable = { name = autoedu_gsel_p4r_scan_invalid value = 1 } }
+    clear_saved_scope = autoedu_gsel_target_host
+    clear_saved_scope = autoedu_gsel_target_court_owner
+  }
+  clear_saved_scope = autoedu_gsel_guardian
+}
+
+autoedu_gsel_evaluate_p3_candidate_effect = {
+  save_scope_as = autoedu_gsel_guardian
+  scope:autoedu_owner = {
+    autoedu_gsel_resolve_target_environment_effect = yes
+    autoedu_gsel_prepare_patronage_effect = yes
+    if = {
+      limit = { var:autoedu_gsel_has_scoring_focus = 1 }
+      set_variable = { name = autoedu_gsel_focus_code value = var:autoedu_gsel_cached_focus_code }
+      autoedu_gsel_prepare_p4r_model_effect = yes
+      set_variable = { name = autoedu_gsel_p4r_outcome_target value = 12 }
+      autoedu_gsel_evaluate_prepared_p4r_target_effect = yes
+      scope:autoedu_gsel_guardian = { set_variable = { name = autoedu_gsel_p3_secondary value = scope:autoedu_owner.var:autoedu_gsel_p4r_score } }
+      if = { limit = { var:autoedu_gsel_p4r_invalid = 1 } set_variable = { name = autoedu_gsel_p4r_scan_invalid value = 1 } }
+    }
+    else = { set_variable = { name = autoedu_gsel_p4r_scan_invalid value = 1 } }
+    clear_saved_scope = autoedu_gsel_target_host
+    clear_saved_scope = autoedu_gsel_target_court_owner
+  }
+  clear_saved_scope = autoedu_gsel_guardian
+}
+
+autoedu_gsel_evaluate_p2_candidate_effect = {
+  save_scope_as = autoedu_gsel_guardian
+  scope:autoedu_owner = {
+    autoedu_gsel_resolve_target_environment_effect = yes
+    autoedu_gsel_prepare_patronage_effect = yes
+    if = {
+      limit = { var:autoedu_gsel_has_scoring_focus = 1 }
+      set_variable = { name = autoedu_gsel_focus_code value = var:autoedu_gsel_cached_focus_code }
+      autoedu_gsel_prepare_p4r_model_effect = yes
+      set_variable = { name = autoedu_gsel_p4r_outcome_target value = 7 }
+      autoedu_gsel_evaluate_prepared_p4r_target_effect = yes
+      scope:autoedu_gsel_guardian = { set_variable = { name = autoedu_gsel_p2_tertiary value = scope:autoedu_owner.var:autoedu_gsel_p4r_score } }
+      if = { limit = { var:autoedu_gsel_p4r_invalid = 1 } set_variable = { name = autoedu_gsel_p4r_scan_invalid value = 1 } }
+    }
+    else = { set_variable = { name = autoedu_gsel_p4r_scan_invalid value = 1 } }
+    clear_saved_scope = autoedu_gsel_target_host
+    clear_saved_scope = autoedu_gsel_target_court_owner
+  }
+  clear_saved_scope = autoedu_gsel_guardian
+}
+
+
+autoedu_gsel_count_pool_effect = {
+  set_variable = { name = autoedu_gsel_pool_count value = 0 }
+  every_in_list = { variable = autoedu_gsel_pool scope:autoedu_owner = { change_variable = { name = autoedu_gsel_pool_count add = 1 } } }
+}
+
+autoedu_gsel_filter_p3_secondary_pool_effect = {
+  clear_saved_scope = autoedu_gsel_stage_best_scope
+  ordered_in_list = { variable = autoedu_gsel_pool order_by = autoedu_gsel_p3_secondary_value position = 0 check_range_bounds = no save_scope_as = autoedu_gsel_stage_best_scope }
+  set_variable = { name = autoedu_gsel_stage_best value = scope:autoedu_gsel_stage_best_scope.var:autoedu_gsel_p3_secondary }
+  clear_variable_list = autoedu_gsel_tmp
+  every_in_list = {
+    variable = autoedu_gsel_pool
+    limit = { autoedu_gsel_p3_secondary_stage_delta_value = 0 }
+    save_scope_as = autoedu_gsel_iter
+    scope:autoedu_owner = { add_to_variable_list = { name = autoedu_gsel_tmp target = scope:autoedu_gsel_iter } }
+    clear_saved_scope = autoedu_gsel_iter
+  }
+  autoedu_gsel_replace_pool_effect = yes
+  clear_saved_scope = autoedu_gsel_stage_best_scope
+}
+
+autoedu_gsel_prepare_p3_secondary_pool_effect = {
+  every_in_list = {
+    variable = autoedu_gsel_pool
+    limit = { NOT = { exists = var:autoedu_gsel_p3_secondary } }
+    save_scope_as = autoedu_gsel_eval_iter
+    scope:autoedu_gsel_eval_iter = { autoedu_gsel_evaluate_p3_candidate_effect = yes }
+    clear_saved_scope = autoedu_gsel_eval_iter
+  }
+  autoedu_gsel_filter_p3_secondary_pool_effect = yes
+}
+
+
+autoedu_gsel_filter_p2_tertiary_pool_effect = {
+  clear_saved_scope = autoedu_gsel_stage_best_scope
+  ordered_in_list = { variable = autoedu_gsel_pool order_by = autoedu_gsel_p2_tertiary_value position = 0 check_range_bounds = no save_scope_as = autoedu_gsel_stage_best_scope }
+  set_variable = { name = autoedu_gsel_stage_best value = scope:autoedu_gsel_stage_best_scope.var:autoedu_gsel_p2_tertiary }
+  clear_variable_list = autoedu_gsel_tmp
+  every_in_list = {
+    variable = autoedu_gsel_pool
+    limit = { autoedu_gsel_p2_tertiary_stage_delta_value = 0 }
+    save_scope_as = autoedu_gsel_iter
+    scope:autoedu_owner = { add_to_variable_list = { name = autoedu_gsel_tmp target = scope:autoedu_gsel_iter } }
+    clear_saved_scope = autoedu_gsel_iter
+  }
+  autoedu_gsel_replace_pool_effect = yes
+  clear_saved_scope = autoedu_gsel_stage_best_scope
+}
+
+autoedu_gsel_prepare_p2_tertiary_pool_effect = {
+  every_in_list = {
+    variable = autoedu_gsel_pool
+    limit = { NOT = { exists = var:autoedu_gsel_p2_tertiary } }
+    save_scope_as = autoedu_gsel_eval_iter
+    scope:autoedu_gsel_eval_iter = { autoedu_gsel_evaluate_p2_candidate_effect = yes }
+    clear_saved_scope = autoedu_gsel_eval_iter
+  }
+  autoedu_gsel_filter_p2_tertiary_pool_effect = yes
+}
+
+
+
+autoedu_gsel_replace_pool_effect = {
+  clear_variable_list = autoedu_gsel_pool
+  every_in_list = { variable = autoedu_gsel_tmp save_scope_as = autoedu_gsel_iter scope:autoedu_owner = { add_to_variable_list = { name = autoedu_gsel_pool target = scope:autoedu_gsel_iter } } clear_saved_scope = autoedu_gsel_iter }
+  clear_variable_list = autoedu_gsel_tmp
+}
+autoedu_gsel_apply_prefer_witch_effect = {
+  if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_witch = 1 any_in_list = { variable = autoedu_gsel_pool autoedu_known_witch_guardian_candidate_trigger = yes } } clear_variable_list = autoedu_gsel_tmp every_in_list = { variable = autoedu_gsel_pool limit = { autoedu_known_witch_guardian_candidate_trigger = yes } save_scope_as = autoedu_gsel_iter scope:autoedu_owner = { add_to_variable_list = { name = autoedu_gsel_tmp target = scope:autoedu_gsel_iter } } clear_saved_scope = autoedu_gsel_iter } autoedu_gsel_replace_pool_effect = yes }
+}
+autoedu_gsel_apply_prefer_gender_effect = {
+  if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_gender = 1 any_in_list = { variable = autoedu_gsel_pool autoedu_same_gender_guardian_candidate_trigger = yes } } clear_variable_list = autoedu_gsel_tmp every_in_list = { variable = autoedu_gsel_pool limit = { autoedu_same_gender_guardian_candidate_trigger = yes } save_scope_as = autoedu_gsel_iter scope:autoedu_owner = { add_to_variable_list = { name = autoedu_gsel_tmp target = scope:autoedu_gsel_iter } } clear_saved_scope = autoedu_gsel_iter } autoedu_gsel_replace_pool_effect = yes }
+}
+autoedu_gsel_apply_prefer_faith_child_effect = {
+  if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_faith = 1 any_in_list = { variable = autoedu_gsel_pool faith = scope:autoedu_child.faith } } clear_variable_list = autoedu_gsel_tmp every_in_list = { variable = autoedu_gsel_pool limit = { faith = scope:autoedu_child.faith } save_scope_as = autoedu_gsel_iter scope:autoedu_owner = { add_to_variable_list = { name = autoedu_gsel_tmp target = scope:autoedu_gsel_iter } } clear_saved_scope = autoedu_gsel_iter } autoedu_gsel_replace_pool_effect = yes }
+}
+autoedu_gsel_apply_prefer_faith_owner_effect = {
+  if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_faith = 3 any_in_list = { variable = autoedu_gsel_pool faith = scope:autoedu_owner.faith } } clear_variable_list = autoedu_gsel_tmp every_in_list = { variable = autoedu_gsel_pool limit = { faith = scope:autoedu_owner.faith } save_scope_as = autoedu_gsel_iter scope:autoedu_owner = { add_to_variable_list = { name = autoedu_gsel_tmp target = scope:autoedu_gsel_iter } } clear_saved_scope = autoedu_gsel_iter } autoedu_gsel_replace_pool_effect = yes }
+}
+autoedu_gsel_apply_prefer_culture_child_effect = {
+  if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_culture = 1 any_in_list = { variable = autoedu_gsel_pool culture = scope:autoedu_child.culture } } clear_variable_list = autoedu_gsel_tmp every_in_list = { variable = autoedu_gsel_pool limit = { culture = scope:autoedu_child.culture } save_scope_as = autoedu_gsel_iter scope:autoedu_owner = { add_to_variable_list = { name = autoedu_gsel_tmp target = scope:autoedu_gsel_iter } } clear_saved_scope = autoedu_gsel_iter } autoedu_gsel_replace_pool_effect = yes }
+}
+autoedu_gsel_apply_prefer_culture_owner_effect = {
+  if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_culture = 3 any_in_list = { variable = autoedu_gsel_pool culture = scope:autoedu_owner.culture } } clear_variable_list = autoedu_gsel_tmp every_in_list = { variable = autoedu_gsel_pool limit = { culture = scope:autoedu_owner.culture } save_scope_as = autoedu_gsel_iter scope:autoedu_owner = { add_to_variable_list = { name = autoedu_gsel_tmp target = scope:autoedu_gsel_iter } } clear_saved_scope = autoedu_gsel_iter } autoedu_gsel_replace_pool_effect = yes }
+}
+
+autoedu_gsel_prepare_p4_primary_pool_effect = {
+  clear_variable_list = autoedu_gsel_pool
+  clear_variable_list = autoedu_gsel_tmp
+  clear_saved_scope = autoedu_gsel_stage_best_scope
+  if = {
+    limit = { any_in_list = { variable = autoedu_release_guardian_hard_candidates always = yes } }
+    ordered_in_list = { variable = autoedu_release_guardian_hard_candidates order_by = autoedu_gsel_p4_primary_value position = 0 check_range_bounds = no save_scope_as = autoedu_gsel_stage_best_scope }
+    set_variable = { name = autoedu_gsel_stage_best value = scope:autoedu_gsel_stage_best_scope.var:autoedu_gsel_p4_primary }
+    every_in_list = {
+      variable = autoedu_release_guardian_hard_candidates
+      limit = { autoedu_gsel_p4_primary_stage_delta_value = 0 }
+      save_scope_as = autoedu_gsel_iter
+      scope:autoedu_owner = { add_to_variable_list = { name = autoedu_gsel_pool target = scope:autoedu_gsel_iter } }
+      clear_saved_scope = autoedu_gsel_iter
+    }
+  }
+  clear_saved_scope = autoedu_gsel_stage_best_scope
+}
+
+autoedu_gsel_prepare_guardian_tooltip_environment_candidate_effect = {
+  $CANDIDATE$ = { save_scope_as = autoedu_gsel_guardian }
+  autoedu_gsel_resolve_target_environment_effect = yes
+  if = {
+    limit = { exists = scope:autoedu_gsel_target_court_owner.court_position:court_tutor_court_position }
+    set_variable = { name = $ANY_VAR$ value = 1 }
+    set_variable = { name = $TUTOR_VAR$ value = 1 }
+  }
+  else_if = {
+    limit = { exists = scope:autoedu_gsel_target_court_owner.court_position:court_guru_court_position }
+    set_variable = { name = $ANY_VAR$ value = 1 }
+    set_variable = { name = $GURU_VAR$ value = 1 }
+  }
+  if = {
+    limit = { var:autoedu_gsel_cached_focus_code = 2 exists = scope:autoedu_gsel_target_court_owner.court_position:huntperson_camp_officer }
+    set_variable = { name = $ANY_VAR$ value = 1 }
+    set_variable = { name = $HUNT_VAR$ value = 1 }
+  }
+  autoedu_gsel_prepare_patronage_effect = yes
+  if = {
+    limit = { var:autoedu_gsel_pat_eligible = 1 var:autoedu_gsel_pat_chance > 0 }
+    set_variable = { name = $ANY_VAR$ value = 1 }
+    set_variable = { name = $PATRONAGE_VAR$ value = 1 }
+  }
+  clear_saved_scope = autoedu_gsel_target_host
+  clear_saved_scope = autoedu_gsel_target_court_owner
+  clear_saved_scope = autoedu_gsel_guardian
+}
+
+autoedu_gsel_prepare_guardian_tooltip_factor_flags_effect = {
+  $CANDIDATE$ = {
+    if = {
+      limit = {
+        OR = {
+          learning >= 15
+          AND = { diplomacy >= 20 scope:autoedu_owner = { var:autoedu_tt_focus_code = 1 } }
+          AND = { martial >= 20 scope:autoedu_owner = { var:autoedu_tt_focus_code = 2 } }
+          AND = { stewardship >= 20 scope:autoedu_owner = { var:autoedu_tt_focus_code = 3 } }
+          AND = { intrigue >= 20 scope:autoedu_owner = { var:autoedu_tt_focus_code = 4 } }
+          has_trait = intellect_good_3
+          has_trait = intellect_good_2
+          has_trait = intellect_good_1
+          has_trait = shrewd
+          has_trait = intellect_bad_3
+          has_trait = intellect_bad_2
+          has_trait = intellect_bad_1
+          has_trait = dull
+          culture = { has_cultural_parameter = better_ward_education }
+          culture = { has_cultural_parameter = guardian_education_better_outcomes }
+          house ?= { has_house_aspiration_parameter = service_house_improved_educator_outcome_chance }
+        }
+      }
+      scope:autoedu_owner = {
+        set_variable = { name = $EDUCATION_VAR$ value = 1 }
+        set_variable = { name = $NORMAL_VAR$ value = 1 }
+      }
+    }
+    if = {
+      limit = {
+        OR = {
+          AND = { scope:autoedu_owner = { exists = var:autoedu_release_guardian_witch var:autoedu_release_guardian_witch = 1 } autoedu_known_witch_guardian_candidate_trigger = yes }
+          AND = { scope:autoedu_owner = { exists = var:autoedu_release_guardian_gender var:autoedu_release_guardian_gender = 1 } autoedu_same_gender_guardian_candidate_trigger = yes }
+          AND = { scope:autoedu_owner = { exists = var:autoedu_release_guardian_faith var:autoedu_release_guardian_faith = 1 } faith = scope:autoedu_child.faith }
+          AND = { scope:autoedu_owner = { exists = var:autoedu_release_guardian_faith var:autoedu_release_guardian_faith = 3 } faith = scope:autoedu_owner.faith }
+          AND = { scope:autoedu_owner = { exists = var:autoedu_release_guardian_culture var:autoedu_release_guardian_culture = 1 } culture = scope:autoedu_child.culture }
+          AND = { scope:autoedu_owner = { exists = var:autoedu_release_guardian_culture var:autoedu_release_guardian_culture = 3 } culture = scope:autoedu_owner.culture }
+        }
+      }
+      scope:autoedu_owner = {
+        set_variable = { name = $SECONDARY_VAR$ value = 1 }
+        set_variable = { name = $NORMAL_VAR$ value = 1 }
+      }
+    }
+    if = {
+      limit = { OR = { has_trait = wounded_1 has_trait = gout_ridden has_trait = ill age >= 60 } }
+      scope:autoedu_owner = {
+        set_variable = { name = $RISK_VAR$ value = 1 }
+        set_variable = { name = $NORMAL_VAR$ value = 1 }
+      }
+    }
+  }
+  if = {
+    limit = { var:$ENVIRONMENT_VAR$ = 1 }
+    set_variable = { name = $NORMAL_VAR$ value = 1 }
+  }
+}
+
+autoedu_gsel_prepare_top_three_tooltip_presentation_effect = {
+  set_variable = { name = autoedu_tt_no_focus value = 0 }
+  if = { limit = { scope:autoedu_child = { NOT = { autoedu_child_has_education_focus_trigger = yes } } } set_variable = { name = autoedu_tt_no_focus value = 1 } }
+  set_variable = { name = autoedu_tt_c1_env_any value = 0 }
+  set_variable = { name = autoedu_tt_c1_tutor value = 0 }
+  set_variable = { name = autoedu_tt_c1_guru value = 0 }
+  set_variable = { name = autoedu_tt_c1_hunt value = 0 }
+  set_variable = { name = autoedu_tt_c1_patronage value = 0 }
+  set_variable = { name = autoedu_tt_c1_education_any value = 0 }
+  set_variable = { name = autoedu_tt_c1_secondary_any value = 0 }
+  set_variable = { name = autoedu_tt_c1_risk_any value = 0 }
+  set_variable = { name = autoedu_tt_c1_normal_any value = 0 }
+  set_variable = { name = autoedu_tt_c2_env_any value = 0 }
+  set_variable = { name = autoedu_tt_c2_tutor value = 0 }
+  set_variable = { name = autoedu_tt_c2_guru value = 0 }
+  set_variable = { name = autoedu_tt_c2_hunt value = 0 }
+  set_variable = { name = autoedu_tt_c2_patronage value = 0 }
+  set_variable = { name = autoedu_tt_c2_education_any value = 0 }
+  set_variable = { name = autoedu_tt_c2_secondary_any value = 0 }
+  set_variable = { name = autoedu_tt_c2_risk_any value = 0 }
+  set_variable = { name = autoedu_tt_c2_normal_any value = 0 }
+  set_variable = { name = autoedu_tt_c3_env_any value = 0 }
+  set_variable = { name = autoedu_tt_c3_tutor value = 0 }
+  set_variable = { name = autoedu_tt_c3_guru value = 0 }
+  set_variable = { name = autoedu_tt_c3_hunt value = 0 }
+  set_variable = { name = autoedu_tt_c3_patronage value = 0 }
+  set_variable = { name = autoedu_tt_c3_education_any value = 0 }
+  set_variable = { name = autoedu_tt_c3_secondary_any value = 0 }
+  set_variable = { name = autoedu_tt_c3_risk_any value = 0 }
+  set_variable = { name = autoedu_tt_c3_normal_any value = 0 }
+  autoedu_gsel_prepare_child_invariants_effect = yes
+  set_variable = { name = autoedu_tt_focus_code value = var:autoedu_gsel_cached_focus_code }
+  if = {
+    limit = { exists = scope:autoedu_candidate_1 }
+    autoedu_gsel_prepare_guardian_tooltip_environment_candidate_effect = { CANDIDATE = scope:autoedu_candidate_1 ANY_VAR = autoedu_tt_c1_env_any TUTOR_VAR = autoedu_tt_c1_tutor GURU_VAR = autoedu_tt_c1_guru HUNT_VAR = autoedu_tt_c1_hunt PATRONAGE_VAR = autoedu_tt_c1_patronage }
+    autoedu_gsel_prepare_guardian_tooltip_factor_flags_effect = { CANDIDATE = scope:autoedu_candidate_1 EDUCATION_VAR = autoedu_tt_c1_education_any SECONDARY_VAR = autoedu_tt_c1_secondary_any RISK_VAR = autoedu_tt_c1_risk_any NORMAL_VAR = autoedu_tt_c1_normal_any ENVIRONMENT_VAR = autoedu_tt_c1_env_any }
+  }
+  if = {
+    limit = { exists = scope:autoedu_candidate_2 }
+    autoedu_gsel_prepare_guardian_tooltip_environment_candidate_effect = { CANDIDATE = scope:autoedu_candidate_2 ANY_VAR = autoedu_tt_c2_env_any TUTOR_VAR = autoedu_tt_c2_tutor GURU_VAR = autoedu_tt_c2_guru HUNT_VAR = autoedu_tt_c2_hunt PATRONAGE_VAR = autoedu_tt_c2_patronage }
+    autoedu_gsel_prepare_guardian_tooltip_factor_flags_effect = { CANDIDATE = scope:autoedu_candidate_2 EDUCATION_VAR = autoedu_tt_c2_education_any SECONDARY_VAR = autoedu_tt_c2_secondary_any RISK_VAR = autoedu_tt_c2_risk_any NORMAL_VAR = autoedu_tt_c2_normal_any ENVIRONMENT_VAR = autoedu_tt_c2_env_any }
+  }
+  if = {
+    limit = { exists = scope:autoedu_candidate_3 }
+    autoedu_gsel_prepare_guardian_tooltip_environment_candidate_effect = { CANDIDATE = scope:autoedu_candidate_3 ANY_VAR = autoedu_tt_c3_env_any TUTOR_VAR = autoedu_tt_c3_tutor GURU_VAR = autoedu_tt_c3_guru HUNT_VAR = autoedu_tt_c3_hunt PATRONAGE_VAR = autoedu_tt_c3_patronage }
+    autoedu_gsel_prepare_guardian_tooltip_factor_flags_effect = { CANDIDATE = scope:autoedu_candidate_3 EDUCATION_VAR = autoedu_tt_c3_education_any SECONDARY_VAR = autoedu_tt_c3_secondary_any RISK_VAR = autoedu_tt_c3_risk_any NORMAL_VAR = autoedu_tt_c3_normal_any ENVIRONMENT_VAR = autoedu_tt_c3_env_any }
+  }
+  autoedu_gsel_cleanup_owner_scratch_effect = yes
+}
+
+autoedu_gsel_prepare_p4_debug_required_range_effect = {
+  set_variable = { name = autoedu_gsel_debug_late_min value = 0 }
+  set_variable = { name = autoedu_gsel_debug_late_max value = 0 }
+  if = {
+    limit = { var:autoedu_gsel_p4r_has_tutor = 1 var:autoedu_gsel_p4r_has_hunt = 1 }
+    set_variable = { name = autoedu_gsel_debug_late_min value = 4 }
+    if = { limit = { var:autoedu_gsel_p4r_tw2 <= 0 } change_variable = { name = autoedu_gsel_debug_late_min add = 1 } }
+    set_variable = { name = autoedu_gsel_debug_late_max value = 6 }
+    if = { limit = { var:autoedu_gsel_p4r_tw4 > 0 } change_variable = { name = autoedu_gsel_debug_late_max add = 1 } }
+    if = { limit = { var:autoedu_gsel_p4r_hw4 > 0 } change_variable = { name = autoedu_gsel_debug_late_max add = 1 } }
+  }
+  else_if = {
+    limit = { var:autoedu_gsel_p4r_has_tutor = 1 var:autoedu_gsel_p4r_diplomacy_bonus = 1 }
+    set_variable = { name = autoedu_gsel_debug_late_min value = 2 }
+    if = { limit = { var:autoedu_gsel_p4r_tw2 <= 0 } change_variable = { name = autoedu_gsel_debug_late_min add = 1 } }
+    set_variable = { name = autoedu_gsel_debug_late_max value = 4 }
+    if = { limit = { var:autoedu_gsel_p4r_tw4 > 0 } change_variable = { name = autoedu_gsel_debug_late_max add = 1 } }
+  }
+  else_if = {
+    limit = { var:autoedu_gsel_p4r_has_tutor = 1 }
+    set_variable = { name = autoedu_gsel_debug_late_min value = 2 }
+    if = { limit = { var:autoedu_gsel_p4r_tw2 <= 0 } change_variable = { name = autoedu_gsel_debug_late_min add = 1 } }
+    set_variable = { name = autoedu_gsel_debug_late_max value = 3 }
+    if = { limit = { var:autoedu_gsel_p4r_tw4 > 0 } change_variable = { name = autoedu_gsel_debug_late_max add = 1 } }
+  }
+  else_if = {
+    limit = { var:autoedu_gsel_p4r_has_hunt = 1 }
+    set_variable = { name = autoedu_gsel_debug_late_min value = 2 }
+    set_variable = { name = autoedu_gsel_debug_late_max value = 3 }
+    if = { limit = { var:autoedu_gsel_p4r_hw4 > 0 } change_variable = { name = autoedu_gsel_debug_late_max add = 1 } }
+  }
+  else_if = {
+    limit = { var:autoedu_gsel_p4r_diplomacy_bonus = 1 }
+    set_variable = { name = autoedu_gsel_debug_late_max value = 1 }
+  }
+  set_variable = { name = autoedu_gsel_debug_pre_min value = 0 }
+  set_variable = { name = autoedu_gsel_debug_pre_max value = 0 }
+  if = {
+    limit = { var:autoedu_gsel_cached_university_extra = 1 var:autoedu_gsel_cached_kin_extra = 1 }
+    set_variable = { name = autoedu_gsel_debug_pre_min value = 4 }
+    set_variable = { name = autoedu_gsel_debug_pre_max value = 6 }
+  }
+  else_if = {
+    limit = { OR = { var:autoedu_gsel_cached_university_extra = 1 var:autoedu_gsel_cached_kin_extra = 1 } }
+    set_variable = { name = autoedu_gsel_debug_pre_min value = 2 }
+    set_variable = { name = autoedu_gsel_debug_pre_max value = 3 }
+  }
+  set_variable = { name = autoedu_gsel_p4r_target value = 17 }
+  if = { limit = { var:autoedu_gsel_martial_worse = 1 } change_variable = { name = autoedu_gsel_p4r_target add = 1 } }
+  change_variable = { name = autoedu_gsel_p4r_target add = { value = var:autoedu_gsel_schoolhouse_bonus multiply = -1 } }
+  change_variable = { name = autoedu_gsel_p4r_target add = { value = var:autoedu_gsel_debug_late_min multiply = -1 } }
+  set_variable = { name = autoedu_gsel_p4r_pre_bonus value = var:autoedu_gsel_debug_pre_min }
+  set_variable = { name = $REQ_MAX_VAR$ value = autoedu_gsel_p4r_required_value }
+  set_variable = { name = autoedu_gsel_p4r_target value = 17 }
+  if = { limit = { var:autoedu_gsel_martial_worse = 1 } change_variable = { name = autoedu_gsel_p4r_target add = 1 } }
+  change_variable = { name = autoedu_gsel_p4r_target add = { value = var:autoedu_gsel_schoolhouse_bonus multiply = -1 } }
+  change_variable = { name = autoedu_gsel_p4r_target add = { value = var:autoedu_gsel_debug_late_max multiply = -1 } }
+  set_variable = { name = autoedu_gsel_p4r_pre_bonus value = var:autoedu_gsel_debug_pre_max }
+  set_variable = { name = $REQ_MIN_VAR$ value = autoedu_gsel_p4r_required_value }
+  remove_variable = autoedu_gsel_debug_late_min
+  remove_variable = autoedu_gsel_debug_late_max
+  remove_variable = autoedu_gsel_debug_pre_min
+  remove_variable = autoedu_gsel_debug_pre_max
+}
+
+autoedu_gsel_prepare_guardian_tooltip_debug_candidate_effect = {
+  $CANDIDATE$ = {
+    save_scope_as = autoedu_gsel_debug_candidate
+    if = { limit = { NOT = { exists = var:autoedu_gsel_p3_secondary } } autoedu_gsel_evaluate_p3_candidate_effect = yes }
+    if = { limit = { NOT = { exists = var:autoedu_gsel_p2_tertiary } } autoedu_gsel_evaluate_p2_candidate_effect = yes }
+  }
+  set_variable = { name = $P4_VAR$ value = 0 }
+  set_variable = { name = $P3_VAR$ value = 0 }
+  set_variable = { name = $P2_VAR$ value = 0 }
+  set_variable = { name = $POINTS_VAR$ value = 0 }
+  set_variable = { name = $ROLLS_VAR$ value = 0 }
+  set_variable = { name = $REQ_MIN_VAR$ value = 0 }
+  set_variable = { name = $REQ_MAX_VAR$ value = 0 }
+  set_variable = { name = $S5_VAR$ value = 0 }
+  set_variable = { name = $F5_VAR$ value = 0 }
+  set_variable = { name = $PATRONAGE_PCT_VAR$ value = 0 }
+  set_variable = { name = $EXISTING_PATRONAGE_VAR$ value = 0 }
+  set_variable = { name = $UNIVERSITY_VAR$ value = 0 }
+  set_variable = { name = $KIN_VAR$ value = 0 }
+  set_variable = { name = $BEACON_VAR$ value = 0 }
+  set_variable = { name = $TUTOR_VAR$ value = 0 }
+  set_variable = { name = $HUNT_VAR$ value = 0 }
+  set_variable = { name = $SCHOOL_VAR$ value = 0 }
+  set_variable = { name = $MARTIAL_VAR$ value = 0 }
+  if = {
+    limit = { scope:autoedu_gsel_debug_candidate = { exists = var:autoedu_gsel_p4_primary exists = var:autoedu_gsel_p3_secondary exists = var:autoedu_gsel_p2_tertiary } }
+    set_variable = { name = $P4_VAR$ value = { value = scope:autoedu_gsel_debug_candidate.var:autoedu_gsel_p4_primary divide = 100 } }
+    set_variable = { name = $P3_VAR$ value = { value = scope:autoedu_gsel_debug_candidate.var:autoedu_gsel_p3_secondary divide = 100 } }
+    set_variable = { name = $P2_VAR$ value = { value = scope:autoedu_gsel_debug_candidate.var:autoedu_gsel_p2_tertiary divide = 100 } }
+    scope:autoedu_gsel_debug_candidate = { save_scope_as = autoedu_gsel_guardian }
+    autoedu_gsel_resolve_target_environment_effect = yes
+    autoedu_gsel_prepare_patronage_effect = yes
+    if = {
+      limit = { var:autoedu_gsel_has_scoring_focus = 1 }
+      set_variable = { name = autoedu_gsel_focus_code value = var:autoedu_gsel_cached_focus_code }
+      autoedu_gsel_prepare_p4r_model_effect = yes
+      autoedu_gsel_prepare_p4_debug_required_range_effect = { REQ_MIN_VAR = $REQ_MIN_VAR$ REQ_MAX_VAR = $REQ_MAX_VAR$ }
+      set_variable = { name = $POINTS_VAR$ value = var:autoedu_gsel_p4r_base2 }
+      change_variable = { name = $POINTS_VAR$ divide = 2 }
+      change_variable = { name = $POINTS_VAR$ add = { value = var:autoedu_gsel_cached_existing_patronage multiply = -1 } }
+      set_variable = { name = $ROLLS_VAR$ value = var:autoedu_gsel_p4r_n }
+      set_variable = { name = $S5_VAR$ value = var:autoedu_gsel_p4r_s5 }
+      set_variable = { name = $F5_VAR$ value = var:autoedu_gsel_p4r_f5 }
+      set_variable = { name = $PATRONAGE_PCT_VAR$ value = var:autoedu_gsel_p4r_patronage_pct }
+      set_variable = { name = $EXISTING_PATRONAGE_VAR$ value = var:autoedu_gsel_cached_existing_patronage }
+      set_variable = { name = $UNIVERSITY_VAR$ value = var:autoedu_gsel_cached_university_extra }
+      set_variable = { name = $KIN_VAR$ value = var:autoedu_gsel_cached_kin_extra }
+      set_variable = { name = $BEACON_VAR$ value = var:autoedu_gsel_beacon }
+      set_variable = { name = $TUTOR_VAR$ value = var:autoedu_gsel_p4r_has_tutor }
+      set_variable = { name = $HUNT_VAR$ value = var:autoedu_gsel_p4r_has_hunt }
+      set_variable = { name = $SCHOOL_VAR$ value = var:autoedu_gsel_schoolhouse_bonus }
+      set_variable = { name = $MARTIAL_VAR$ value = var:autoedu_gsel_martial_worse }
+      set_variable = { name = $READY_VAR$ value = 1 }
+    }
+    clear_saved_scope = autoedu_gsel_target_host
+    clear_saved_scope = autoedu_gsel_target_court_owner
+    clear_saved_scope = autoedu_gsel_guardian
+  }
+  clear_saved_scope = autoedu_gsel_debug_candidate
+}
+
+autoedu_gsel_prepare_top_three_tooltip_debug_effect = {
+  if = { limit = { exists = scope:autoedu_candidate_1 } autoedu_gsel_prepare_guardian_tooltip_debug_candidate_effect = { CANDIDATE = scope:autoedu_candidate_1 READY_VAR = autoedu_tt_c1_debug_ready P4_VAR = autoedu_tt_c1_p4_percent P3_VAR = autoedu_tt_c1_p3_percent P2_VAR = autoedu_tt_c1_p2_percent POINTS_VAR = autoedu_tt_c1_current_points ROLLS_VAR = autoedu_tt_c1_remaining_rolls REQ_MIN_VAR = autoedu_tt_c1_required_min REQ_MAX_VAR = autoedu_tt_c1_required_max S5_VAR = autoedu_tt_c1_s5 F5_VAR = autoedu_tt_c1_f5 PATRONAGE_PCT_VAR = autoedu_tt_c1_patronage_pct EXISTING_PATRONAGE_VAR = autoedu_tt_c1_existing_patronage UNIVERSITY_VAR = autoedu_tt_c1_university KIN_VAR = autoedu_tt_c1_kin BEACON_VAR = autoedu_tt_c1_beacon TUTOR_VAR = autoedu_tt_c1_debug_tutor HUNT_VAR = autoedu_tt_c1_debug_hunt SCHOOL_VAR = autoedu_tt_c1_schoolhouse MARTIAL_VAR = autoedu_tt_c1_martial_worse } }
+  if = { limit = { exists = scope:autoedu_candidate_2 } autoedu_gsel_prepare_guardian_tooltip_debug_candidate_effect = { CANDIDATE = scope:autoedu_candidate_2 READY_VAR = autoedu_tt_c2_debug_ready P4_VAR = autoedu_tt_c2_p4_percent P3_VAR = autoedu_tt_c2_p3_percent P2_VAR = autoedu_tt_c2_p2_percent POINTS_VAR = autoedu_tt_c2_current_points ROLLS_VAR = autoedu_tt_c2_remaining_rolls REQ_MIN_VAR = autoedu_tt_c2_required_min REQ_MAX_VAR = autoedu_tt_c2_required_max S5_VAR = autoedu_tt_c2_s5 F5_VAR = autoedu_tt_c2_f5 PATRONAGE_PCT_VAR = autoedu_tt_c2_patronage_pct EXISTING_PATRONAGE_VAR = autoedu_tt_c2_existing_patronage UNIVERSITY_VAR = autoedu_tt_c2_university KIN_VAR = autoedu_tt_c2_kin BEACON_VAR = autoedu_tt_c2_beacon TUTOR_VAR = autoedu_tt_c2_debug_tutor HUNT_VAR = autoedu_tt_c2_debug_hunt SCHOOL_VAR = autoedu_tt_c2_schoolhouse MARTIAL_VAR = autoedu_tt_c2_martial_worse } }
+  if = { limit = { exists = scope:autoedu_candidate_3 } autoedu_gsel_prepare_guardian_tooltip_debug_candidate_effect = { CANDIDATE = scope:autoedu_candidate_3 READY_VAR = autoedu_tt_c3_debug_ready P4_VAR = autoedu_tt_c3_p4_percent P3_VAR = autoedu_tt_c3_p3_percent P2_VAR = autoedu_tt_c3_p2_percent POINTS_VAR = autoedu_tt_c3_current_points ROLLS_VAR = autoedu_tt_c3_remaining_rolls REQ_MIN_VAR = autoedu_tt_c3_required_min REQ_MAX_VAR = autoedu_tt_c3_required_max S5_VAR = autoedu_tt_c3_s5 F5_VAR = autoedu_tt_c3_f5 PATRONAGE_PCT_VAR = autoedu_tt_c3_patronage_pct EXISTING_PATRONAGE_VAR = autoedu_tt_c3_existing_patronage UNIVERSITY_VAR = autoedu_tt_c3_university KIN_VAR = autoedu_tt_c3_kin BEACON_VAR = autoedu_tt_c3_beacon TUTOR_VAR = autoedu_tt_c3_debug_tutor HUNT_VAR = autoedu_tt_c3_debug_hunt SCHOOL_VAR = autoedu_tt_c3_schoolhouse MARTIAL_VAR = autoedu_tt_c3_martial_worse } }
+}
+autoedu_gsel_select_one_p4_effect = {
+  clear_saved_scope = autoedu_gsel_selected
+  autoedu_gsel_prepare_p4_primary_pool_effect = yes
+  autoedu_gsel_count_pool_effect = yes
+  if = { limit = { var:autoedu_gsel_pool_count > 1 } autoedu_gsel_prepare_p3_secondary_pool_effect = yes }
+  autoedu_gsel_count_pool_effect = yes
+  if = { limit = { var:autoedu_gsel_pool_count > 1 } autoedu_gsel_prepare_p2_tertiary_pool_effect = yes }
+  autoedu_gsel_apply_prefer_witch_effect = yes
+  autoedu_gsel_apply_prefer_gender_effect = yes
+  autoedu_gsel_apply_prefer_faith_child_effect = yes
+  autoedu_gsel_apply_prefer_faith_owner_effect = yes
+  autoedu_gsel_apply_prefer_culture_child_effect = yes
+  autoedu_gsel_apply_prefer_culture_owner_effect = yes
+  if = { limit = { any_in_list = { variable = autoedu_gsel_pool always = yes } } ordered_in_list = { variable = autoedu_gsel_pool order_by = autoedu_gsel_neg_stable_value position = 0 check_range_bounds = no save_scope_as = autoedu_gsel_selected } }
+  clear_variable_list = autoedu_gsel_pool
+  clear_variable_list = autoedu_gsel_tmp
+  remove_variable = autoedu_gsel_pool_count
+}
+
+autoedu_gsel_select_scored_candidates_effect = {
+  clear_saved_scope = autoedu_candidate_1
+  clear_saved_scope = autoedu_candidate_2
+  clear_saved_scope = autoedu_candidate_3
+  if = {
+    limit = { var:autoedu_guardian_mode = flag:auto }
+    autoedu_gsel_select_one_p4_effect = yes
+    if = {
+      limit = { exists = scope:autoedu_gsel_selected }
+      scope:autoedu_gsel_selected = { save_scope_as = autoedu_candidate_1 }
+      remove_list_variable = { name = autoedu_release_guardian_hard_candidates target = scope:autoedu_gsel_selected }
+    }
+  }
+  else_if = {
+    limit = { var:autoedu_guardian_mode = flag:event }
+    autoedu_gsel_select_one_p4_effect = yes
+    if = { limit = { exists = scope:autoedu_gsel_selected } scope:autoedu_gsel_selected = { save_scope_as = autoedu_candidate_1 } remove_list_variable = { name = autoedu_release_guardian_hard_candidates target = scope:autoedu_gsel_selected } }
+    autoedu_gsel_select_one_p4_effect = yes
+    if = { limit = { exists = scope:autoedu_gsel_selected } scope:autoedu_gsel_selected = { save_scope_as = autoedu_candidate_2 } remove_list_variable = { name = autoedu_release_guardian_hard_candidates target = scope:autoedu_gsel_selected } }
+    autoedu_gsel_select_one_p4_effect = yes
+    if = { limit = { exists = scope:autoedu_gsel_selected } scope:autoedu_gsel_selected = { save_scope_as = autoedu_candidate_3 } }
+  }
+  else = { debug_log = "AUTOEDU_P4R_FAIL|reason=invalid_guardian_mode" }
+}
+
+autoedu_gsel_select_top_three_effect = {
+  clear_saved_scope = autoedu_candidate_1
+  clear_saved_scope = autoedu_candidate_2
+  clear_saved_scope = autoedu_candidate_3
+  if = {
+    limit = { var:autoedu_guardian_mode = flag:event }
+    set_variable = { name = autoedu_tt_c1_debug_ready value = 0 }
+    set_variable = { name = autoedu_tt_c2_debug_ready value = 0 }
+    set_variable = { name = autoedu_tt_c3_debug_ready value = 0 }
+  }
+  autoedu_gsel_cleanup_owner_scratch_effect = yes
+  autoedu_gsel_prepare_child_invariants_effect = yes
+  set_variable = { name = autoedu_gsel_stable_counter value = 0 }
+  set_variable = { name = autoedu_gsel_p4r_scan_invalid value = 0 }
+
+  every_in_list = {
+    variable = autoedu_release_guardian_hard_candidates
+    save_scope_as = autoedu_gsel_eval_iter
+    scope:autoedu_gsel_eval_iter = {
+      autoedu_gsel_evaluate_p4_candidate_effect = yes
+      set_variable = { name = autoedu_gsel_stable value = scope:autoedu_owner.var:autoedu_gsel_stable_counter }
+    }
+    scope:autoedu_owner = { change_variable = { name = autoedu_gsel_stable_counter add = 1 } }
+    clear_saved_scope = autoedu_gsel_eval_iter
+  }
+
+  if = {
+    limit = { var:autoedu_gsel_has_scoring_focus = 1 }
+    if = {
+      limit = { var:autoedu_gsel_p4r_scan_invalid = 0 }
+      autoedu_gsel_select_scored_candidates_effect = yes
+    }
+    else = { debug_log = "AUTOEDU_P4R_FAIL|reason=invalid_runtime_state" }
+  }
+  else = { debug_log = "AUTOEDU_P4R_FAIL|reason=missing_scoring_focus" }
+
+  if = { limit = { debug_only = yes var:autoedu_guardian_mode = flag:event } autoedu_gsel_prepare_top_three_tooltip_debug_effect = yes }
+
+  if = { limit = { exists = scope:autoedu_candidate_1 } scope:autoedu_candidate_1 = { autoedu_gsel_cleanup_candidate_rank_effect = yes } }
+  if = { limit = { exists = scope:autoedu_candidate_2 } scope:autoedu_candidate_2 = { autoedu_gsel_cleanup_candidate_rank_effect = yes } }
+  every_in_list = { variable = autoedu_release_guardian_hard_candidates autoedu_gsel_cleanup_candidate_rank_effect = yes }
+  clear_variable_list = autoedu_release_guardian_hard_candidates
+  autoedu_gsel_cleanup_owner_scratch_effect = yes
+  clear_variable_list = autoedu_gsel_pool
+  clear_variable_list = autoedu_gsel_tmp
+  clear_saved_scope = autoedu_gsel_selected
+  clear_saved_scope = autoedu_gsel_stage_best_scope
+  remove_variable = autoedu_gsel_stage_best
+  remove_variable = autoedu_gsel_stable_counter
+  autoedu_gsel_p4r_cleanup_effect = yes
+}

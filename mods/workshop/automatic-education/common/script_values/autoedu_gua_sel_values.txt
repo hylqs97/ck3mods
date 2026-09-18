@@ -1,0 +1,91 @@
+﻿autoedu_gsel_neg_stable_value = {
+  value = var:autoedu_gsel_stable
+  multiply = -1
+}
+autoedu_gsel_current_points_value = {
+  value = 0
+  if = { limit = { var:autoedu_gsel_focus_code = 1 scope:autoedu_child = { has_focus = education_diplomacy exists = var:education_diplomacy_variable } } value = scope:autoedu_child.var:education_diplomacy_variable }
+  else_if = { limit = { var:autoedu_gsel_focus_code = 2 scope:autoedu_child = { has_focus = education_martial exists = var:education_martial_variable } } value = scope:autoedu_child.var:education_martial_variable }
+  else_if = { limit = { var:autoedu_gsel_focus_code = 3 scope:autoedu_child = { has_focus = education_stewardship exists = var:education_stewardship_variable } } value = scope:autoedu_child.var:education_stewardship_variable }
+  else_if = { limit = { var:autoedu_gsel_focus_code = 4 scope:autoedu_child = { has_focus = education_intrigue exists = var:education_intrigue_variable } } value = scope:autoedu_child.var:education_intrigue_variable }
+  else_if = { limit = { var:autoedu_gsel_focus_code = 5 scope:autoedu_child = { has_focus = education_learning exists = var:education_learning_variable } } value = scope:autoedu_child.var:education_learning_variable }
+}
+autoedu_gsel_remaining_rolls_value = {
+  value = 0
+  if = { limit = { var:autoedu_gsel_age < 6 } add = 10 }
+  else_if = { limit = { var:autoedu_gsel_age < 16 } add = 15 subtract = var:autoedu_gsel_age }
+}
+autoedu_gsel_standard_s5_value = {
+  value = 300
+
+  if = { limit = { exists = var:autoedu_gsel_cached_child_s5_bonus } add = var:autoedu_gsel_cached_child_s5_bonus }
+  if = { limit = { scope:autoedu_gsel_guardian = { has_trait = intellect_good_3 } } add = 75 }
+  else_if = { limit = { scope:autoedu_gsel_guardian = { has_trait = intellect_good_2 } } add = 50 }
+  else_if = { limit = { scope:autoedu_gsel_guardian = { OR = { has_trait = intellect_good_1 has_trait = shrewd } } } add = 25 }
+
+  if = { limit = { var:autoedu_gsel_focus_code = 1 } add = { value = scope:autoedu_gsel_guardian.diplomacy multiply = 2 } }
+  else_if = { limit = { var:autoedu_gsel_focus_code = 2 } add = { value = scope:autoedu_gsel_guardian.martial multiply = 2 } }
+  else_if = { limit = { var:autoedu_gsel_focus_code = 3 } add = { value = scope:autoedu_gsel_guardian.stewardship multiply = 2 } }
+  else_if = { limit = { var:autoedu_gsel_focus_code = 4 } add = { value = scope:autoedu_gsel_guardian.intrigue multiply = 2 } }
+  else_if = { limit = { var:autoedu_gsel_focus_code = 5 } add = { value = scope:autoedu_gsel_guardian.learning multiply = 2 } }
+  add = scope:autoedu_gsel_guardian.learning
+  if = { limit = { scope:autoedu_gsel_guardian.culture = { has_cultural_parameter = better_ward_education } } add = 50 }
+
+  if = { limit = { scope:autoedu_gsel_guardian.house ?= { has_house_aspiration_parameter = service_house_improved_educator_outcome_chance } } add = 25 }
+}
+autoedu_gsel_standard_f5_value = {
+  value = 200
+  if = { limit = { exists = var:autoedu_gsel_cached_child_f5_bonus } add = var:autoedu_gsel_cached_child_f5_bonus }
+  if = { limit = { scope:autoedu_gsel_guardian = { has_trait = intellect_bad_3 } } add = 75 }
+  else_if = { limit = { scope:autoedu_gsel_guardian = { has_trait = intellect_bad_2 } } add = 50 }
+  else_if = { limit = { scope:autoedu_gsel_guardian = { OR = { has_trait = intellect_bad_1 has_trait = dull } } } add = 25 }
+}
+autoedu_gsel_existing_patronage_points_value = {
+  value = 0
+  if = { limit = { scope:autoedu_child = { has_variable = patronage_spouse_tutor has_variable = patronage_spouse_tutor_points } } value = scope:autoedu_child.var:patronage_spouse_tutor_points }
+}
+autoedu_gsel_patronage_chance_value = {
+  value = 0
+  if = {
+    limit = { var:autoedu_gsel_pat_eligible = 1 }
+    add = 7
+    if = { limit = { var:autoedu_gsel_pat_tier2 = 1 } add = 7 }
+    if = { limit = { var:autoedu_gsel_pat_tier3 = 1 } add = 7 }
+    if = { limit = { var:autoedu_gsel_pat_low_penalty = 1 } add = -5 }
+    if = { limit = { var:autoedu_gsel_pat_high_bonus = 1 } add = 5 }
+    if = { limit = { var:autoedu_gsel_pat_bastard_penalty = 1 } add = -20 }
+  }
+  min = 0
+  max = 100
+}
+autoedu_gsel_tutor_w4_value = {
+  value = 0
+  if = { limit = { var:autoedu_gsel_focus_group = 1 OR = { var:autoedu_gsel_tutor_apt = 4 var:autoedu_gsel_tutor_boon = 1 } } add = 10 }
+  else_if = { limit = { var:autoedu_gsel_focus_group = 2 var:autoedu_gsel_tutor_apt = 4 var:autoedu_gsel_tutor_boon = 1 } add = 10 }
+  else_if = { limit = { var:autoedu_gsel_focus_group = 3 var:autoedu_gsel_tutor_apt = 4 var:autoedu_gsel_tutor_boon = 1 var:autoedu_gsel_tutor_conf = 1 } add = 10 }
+}
+autoedu_gsel_tutor_w3_value = {
+  value = 40
+  if = { limit = { var:autoedu_gsel_focus_group = 3 var:autoedu_gsel_tutor_conf = 1 } add = 20 }
+  if = { limit = { var:autoedu_gsel_tutor_apt = 4 } add = 20 }
+  if = { limit = { var:autoedu_gsel_tutor_apt = 3 } add = 10 }
+  if = { limit = { var:autoedu_gsel_tutor_boon = 1 } add = 10 }
+}
+autoedu_gsel_tutor_w2_value = {
+  value = 0
+  if = { limit = { NOT = { AND = { var:autoedu_gsel_focus_group = 3 var:autoedu_gsel_tutor_conf = 1 } } } add = 50 if = { limit = { var:autoedu_gsel_tutor_apt = 2 } add = 10 } if = { limit = { var:autoedu_gsel_tutor_apt = 1 } add = 20 } }
+}
+autoedu_gsel_hunt_w4_value = {
+  value = 0
+  if = { limit = { var:autoedu_gsel_hunt_apt = 5 } add = 10 }
+}
+autoedu_gsel_hunt_w3_value = {
+  value = 40
+  if = { limit = { var:autoedu_gsel_hunt_apt = 5 } add = 20 }
+  if = { limit = { var:autoedu_gsel_hunt_apt = 4 } add = 10 }
+}
+autoedu_gsel_hunt_w2_value = {
+  value = 50
+  if = { limit = { var:autoedu_gsel_hunt_apt = 2 } add = 10 }
+  if = { limit = { var:autoedu_gsel_hunt_apt = 1 } add = 20 }
+}

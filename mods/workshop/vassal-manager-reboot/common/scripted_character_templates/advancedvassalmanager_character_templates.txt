@@ -1,0 +1,215 @@
+﻿avm_city_holder_character = {
+
+	age = { 16 30 }
+	
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	
+	dynasty = none
+	# v2.1: culture and faith come from create_character in the decision,
+	# so that ethnicity is generated to match.
+	
+	learning = {
+		min_template_decent_skill
+		max_template_high_skill
+	}
+	intrigue = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	stewardship = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	diplomacy = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	martial = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	prowess = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = {
+		count = 1
+		education_stewardship_3 = {}
+		education_stewardship_4 = {}
+	}
+	random_traits_list = {
+		count = 1
+		avaricious = {}
+		architect = {}
+		administrator = {}
+
+	}
+	
+	trait = loyal
+	random_traits = yes
+	
+}
+
+avm_temple_holder_character = {
+
+	age = { 16 30 }
+	
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	
+	dynasty = none
+	# v2.1: culture and faith come from create_character in the decision,
+	# so that ethnicity is generated to match.
+	
+	learning = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	intrigue = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	stewardship = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	diplomacy = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	martial = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	prowess = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = {
+		count = 1
+		education_learning_3 = {}
+		education_learning_4 = {}
+	}
+	
+	random_traits_list = {
+		count = { 0 1 }
+		intellect_good_2 = {}
+		intellect_good_3 = {}
+	}
+
+	random_traits_list = {
+		count = { 0 1 }
+		theologian = {}
+		scholar = {}
+	}
+	
+	trait = loyal
+	random_traits = yes
+	
+}
+
+avm_castle_holder_character = {
+
+	age = { 16 30 }
+	
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	
+	dynasty = none
+	# v2.1: culture and faith come from create_character in the decision,
+	# so that ethnicity is generated to match.
+	
+	learning = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	intrigue = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	stewardship = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	diplomacy = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	martial = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	prowess = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	random_traits_list = {
+		count = 1
+		education_diplomacy_3 = {}
+		education_diplomacy_4 = {}
+	}
+
+	random_traits_list = {
+		count = { 0 1 }
+		august = {}
+		diplomat = {}
+	}
+	
+	trait = loyal
+	random_traits = yes
+	
+}
+
+avm_county_holder_character = {
+
+	age = { 16 30 }
+	
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	
+	dynasty = none
+	# v2.1: culture and faith come from create_character in the decision,
+	# so that ethnicity is generated to match.
+	
+	learning = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	intrigue = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	stewardship = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	diplomacy = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	prowess = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	
+	random_traits_list = {
+		count = 1
+		education_martial_3 = {}
+		education_martial_4 = {}
+	}
+
+	random_traits_list = {
+		count = { 0 1 }
+		athletic = {}
+		strong = {}
+		giant = {}
+		physique_good_1 = {}
+		physique_good_2 = {}
+		physique_good_3 = {}
+	}
+	
+	trait = loyal
+	random_traits = yes
+	
+}

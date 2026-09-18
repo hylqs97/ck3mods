@@ -1,0 +1,18 @@
+﻿# Game rules - v1.2
+
+avm_disloyalty_threshold = {
+	categories = { avm_rules }
+	default = avm_disloyalty_moderate
+
+	avm_disloyalty_moderate = {}
+	avm_disloyalty_lenient = {}
+	avm_disloyalty_strict = {}
+}
+
+avm_conversion_innovations = {
+	categories = { avm_rules }
+	default = avm_conversion_ignore_innovations
+
+	avm_conversion_ignore_innovations = {}
+	avm_conversion_respect_innovations = {}
+}

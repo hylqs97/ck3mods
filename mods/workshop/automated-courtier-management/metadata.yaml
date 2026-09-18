@@ -1,0 +1,41 @@
+{
+  "kind": "workshop",
+  "mod_id": "automated-courtier-management",
+  "name": "Automated Courtier Management",
+  "version": "1.3.2",
+  "supported_version": "1.19.*",
+  "dependencies": [],
+  "license_or_permission": "待确认；仅本地备份，未获再发布授权",
+  "local_deployment": {
+    "enabled": true,
+    "steam_app_id": 1158310,
+    "game_name": "Crusader Kings III",
+    "mod_dir_name": "automated-courtier-management",
+    "last_deployed_at": "2026-09-18T15:56:38+08:00"
+  },
+  "source_revision": "sha256:6cb351080d858523b6c7c20b8f9b8b52fc7bf6397471d95a1730d9d839cadcd8",
+  "imported_at": "2026-09-18T15:56:38+08:00",
+  "import_source": "G:\\SteamLibrary\\steamapps\\workshop\\content\\1158310\\3785023981",
+  "workshop_item_id": "3785023981",
+  "workshop_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785023981",
+  "downloader_url": "https://steamworkshopdownloader.io/",
+  "last_synced_at": "2026-09-18T15:56:38+08:00",
+  "source_info": {
+    "description_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785023981",
+    "comments_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785023981#comments",
+    "updates_url": "https://steamcommunity.com/sharedfiles/filedetails/changelog/3785023981",
+    "last_read_at": null,
+    "last_comments_read_at": null,
+    "last_updates_read_at": "2026-09-18T15:56:38+08:00",
+    "last_attempted_at": "2026-09-18T15:56:38+08:00",
+    "status": "partial: changelog read; description/comments unavailable",
+    "snapshot_dir": "references"
+  },
+  "local_sync": {
+    "enabled": true,
+    "source": "steam_game_mod_dir",
+    "last_imported_at": null,
+    "initial_game_snapshot_exists": false
+  },
+  "sync_note": "用户要求从本机Workshop目录初次导入；未下载或宣称线上最新版本"
+}

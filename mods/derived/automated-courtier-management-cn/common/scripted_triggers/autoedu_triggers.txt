@@ -1,0 +1,462 @@
+﻿autoedu_remote_host_accepts_guardianship_trigger = {
+  is_alive = yes
+  is_ai = yes
+  NOR = {
+    has_relation_rival = scope:autoedu_owner
+    has_relation_nemesis = scope:autoedu_owner
+    is_at_war_with = scope:autoedu_owner
+  }
+  OR = {
+    this = scope:autoedu_owner
+    is_close_family_of = scope:autoedu_owner
+    is_close_or_extended_family_of = scope:autoedu_owner
+    AND = {
+      exists = dynasty
+      scope:autoedu_owner = { exists = dynasty }
+      dynasty = scope:autoedu_owner.dynasty
+    }
+    opinion = { target = scope:autoedu_owner value >= 0 }
+  }
+}
+
+autoedu_child_guardianship_permission_trigger = {
+  OR = {
+    is_courtier_of = scope:autoedu_owner
+    court_owner ?= { this = scope:autoedu_owner }
+    employer ?= { this = scope:autoedu_owner }
+    liege ?= { this = scope:autoedu_owner }
+    any_parent = { this = scope:autoedu_owner }
+    court_owner ?= { autoedu_remote_host_accepts_guardianship_trigger = yes }
+    employer ?= { autoedu_remote_host_accepts_guardianship_trigger = yes }
+    liege ?= { autoedu_remote_host_accepts_guardianship_trigger = yes }
+  }
+}
+
+autoedu_guardian_availability_permission_trigger = {
+  is_imprisoned = no
+  is_hostage = no
+  NOT = { exists = var:guardian_travelling_to_ward }
+  NOR = {
+    has_character_flag = under_offer_as_guardian_flag
+    has_relation_rival = scope:autoedu_owner
+    has_relation_nemesis = scope:autoedu_owner
+    is_at_war_with = scope:autoedu_owner
+  }
+  OR = {
+    this = scope:autoedu_owner
+    opinion = { target = scope:autoedu_owner value >= -25 }
+  }
+  OR = {
+    this = scope:autoedu_owner
+    is_courtier_of = scope:autoedu_owner
+    is_vassal_or_below_of = scope:autoedu_owner
+    court_owner ?= { is_vassal_or_below_of = scope:autoedu_owner }
+    employer ?= { is_vassal_or_below_of = scope:autoedu_owner }
+    liege ?= { is_vassal_or_below_of = scope:autoedu_owner }
+    is_close_or_extended_family_of = scope:autoedu_owner
+    AND = {
+      exists = dynasty
+      scope:autoedu_owner = { exists = dynasty }
+      dynasty = scope:autoedu_owner.dynasty
+      opinion = { target = scope:autoedu_owner value >= -25 }
+    }
+    AND = {
+      exists = house
+      scope:autoedu_owner = { exists = house }
+      house = scope:autoedu_owner.house
+    }
+  }
+}
+
+autoedu_child_base_trigger = {
+  is_alive = yes
+  is_ai = yes
+  is_hostage = no
+  is_imprisoned = no
+  is_travelling = no
+  is_adult = no
+  is_physically_able = yes
+  NOT = { has_trait = incapable }
+  age >= 0
+  age < 16
+  num_of_relation_guardian = 0
+  NOT = { exists = var:ward_travelling_to_guardian }
+  NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+  NOT = { has_character_flag = autoedu_guardian_postponed }
+  NOT = { has_character_flag = autoedu_guardian_assignment_recently_done }
+  acm_infant_guardian_subject_trigger = yes
+  autoedu_child_guardianship_permission_trigger = yes
+}
+autoedu_child_guardian_scan_trigger = {
+  is_alive = yes
+  is_ai = yes
+  is_hostage = no
+  is_imprisoned = no
+  is_travelling = no
+  is_adult = no
+  is_physically_able = yes
+  NOT = { has_trait = incapable }
+  age >= 0
+  age < 16
+  num_of_relation_guardian = 0
+  NOT = { exists = var:ward_travelling_to_guardian }
+  NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+  OR = {
+    NOT = { has_character_flag = autoedu_guardian_postponed }
+    scope:autoedu_owner = { exists = var:autoedu_release_manual_scan }
+  }
+  NOT = { has_character_flag = autoedu_guardian_assignment_recently_done }
+  acm_infant_guardian_subject_trigger = yes
+  autoedu_child_guardianship_permission_trigger = yes
+}
+autoedu_guardian_feedback_relevant_child_trigger = {
+  is_alive = yes
+  is_ai = yes
+  is_adult = no
+  age >= 0
+  age < 16
+  num_of_relation_guardian = 0
+  NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+  acm_infant_guardian_subject_trigger = yes
+}
+
+autoedu_guardian_child_scope_setting_trigger = {
+  autoedu_release_selected_policy_child_trigger = yes
+}
+
+autoedu_university_child_scope_setting_trigger = {
+  autoedu_release_selected_policy_child_trigger = yes
+}
+
+autoedu_guardian_base_trigger = {
+  is_alive = yes
+  is_ai = yes
+  is_physically_able_adult = yes
+  num_of_relation_ward < 2
+  NOT = { this = scope:autoedu_child }
+  autoedu_guardian_availability_permission_trigger = yes
+}
+
+autoedu_player_can_be_guardian_trigger = {
+  is_alive = yes
+  is_adult = yes
+  is_physically_able_adult = yes
+  num_of_relation_ward < 2
+  NOT = { this = scope:autoedu_child }
+}
+
+autoedu_known_witch_guardian_candidate_trigger = {
+  is_witch_known_by_trigger = { CHARACTER = scope:autoedu_owner }
+}
+
+autoedu_same_gender_guardian_candidate_trigger = {
+  OR = {
+    AND = {
+      is_female = yes
+      scope:autoedu_child = { is_female = yes }
+    }
+    AND = {
+      is_female = no
+      scope:autoedu_child = { is_female = no }
+    }
+  }
+}
+
+autoedu_university_gender_trigger = {
+  OR = {
+    scope:autoedu_owner.var:autoedu_university_gender = flag:both
+    AND = {
+      scope:autoedu_owner.var:autoedu_university_gender = flag:male
+      is_male = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_university_gender = flag:female
+      is_female = yes
+    }
+  }
+}
+
+autoedu_has_university_access_trigger = {
+  any_realm_province = {
+    has_university_building_trigger = yes
+  }
+}
+
+autoedu_guardian_university_access_trigger = {
+  any_relation = {
+    type = guardian
+    OR = {
+      autoedu_has_university_access_trigger = yes
+      court_owner ?= {
+        autoedu_has_university_access_trigger = yes
+      }
+      employer ?= {
+        autoedu_has_university_access_trigger = yes
+      }
+    }
+  }
+}
+
+autoedu_employer_university_access_trigger = {
+  OR = {
+    autoedu_has_university_access_trigger = yes
+    court_owner ?= {
+      autoedu_has_university_access_trigger = yes
+    }
+    employer ?= {
+      autoedu_has_university_access_trigger = yes
+    }
+  }
+}
+
+autoedu_can_afford_university_with_reserve_trigger = {
+  gold >= autoedu_university_required_gold_value
+}
+
+autoedu_university_candidate_trigger = {
+  is_alive = yes
+  is_ai = yes
+  is_travelling = no
+  is_adult = no
+  age >= 12
+  age < 16
+  autoedu_child_education_subject_trigger = yes
+  NOT = { num_of_relation_guardian = 0 }
+  NOT = { exists = var:ward_travelling_to_guardian }
+  NOT = { has_character_flag = autoedu_university_postponed }
+  NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+  NOT = { has_character_modifier = studying_at_university_modifier }
+  NOT = { has_character_flag = studied_at_university }
+  autoedu_child_guardianship_permission_trigger = yes
+  autoedu_university_child_scope_setting_trigger = yes
+  autoedu_university_gender_trigger = yes
+  scope:autoedu_owner = { autoedu_can_afford_university_with_reserve_trigger = yes }
+  OR = {
+    autoedu_guardian_university_access_trigger = yes
+    autoedu_employer_university_access_trigger = yes
+  }
+}
+
+autoedu_child_has_education_focus_trigger = {
+  OR = {
+    has_focus = education_diplomacy
+    has_focus = education_martial
+    has_focus = education_stewardship
+    has_focus = education_intrigue
+    has_focus = education_learning
+  }
+}
+
+autoedu_child_education_subject_trigger = {
+  OR = {
+    autoedu_child_has_education_focus_trigger = yes
+    has_diplomacy_education_affinity_childhood_trait_trigger = yes
+    has_martial_education_affinity_childhood_trait_trigger = yes
+    has_stewardship_education_affinity_childhood_trait_trigger = yes
+    has_intrigue_education_affinity_childhood_trait_trigger = yes
+    has_learning_education_affinity_childhood_trait_trigger = yes
+  }
+}
+
+autoedu_child_exam_candidate_trigger = {
+  is_alive = yes
+  is_ai = yes
+  is_adult = no
+  age >= 6
+  age < 16
+  NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+  NOT = { has_character_flag = autoedu_child_exam_processed_in_batch }
+  NOT = { has_character_flag = autoedu_child_exam_event_postponed }
+  NOT = { has_character_flag = sent_to_exam }
+  NOT = { has_character_flag = passed_child_exam }
+  NOT = { has_character_modifier = tgp_child_exam_cooldown_modifier }
+  autoedu_guardian_child_scope_setting_trigger = yes
+  scope:autoedu_owner = {
+    has_tgp_dlc_trigger = yes
+    government_allows = merit
+    influence >= minor_influence_value
+    is_character_interaction_valid = {
+      interaction = send_child_to_examination_interaction
+      recipient = prev
+    }
+  }
+}
+
+autoedu_child_focus_diplomacy_compatible_trigger = {
+  OR = {
+    has_trait = curious
+    has_trait = charming
+  }
+}
+
+autoedu_child_focus_martial_compatible_trigger = {
+  OR = {
+    has_trait = rowdy
+    has_trait = bossy
+  }
+}
+
+autoedu_child_focus_stewardship_compatible_trigger = {
+  OR = {
+    has_trait = pensive
+    has_trait = bossy
+  }
+}
+
+autoedu_child_focus_intrigue_compatible_trigger = {
+  OR = {
+    has_trait = rowdy
+    has_trait = charming
+  }
+}
+
+autoedu_child_focus_learning_compatible_trigger = {
+  OR = {
+    has_trait = pensive
+    has_trait = curious
+  }
+}
+
+autoedu_child_focus_candidate_trigger = {
+  is_alive = yes
+  is_ai = yes
+  is_adult = no
+  age >= 4
+  age < 16
+  NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+  NOT = { has_character_flag = autoedu_focus_handled }
+  NOT = { autoedu_child_has_education_focus_trigger = yes }
+  OR = {
+    has_trait = pensive
+    has_trait = curious
+    has_trait = rowdy
+    has_trait = bossy
+    has_trait = charming
+  }
+}
+
+autoedu_ward_interaction_reminder_subject_trigger = {
+  is_alive = yes
+  is_ai = yes
+  is_adult = no
+  autoedu_child_education_subject_trigger = yes
+  NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+}
+
+autoedu_child_in_actor_education_scope_trigger = {
+  OR = {
+    AND = {
+      scope:actor.var:autoedu_editor_policy_0_enabled = 1
+      OR = {
+        scope:actor.var:autoedu_editor_policy_0_guardian_mode > 0
+        scope:actor.var:autoedu_editor_policy_0_focus_mode > 0
+        scope:actor.var:autoedu_editor_policy_0_university_mode > 0
+        scope:actor.var:autoedu_editor_policy_0_examination_mode > 0
+      }
+      scope:actor = {
+        exists = primary_heir
+        primary_heir = prev
+      }
+    }
+    AND = {
+      scope:actor.var:autoedu_editor_policy_1_enabled = 1
+      OR = {
+        scope:actor.var:autoedu_editor_policy_1_guardian_mode > 0
+        scope:actor.var:autoedu_editor_policy_1_focus_mode > 0
+        scope:actor.var:autoedu_editor_policy_1_university_mode > 0
+        scope:actor.var:autoedu_editor_policy_1_examination_mode > 0
+      }
+      is_child_of = scope:actor
+    }
+    AND = {
+      scope:actor.var:autoedu_editor_policy_2_enabled = 1
+      OR = {
+        scope:actor.var:autoedu_editor_policy_2_guardian_mode > 0
+        scope:actor.var:autoedu_editor_policy_2_focus_mode > 0
+        scope:actor.var:autoedu_editor_policy_2_university_mode > 0
+        scope:actor.var:autoedu_editor_policy_2_examination_mode > 0
+      }
+      OR = {
+        is_grandchild_of = scope:actor
+        is_great_grandchild_of = scope:actor
+      }
+    }
+    AND = {
+      scope:actor.var:autoedu_editor_policy_3_enabled = 1
+      OR = {
+        scope:actor.var:autoedu_editor_policy_3_guardian_mode > 0
+        scope:actor.var:autoedu_editor_policy_3_focus_mode > 0
+        scope:actor.var:autoedu_editor_policy_3_university_mode > 0
+        scope:actor.var:autoedu_editor_policy_3_examination_mode > 0
+      }
+      NOT = { is_close_family_of = scope:actor }
+      any_parent = {
+        even_if_dead = yes
+        is_close_family_of = scope:actor
+      }
+    }
+    AND = {
+      scope:actor.var:autoedu_editor_policy_4_enabled = 1
+      OR = {
+        scope:actor.var:autoedu_editor_policy_4_guardian_mode > 0
+        scope:actor.var:autoedu_editor_policy_4_focus_mode > 0
+        scope:actor.var:autoedu_editor_policy_4_university_mode > 0
+        scope:actor.var:autoedu_editor_policy_4_examination_mode > 0
+      }
+      NOT = { is_close_or_extended_family_of = scope:actor }
+      any_parent = {
+        even_if_dead = yes
+        is_close_or_extended_family_of = scope:actor
+      }
+    }
+    AND = {
+      scope:actor.var:autoedu_editor_policy_5_enabled = 1
+      OR = {
+        scope:actor.var:autoedu_editor_policy_5_guardian_mode > 0
+        scope:actor.var:autoedu_editor_policy_5_focus_mode > 0
+        scope:actor.var:autoedu_editor_policy_5_university_mode > 0
+        scope:actor.var:autoedu_editor_policy_5_examination_mode > 0
+      }
+      exists = house
+      scope:actor = { exists = house }
+      house = scope:actor.house
+    }
+    AND = {
+      scope:actor.var:autoedu_editor_policy_6_enabled = 1
+      OR = {
+        scope:actor.var:autoedu_editor_policy_6_guardian_mode > 0
+        scope:actor.var:autoedu_editor_policy_6_focus_mode > 0
+        scope:actor.var:autoedu_editor_policy_6_university_mode > 0
+        scope:actor.var:autoedu_editor_policy_6_examination_mode > 0
+      }
+      exists = dynasty
+      scope:actor = { exists = dynasty }
+      dynasty = scope:actor.dynasty
+    }
+    AND = {
+      scope:actor.var:autoedu_editor_policy_7_enabled = 1
+      OR = {
+        scope:actor.var:autoedu_editor_policy_7_guardian_mode > 0
+        scope:actor.var:autoedu_editor_policy_7_focus_mode > 0
+        scope:actor.var:autoedu_editor_policy_7_university_mode > 0
+        scope:actor.var:autoedu_editor_policy_7_examination_mode > 0
+      }
+      OR = {
+        is_courtier_of = scope:actor
+        court_owner ?= { this = scope:actor }
+        employer ?= { this = scope:actor }
+        host ?= { this = scope:actor }
+      }
+    }
+  }
+}
+
+
+# Infants can receive guardians before a childhood trait or education focus.
+# Keep the original subject trigger unchanged for focus, exams and university.
+acm_infant_guardian_subject_trigger = {
+  OR = {
+    age < 4
+    autoedu_child_education_subject_trigger = yes
+  }
+}

@@ -1,0 +1,313 @@
+﻿l_french:revoke_every_title_decision:0 "Revoke Every Title"
+revoke_every_title_decision_desc:0 "Revokes every title."
+revoke_every_title_decision_tooltip:0 "Just need some me time."
+
+revoke_every_infidel_title_decision:0 "Revoke Every Title of Infidels"
+revoke_every_infidel_title_decision_desc:0 "Revokes every title of characters that are not sharing your faith. Except for titulars like Papacy."
+revoke_every_infidel_title_decision_tooltip:0 "They should have prayed harder."
+
+revoke_every_barbarian_title_decision:0 "Revoke Every Title of Barbarians"
+revoke_every_barbarian_title_decision_desc:0 "Revokes every title of characters that are not sharing your culture. Except for titulars like Papacy."
+revoke_every_barbarian_title_decision_tooltip:0 "Do they even know how to read?"
+
+revoke_every_nondynasty_title_decision:0 "Revoke Every Title of Non-Dynasty"
+revoke_every_nondynasty_title_decision_desc:0 "Revokes titles that are not being held by your dynasty members. Excluding your dynasty members' vassals and their vassals and so on."
+revoke_every_nondynasty_title_decision_tooltip:0 "What?! Nepotism? Of course not!"
+
+revoke_every_pinned_title_decision:0 "Revoke Every Title of Pinned Characters"
+revoke_every_pinned_title_decision_desc:0 "Revokes every title of pinned characters and ONLY the pinned characters. Their vassals will keep their titles unless they are pinned as well."
+revoke_every_pinned_title_decision_tooltip:0 "You, you and you; get lost!"
+
+revoke_every_notpinned_title_decision:0 "Revoke Every Title of Not Pinned Characters"
+revoke_every_notpinned_title_decision_desc:0 "Revokes every title of characters that are not pinned. Excluding pinned characters' vassals and their vassals and so on."
+revoke_every_notpinned_title_decision_tooltip:0 "You, you and you; can stay. Rest of you; get lost!"
+
+grant_cities_decision:0 "Grant Cities"
+grant_cities_decision_desc:0 "Grants cities to randomly generated skillful traders."
+grant_cities_decision_tooltip:0 "Bring me some merchants. Good merchants."
+
+grant_temples_decision:0 "Grant Temples"
+grant_temples_decision_desc:0 "Grants temples to randomly generated skillful scholars."
+grant_temples_decision_tooltip:0 "What do you mean you're going to make a golden altar?!"
+
+grant_castles_decision:0 "Grant Castles"
+grant_castles_decision_desc:0 "Grants castles to randomly generated skillful warriors."
+grant_castles_decision_tooltip:0 "Those walls didn't come cheap so watch it!"
+
+grant_counties_decision:0 "Grant Counties"
+grant_counties_decision_desc:0 "Grants counties to randomly generated skillful characters. Excluding counties in your main duchy."
+grant_counties_decision_tooltip:0 "As long as you pay your taxes..."
+
+grant_duchies_decision:0 "Grant Duchies"
+grant_duchies_decision_desc:0 "Grants duchies to random Counts/Countesses in their respected de jure duchies. Excluding your main duchy."
+grant_duchies_decision_tooltip:0 "Just keep the peasants away from me."
+
+grant_kingdoms_decision:0 "Grant Kingdoms"
+grant_kingdoms_decision_desc:0 "Grants kingdoms to random Dukes/Duchesses in their respected de jure kingdoms. Excluding your main kingdom."
+grant_kingdoms_decision_tooltip:0 "Better not betray me."
+
+grant_duchies_to_dynasty_decision:0 "Grant Duchies to Dynasty"
+grant_duchies_to_dynasty_decision_desc:0 "Grants duchies and their de jure counties to dynasty members that has no duchies. Incase some de jure counties already have vassals they will be transferred."
+grant_duchies_to_dynasty_decision_tooltip:0 "Maybe it IS nepotism."
+
+convert_subjects_faith_decision:0 "Convert Subjects' Faith"
+convert_subjects_faith_decision_desc:0 "Converts every subjects' faith into your own."
+convert_subjects_faith_decision_tooltip:0 "Pray to your master!"
+
+depose_abdicate_decision:0 "Depose/Abdicate Throne"
+depose_abdicate_decision_desc:0 "Abdicates throne to your heir."
+depose_abdicate_decision_tooltip:0 "I'm done!"
+
+feudalize_all_tribal_holdings_decision:0 "Feudalize All Tribal Holdings"
+feudalize_all_tribal_holdings_decision_desc:0 "Feudalizes all the tribal holdings that you are keeping as a feudal lord. It won't work if you're tribal as well."
+feudalize_all_tribal_holdings_decision_tooltip:0 "Stop living in a bush!"
+
+open_advanced_vassal_manager_menu:0 "Open Advanced Vassal Manager Menu"
+close_advanced_vassal_manager_menu:0 "Close Advanced Vassal Manager Menu"
+open_advanced_vassal_manager_menu_desc:0 "This will open the corresponding menu."
+close_advanced_vassal_manager_menu_desc:0 "This will close the corresponding menu."
+
+open_avm_grant_titles_menu:0 "Open AVM Grant Titles Menu"
+close_avm_grant_titles_menu:0 "Close AVM Grant Titles Menu"
+open_avm_grant_titles_menu_desc:0 "This will open the corresponding menu."
+close_avm_grant_titles_menu_desc:0 "This will close the corresponding menu."
+
+open_avm_revoke_titles_menu:0 "Open AVM Revoke Titles Menu"
+close_avm_revoke_titles_menu:0 "Close AVM Revoke Titles Menu"
+open_avm_revoke_titles_menu_desc:0 "This will open the corresponding menu."
+close_avm_revoke_titles_menu_desc:0 "This will close the corresponding menu."
+
+open_avm_misc_menu:0 "Open AVM Miscellaneous Menu"
+close_avm_misc_menu:0 "Close AVM Miscellaneous Menu"
+open_avm_misc_menu_desc:0 "This will open the corresponding menu."
+close_avm_misc_menu_desc:0 "This will close the corresponding menu."
+
+CONFIRM_OKAY:0 "Confirm"
+
+# --- v1.3 additions ---
+
+avm_arm_mass_revocation_decision:0 "Arm Mass Revocation"
+avm_arm_mass_revocation_decision_desc:0 "Unlocks the three revoke decisions that cannot be undone: Revoke Every Title, Revoke Every Title of Non-Dynasty, and Revoke Every Title of Not Pinned Characters. Lapses on its own after 30 days."
+avm_arm_mass_revocation_decision_tooltip:0 "Fetch the good seal."
+
+avm_disarm_mass_revocation_decision:0 "Disarm Mass Revocation"
+avm_disarm_mass_revocation_decision_desc:0 "Locks the three unrecoverable revoke decisions again."
+avm_disarm_mass_revocation_decision_tooltip:0 "On reflection, no."
+
+revoke_disloyal_vassal_titles_decision:0 "Revoke Every Title of Disloyal Vassals"
+revoke_disloyal_vassal_titles_decision_desc:0 "Revokes every title held by characters whose opinion of you is -25 or worse. Excludes titulars."
+revoke_disloyal_vassal_titles_decision_tooltip:0 "You made your feelings very clear."
+
+convert_tribal_vassals_feudal_decision:0 "Feudalise All Tribal Vassals"
+convert_tribal_vassals_feudal_decision_desc:0 "Changes every tribal vassal in your realm to feudal government and converts their tribal holdings to castles. Ignores the cultural innovations vanilla would normally require, and will reset the succession laws of everyone affected."
+convert_tribal_vassals_feudal_decision_tooltip:0 "Out of the longhouse."
+
+convert_tribal_vassals_clan_decision:0 "Convert All Tribal Vassals to Clan"
+convert_tribal_vassals_clan_decision_desc:0 "Changes every tribal vassal in your realm to clan government and converts their tribal holdings to castles. Ignores the cultural innovations vanilla would normally require, and will reset the succession laws of everyone affected."
+convert_tribal_vassals_clan_decision_tooltip:0 "Family business now."
+
+# --- v1.4 additions ---
+
+avm_protect_character_interaction:0 "Protect from Vassal Manager"
+avm_protect_character_interaction_desc:0 "No mass grant or revoke operation from Vassal Manager Reboot will affect this character, whatever filter is used."
+avm_unprotect_character_interaction:0 "Remove Vassal Manager Protection"
+avm_unprotect_character_interaction_desc:0 "This character can be affected by mass operations again."
+
+# --- v1.2 corrections ---
+
+avm_requires_arming_tt:0 "Requires the Arm Mass Revocation decision, found further down this list"
+
+rule_avm_disloyalty_threshold:0 "AVM: Disloyalty Threshold"
+rule_avm_disloyalty_threshold_desc:0 "How hostile a vassal must be before Revoke Every Title of Disloyal Vassals will strip them."
+setting_avm_disloyalty_moderate:0 "Moderate (-25)"
+setting_avm_disloyalty_moderate_desc:0 "The default. Catches vassals who are meaningfully hostile."
+setting_avm_disloyalty_lenient:0 "Lenient (-10)"
+setting_avm_disloyalty_lenient_desc:0 "Catches mild dissatisfaction. Will affect a lot of people."
+setting_avm_disloyalty_strict:0 "Strict (-50)"
+setting_avm_disloyalty_strict_desc:0 "Only the openly hostile."
+
+rule_avm_conversion_innovations:0 "AVM: Government Conversion Innovations"
+rule_avm_conversion_innovations_desc:0 "Whether the tribal conversion decisions respect the cultural innovation vanilla normally requires."
+setting_avm_conversion_ignore_innovations:0 "Ignore Innovations"
+setting_avm_conversion_ignore_innovations_desc:0 "Convert any tribal vassal regardless of their culture's progress. The default."
+setting_avm_conversion_respect_innovations:0 "Respect Innovations"
+setting_avm_conversion_respect_innovations_desc:0 "Only convert vassals whose culture has the required innovation."
+
+# --- v1.3 additions ---
+
+convert_clan_vassals_feudal_decision:0 "Feudalise All Clan Vassals"
+convert_clan_vassals_feudal_decision_desc:0 "Changes every clan vassal in your realm to feudal government. Clan rulers already hold castles, so no holdings are altered. This will reset the succession laws of everyone affected. Protected characters are skipped."
+convert_clan_vassals_feudal_decision_tooltip:0 "The family firm goes public."
+
+convert_subjects_culture_decision:0 "Convert Subjects' Culture"
+convert_subjects_culture_decision_desc:0 "Converts every subject's culture into your own. County cultures are left alone unless the AVM game rule says otherwise. Protected characters are skipped."
+convert_subjects_culture_decision_tooltip:0 "Speak properly, would you."
+
+game_rule_category_avm_rules:0 "Vassal Manager"
+
+# --- v1.4 additions ---
+
+avm_restore_previous_holders_decision:0 "Restore Previous Holders"
+avm_restore_previous_holders_decision_desc:0 "Undoes the most recent revoke decision, returning each title to whoever held it before. Only the last revoke is covered, and only holders who are still alive. Titles you have granted away since are not affected."
+avm_restore_previous_holders_decision_tooltip:0 "On reflection, keep them."
+
+# --- v1.5 additions ---
+
+# --- v1.5 additions ---
+
+convert_realm_counties_culture_decision:0 "Convert Realm Counties' Culture"
+convert_realm_counties_culture_decision_desc:0 "Rewrites the culture of every county in your realm to your own. This bypasses the vanilla cultural conversion mechanic entirely and erases cultural diversity across your realm in one click. Characters are unaffected - use Convert Subjects' Culture for those."
+convert_realm_counties_culture_decision_tooltip:0 "The map will match the court."
+
+# --- v1.6 additions ---
+
+set_vassals_primogeniture_decision:0 "Set Vassals to Primogeniture"
+set_vassals_primogeniture_decision_desc:0 "Sets every vassal in your realm to primogeniture succession, ignoring the crown authority and innovation requirements vanilla would enforce. Protected characters are skipped, as is anyone already on primogeniture."
+set_vassals_primogeniture_decision_tooltip:0 "The eldest. Every time. No arguments."
+
+set_own_titles_primogeniture_decision:0 "Set Own Succession to Primogeniture"
+set_own_titles_primogeniture_decision_desc:0 "Sets your own realm to primogeniture succession, ignoring the crown authority and innovation requirements vanilla would enforce."
+set_own_titles_primogeniture_decision_tooltip:0 "Starting at home."
+
+convert_realm_counties_faith_decision:0 "Convert Realm Counties' Faith"
+convert_realm_counties_faith_decision_desc:0 "Rewrites the faith of every county in your realm to your own. This bypasses the vanilla religious conversion mechanic entirely. Characters are unaffected - use Convert Subjects' Faith for those."
+convert_realm_counties_faith_decision_tooltip:0 "Every altar, the same altar."
+
+# --- v1.7 additions ---
+
+avm_fund_vassals_modest_decision:0 "Fund Vassals - Modest"
+avm_fund_vassals_modest_decision_desc:0 "Gives 50 gold to each of your landed direct vassals, paid from your own treasury. The cost shown is the total. Protected characters are skipped and are not paid for."
+avm_fund_vassals_modest_decision_tooltip:0 "A little something for the roads."
+
+avm_fund_vassals_standard_decision:0 "Fund Vassals - Standard"
+avm_fund_vassals_standard_decision_desc:0 "Gives 150 gold to each of your landed direct vassals, paid from your own treasury. The cost shown is the total. Protected characters are skipped and are not paid for."
+avm_fund_vassals_standard_decision_tooltip:0 "Build something worth looking at."
+
+avm_fund_vassals_lavish_decision:0 "Fund Vassals - Lavish"
+avm_fund_vassals_lavish_decision_desc:0 "Gives 400 gold to each of your landed direct vassals, paid from your own treasury. The cost shown is the total. Protected characters are skipped and are not paid for."
+avm_fund_vassals_lavish_decision_tooltip:0 "Spare no expense. Mine, anyway."
+
+# --- v1.8 additions ---
+
+avm_spawn_identity_match_land_decision:0 "New Holders: Match the Land"
+avm_spawn_identity_match_land_decision_desc:0 "Characters created by the Grant decisions will take the culture, faith and appearance of the county they receive. This is the default and preserves county control in conquered territory."
+avm_spawn_identity_match_land_decision_tooltip:0 "Let them keep their own ways."
+
+avm_spawn_identity_match_me_decision:0 "New Holders: Match Me"
+avm_spawn_identity_match_me_decision_desc:0 "Characters created by the Grant decisions will take your culture, faith and appearance. Expect county control problems where this does not match the local population."
+avm_spawn_identity_match_me_decision_tooltip:0 "My people, my ways."
+
+avm_spawn_identity_capital_decision:0 "New Holders: Match My Capital"
+avm_spawn_identity_capital_decision_desc:0 "Characters created by the Grant decisions will take the culture and faith of your capital county as it is right now. Change your capital first if you want a different one."
+avm_spawn_identity_capital_decision_tooltip:0 "As it is done at home."
+
+# --- v1.9 additions ---
+
+revoke_tribal_gov_titles_decision:0 "Revoke Every Title of Tribal Rulers"
+revoke_tribal_gov_titles_decision_desc:0 "Revokes every non-titular title held by characters on tribal government. Protected characters are skipped."
+revoke_tribal_gov_titles_decision_tooltip:0 "Out of the longhouse, permanently."
+
+revoke_clan_gov_titles_decision:0 "Revoke Every Title of Clan Rulers"
+revoke_clan_gov_titles_decision_desc:0 "Revokes every non-titular title held by characters on clan government. Protected characters are skipped."
+revoke_clan_gov_titles_decision_tooltip:0 "The family firm is dissolved."
+
+revoke_admin_gov_titles_decision:0 "Revoke Every Title of Administrative Rulers"
+revoke_admin_gov_titles_decision_desc:0 "Revokes every non-titular title held by characters on administrative government. Protected characters are skipped. Note that administrative realms are not otherwise supported by this mod."
+revoke_admin_gov_titles_decision_tooltip:0 "The paperwork ends here."
+
+revoke_othergov_titles_decision:0 "Revoke Every Title of Non-Feudal Rulers"
+revoke_othergov_titles_decision_desc:0 "Revokes every non-titular title held by characters who are not on feudal government, whatever their government is. Protected characters are skipped."
+revoke_othergov_titles_decision_tooltip:0 "One system. Mine."
+
+revoke_nondejure_titles_decision:0 "Revoke Titles Held Outside De Jure"
+revoke_nondejure_titles_decision_desc:0 "For each vassal, revokes anything they hold outside the de jure area of their own primary title. A Duke of Sicily holding land in Apulia loses the Apulian holdings and keeps Sicily. Primary titles are never taken, so nobody is left landless. Protected characters are skipped."
+revoke_nondejure_titles_decision_tooltip:0 "Stay in your own duchy."
+
+# --- v2.0 additions ---
+
+grant_dejure_to_vassals_decision:0 "Consolidate De Jure Land to Vassals"
+grant_dejure_to_vassals_decision_desc:0 "Hands each duke or higher the counties inside their own primary title's de jure area that you currently hold yourself. Your capital county is never given away. Land held by other vassals is not touched - this only gives away your own. Protected characters are skipped."
+grant_dejure_to_vassals_decision_tooltip:0 "Tidy borders make quiet vassals."
+
+avm_set_target_region_decision:0 "Set Target Region"
+avm_set_target_region_decision_desc:0 "Stores the de jure kingdom and empire that your capital currently sits in. The two region revoke decisions then act only inside that area. To target somewhere else, move your capital there first and set the region again."
+avm_set_target_region_decision_tooltip:0 "This part of the map. For now."
+
+avm_clear_target_region_decision:0 "Clear Target Region"
+avm_clear_target_region_decision_desc:0 "Forgets the stored region. The region revoke decisions are hidden until a region is set again."
+avm_clear_target_region_decision_tooltip:0 "Never mind."
+
+revoke_in_target_kingdom_decision:0 "Revoke Every Title in Target Kingdom"
+revoke_in_target_kingdom_decision_desc:0 "Revokes every non-titular title inside the de jure kingdom stored by Set Target Region. Vassals outside it keep everything. Protected characters are skipped."
+revoke_in_target_kingdom_decision_tooltip:0 "Only this kingdom. The rest may sleep soundly."
+
+revoke_in_target_empire_decision:0 "Revoke Every Title in Target Empire"
+revoke_in_target_empire_decision_desc:0 "Revokes every non-titular title inside the de jure empire stored by Set Target Region. Vassals outside it keep everything. Protected characters are skipped."
+revoke_in_target_empire_decision_tooltip:0 "Only this empire. The rest may sleep soundly."
+
+# --- v2.2 additions ---
+
+avm_domain_warning_tt:0 "Domain limit headroom after this: [GetPlayer.MakeScope.ScriptValue('avm_domain_headroom')|0]"
+avm_vassal_limit_warning_tt:0 "Vassal limit headroom: [GetPlayer.MakeScope.ScriptValue('avm_vassal_headroom')|0]"
+
+avm_count_all_tt:0 "This will revoke [GetPlayer.MakeScope.ScriptValue('avm_count_all_titles')|0] titles"
+avm_count_infidel_tt:0 "This will revoke [GetPlayer.MakeScope.ScriptValue('avm_count_infidel_titles')|0] titles"
+avm_count_barbarian_tt:0 "This will revoke [GetPlayer.MakeScope.ScriptValue('avm_count_barbarian_titles')|0] titles"
+
+avm_protect_dynasty_decision:0 "Protect All Dynasty Members"
+avm_protect_dynasty_decision_desc:0 "Marks every vassal of your dynasty as protected, so no mass operation in this mod will touch them."
+avm_protect_dynasty_decision_tooltip:0 "Blood first."
+
+avm_protect_council_decision:0 "Protect All Councillors"
+avm_protect_council_decision_desc:0 "Marks every member of your council as protected, so no mass operation in this mod will touch them."
+avm_protect_council_decision_tooltip:0 "I still need advice."
+
+avm_clear_all_protection_decision:0 "Clear All Protection"
+avm_clear_all_protection_decision_desc:0 "Removes protection from everyone in your realm and court. Mass operations will affect them again."
+avm_clear_all_protection_decision_tooltip:0 "Nobody is exempt."
+
+avm_grant_down_to_domain_limit_decision:0 "Grant Down to Domain Limit"
+avm_grant_down_to_domain_limit_decision_desc:0 "Grants counties away one at a time until you are back within your domain limit, rather than handing out everything. Your capital county is never given away. Greyed out when you are already within your limit."
+avm_grant_down_to_domain_limit_decision_tooltip:0 "Just enough, and no more."
+
+avm_prefer_courtiers_decision:0 "New Holders: Use Courtiers First"
+avm_prefer_courtiers_decision_desc:0 "Grant decisions will look for a suitable adult courtier before creating anyone new. Councillors, prisoners and protected characters are skipped. This is the default and keeps your save smaller."
+avm_prefer_courtiers_decision_tooltip:0 "There are perfectly good people here already."
+
+avm_prefer_new_characters_decision:0 "New Holders: Always Create New"
+avm_prefer_new_characters_decision_desc:0 "Grant decisions will always create a fresh character rather than using an existing courtier. Over a long game this adds a great many invented people to your save."
+avm_prefer_new_characters_decision_tooltip:0 "Fetch me someone new."
+
+avm_contracts_max_tax_decision:0 "Set All Vassal Contracts to Maximum Tax"
+avm_contracts_max_tax_decision_desc:0 "Raises the tax obligation of every feudal direct vassal to its highest level, ignoring the crown authority requirements vanilla enforces. Expect a substantial opinion penalty. Protected characters are skipped.\n\nOnly feudal vassals have a settable tax track. Other government types are not affected."
+avm_contracts_max_tax_decision_tooltip:0 "The treasury has needs."
+
+avm_contracts_max_levies_decision:0 "Set All Vassal Contracts to Maximum Levies"
+avm_contracts_max_levies_decision_desc:0 "Raises the levy obligation of every feudal direct vassal to its highest level, ignoring the crown authority requirements vanilla enforces. Expect a substantial opinion penalty. Protected characters are skipped.\n\nOnly feudal vassals have a settable levy track. Other government types are not affected."
+avm_contracts_max_levies_decision_tooltip:0 "Every man you can spare."
+
+# --- v2.4 additions ---
+
+avm_count_feudal_contracts_tt:0 "Affects [GetPlayer.MakeScope.ScriptValue('avm_count_feudal_contract_vassals')|0] feudal vassals; [GetPlayer.MakeScope.ScriptValue('avm_count_other_contract_vassals')|0] vassals have no settable contract and are left alone"
+
+avm_contracts_reset_decision:0 "Reset All Vassal Contracts to Normal"
+avm_contracts_reset_decision_desc:0 "Returns the tax and levy obligations of every feudal direct vassal to the normal level - the one a contract starts on. Use this to undo a maximum tax or levy sweep. Protected characters are skipped."
+avm_contracts_reset_decision_tooltip:0 "Back to the old arrangement."
+
+avm_contracts_by_loyalty_decision:0 "Set Vassal Taxes by Loyalty"
+avm_contracts_by_loyalty_decision_desc:0 "Sets each feudal vassal's tax obligation according to how they feel about you, in one pass:\n\n#weak Opinion 50 or better#! - extortionate\n#weak Opinion 0 to 49#! - high\n#weak Opinion -1 to -25#! - normal\n#weak Worse than -25#! - low\n\nLevies are not touched. Protected characters are skipped."
+avm_contracts_by_loyalty_decision_tooltip:0 "From each according to their patience."
+
+avm_loyalty_report_decision:0 "Realm Loyalty Report"
+avm_loyalty_report_decision_desc:0 "A summary of where your direct vassals stand. Nothing is changed by taking this decision.\n\n#weak Devoted (50+):#! [GetPlayer.MakeScope.ScriptValue('avm_count_vassals_devoted')|0]\n#weak Content (0 to 49):#! [GetPlayer.MakeScope.ScriptValue('avm_count_vassals_content')|0]\n#weak Wavering (-1 to -25):#! [GetPlayer.MakeScope.ScriptValue('avm_count_vassals_wavering')|0]\n#weak Hostile (below -25):#! [GetPlayer.MakeScope.ScriptValue('avm_count_vassals_hostile')|0]\n\n#high Powerful and unhappy: [GetPlayer.MakeScope.ScriptValue('avm_count_powerful_hostile')|0]#!\nThese are the ones with the armies to act on it.\n\n#weak Currently protected:#! [GetPlayer.MakeScope.ScriptValue('avm_count_protected')|0]\n#weak Feudal contracts you can alter:#! [GetPlayer.MakeScope.ScriptValue('avm_count_feudal_contract_vassals')|0]"
+avm_loyalty_report_decision_tooltip:0 "Where do we actually stand?"
+avm_loyalty_report_effect_tt:0 "Nothing changes. This decision only reports."
+
+avm_protect_powerful_decision:0 "Protect All Powerful Vassals"
+avm_protect_powerful_decision_desc:0 "Marks every powerful vassal as protected, so no mass operation in this mod will touch them."
+avm_protect_powerful_decision_tooltip:0 "Not these ones. Not yet."
+
+avm_protect_content_decision:0 "Protect All Content Vassals"
+avm_protect_content_decision_desc:0 "Marks every vassal whose opinion of you is 0 or better as protected. The inverse of Revoke Every Title of Disloyal Vassals."
+avm_protect_content_decision_tooltip:0 "Reward the ones who behaved."
+

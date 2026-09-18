@@ -1,0 +1,19 @@
+﻿# Game Rules for Automated Courtier Management
+
+auto_court_rule_status = {
+	default = auto_court_rule_status_enabled
+
+	auto_court_rule_status_enabled = {
+	}
+	auto_court_rule_status_disabled = {
+	}
+}
+
+auto_court_rule_aptitude = {
+	default = auto_court_rule_aptitude_strict
+
+	auto_court_rule_aptitude_strict = {
+	}
+	auto_court_rule_aptitude_influenced = {
+	}
+}

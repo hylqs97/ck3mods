@@ -1,0 +1,39 @@
+﻿autoedu_university_gold_reserve_value = {
+  value = 0
+
+  if = {
+    limit = {
+      exists = var:autoedu_university_gold_reserve
+      trigger_if = {
+        limit = { exists = var:autoedu_university_gold_reserve }
+        var:autoedu_university_gold_reserve = flag:one
+      }
+    }
+    add = monumental_gold_value
+  }
+  if = {
+    limit = {
+      exists = var:autoedu_university_gold_reserve
+      trigger_if = {
+        limit = { exists = var:autoedu_university_gold_reserve }
+        var:autoedu_university_gold_reserve = flag:two
+      }
+    }
+    add = { value = monumental_gold_value multiply = 2 }
+  }
+  if = {
+    limit = {
+      exists = var:autoedu_university_gold_reserve
+      trigger_if = {
+        limit = { exists = var:autoedu_university_gold_reserve }
+        var:autoedu_university_gold_reserve = flag:three
+      }
+    }
+    add = { value = monumental_gold_value multiply = 3 }
+  }
+}
+
+autoedu_university_required_gold_value = {
+  value = monumental_gold_value
+  add = autoedu_university_gold_reserve_value
+}

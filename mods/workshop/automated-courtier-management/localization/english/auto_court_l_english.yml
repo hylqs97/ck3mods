@@ -1,0 +1,119 @@
+﻿l_english:
+
+ # Decisions
+ auto_court_settings_decision_title:0 "Courtier Automation Settings"
+ auto_court_settings_decision_desc:0 "Configure the automated yearly evaluation of your court. Dictate guidelines for who stays, who is dismissed, marriage rules, and safeguards."
+ auto_court_settings_decision_tooltip:0 "Open the Courtier Automation Dashboard to customize evaluation criteria, marriage rules, and safeguards."
+ auto_court_settings_decision_confirm_text:0 "Open Dashboard"
+
+ # Character Interactions
+ auto_court_protect_courtier_interaction:0 "Exempt from Courtier Automation"
+ auto_court_protect_courtier_interaction_desc:0 "Mark [recipient.GetShortUINameNoTooltip] as exempt from automated courtier management. They will #G never#! be dismissed or married off by automation."
+ auto_court_protect_courtier_interaction_outcome:0 "Will no longer be included in Courtier Automation (exempt from dismissal and marriage)."
+ 
+ auto_court_unprotect_courtier_interaction:0 "Remove Automation Exemption"
+ auto_court_unprotect_courtier_interaction_desc:0 "Remove the automation exemption from [recipient.GetShortUINameNoTooltip]. They will now be evaluated and married normally according to your realm guidelines."
+ auto_court_unprotect_courtier_interaction_outcome:0 "Will be included in Courtier Automation."
+ 
+ auto_court_run_now_decision_title:0 "Manage Courtiers Now"
+ auto_court_run_now_decision_desc:0 "Immediately evaluate all courtiers in your court, dismissing unqualified characters and arranging marriages for eligible singles."
+ auto_court_run_now_decision_tooltip:0 "Execute courtier evaluation and marriage matchmaking immediately."
+ auto_court_run_now_decision_confirm_text:0 "Execute Management"
+
+ auto_court_debug_populate_decision_title:0 "(DEBUG) Spawn Test Courtiers Batch"
+ auto_court_debug_populate_decision_desc:0 "Instantly spawns 7 test courtiers (low stats, high stats, lover, friend, genius) directly into your court to test the automation system."
+ auto_court_debug_populate_decision_tooltip:0 "Spawn a full test bench of courtiers with various traits, stats, and relations."
+ auto_court_debug_populate_decision_confirm_text:0 "Spawn Courtiers"
+
+ auto_court_debug_setup_master_admin_decision_title:0 "(DEBUG) Appoint Master Administrator"
+ auto_court_debug_setup_master_admin_decision_desc:0 "Instantly appoints a 20+ skill Master Administrator (Seneschal / Chancellor / Second) and enables Administrator Aptitude Mode."
+ auto_court_debug_setup_master_admin_decision_tooltip:0 "Spawn and appoint a Master Administrator to test high-aptitude matchmaking and 100% precision dismissals."
+ auto_court_debug_setup_master_admin_decision_confirm_text:0 "Appoint Master Admin"
+
+ auto_court_debug_setup_incompetent_admin_decision_title:0 "(DEBUG) Appoint Incompetent Administrator"
+ auto_court_debug_setup_incompetent_admin_decision_desc:0 "Instantly appoints a 2 skill Incompetent Administrator (Seneschal / Chancellor / Second) and enables Administrator Aptitude Mode."
+ auto_court_debug_setup_incompetent_admin_decision_tooltip:0 "Spawn and appoint an Incompetent Administrator to test administrative oversights and standard recruitment."
+ auto_court_debug_setup_incompetent_admin_decision_confirm_text:0 "Appoint Incompetent Admin"
+
+ # Notifications & Reports
+ auto_court_yearly_report_toast_title:0 "Courtier Management Complete"
+ auto_court_yearly_report_toast_desc:0 "Courtier evaluation report:\n• Dismissed: [TopScope.GetValue('auto_court_dismissed_val')|0]\n• Married: [TopScope.GetValue('auto_court_married_val')|0]\n• Talented Spouses: [TopScope.GetValue('auto_court_bonus_val')|0]\n• Spared by Oversight: [TopScope.GetValue('auto_court_oversight_val')|0]"
+
+ auto_court_debug_spawn_toast_title:0 "Test Courtiers Spawned"
+ auto_court_debug_spawn_toast_desc:0 "7 test courtiers with distinct profiles (low stats, high stats, lover, friend, genius) have arrived at your court."
+
+ auto_court_debug_master_admin_toast_title:0 "Master Administrator Appointed"
+ auto_court_debug_master_admin_toast_desc:0 "A Master Administrator (20+ skill) has been appointed to your court. Administrator Aptitude Mode is now active with premium matchmaking and flawless evaluation."
+
+ auto_court_debug_incompetent_admin_toast_title:0 "Incompetent Administrator Appointed"
+ auto_court_debug_incompetent_admin_toast_desc:0 "An Incompetent Administrator (2 skill) has been appointed to your court. Administrator Aptitude Mode is now active with high risk of administrative oversight."
+
+ # Game Rules
+ rule_auto_court_rule_status:0 "Courtier Automation"
+ rule_auto_court_rule_status_desc:0 "Determines whether the yearly automated courtier management system is enabled by default for player rulers."
+ setting_auto_court_rule_status_enabled:0 "Enabled"
+ setting_auto_court_rule_status_enabled_desc:0 "Courtier management runs automatically once a year."
+ setting_auto_court_rule_status_disabled:0 "Disabled"
+ setting_auto_court_rule_status_disabled_desc:0 "Courtier management is turned off until manually enabled in decisions."
+
+ rule_auto_court_rule_aptitude:0 "Courtier Automation: Evaluation Precision"
+ rule_auto_court_rule_aptitude_desc:0 "Determines whether courtier management is 100% deterministic according to guidelines, or influenced by Chancellor/Seneschal (or Second for Landless Adventurers) aptitude."
+ setting_auto_court_rule_aptitude_strict:0 "Strict (Default)"
+ setting_auto_court_rule_aptitude_strict_desc:0 "Evaluation strictly adheres to your exact thresholds without mistakes."
+ setting_auto_court_rule_aptitude_influenced:0 "Administrator Aptitude Influenced"
+ setting_auto_court_rule_aptitude_influenced_desc:0 "Your administrator's competence (Chancellor/Seneschal for landed rulers, Second for landless adventurers) influences spouse quality and carries a slight risk of administrative error."
+
+ # Event 0001: Main Dashboard
+ auto_court_event.0001.t:0 "Courtier Automation: Realm Dashboard"
+ auto_court_event.0001.desc:0 "A sprawling court requires diligent administration. From here, you can direct how your scribes and officers prune unproductive courtiers, secure valuable marriages, and preserve cherished relations.\n\n#V Current Configuration:#! \n• Status: [Select_CString(ROOT.Var('auto_court_disabled').IsSet, '#N Disabled#!', '#G Active#!')]\n• Dismissals: [Select_CString(ROOT.Var('auto_court_dismiss_disabled').IsSet, '#N Disabled#!', '#G Active#!')]\n• Stat Cutoff Threshold: [ROOT.Var('auto_court_min_stat_threshold').GetValue|0]\n• Automated Marriages: [Select_CString(ROOT.Var('auto_court_marry_disabled').IsSet, '#N Disabled#!', '#G Enabled#!')]\n• Evaluation Mode: [Select_CString(ROOT.Var('auto_court_aptitude_mode').IsSet, '#italic Aptitude Influenced#!', '#high 100% Strict#!')]"
+ auto_court_event.0001.toggle_status:0 "Toggle Automation Status"
+ auto_court_event.0001.configure_stats:0 "Configure Dismissal Stat Cutoffs..."
+ auto_court_event.0001.configure_marriage:0 "Configure Marriage Rules..."
+ auto_court_event.0001.configure_safeguards:0 "Configure Safeguards & Exemptions..."
+ auto_court_event.0001.configure_aptitude:0 "Configure Evaluation Precision & Aptitude..."
+ auto_court_event.0001.run_now:0 "#G Execute Courtier Evaluation Now#!"
+ auto_court_event.0001.configuration_menu:0 "Configuration Options..."
+ auto_court_event.0001.debug_spawn:0 "#P (DEBUG: Spawn Test Courtiers Batch)#!"
+ auto_court_event.0001.close:0 "Done"
+
+ # Event 0002: Dismissal Submenu
+ auto_court_event.0002.t:0 "Dismissal & Competence Criteria"
+ auto_court_event.0002.desc:0 "Choose the minimum competence standard a courtier must meet to remain in your court. You can also disable dismissals entirely if you only wish to automate marriages.\n\n#V Current Status:#! [Select_CString(ROOT.Var('auto_court_dismiss_disabled').IsSet, '#N Disabled#!', '#G Active#!')]\n#V Current Threshold:#! [ROOT.Var('auto_court_min_stat_threshold').GetValue|0]"
+ auto_court_event.0002.toggle_dismissal:0 "Toggle Courtier Dismissals"
+ auto_court_event.0002.threshold_8:0 "Lenient: Minimum Stat 8"
+ auto_court_event.0002.threshold_10:0 "Standard: Minimum Stat 10 (Default)"
+ auto_court_event.0002.threshold_12:0 "Selective: Minimum Stat 12"
+ auto_court_event.0002.threshold_15:0 "Elite: Minimum Stat 15"
+
+ # Event 0003: Marriage Submenu
+ auto_court_event.0003.t:0 "Marriage Policy"
+ auto_court_event.0003.desc:0 "Configure automated marriage arrangements. When enabled, unmarried male courtiers are wed patrilineally (moving their wives to court), and unmarried female courtiers are wed matrilineally (bringing their husbands into court).\n\n#V Current Policies:#! \n• Status: [Select_CString(ROOT.Var('auto_court_marry_disabled').IsSet, '#N Disabled#!', '#G Enabled#!')]\n• Marry Primary Heir: [Select_CString(ROOT.Var('auto_court_marry_heir_allowed').IsSet, '#high Allowed#!', '#G Protected (Manual Only)#!')]\n• Marry Close Family: [Select_CString(ROOT.Var('auto_court_marry_close_family_allowed').IsSet, '#high Allowed#!', '#G Protected (Manual Only)#!')]\n• Marry Dynasty: [Select_CString(ROOT.Var('auto_court_marry_dynasty_allowed').IsSet, '#high Allowed#!', '#G Protected (Manual Only)#!')]\n• Marry Lovers & Soulmates: [Select_CString(ROOT.Var('auto_court_marry_lovers_allowed').IsSet, '#high Allowed#!', '#G Protected (Manual Only)#!')]"
+ auto_court_event.0003.toggle_marriage:0 "Toggle Automated Marriages"
+ auto_court_event.0003.toggle_heir:0 "Toggle Heir Marriage Exemption"
+ auto_court_event.0003.toggle_close_family:0 "Toggle Close Family Marriage Exemption"
+ auto_court_event.0003.toggle_dynasty:0 "Toggle Dynasty Marriage Exemption"
+ auto_court_event.0003.toggle_lovers:0 "Toggle Lovers & Soulmates Marriage Exemption"
+
+ # Event 0004: Safeguards Submenu
+ auto_court_event.0004.t:0 "Safeguards & Protected Characters"
+ auto_court_event.0004.desc:0 "Safeguards ensure vital characters are NEVER dismissed, regardless of their stats.\n\n• Dynasty & Family: [Select_CString(ROOT.Var('auto_court_safeguard_dynasty_disabled').IsSet, '#N Off#!', '#G Protected#!')]\n• Lovers & Friends: [Select_CString(ROOT.Var('auto_court_safeguard_relationships_disabled').IsSet, '#N Off#!', '#G Protected#!')]\n• Positions & Families: [Select_CString(ROOT.Var('auto_court_safeguard_positions_disabled').IsSet, '#N Off#!', '#G Protected#!')]\n• Congenital Traits: [Select_CString(ROOT.Var('auto_court_safeguard_traits_disabled').IsSet, '#N Off#!', '#G Protected#!')]\n• Pinned Characters: [Select_CString(ROOT.Var('auto_court_safeguard_pinned_disabled').IsSet, '#N Off#!', '#G Protected#!')]"
+ auto_court_event.0004.toggle_dynasty:0 "Toggle Dynasty & Family Safeguard"
+ auto_court_event.0004.toggle_relations:0 "Toggle Lovers & Friends Safeguard"
+ auto_court_event.0004.toggle_positions:0 "Toggle Positions & Families Safeguard"
+ auto_court_event.0004.toggle_traits:0 "Toggle Congenital Traits Safeguard"
+ auto_court_event.0004.toggle_pinned:0 "Toggle Pinned Characters Safeguard"
+
+ # Event 0005: Aptitude Submenu
+ auto_court_event.0005.t:0 "Evaluation Precision & Aptitude"
+ auto_court_event.0005.desc:0 "Configure how the evaluation is executed:\n\n• #high 100% Strict Rules#!: Pure mathematical execution strictly following your guidelines.\n• #italic Administrator Aptitude Influenced#!: The competence of your administrator (Chancellor/Seneschal for landed rulers, Second for landless adventurers) determines the quality of recruited spouses (chance of high traits/education) and introduces realistic human error.\n\n#V Current Mode:#! [Select_CString(ROOT.Var('auto_court_aptitude_mode').IsSet, '#italic Aptitude Influenced#!', '#high 100% Strict#!')]"
+ auto_court_event.0005.strict_mode:0 "Set to 100% Strict Guidelines (Deterministic)"
+ auto_court_event.0005.aptitude_mode:0 "Set to Administrator Aptitude Mode"
+ auto_court_event.0005.debug_master:0 "#P (DEBUG: Appoint Master Administrator)#!"
+ auto_court_event.0005.debug_incompetent:0 "#N (DEBUG: Appoint Incompetent Administrator)#!"
+
+ # Event 0006: Configuration Submenu
+ auto_court_event.0006.t:0 "Courtier Automation: Configuration & Policies"
+ auto_court_event.0006.desc:0 "Fine-tune the standing directives for your court's administration. Select a category below to adjust competence standards, marriage matchmaking rules, character safeguards, or administrator evaluation precision.\n\n#V Current Configuration:#! \n• Status: [Select_CString(ROOT.Var('auto_court_disabled').IsSet, '#N Disabled#!', '#G Active#!')]\n• Dismissals: [Select_CString(ROOT.Var('auto_court_dismiss_disabled').IsSet, '#N Disabled#!', '#G Active#!')]\n• Stat Cutoff Threshold: [ROOT.Var('auto_court_min_stat_threshold').GetValue|0]\n• Automated Marriages: [Select_CString(ROOT.Var('auto_court_marry_disabled').IsSet, '#N Disabled#!', '#G Enabled#!')]\n• Evaluation Mode: [Select_CString(ROOT.Var('auto_court_aptitude_mode').IsSet, '#italic Aptitude Influenced#!', '#high 100% Strict#!')]"
+ 
+ # Common Strings
+ auto_court_event.common.back:0 "« Return to Main Menu"

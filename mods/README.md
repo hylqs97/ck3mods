@@ -44,3 +44,23 @@
 ```
 
 默认使用仓库内的 `<mod-id>` 作为 `<mod-directory-name>`；如 `metadata.yaml` 配置了 `local_deployment.mod_dir_name`，则使用配置值。部署只复制 `descriptor.mod` 和 CK3 游戏文件，不复制仓库说明、元数据和 `references/`；详细安全规则以根目录 `AGENTS.md` 为准。
+
+## 已导入 Mod
+
+| 类型 | 目录 | 内容 |
+| --- | --- | --- |
+| workshop | [automated-courtier-management](workshop/automated-courtier-management/README.md) | 廷臣管理原版 1.3.2 |
+| workshop | [automatic-education](workshop/automatic-education/README.md) | 自动教育原版 2.1.0 |
+| workshop | [vassal-manager-reboot](workshop/vassal-manager-reboot/README.md) | 封臣管理原版 2.4 |
+| derived | [automated-courtier-management-cn](derived/automated-courtier-management-cn/README.md) | 汉化、监护诊断与0岁监护筛选 cn.5 |
+| derived | [vassal-manager-reboot-cn](derived/vassal-manager-reboot-cn/README.md) | 封臣管理完整汉化 2.4-cn.1 |
+
+本次为本机文件导入，不是线上更新。页面访问不完整的记录见各mod的references。
+
+## Agent 维护约定
+
+以根目录 [AGENTS.md](../AGENTS.md) 为准。只维护 Windows，不制作 Linux 或便携发行包。
+本机初次导入、游戏目录快照回收、在线下载须分别记录，不能将本机文件称为线上最新版本。
+Steam 游戏目录副本不等于 Launcher 实际加载副本；更新现用补丁时核对用户目录、外部.mod路径及启用列表。
+网页读取失败保留成功读取时间为null或旧值，另记尝试时间和状态。组合补丁用additional_upstreams记录全部额外上游。
+修改游戏文件后检查指纹并部署；仅文档修改无需重新部署。提交前运行 `python tools/validate_repository.py`（仓库根目录）。

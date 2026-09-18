@@ -1,0 +1,126 @@
+﻿# ---------------------------------------------------------------------
+# Loyalty reporting and loyalty-based protection - v2.4
+#
+# Isolated file. Delete this and advancedvassalmanager_values_loyalty.txt to
+# return to 2.3.
+#
+# The report decision has no effect. It exists so the player can see the
+# state of the realm before choosing a mass operation, which is the thing
+# this mod otherwise makes very easy to get wrong.
+# ---------------------------------------------------------------------
+
+
+# --- 1. Realm loyalty report ---------------------------------------------
+#
+# Everything is carried by the desc localisation, which reads the script
+# values in advancedvassalmanager_values_loyalty.txt. Taking the decision
+# does nothing at all; the confirm dialog IS the feature.
+
+avm_loyalty_report_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = avm_loyalty_report_decision_desc
+	selection_tooltip = avm_loyalty_report_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_misc
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		custom_tooltip = avm_loyalty_report_effect_tt
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
+
+# --- 2. Protect all powerful vassals --------------------------------------
+#
+# Companion to Protect All Dynasty Members and Protect All Councillors. The
+# powerful vassals are the ones whose removal starts a war you did not plan,
+# so this is the safety catch to pull before arming mass revocation.
+
+avm_protect_powerful_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = avm_protect_powerful_decision_desc
+	selection_tooltip = avm_protect_powerful_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_misc
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_vassal = {
+			limit = { is_powerful_vassal = yes }
+			add_character_flag = avm_protected
+		}
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
+
+# --- 3. Protect all content vassals ---------------------------------------
+#
+# The inverse filter to Revoke Every Title of Disloyal Vassals. Run this
+# first and the disloyalty revoke becomes considerably harder to misfire,
+# because anyone who does not deserve it is already exempt.
+
+avm_protect_content_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = avm_protect_content_decision_desc
+	selection_tooltip = avm_protect_content_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_misc
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_vassal = {
+			limit = {
+				opinion = {
+					target = root
+					value >= 0
+				}
+			}
+			add_character_flag = avm_protected
+		}
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}

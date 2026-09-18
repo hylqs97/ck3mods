@@ -1,0 +1,123 @@
+﻿close_advanced_vassal_manager_menu = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+    desc = close_advanced_vassal_manager_menu_desc
+    selection_tooltip = close_advanced_vassal_manager_menu_desc
+    confirm_text = CONFIRM_OKAY
+
+    ai_check_interval = 0
+
+    is_shown = {
+        is_ruler = yes
+		is_ai = no
+	    has_character_flag = advanced_vassal_manager
+        NOR = { 
+            has_character_flag = avm_grant_titles
+            has_character_flag = avm_revoke_titles
+            has_character_flag = avm_misc
+        }
+    }
+
+    effect = {
+        remove_character_flag = advanced_vassal_manager
+    }
+
+    ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+close_avm_grant_titles_menu = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+    desc = close_avm_grant_titles_menu_desc
+    selection_tooltip = close_avm_grant_titles_menu_desc
+    confirm_text = CONFIRM_OKAY
+
+    ai_check_interval = 0
+
+    is_shown = {
+        is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+	    has_character_flag = avm_grant_titles
+    }
+
+    effect = {
+        remove_character_flag = avm_grant_titles
+    }
+
+    ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+close_avm_revoke_titles_menu = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+    desc = close_avm_revoke_titles_menu_desc
+    selection_tooltip = close_avm_revoke_titles_menu_desc
+    confirm_text = CONFIRM_OKAY
+
+    ai_check_interval = 0
+
+    is_shown = {
+        is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+	    has_character_flag = avm_revoke_titles
+    }
+
+    effect = {
+        remove_character_flag = avm_revoke_titles
+    }
+
+    ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+close_avm_misc_menu = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+    desc = close_avm_misc_menu_desc
+    selection_tooltip = close_avm_misc_menu_desc
+    confirm_text = CONFIRM_OKAY
+
+    ai_check_interval = 0
+
+    is_shown = {
+        is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+	    has_character_flag = avm_misc
+    }
+
+    effect = {
+        remove_character_flag = avm_misc
+    }
+
+    ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

@@ -1,0 +1,66 @@
+﻿autoedu_exclude_from_automatic_education_interaction = {
+  category = interaction_category_friendly
+  icon = child
+  interface_priority = 32
+  desc = autoedu_exclude_from_automatic_education_interaction_desc
+  auto_accept = yes
+
+  is_shown = {
+    scope:actor = {
+      is_ai = no
+      exists = var:autoedu_settings_initialized
+    }
+    scope:recipient = {
+      is_alive = yes
+      is_adult = no
+      autoedu_child_in_actor_education_scope_trigger = yes
+      NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+    }
+  }
+
+  on_accept = {
+    show_as_tooltip = {
+      scope:recipient = {
+        custom_tooltip = autoedu_exclude_from_automatic_education_interaction_outcome
+      }
+    }
+    scope:recipient = {
+      autoedu_exclude_child_from_automatic_education_effect = yes
+    }
+  }
+
+  ai_will_do = { base = 0 }
+}
+
+autoedu_return_to_automatic_education_interaction = {
+  category = interaction_category_friendly
+  icon = child
+  interface_priority = 32
+  desc = autoedu_return_to_automatic_education_interaction_desc
+  auto_accept = yes
+
+  is_shown = {
+    scope:actor = {
+      is_ai = no
+      exists = var:autoedu_settings_initialized
+    }
+    scope:recipient = {
+      is_alive = yes
+      is_adult = no
+      has_character_flag = autoedu_excluded_from_automatic_education
+    }
+  }
+
+  on_accept = {
+    show_as_tooltip = {
+      scope:recipient = {
+        custom_tooltip = autoedu_return_to_automatic_education_interaction_outcome
+      }
+    }
+    scope:recipient = {
+      autoedu_return_child_to_automatic_education_effect = yes
+    }
+  }
+
+  ai_will_do = { base = 0 }
+}

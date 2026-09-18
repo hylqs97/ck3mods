@@ -1,0 +1,41 @@
+{
+  "imported_at": "2026-09-18T15:56:38+08:00",
+  "staging": "C:\\Users\\40368\\AppData\\Local\\Temp\\ck3mods-import-ohf5wzfo",
+  "mods": [
+    {
+      "mod": "automated-courtier-management",
+      "files": 11,
+      "source_unchanged": true,
+      "repository": "D:\\IdeaProjects\\ck3mods\\mods\\workshop\\automated-courtier-management",
+      "deployed": "G:\\SteamLibrary\\steamapps\\common\\Crusader Kings III\\mod\\automated-courtier-management"
+    },
+    {
+      "mod": "automatic-education",
+      "files": 34,
+      "source_unchanged": true,
+      "repository": "D:\\IdeaProjects\\ck3mods\\mods\\workshop\\automatic-education",
+      "deployed": "G:\\SteamLibrary\\steamapps\\common\\Crusader Kings III\\mod\\automatic-education"
+    },
+    {
+      "mod": "vassal-manager-reboot",
+      "files": 27,
+      "source_unchanged": true,
+      "repository": "D:\\IdeaProjects\\ck3mods\\mods\\workshop\\vassal-manager-reboot",
+      "deployed": "G:\\SteamLibrary\\steamapps\\common\\Crusader Kings III\\mod\\vassal-manager-reboot"
+    },
+    {
+      "mod": "automated-courtier-management-cn",
+      "files": 11,
+      "source_unchanged": true,
+      "repository": "D:\\IdeaProjects\\ck3mods\\mods\\derived\\automated-courtier-management-cn",
+      "deployed": "G:\\SteamLibrary\\steamapps\\common\\Crusader Kings III\\mod\\automated-courtier-management-cn"
+    },
+    {
+      "mod": "vassal-manager-reboot-cn",
+      "files": 2,
+      "source_unchanged": true,
+      "repository": "D:\\IdeaProjects\\ck3mods\\mods\\derived\\vassal-manager-reboot-cn",
+      "deployed": "G:\\SteamLibrary\\steamapps\\common\\Crusader Kings III\\mod\\vassal-manager-reboot-cn"
+    }
+  ]
+}

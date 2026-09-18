@@ -1,0 +1,987 @@
+﻿namespace = autoedu
+
+autoedu.0090 = {
+  type = character_event
+  hidden = yes
+  trigger = { is_ai = no }
+  immediate = {
+    autoedu_release_check_now_effect = yes
+  }
+}
+
+autoedu.0100 = {
+  type = character_event
+  hidden = yes
+  trigger = {
+    is_ai = no
+    OR = {
+      autoedu_editor_current_schema_valid_trigger = yes
+      AND = { exists = var:autoedu_settings_initialized NOT = { exists = var:autoedu_editor_schema_version } }
+    }
+    NOT = { has_character_flag = autoedu_auto_scan_cooldown }
+  }
+  immediate = {
+    if = { limit = { exists = var:autoedu_settings_initialized NOT = { exists = var:autoedu_editor_schema_version } } autoedu_release_migrate_legacy_1_10_effect = yes }
+    if = {
+      limit = { autoedu_editor_current_schema_valid_trigger = yes NOT = { autoedu_release_all_core_modes_off_trigger = yes } }
+      add_character_flag = { flag = autoedu_auto_scan_cooldown days = 14 }
+      autoedu_release_background_scan_effect = yes
+    }
+  }
+}
+
+autoedu.0102 = {
+  type = character_event
+  hidden = yes
+  trigger = {
+    is_ai = no
+    autoedu_release_scheduler_schema_compatible_trigger = yes
+  }
+  immediate = {
+    if = { limit = { exists = var:autoedu_settings_initialized NOT = { exists = var:autoedu_editor_schema_version } } autoedu_release_migrate_legacy_1_10_effect = yes }
+    autoedu_release_prepare_context_effect = yes
+    if = { limit = { autoedu_editor_current_schema_valid_trigger = yes NOT = { has_character_flag = autoedu_auto_scan_cooldown } NOT = { autoedu_release_all_core_modes_off_trigger = yes } } trigger_event = { id = autoedu.0100 } }
+    if = { limit = { autoedu_editor_current_schema_valid_trigger = yes } trigger_event = { id = autoedu.0102 days = 14 } }
+  }
+}
+
+autoedu.0103 = {
+  type = character_event
+  hidden = yes
+  trigger = {
+    is_ai = no
+    autoedu_release_scheduler_schema_compatible_trigger = yes
+  }
+  immediate = {
+    remove_character_flag = autoedu_personality_event_scan_loop_started
+  }
+}
+
+autoedu.0104 = {
+  type = character_event
+  hidden = yes
+  trigger = {
+    is_ai = no
+    has_character_flag = autoedu_child_exam_scan_loop_started
+    autoedu_release_scheduler_schema_compatible_trigger = yes
+  }
+  immediate = {
+    if = { limit = { exists = var:autoedu_settings_initialized NOT = { exists = var:autoedu_editor_schema_version } } autoedu_release_migrate_legacy_1_10_effect = yes }
+    autoedu_release_prepare_context_effect = yes
+    if = { limit = { autoedu_editor_current_schema_valid_trigger = yes } autoedu_release_periodic_exam_scan_effect = yes trigger_event = { id = autoedu.0104 days = 30 } }
+  }
+}
+
+autoedu.0105 = {
+  type = character_event
+  hidden = yes
+  trigger = {
+    is_ai = no
+    autoedu_release_scheduler_schema_compatible_trigger = yes
+  }
+  immediate = {
+    remove_character_flag = autoedu_martial_training_event_scan_loop_started
+  }
+}
+
+autoedu.0106 = {
+  type = character_event
+  hidden = yes
+  trigger = {
+    is_ai = no
+    has_character_flag = autoedu_ward_reminder_scan_loop_started
+    autoedu_release_scheduler_schema_compatible_trigger = yes
+  }
+  immediate = {
+    if = { limit = { exists = var:autoedu_settings_initialized NOT = { exists = var:autoedu_editor_schema_version } } autoedu_release_migrate_legacy_1_10_effect = yes }
+    autoedu_release_prepare_context_effect = yes
+    if = {
+      limit = { autoedu_editor_current_schema_valid_trigger = yes has_character_flag = autoedu_ward_reminder_scan_loop_started }
+      save_scope_as = autoedu_owner
+      clear_saved_scope = autoedu_personality_child
+      clear_saved_scope = autoedu_martial_training_child
+      if = {
+        limit = {
+          has_bp2_dlc_trigger = yes
+          var:autoedu_editor_general_personality_mode = 1
+          NOT = { exists = var:autoedu_ward_reminder_personality_queued }
+        }
+        autoedu_find_personality_influence_ward_for_owner_effect = yes
+      }
+      if = {
+        limit = {
+          has_mpo_dlc_trigger = yes
+          var:autoedu_editor_general_martial_training_mode = 1
+          NOT = { exists = var:autoedu_ward_reminder_martial_queued }
+        }
+        autoedu_find_martial_training_ward_for_owner_effect = yes
+      }
+      if = {
+        limit = {
+          exists = scope:autoedu_personality_child
+          exists = scope:autoedu_martial_training_child
+        }
+        set_variable = { name = autoedu_ward_reminder_personality_age value = scope:autoedu_personality_child.age }
+        set_variable = { name = autoedu_ward_reminder_martial_age value = scope:autoedu_martial_training_child.age }
+        if = {
+          limit = { var:autoedu_ward_reminder_personality_age >= var:autoedu_ward_reminder_martial_age }
+          autoedu_enqueue_ward_reminder_effect = { TYPE = 1 CHILD = scope:autoedu_personality_child QUEUED_VAR = autoedu_ward_reminder_personality_queued }
+          autoedu_enqueue_ward_reminder_effect = { TYPE = 2 CHILD = scope:autoedu_martial_training_child QUEUED_VAR = autoedu_ward_reminder_martial_queued }
+        }
+        else = {
+          autoedu_enqueue_ward_reminder_effect = { TYPE = 2 CHILD = scope:autoedu_martial_training_child QUEUED_VAR = autoedu_ward_reminder_martial_queued }
+          autoedu_enqueue_ward_reminder_effect = { TYPE = 1 CHILD = scope:autoedu_personality_child QUEUED_VAR = autoedu_ward_reminder_personality_queued }
+        }
+        remove_variable = autoedu_ward_reminder_personality_age
+        remove_variable = autoedu_ward_reminder_martial_age
+      }
+      else_if = {
+        limit = { exists = scope:autoedu_personality_child }
+        autoedu_enqueue_ward_reminder_effect = { TYPE = 1 CHILD = scope:autoedu_personality_child QUEUED_VAR = autoedu_ward_reminder_personality_queued }
+      }
+      else_if = {
+        limit = { exists = scope:autoedu_martial_training_child }
+        autoedu_enqueue_ward_reminder_effect = { TYPE = 2 CHILD = scope:autoedu_martial_training_child QUEUED_VAR = autoedu_ward_reminder_martial_queued }
+      }
+      autoedu_dispatch_ward_reminder_queue_effect = yes
+      trigger_event = { id = autoedu.0106 days = 1 }
+    }
+  }
+}
+
+autoedu.0110 = {
+  type = character_event
+  hidden = yes
+
+  immediate = {
+    save_scope_as = autoedu_dead_guardian
+
+    every_relation = {
+      type = ward
+      limit = {
+        is_alive = yes
+        is_adult = no
+        age >= 0
+        age < 16
+        acm_infant_guardian_subject_trigger = yes
+      }
+      save_scope_as = autoedu_child
+
+      every_player = {
+        limit = {
+          is_alive = yes
+          is_ai = no
+          OR = {
+            autoedu_editor_current_schema_valid_trigger = yes
+            AND = { exists = var:autoedu_settings_initialized NOT = { exists = var:autoedu_editor_schema_version } }
+          }
+        }
+
+        if = { limit = { exists = var:autoedu_settings_initialized NOT = { exists = var:autoedu_editor_schema_version } } autoedu_release_migrate_legacy_1_10_effect = yes }
+        save_scope_as = autoedu_owner
+
+        if = {
+          limit = {
+            scope:autoedu_child = {
+              autoedu_release_child_matches_any_guardian_policy_trigger = yes
+              NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+              NOT = { has_character_flag = autoedu_guardian_loss_event_pending }
+            }
+          }
+
+          add_to_variable_list = {
+            name = autoedu_guardian_loss_queue
+            target = scope:autoedu_child
+          }
+
+          scope:autoedu_child = {
+            add_character_flag = {
+              flag = autoedu_guardian_loss_event_pending
+              days = 14
+            }
+            set_variable = {
+              name = autoedu_dead_guardian
+              value = scope:autoedu_dead_guardian
+              days = 14
+            }
+          }
+
+          if = {
+            limit = { NOT = { has_character_flag = autoedu_guardian_loss_queue_active } }
+            add_character_flag = {
+              flag = autoedu_guardian_loss_queue_active
+              days = 14
+            }
+            trigger_event = {
+              id = autoedu.0140
+              days = 3
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+autoedu.0140 = {
+  type = character_event
+  hidden = yes
+
+  trigger = {
+    is_ai = no
+    autoedu_editor_current_schema_valid_trigger = yes
+  }
+
+  immediate = {
+    save_scope_as = autoedu_owner
+    remove_character_flag = autoedu_guardian_loss_queue_selected
+
+    every_in_list = {
+      variable = autoedu_guardian_loss_queue
+      limit = {
+        OR = {
+          is_alive = no
+          is_adult = yes
+          age < 0
+          age >= 16
+          NOT = { acm_infant_guardian_subject_trigger = yes }
+          NOT = { has_character_flag = autoedu_guardian_loss_event_pending }
+          NOT = { num_of_relation_guardian = 0 }
+          has_character_flag = autoedu_excluded_from_automatic_education
+        }
+      }
+      save_scope_as = autoedu_resolved_child
+      remove_character_flag = autoedu_guardian_loss_event_pending
+      if = {
+        limit = { exists = var:autoedu_dead_guardian }
+        remove_variable = autoedu_dead_guardian
+      }
+      root = {
+        remove_list_variable = {
+          name = autoedu_guardian_loss_queue
+          target = scope:autoedu_resolved_child
+        }
+      }
+    }
+
+    every_in_list = {
+      variable = autoedu_guardian_loss_queue
+      limit = {
+        is_alive = yes
+        is_adult = no
+        age >= 0
+        age < 16
+        acm_infant_guardian_subject_trigger = yes
+        has_character_flag = autoedu_guardian_loss_event_pending
+        num_of_relation_guardian = 0
+        NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+        autoedu_release_child_matches_any_guardian_policy_trigger = yes
+      }
+      if = {
+        limit = {
+          root = { NOT = { has_character_flag = autoedu_guardian_loss_queue_selected } }
+        }
+        save_scope_as = autoedu_child
+        root = {
+          add_character_flag = {
+            flag = autoedu_guardian_loss_queue_selected
+            days = 1
+          }
+        }
+      }
+    }
+
+    if = {
+      limit = { exists = scope:autoedu_child }
+      if = {
+        limit = { exists = scope:autoedu_child.var:autoedu_dead_guardian }
+        scope:autoedu_child.var:autoedu_dead_guardian = { save_scope_as = autoedu_dead_guardian }
+      }
+
+      autoedu_release_handle_guardian_loss_child_effect = yes
+    }
+    else = {
+      remove_character_flag = autoedu_guardian_loss_queue_active
+      clear_variable_list = autoedu_guardian_loss_queue
+    }
+  }
+}
+
+autoedu.0120 = {
+  type = character_event
+  title = autoedu.0120.t
+  desc = autoedu.0120.desc
+  theme = death
+
+  left_portrait = { character = scope:autoedu_child }
+  right_portrait = {
+    trigger = { exists = scope:autoedu_dead_guardian }
+    character = scope:autoedu_dead_guardian
+    animation = dead
+  }
+
+  trigger = {
+    is_ai = no
+    exists = scope:autoedu_child
+    scope:autoedu_child = {
+      is_alive = yes
+      is_adult = no
+      age >= 0
+      age < 16
+      acm_infant_guardian_subject_trigger = yes
+      has_character_flag = autoedu_guardian_loss_event_pending
+      num_of_relation_guardian = 0
+      NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+    }
+  }
+
+  immediate = {
+    autoedu_release_prepare_context_effect = yes
+    save_scope_as = autoedu_owner
+  }
+
+  option = {
+    name = autoedu.0120.choose
+    trigger = {
+      NOT = { var:autoedu_guardian_mode = flag:off }
+      scope:autoedu_child = {
+        num_of_relation_guardian = 0
+        acm_infant_guardian_subject_trigger = yes
+        autoedu_guardian_child_scope_setting_trigger = yes
+      }
+    }
+    custom_tooltip = autoedu.tt.guardian_dead_choose
+    autoedu_prepare_focus_or_guardian_effect = yes
+  }
+
+  option = {
+    name = autoedu.0120.wait_cleanup
+    trigger = {
+      scope:autoedu_child = {
+        NOT = { num_of_relation_guardian = 0 }
+      }
+    }
+    custom_tooltip = autoedu.tt.guardian_dead_wait_cleanup
+    trigger_event = {
+      id = autoedu.0120
+      days = 7
+    }
+  }
+
+  option = {
+    name = autoedu.0120.postpone
+    custom_tooltip = autoedu.tt.guardian_dead_postpone
+    scope:autoedu_child = {
+      add_character_flag = {
+        flag = autoedu_guardian_postponed
+        months = 6
+      }
+    }
+    autoedu_finish_guardian_loss_child_effect = yes
+  }
+
+  option = {
+    name = autoedu.0120.ignore
+    custom_tooltip = autoedu_common_stop_automatic_education_tt
+    scope:autoedu_child = {
+      autoedu_exclude_child_from_automatic_education_effect = yes
+    }
+    autoedu_finish_guardian_loss_child_effect = yes
+  }
+}
+
+autoedu.1000 = {
+  type = character_event
+  title = autoedu.1000.t
+  desc = autoedu.1000.desc
+  theme = family
+
+  left_portrait = { character = scope:autoedu_child }
+  right_portrait = {
+    trigger = { exists = scope:autoedu_candidate_1 }
+    character = scope:autoedu_candidate_1
+  }
+  lower_center_portrait = {
+    trigger = { exists = scope:autoedu_candidate_2 }
+    character = scope:autoedu_candidate_2
+  }
+  lower_right_portrait = {
+    trigger = { exists = scope:autoedu_candidate_3 }
+    character = scope:autoedu_candidate_3
+  }
+
+  option = {
+    name = autoedu.1000.self
+    trigger = {
+      autoedu_player_can_be_guardian_trigger = yes
+      scope:autoedu_child = { num_of_relation_guardian = 0 }
+    }
+    hidden_effect = {
+      autoedu_assign_guardian_effect = { GUARDIAN = root }
+    }
+  }
+
+  option = {
+    name = autoedu.1000.a
+    trigger = {
+      exists = scope:autoedu_candidate_1
+      scope:autoedu_child = { num_of_relation_guardian = 0 }
+      scope:autoedu_candidate_1 = {
+        autoedu_guardian_base_trigger = yes
+        autoedu_release_guardian_policy_filter_trigger = yes
+      }
+    }
+    autoedu_event_candidate_native_section_tooltips_effect = { CANDIDATE = scope:autoedu_candidate_1 EDUCATION_TT = autoedu.tt.candidate_1.education_section ENVIRONMENT_TT = autoedu.tt.candidate_1.environment_section SECONDARY_TT = autoedu.tt.candidate_1.secondary_section RISK_TT = autoedu.tt.candidate_1.risk_section DEBUG_TT = autoedu.tt.candidate_1.debug_section EDUCATION_ANY_VAR = autoedu_tt_c1_education_any ENVIRONMENT_ANY_VAR = autoedu_tt_c1_env_any SECONDARY_ANY_VAR = autoedu_tt_c1_secondary_any RISK_ANY_VAR = autoedu_tt_c1_risk_any NORMAL_ANY_VAR = autoedu_tt_c1_normal_any DEBUG_READY_VAR = autoedu_tt_c1_debug_ready }
+    hidden_effect = {
+      autoedu_assign_guardian_effect = { GUARDIAN = scope:autoedu_candidate_1 }
+    }
+  }
+
+  option = {
+    name = autoedu.1000.b
+    trigger = {
+      exists = scope:autoedu_candidate_2
+      scope:autoedu_child = { num_of_relation_guardian = 0 }
+      scope:autoedu_candidate_2 = {
+        autoedu_guardian_base_trigger = yes
+        autoedu_release_guardian_policy_filter_trigger = yes
+      }
+    }
+    autoedu_event_candidate_native_section_tooltips_effect = { CANDIDATE = scope:autoedu_candidate_2 EDUCATION_TT = autoedu.tt.candidate_2.education_section ENVIRONMENT_TT = autoedu.tt.candidate_2.environment_section SECONDARY_TT = autoedu.tt.candidate_2.secondary_section RISK_TT = autoedu.tt.candidate_2.risk_section DEBUG_TT = autoedu.tt.candidate_2.debug_section EDUCATION_ANY_VAR = autoedu_tt_c2_education_any ENVIRONMENT_ANY_VAR = autoedu_tt_c2_env_any SECONDARY_ANY_VAR = autoedu_tt_c2_secondary_any RISK_ANY_VAR = autoedu_tt_c2_risk_any NORMAL_ANY_VAR = autoedu_tt_c2_normal_any DEBUG_READY_VAR = autoedu_tt_c2_debug_ready }
+    hidden_effect = {
+      autoedu_assign_guardian_effect = { GUARDIAN = scope:autoedu_candidate_2 }
+    }
+  }
+
+  option = {
+    name = autoedu.1000.c
+    trigger = {
+      exists = scope:autoedu_candidate_3
+      scope:autoedu_child = { num_of_relation_guardian = 0 }
+      scope:autoedu_candidate_3 = {
+        autoedu_guardian_base_trigger = yes
+        autoedu_release_guardian_policy_filter_trigger = yes
+      }
+    }
+    autoedu_event_candidate_native_section_tooltips_effect = { CANDIDATE = scope:autoedu_candidate_3 EDUCATION_TT = autoedu.tt.candidate_3.education_section ENVIRONMENT_TT = autoedu.tt.candidate_3.environment_section SECONDARY_TT = autoedu.tt.candidate_3.secondary_section RISK_TT = autoedu.tt.candidate_3.risk_section DEBUG_TT = autoedu.tt.candidate_3.debug_section EDUCATION_ANY_VAR = autoedu_tt_c3_education_any ENVIRONMENT_ANY_VAR = autoedu_tt_c3_env_any SECONDARY_ANY_VAR = autoedu_tt_c3_secondary_any RISK_ANY_VAR = autoedu_tt_c3_risk_any NORMAL_ANY_VAR = autoedu_tt_c3_normal_any DEBUG_READY_VAR = autoedu_tt_c3_debug_ready }
+    hidden_effect = {
+      autoedu_assign_guardian_effect = { GUARDIAN = scope:autoedu_candidate_3 }
+    }
+  }
+
+  option = {
+    name = autoedu.1000.postpone
+    custom_tooltip = autoedu_common_reminder_half_year_tt
+    hidden_effect = {
+      scope:autoedu_child = {
+        add_character_flag = {
+          flag = autoedu_guardian_postponed
+          months = 6
+        }
+      }
+      autoedu_finish_guardian_loss_child_effect = yes
+    }
+  }
+
+  option = {
+    name = autoedu.1000.ignore
+    custom_tooltip = autoedu_common_stop_automatic_education_tt
+    hidden_effect = {
+      scope:autoedu_child = {
+        autoedu_exclude_child_from_automatic_education_effect = yes
+      }
+      autoedu_finish_guardian_loss_child_effect = yes
+    }
+  }
+}
+
+autoedu.1100 = {
+  type = character_event
+  hidden = yes
+
+  trigger = {
+    is_ai = no
+    exists = scope:autoedu_child
+  }
+
+  immediate = {
+    autoedu_release_prepare_context_effect = yes
+    save_scope_as = autoedu_owner
+    autoedu_continue_guardian_assignment_effect = yes
+  }
+}
+
+autoedu.1200 = {
+  type = character_event
+  title = autoedu.1200.t
+  desc = autoedu.1200.desc
+  theme = education
+
+  left_portrait = { character = scope:autoedu_child }
+
+  immediate = {
+    autoedu_release_prepare_context_effect = yes
+    save_scope_as = autoedu_owner
+  }
+
+  option = {
+    name = autoedu.1200.diplomacy
+    trigger = {
+      scope:autoedu_child = {
+        OR = {
+          has_trait = curious
+          has_trait = charming
+        }
+      }
+    }
+    custom_tooltip = autoedu.tt.focus_diplomacy
+    scope:autoedu_child = {
+      autoedu_set_child_focus_effect = { FOCUS = education_diplomacy }
+      add_character_flag = {
+        flag = autoedu_focus_handled
+        years = 10
+      }
+    }
+    trigger_event = { id = autoedu.1100 }
+  }
+
+  option = {
+    name = autoedu.1200.martial
+    trigger = {
+      scope:autoedu_child = {
+        OR = {
+          has_trait = rowdy
+          has_trait = bossy
+        }
+      }
+    }
+    custom_tooltip = autoedu.tt.focus_martial
+    scope:autoedu_child = {
+      autoedu_set_child_focus_effect = { FOCUS = education_martial }
+      add_character_flag = {
+        flag = autoedu_focus_handled
+        years = 10
+      }
+    }
+    trigger_event = { id = autoedu.1100 }
+  }
+
+  option = {
+    name = autoedu.1200.stewardship
+    trigger = {
+      scope:autoedu_child = {
+        OR = {
+          has_trait = pensive
+          has_trait = bossy
+        }
+      }
+    }
+    custom_tooltip = autoedu.tt.focus_stewardship
+    scope:autoedu_child = {
+      autoedu_set_child_focus_effect = { FOCUS = education_stewardship }
+      add_character_flag = {
+        flag = autoedu_focus_handled
+        years = 10
+      }
+    }
+    trigger_event = { id = autoedu.1100 }
+  }
+
+  option = {
+    name = autoedu.1200.intrigue
+    trigger = {
+      scope:autoedu_child = {
+        OR = {
+          has_trait = rowdy
+          has_trait = charming
+        }
+      }
+    }
+    custom_tooltip = autoedu.tt.focus_intrigue
+    scope:autoedu_child = {
+      autoedu_set_child_focus_effect = { FOCUS = education_intrigue }
+      add_character_flag = {
+        flag = autoedu_focus_handled
+        years = 10
+      }
+    }
+    trigger_event = { id = autoedu.1100 }
+  }
+
+  option = {
+    name = autoedu.1200.learning
+    trigger = {
+      scope:autoedu_child = {
+        OR = {
+          has_trait = pensive
+          has_trait = curious
+        }
+      }
+    }
+    custom_tooltip = autoedu.tt.focus_learning
+    scope:autoedu_child = {
+      autoedu_set_child_focus_effect = { FOCUS = education_learning }
+      add_character_flag = {
+        flag = autoedu_focus_handled
+        years = 10
+      }
+    }
+    trigger_event = { id = autoedu.1100 }
+  }
+
+  option = {
+    name = autoedu.1200.skip
+    custom_tooltip = autoedu.tt.focus_skip
+    scope:autoedu_child = {
+      add_character_flag = {
+        flag = autoedu_focus_handled
+        years = 2
+      }
+    }
+    trigger_event = { id = autoedu.1100 }
+  }
+}
+
+autoedu.2000 = {
+  type = character_event
+  title = autoedu.2000.t
+  desc = autoedu.2000.desc
+  theme = education
+
+  left_portrait = { character = scope:autoedu_child }
+
+  immediate = {
+    autoedu_release_prepare_context_effect = yes
+    save_scope_as = autoedu_owner
+  }
+
+  option = {
+    name = autoedu.2000.a
+    trigger = {
+      custom_tooltip = {
+        text = autoedu.tt.university_no_gold
+        autoedu_can_afford_university_with_reserve_trigger = yes
+      }
+      scope:autoedu_child = {
+        autoedu_university_candidate_trigger = yes
+      }
+    }
+    show_as_unavailable = { always = yes }
+    autoedu_send_child_to_university_effect = yes
+  }
+
+  option = {
+    name = autoedu.2000.b
+    custom_tooltip = autoedu_common_reminder_half_year_tt
+    hidden_effect = {
+      scope:autoedu_child = {
+        add_character_flag = {
+          flag = autoedu_university_postponed
+          days = 180
+        }
+      }
+    }
+  }
+
+  option = {
+    name = autoedu.2000.c
+    custom_tooltip = autoedu_common_stop_automatic_education_tt
+    hidden_effect = {
+      scope:autoedu_child = {
+        autoedu_exclude_child_from_automatic_education_effect = yes
+      }
+    }
+  }
+}
+
+autoedu.2100 = {
+  type = character_event
+  hidden = yes
+
+  immediate = {
+    autoedu_release_prepare_context_effect = yes
+    save_scope_as = autoedu_owner
+
+    if = {
+      limit = {
+        autoedu_can_afford_university_with_reserve_trigger = yes
+        scope:autoedu_child = { autoedu_university_candidate_trigger = yes }
+      }
+      autoedu_send_child_to_university_effect = yes
+    }
+    else = {
+      scope:autoedu_child = {
+        add_character_flag = {
+          flag = autoedu_university_postponed
+          days = 180
+        }
+      }
+    }
+  }
+}
+
+autoedu.4100 = {
+  type = character_event
+  title = autoedu.4100.t
+  desc = autoedu.4100.desc
+  theme = education
+
+  left_portrait = { character = scope:autoedu_personality_child }
+  right_portrait = root
+
+  trigger = {
+    is_ai = no
+    has_bp2_dlc_trigger = yes
+    exists = scope:autoedu_personality_child
+    var:autoedu_editor_general_personality_mode = 1
+    scope:autoedu_personality_child = {
+      autoedu_ward_interaction_reminder_subject_trigger = yes
+      NOT = { has_character_flag = autoedu_personality_event_recently_shown }
+      has_relation_guardian = root
+    }
+    is_character_interaction_valid = {
+      interaction = influence_child_personality_interaction
+      recipient = scope:autoedu_personality_child
+    }
+  }
+
+  immediate = {
+    autoedu_release_prepare_context_effect = yes
+    save_scope_as = autoedu_owner
+  }
+
+  option = {
+    name = autoedu.4100.open
+    custom_tooltip = autoedu.tt.personality_open
+    hidden_effect = {
+      scope:autoedu_personality_child = {
+        add_character_flag = {
+          flag = autoedu_personality_event_recently_shown
+          months = 1
+        }
+      }
+    }
+    open_interaction_window = {
+      interaction = influence_child_personality_interaction
+      actor = root
+      recipient = scope:autoedu_personality_child
+    }
+  }
+
+  option = {
+    name = autoedu.4100.later
+    custom_tooltip = autoedu_common_reminder_half_year_tt
+    hidden_effect = {
+      scope:autoedu_personality_child = {
+        add_character_flag = {
+          flag = autoedu_personality_event_recently_shown
+          months = 6
+        }
+      }
+    }
+  }
+}
+
+autoedu.4150 = {
+  type = character_event
+  title = autoedu.4150.t
+  desc = autoedu.4150.desc
+  theme = education
+
+  left_portrait = { character = scope:autoedu_martial_training_child }
+  right_portrait = root
+
+  trigger = {
+    is_ai = no
+    has_mpo_dlc_trigger = yes
+    exists = scope:autoedu_martial_training_child
+    var:autoedu_editor_general_martial_training_mode = 1
+    scope:autoedu_martial_training_child = {
+      autoedu_ward_interaction_reminder_subject_trigger = yes
+      NOT = { has_character_flag = autoedu_martial_training_event_recently_shown }
+      has_relation_guardian = root
+    }
+    is_character_interaction_valid = {
+      interaction = influence_child_commander_interaction
+      recipient = scope:autoedu_martial_training_child
+    }
+  }
+
+  immediate = {
+    autoedu_release_prepare_context_effect = yes
+    save_scope_as = autoedu_owner
+  }
+
+  option = {
+    name = influence_child_commander_interaction
+    custom_tooltip = influence_child_commander_interaction_desc
+    hidden_effect = {
+      scope:autoedu_martial_training_child = {
+        add_character_flag = {
+          flag = autoedu_martial_training_event_recently_shown
+          months = 1
+        }
+      }
+    }
+    open_interaction_window = {
+      interaction = influence_child_commander_interaction
+      actor = root
+      recipient = scope:autoedu_martial_training_child
+    }
+  }
+
+  option = {
+    name = autoedu.4100.later
+    custom_tooltip = autoedu_common_reminder_half_year_tt
+    hidden_effect = {
+      scope:autoedu_martial_training_child = {
+        add_character_flag = {
+          flag = autoedu_martial_training_event_recently_shown
+          months = 6
+        }
+      }
+    }
+  }
+}
+
+autoedu.4200 = {
+  type = character_event
+  title = autoedu.4200.t
+  desc = autoedu.4200.desc
+  theme = education
+
+  left_portrait = { character = scope:autoedu_child_exam_child }
+  right_portrait = root
+
+  trigger = {
+    is_ai = no
+    has_tgp_dlc_trigger = yes
+    government_allows = merit
+    exists = scope:autoedu_child_exam_child
+    autoedu_release_selected_policy_examination_event_trigger = yes
+    influence >= minor_influence_value
+    scope:autoedu_child_exam_child = {
+      is_alive = yes
+      is_ai = yes
+      is_adult = no
+      age >= 6
+      age < 16
+      NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+      NOT = { has_character_flag = autoedu_child_exam_processed_in_batch }
+      NOT = { has_character_flag = autoedu_child_exam_event_postponed }
+      NOT = { has_character_flag = sent_to_exam }
+      NOT = { has_character_flag = passed_child_exam }
+      NOT = { has_character_modifier = tgp_child_exam_cooldown_modifier }
+    }
+    is_character_interaction_valid = {
+      interaction = send_child_to_examination_interaction
+      recipient = scope:autoedu_child_exam_child
+    }
+  }
+
+  immediate = {
+    autoedu_release_prepare_context_effect = yes
+    save_scope_as = autoedu_owner
+  }
+
+  option = {
+    name = autoedu.4200.send
+    custom_tooltip = autoedu.tt.child_exam_send
+    hidden_effect = {
+      autoedu_send_child_to_examination_effect = yes
+    }
+  }
+
+  option = {
+    name = autoedu.4200.later
+    custom_tooltip = autoedu_common_reminder_half_year_tt
+    hidden_effect = {
+      scope:autoedu_child_exam_child = {
+        add_character_flag = {
+          flag = autoedu_child_exam_event_postponed
+          months = 6
+        }
+      }
+    }
+  }
+}
+
+autoedu.3900 = {
+  type = character_event
+  title = acm_diag_scan_empty_title
+  desc = acm_diag_scan_empty_desc
+  theme = education
+  left_portrait = root
+
+  option = { name = autoedu.3900.ok custom_tooltip = autoedu.tt.done }
+
+  option = { name = acm_diag_choose_children hidden_effect = { acm_diag_picker_start_effect = yes } }
+}
+autoedu.3901 = {
+  type = character_event
+  title = autoedu.3901.t
+  desc = autoedu.3901.desc
+  theme = family
+  left_portrait = { character = scope:autoedu_child }
+  option = { name = autoedu.3900.ok custom_tooltip = autoedu.tt.done }
+
+  option = {
+    name = acm_diag_open
+    trigger = { exists = scope:autoedu_child }
+    hidden_effect = { set_variable = { name = acm_diag_child value = scope:autoedu_child } trigger_event = { id = acm_diag.1 } }
+  }
+}
+
+autoedu.3902 = {
+  type = character_event
+  title = autoedu.3902.t
+  desc = autoedu.3902.desc
+  theme = family
+  left_portrait = { character = scope:autoedu_child }
+  option = { name = autoedu.3900.ok custom_tooltip = autoedu.tt.done }
+
+  option = {
+    name = acm_diag_open
+    trigger = { exists = scope:autoedu_child }
+    hidden_effect = { set_variable = { name = acm_diag_child value = scope:autoedu_child } trigger_event = { id = acm_diag.1 } }
+  }
+}
+
+autoedu.3903 = {
+  type = character_event
+  title = autoedu.3903.t
+  desc = autoedu.3903.desc
+  theme = family
+  left_portrait = { character = scope:autoedu_child }
+  option = { name = autoedu.3900.ok custom_tooltip = autoedu.tt.done }
+
+  option = {
+    name = acm_diag_open
+    trigger = { exists = scope:autoedu_child }
+    hidden_effect = { set_variable = { name = acm_diag_child value = scope:autoedu_child } trigger_event = { id = acm_diag.1 } }
+  }
+}
+
+autoedu.3904 = {
+  type = character_event
+  title = autoedu.3904.t
+  desc = autoedu.3904.desc
+  theme = family
+  left_portrait = { character = scope:autoedu_child }
+  option = { name = autoedu.3900.ok custom_tooltip = autoedu.tt.done }
+
+  option = {
+    name = acm_diag_open
+    trigger = { exists = scope:autoedu_child }
+    hidden_effect = { set_variable = { name = acm_diag_child value = scope:autoedu_child } trigger_event = { id = acm_diag.1 } }
+  }
+}
+
+autoedu.5000 = {
+  type = character_event
+  title = autoedu_release_schema_error_title
+  desc = autoedu_release_schema_error_desc
+  theme = education
+  left_portrait = root
+  option = { name = autoedu_editor_close }
+}

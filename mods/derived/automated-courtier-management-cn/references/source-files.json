@@ -1,0 +1,29 @@
+{
+  "source_revision": "sha256:0c75030bcb67b5e8494eeab1ebe574827be8ba03842c9f7ff5b9dc27f8e03a68",
+  "files": {
+    "descriptor.mod": "915ebb51eae35cc7d1962863e145f470c5ccddb03312a05edcdfb8b6530aeba6",
+    "events/acm_diag_events.txt": "45bc706671228760256f357db79bcde229b2c36c5d9eb93d8c1806782bbbdd8e",
+    "events/autoedu_events.txt": "d9a450d008e4290b2b14aa4b95a560a5c88957cc0cdd2725f1a213e6e562cdf1",
+    "common/character_interactions/acm_diag_interactions.txt": "eb7145d817fb84421ae55f87be5561ab85dd94ca0e1f7df6d43bccaef73a4430",
+    "common/customizable_localization/acm_diag_custom_loc.txt": "9d3e2e805f5e9d472d712afea467fb5103ef319204443a925812c619dd80be7d",
+    "common/scripted_effects/acm_diag_effects.txt": "d17c0ce4836f8a041e29c58c9a8be35b02386729357d1e6821b7a5b65a628c01",
+    "common/scripted_effects/acm_diag_picker_effects.txt": "f9c824f892e54c96ad275a64989e2aef293593ab866cf9d4f490346fe7d022f0",
+    "common/scripted_triggers/acm_diag_triggers.txt": "6e33072c5c8040c879957c3620f871eb2523657b1d83e376f3f3e479549d7fe5",
+    "common/scripted_triggers/autoedu_triggers.txt": "1a7b551aaf6c15c9137c83302940d520afe1be70b986e96b7bae481e4919799c",
+    "localization/simp_chinese/auto_court_l_simp_chinese.yml": "a6206b0d9dc77b279de2e9722e9e1230f030048af33a6c28957cf04171f77c94",
+    "localization/replace/simp_chinese/acm_diag_l_simp_chinese.yml": "1215a820f83cc9276797ad861abefdcb7f1d8a66924e3487b6f9f771002a7a29"
+  },
+  "original_import_files": {
+    "descriptor.mod": "915ebb51eae35cc7d1962863e145f470c5ccddb03312a05edcdfb8b6530aeba6",
+    "events/acm_diag_events.txt": "45bc706671228760256f357db79bcde229b2c36c5d9eb93d8c1806782bbbdd8e",
+    "events/autoedu_events.txt": "d9a450d008e4290b2b14aa4b95a560a5c88957cc0cdd2725f1a213e6e562cdf1",
+    "common/character_interactions/acm_diag_interactions.txt": "eb7145d817fb84421ae55f87be5561ab85dd94ca0e1f7df6d43bccaef73a4430",
+    "common/customizable_localization/acm_diag_custom_loc.txt": "9d3e2e805f5e9d472d712afea467fb5103ef319204443a925812c619dd80be7d",
+    "common/scripted_effects/acm_diag_effects.txt": "d17c0ce4836f8a041e29c58c9a8be35b02386729357d1e6821b7a5b65a628c01",
+    "common/scripted_effects/acm_diag_picker_effects.txt": "f9c824f892e54c96ad275a64989e2aef293593ab866cf9d4f490346fe7d022f0",
+    "common/scripted_triggers/acm_diag_triggers.txt": "6e33072c5c8040c879957c3620f871eb2523657b1d83e376f3f3e479549d7fe5",
+    "common/scripted_triggers/autoedu_triggers.txt": "1a7b551aaf6c15c9137c83302940d520afe1be70b986e96b7bae481e4919799c",
+    "localization/simp_chinese/auto_court_l_simp_chinese.yml": "a6206b0d9dc77b279de2e9722e9e1230f030048af33a6c28957cf04171f77c94",
+    "localization/replace/simp_chinese/acm_diag_l_simp_chinese.yml": "1215a820f83cc9276797ad861abefdcb7f1d8a66924e3487b6f9f771002a7a29"
+  }
+}

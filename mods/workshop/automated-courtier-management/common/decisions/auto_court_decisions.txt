@@ -1,0 +1,130 @@
+﻿# Decisions for Automated Courtier Management
+
+# Decision to open the interactive configuration dashboard
+auto_court_settings_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	title = auto_court_settings_decision_title
+	desc = auto_court_settings_decision_desc
+	selection_tooltip = auto_court_settings_decision_tooltip
+	confirm_text = auto_court_settings_decision_confirm_text
+
+	is_shown = {
+		is_ai = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_alive = yes
+	}
+
+	effect = {
+		auto_court_initialize_settings_effect = yes
+		trigger_event = {
+			id = auto_court_event.0001
+		}
+	}
+
+	ai_check_interval = 0
+}
+
+# Decision to run the courtier evaluation and marriage matchmaking immediately on-demand
+auto_court_run_now_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	title = auto_court_run_now_decision_title
+	desc = auto_court_run_now_decision_desc
+	selection_tooltip = auto_court_run_now_decision_tooltip
+	confirm_text = auto_court_run_now_decision_confirm_text
+
+	is_shown = {
+		is_ai = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_alive = yes
+	}
+
+	effect = {
+		auto_court_run_yearly_management_effect = yes
+	}
+
+	ai_check_interval = 0
+}
+
+# -------------------------------------------------------------------
+# DEBUG DECISIONS (Commented out for production release)
+# -------------------------------------------------------------------
+
+# auto_court_debug_populate_decision = {
+# 	picture = {
+# 		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+# 	}
+# 	title = auto_court_debug_populate_decision_title
+# 	desc = auto_court_debug_populate_decision_desc
+# 	selection_tooltip = auto_court_debug_populate_decision_tooltip
+# 	confirm_text = auto_court_debug_populate_decision_confirm_text
+# 
+# 	is_shown = {
+# 		is_ai = no
+# 	}
+# 
+# 	is_valid = {
+# 		is_available = yes
+# 	}
+# 
+# 	effect = {
+# 		auto_court_debug_spawn_test_courtiers_effect = yes
+# 	}
+# 
+# 	ai_check_interval = 0
+# }
+
+# auto_court_debug_setup_master_admin_decision = {
+# 	picture = {
+# 		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+# 	}
+# 	title = auto_court_debug_setup_master_admin_decision_title
+# 	desc = auto_court_debug_setup_master_admin_decision_desc
+# 	selection_tooltip = auto_court_debug_setup_master_admin_decision_tooltip
+# 	confirm_text = auto_court_debug_setup_master_admin_decision_confirm_text
+# 
+# 	is_shown = {
+# 		is_ai = no
+# 	}
+# 
+# 	is_valid = {
+# 		is_available = yes
+# 	}
+# 
+# 	effect = {
+# 		auto_court_debug_setup_master_admin_effect = yes
+# 	}
+# 
+# 	ai_check_interval = 0
+# }
+
+# auto_court_debug_setup_incompetent_admin_decision = {
+# 	picture = {
+# 		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+# 	}
+# 	title = auto_court_debug_setup_incompetent_admin_decision_title
+# 	desc = auto_court_debug_setup_incompetent_admin_decision_desc
+# 	selection_tooltip = auto_court_debug_setup_incompetent_admin_decision_tooltip
+# 	confirm_text = auto_court_debug_setup_incompetent_admin_decision_confirm_text
+# 
+# 	is_shown = {
+# 		is_ai = no
+# 	}
+# 
+# 	is_valid = {
+# 		is_available = yes
+# 	}
+# 
+# 	effect = {
+# 		auto_court_debug_setup_incompetent_admin_effect = yes
+# 	}
+# 
+# 	ai_check_interval = 0
+# }

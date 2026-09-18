@@ -1,0 +1,365 @@
+﻿autoedu_release_policy_0_child_trigger = {
+  scope:autoedu_owner = {
+    exists = primary_heir
+    primary_heir = prev
+  }
+}
+autoedu_release_policy_1_child_trigger = {
+  is_child_of = scope:autoedu_owner
+}
+autoedu_release_policy_2_child_trigger = {
+  OR = {
+    is_grandchild_of = scope:autoedu_owner
+    is_great_grandchild_of = scope:autoedu_owner
+  }
+}
+autoedu_release_policy_3_child_trigger = {
+  NOT = { is_close_family_of = scope:autoedu_owner }
+  any_parent = {
+    even_if_dead = yes
+    is_close_family_of = scope:autoedu_owner
+  }
+}
+autoedu_release_policy_4_child_trigger = {
+  NOT = { is_close_or_extended_family_of = scope:autoedu_owner }
+  any_parent = {
+    even_if_dead = yes
+    is_close_or_extended_family_of = scope:autoedu_owner
+  }
+}
+autoedu_release_policy_5_child_trigger = {
+  exists = house
+  scope:autoedu_owner = { exists = house }
+  house = scope:autoedu_owner.house
+}
+autoedu_release_policy_6_child_trigger = {
+  exists = dynasty
+  scope:autoedu_owner = { exists = dynasty }
+  dynasty = scope:autoedu_owner.dynasty
+}
+autoedu_release_policy_7_child_trigger = {
+  OR = {
+    is_courtier_of = scope:autoedu_owner
+    court_owner ?= { this = scope:autoedu_owner }
+    employer ?= { this = scope:autoedu_owner }
+    host ?= { this = scope:autoedu_owner }
+  }
+}
+autoedu_release_selected_policy_child_trigger = {
+  OR = {
+    AND = {
+      scope:autoedu_owner.var:autoedu_release_selected_policy = 0
+      autoedu_release_policy_0_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_release_selected_policy = 1
+      autoedu_release_policy_1_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_release_selected_policy = 2
+      autoedu_release_policy_2_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_release_selected_policy = 3
+      autoedu_release_policy_3_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_release_selected_policy = 4
+      autoedu_release_policy_4_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_release_selected_policy = 5
+      autoedu_release_policy_5_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_release_selected_policy = 6
+      autoedu_release_policy_6_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_release_selected_policy = 7
+      autoedu_release_policy_7_child_trigger = yes
+    }
+  }
+}
+
+autoedu_release_child_matches_any_guardian_policy_trigger = {
+  OR = {
+    AND = {
+      scope:autoedu_owner.var:autoedu_editor_policy_0_enabled = 1
+      scope:autoedu_owner.var:autoedu_editor_policy_0_guardian_mode > 0
+      autoedu_release_policy_0_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_editor_policy_1_enabled = 1
+      scope:autoedu_owner.var:autoedu_editor_policy_1_guardian_mode > 0
+      autoedu_release_policy_1_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_editor_policy_2_enabled = 1
+      scope:autoedu_owner.var:autoedu_editor_policy_2_guardian_mode > 0
+      autoedu_release_policy_2_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_editor_policy_3_enabled = 1
+      scope:autoedu_owner.var:autoedu_editor_policy_3_guardian_mode > 0
+      autoedu_release_policy_3_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_editor_policy_4_enabled = 1
+      scope:autoedu_owner.var:autoedu_editor_policy_4_guardian_mode > 0
+      autoedu_release_policy_4_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_editor_policy_5_enabled = 1
+      scope:autoedu_owner.var:autoedu_editor_policy_5_guardian_mode > 0
+      autoedu_release_policy_5_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_editor_policy_6_enabled = 1
+      scope:autoedu_owner.var:autoedu_editor_policy_6_guardian_mode > 0
+      autoedu_release_policy_6_child_trigger = yes
+    }
+    AND = {
+      scope:autoedu_owner.var:autoedu_editor_policy_7_enabled = 1
+      scope:autoedu_owner.var:autoedu_editor_policy_7_guardian_mode > 0
+      autoedu_release_policy_7_child_trigger = yes
+    }
+  }
+}
+
+autoedu_release_all_core_modes_off_trigger = {
+  trigger_if = {
+    limit = { var:autoedu_editor_policy_0_enabled = 1 }
+    var:autoedu_editor_policy_0_guardian_mode = 0
+    var:autoedu_editor_policy_0_focus_mode = 0
+    var:autoedu_editor_policy_0_university_mode = 0
+  }
+  trigger_if = {
+    limit = { var:autoedu_editor_policy_1_enabled = 1 }
+    var:autoedu_editor_policy_1_guardian_mode = 0
+    var:autoedu_editor_policy_1_focus_mode = 0
+    var:autoedu_editor_policy_1_university_mode = 0
+  }
+  trigger_if = {
+    limit = { var:autoedu_editor_policy_2_enabled = 1 }
+    var:autoedu_editor_policy_2_guardian_mode = 0
+    var:autoedu_editor_policy_2_focus_mode = 0
+    var:autoedu_editor_policy_2_university_mode = 0
+  }
+  trigger_if = {
+    limit = { var:autoedu_editor_policy_3_enabled = 1 }
+    var:autoedu_editor_policy_3_guardian_mode = 0
+    var:autoedu_editor_policy_3_focus_mode = 0
+    var:autoedu_editor_policy_3_university_mode = 0
+  }
+  trigger_if = {
+    limit = { var:autoedu_editor_policy_4_enabled = 1 }
+    var:autoedu_editor_policy_4_guardian_mode = 0
+    var:autoedu_editor_policy_4_focus_mode = 0
+    var:autoedu_editor_policy_4_university_mode = 0
+  }
+  trigger_if = {
+    limit = { var:autoedu_editor_policy_5_enabled = 1 }
+    var:autoedu_editor_policy_5_guardian_mode = 0
+    var:autoedu_editor_policy_5_focus_mode = 0
+    var:autoedu_editor_policy_5_university_mode = 0
+  }
+  trigger_if = {
+    limit = { var:autoedu_editor_policy_6_enabled = 1 }
+    var:autoedu_editor_policy_6_guardian_mode = 0
+    var:autoedu_editor_policy_6_focus_mode = 0
+    var:autoedu_editor_policy_6_university_mode = 0
+  }
+  trigger_if = {
+    limit = { var:autoedu_editor_policy_7_enabled = 1 }
+    var:autoedu_editor_policy_7_guardian_mode = 0
+    var:autoedu_editor_policy_7_focus_mode = 0
+    var:autoedu_editor_policy_7_university_mode = 0
+  }
+}
+
+autoedu_release_guardian_source_fast_gate_trigger = {
+  is_alive = yes
+  is_ai = yes
+  is_adult = yes
+  NOT = { this = scope:autoedu_owner }
+  NOT = { this = scope:autoedu_child }
+  NOT = { exists = var:autoedu_release_guardian_seen_marker }
+}
+
+autoedu_release_guardian_policy_filter_trigger = {
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_gender = 2 } autoedu_same_gender_guardian_candidate_trigger = yes }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_gender = 3 } is_male = yes }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_gender = 4 } is_female = yes }
+
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_faith = 2 } faith = scope:autoedu_child.faith }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_faith = 4 } faith = scope:autoedu_owner.faith }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_culture = 2 } culture = scope:autoedu_child.culture }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_culture = 4 } culture = scope:autoedu_owner.culture }
+
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_witch = 2 } autoedu_known_witch_guardian_candidate_trigger = yes }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_witch = 3 } NOT = { autoedu_known_witch_guardian_candidate_trigger = yes } }
+
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_min_age = 1 } age >= 20 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_min_age = 2 } age >= 30 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_min_age = 3 } age >= 40 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_min_age = 4 } age >= 50 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_min_age = 5 } age >= 60 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_min_age = 6 } age >= 70 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_max_age = 1 } age <= 20 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_max_age = 2 } age <= 30 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_max_age = 3 } age <= 40 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_max_age = 4 } age <= 50 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_max_age = 5 } age <= 60 }
+  trigger_if = { limit = { scope:autoedu_owner.var:autoedu_release_guardian_max_age = 6 } age <= 70 }
+}
+
+autoedu_release_selected_policy_focus_precedence_trigger = {
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 0 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_0_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_0_focus_mode > 0
+        autoedu_release_policy_0_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 1 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_1_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_1_focus_mode > 0
+        autoedu_release_policy_1_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 2 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_2_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_2_focus_mode > 0
+        autoedu_release_policy_2_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 3 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_3_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_3_focus_mode > 0
+        autoedu_release_policy_3_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 4 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_4_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_4_focus_mode > 0
+        autoedu_release_policy_4_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 5 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_5_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_5_focus_mode > 0
+        autoedu_release_policy_5_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 6 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_6_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_6_focus_mode > 0
+        autoedu_release_policy_6_child_trigger = yes
+      }
+    }
+  }
+}
+
+autoedu_release_selected_policy_examination_precedence_trigger = {
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 0 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_0_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_0_examination_mode > 0
+        autoedu_release_policy_0_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 1 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_1_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_1_examination_mode > 0
+        autoedu_release_policy_1_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 2 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_2_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_2_examination_mode > 0
+        autoedu_release_policy_2_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 3 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_3_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_3_examination_mode > 0
+        autoedu_release_policy_3_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 4 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_4_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_4_examination_mode > 0
+        autoedu_release_policy_4_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 5 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_5_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_5_examination_mode > 0
+        autoedu_release_policy_5_child_trigger = yes
+      }
+    }
+  }
+  trigger_if = {
+    limit = { scope:autoedu_owner.var:autoedu_release_selected_policy > 6 }
+    NOT = {
+      AND = {
+        scope:autoedu_owner.var:autoedu_editor_policy_6_enabled = 1
+        scope:autoedu_owner.var:autoedu_editor_policy_6_examination_mode > 0
+        autoedu_release_policy_6_child_trigger = yes
+      }
+    }
+  }
+}
+
+autoedu_release_selected_policy_examination_event_trigger = {
+  scope:autoedu_owner.var:autoedu_child_exam_mode = flag:event
+}

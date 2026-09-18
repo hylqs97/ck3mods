@@ -1,0 +1,275 @@
+﻿# ---------------------------------------------------------------------
+# Vassal contract obligations - ISOLATED FILE
+#
+# Split out of _extras.txt so a parse failure here cannot cascade into
+# the decisions that follow it. Delete this file to remove all four
+# contract decisions.
+#
+# v2.4: every loop is now gated on government_has_flag = government_is_feudal.
+#
+# WHY. Obligation "types" are not global - they are the contract keys listed
+# in that government's vassal_contract_group in
+# common/subject_contracts/groups/subject_contract_groups.txt. Only
+# feudal_vassal and japan_feudal_vassal contain feudal_government_taxes and
+# feudal_government_levies. Checked against vanilla 1.19:
+#
+#   clan_vassal      -> clan_tax_collector_obligations   (tax collector system)
+#   tribal_vassal    -> tribal_government_obligations    (one 'default' level)
+#   theocracy_vassal -> theocracy_government_obligations (one 'default' level)
+#   republic_vassal  -> republic_government_obligations
+#   admin_vassal     -> administrative_obligations       (estates)
+#   nomad / mandala / herder / celestial / meritocratic  -> own keys
+#
+# tribal, theocracy, republic and herder contracts define a single 'default'
+# obligation level, so there is nothing to set even in principle. Calling
+# vassal_contract_set_obligation_level on them was a no-op at best.
+# ---------------------------------------------------------------------
+
+
+# --- 1. Maximum tax ------------------------------------------------------
+
+avm_contracts_max_tax_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = avm_contracts_max_tax_decision_desc
+	selection_tooltip = avm_contracts_max_tax_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_misc
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = avm_count_feudal_contracts_tt
+			always = yes
+		}
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_vassal = {
+			limit = {
+				NOT = { has_character_flag = avm_protected }
+				government_has_flag = government_is_feudal
+			}
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_taxes
+				level = 4
+			}
+		}
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
+
+# --- 2. Maximum levies ---------------------------------------------------
+
+avm_contracts_max_levies_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = avm_contracts_max_levies_decision_desc
+	selection_tooltip = avm_contracts_max_levies_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_misc
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = avm_count_feudal_contracts_tt
+			always = yes
+		}
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_vassal = {
+			limit = {
+				NOT = { has_character_flag = avm_protected }
+				government_has_flag = government_is_feudal
+			}
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_levies
+				level = 4
+			}
+		}
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
+
+# --- 3. Reset to normal --------------------------------------------------
+#
+# The counterpart the mod was missing. Maximum tax is a one-way door without
+# this - the vanilla UI will not lower an obligation past what crown authority
+# allows, so a player who maxed everything and then hit a faction had no way
+# back short of loading a save. Level 2 is feudal_tax_normal / the levy
+# equivalent (position 2 0 in common/subject_contracts/contracts/feudal.txt,
+# marked default = yes).
+
+avm_contracts_reset_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = avm_contracts_reset_decision_desc
+	selection_tooltip = avm_contracts_reset_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_misc
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = avm_count_feudal_contracts_tt
+			always = yes
+		}
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_vassal = {
+			limit = {
+				NOT = { has_character_flag = avm_protected }
+				government_has_flag = government_is_feudal
+			}
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_taxes
+				level = 2
+			}
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_levies
+				level = 2
+			}
+		}
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+
+
+# --- 4. Set by loyalty ---------------------------------------------------
+#
+# The interesting one. Squeezes vassals who can absorb the opinion hit and
+# eases off the ones who cannot, in a single pass:
+#
+#   opinion >= 50   -> 4  extortionate   (they will still like you)
+#   opinion >= 0    -> 3  high
+#   opinion >= -25  -> 2  normal
+#   below that      -> 1  low            (bribe them back into the fold)
+#
+# Ordering matters: each branch must exclude the ones above it, which is what
+# the else_if chain does. Do not reorder these without re-checking the bounds.
+
+avm_contracts_by_loyalty_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = avm_contracts_by_loyalty_decision_desc
+	selection_tooltip = avm_contracts_by_loyalty_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_misc
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = avm_count_feudal_contracts_tt
+			always = yes
+		}
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_vassal = {
+			limit = {
+				NOT = { has_character_flag = avm_protected }
+				government_has_flag = government_is_feudal
+			}
+
+			if = {
+				limit = {
+					opinion = {
+						target = root
+						value >= 50
+					}
+				}
+				vassal_contract_set_obligation_level = {
+					type = feudal_government_taxes
+					level = 4
+				}
+			}
+			else_if = {
+				limit = {
+					opinion = {
+						target = root
+						value >= 0
+					}
+				}
+				vassal_contract_set_obligation_level = {
+					type = feudal_government_taxes
+					level = 3
+				}
+			}
+			else_if = {
+				limit = {
+					opinion = {
+						target = root
+						value >= -25
+					}
+				}
+				vassal_contract_set_obligation_level = {
+					type = feudal_government_taxes
+					level = 2
+				}
+			}
+			else = {
+				vassal_contract_set_obligation_level = {
+					type = feudal_government_taxes
+					level = 1
+				}
+			}
+		}
+	}
+
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}

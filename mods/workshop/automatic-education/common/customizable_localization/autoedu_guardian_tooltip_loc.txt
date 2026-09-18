@@ -1,0 +1,182 @@
+﻿AutoEduTTDebugFocus = {
+  type = character
+  text = { trigger = { var:autoedu_tt_focus_code = 1 } localization_key = autoedu.tt.debug_focus_diplomacy }
+  text = { trigger = { var:autoedu_tt_focus_code = 2 } localization_key = autoedu.tt.debug_focus_martial }
+  text = { trigger = { var:autoedu_tt_focus_code = 3 } localization_key = autoedu.tt.debug_focus_stewardship }
+  text = { trigger = { var:autoedu_tt_focus_code = 4 } localization_key = autoedu.tt.debug_focus_intrigue }
+  text = { trigger = { var:autoedu_tt_focus_code = 5 } localization_key = autoedu.tt.debug_focus_learning }
+  text = { trigger = { var:autoedu_tt_focus_code = 0 } localization_key = autoedu.tt.debug_focus_unknown }
+}
+
+AutoEduTTLearning = {
+  type = character
+  text = { trigger = { learning >= 25 } localization_key = autoedu.tt.reason_learning_excellent }
+  text = { trigger = { learning >= 15 learning < 25 } localization_key = autoedu.tt.reason_learning_good }
+  text = { trigger = { learning < 15 } localization_key = autoedu.tt.empty }
+}
+
+AutoEduTTDiplomacy = {
+  type = character
+  text = {
+    trigger = {
+      diplomacy >= 20
+      scope:second = { var:autoedu_tt_focus_code = 1 }
+    }
+    localization_key = autoedu.tt.reason_diplomacy_good
+  }
+  text = {
+    trigger = {
+      NOT = {
+        diplomacy >= 20
+        scope:second = { var:autoedu_tt_focus_code = 1 }
+      }
+    }
+    localization_key = autoedu.tt.empty
+  }
+}
+
+AutoEduTTMartial = {
+  type = character
+  text = {
+    trigger = {
+      martial >= 20
+      scope:second = { var:autoedu_tt_focus_code = 2 }
+    }
+    localization_key = autoedu.tt.reason_martial_good
+  }
+  text = {
+    trigger = {
+      NOT = {
+        martial >= 20
+        scope:second = { var:autoedu_tt_focus_code = 2 }
+      }
+    }
+    localization_key = autoedu.tt.empty
+  }
+}
+
+AutoEduTTStewardship = {
+  type = character
+  text = {
+    trigger = {
+      stewardship >= 20
+      scope:second = { var:autoedu_tt_focus_code = 3 }
+    }
+    localization_key = autoedu.tt.reason_stewardship_good
+  }
+  text = {
+    trigger = {
+      NOT = {
+        stewardship >= 20
+        scope:second = { var:autoedu_tt_focus_code = 3 }
+      }
+    }
+    localization_key = autoedu.tt.empty
+  }
+}
+
+AutoEduTTIntrigue = {
+  type = character
+  text = {
+    trigger = {
+      intrigue >= 20
+      scope:second = { var:autoedu_tt_focus_code = 4 }
+    }
+    localization_key = autoedu.tt.reason_intrigue_good
+  }
+  text = {
+    trigger = {
+      NOT = {
+        intrigue >= 20
+        scope:second = { var:autoedu_tt_focus_code = 4 }
+      }
+    }
+    localization_key = autoedu.tt.empty
+  }
+}
+
+AutoEduTTIntellectGood = {
+  type = character
+  text = { trigger = { has_trait = intellect_good_3 } localization_key = autoedu.tt.reason_trait_intellect_good_3 }
+  text = { trigger = { NOT = { has_trait = intellect_good_3 } has_trait = intellect_good_2 } localization_key = autoedu.tt.reason_trait_intellect_good_2 }
+  text = { trigger = { NOR = { has_trait = intellect_good_3 has_trait = intellect_good_2 } has_trait = intellect_good_1 } localization_key = autoedu.tt.reason_trait_intellect_good_1 }
+  text = { trigger = { NOR = { has_trait = intellect_good_3 has_trait = intellect_good_2 has_trait = intellect_good_1 } has_trait = shrewd } localization_key = autoedu.tt.reason_trait_shrewd }
+  text = { trigger = { NOR = { has_trait = intellect_good_3 has_trait = intellect_good_2 has_trait = intellect_good_1 has_trait = shrewd } } localization_key = autoedu.tt.empty }
+}
+
+AutoEduTTIntellectBad = {
+  type = character
+  text = { trigger = { has_trait = intellect_bad_3 } localization_key = autoedu.tt.reason_trait_intellect_bad_3 }
+  text = { trigger = { NOT = { has_trait = intellect_bad_3 } has_trait = intellect_bad_2 } localization_key = autoedu.tt.reason_trait_intellect_bad_2 }
+  text = { trigger = { NOR = { has_trait = intellect_bad_3 has_trait = intellect_bad_2 } has_trait = intellect_bad_1 } localization_key = autoedu.tt.reason_trait_intellect_bad_1 }
+  text = { trigger = { NOR = { has_trait = intellect_bad_3 has_trait = intellect_bad_2 has_trait = intellect_bad_1 } has_trait = dull } localization_key = autoedu.tt.reason_trait_dull }
+  text = { trigger = { NOR = { has_trait = intellect_bad_3 has_trait = intellect_bad_2 has_trait = intellect_bad_1 has_trait = dull } } localization_key = autoedu.tt.empty }
+}
+
+AutoEduTTCultureWard = {
+  type = character
+  text = { trigger = { culture = { has_cultural_parameter = better_ward_education } } localization_key = autoedu.tt.reason_better_ward_education }
+  text = { trigger = { culture = { NOT = { has_cultural_parameter = better_ward_education } } } localization_key = autoedu.tt.empty }
+}
+
+AutoEduTTCultureOutcome = {
+  type = character
+  text = { trigger = { culture = { has_cultural_parameter = guardian_education_better_outcomes } } localization_key = autoedu.tt.reason_guardian_outcome_culture }
+  text = { trigger = { culture = { NOT = { has_cultural_parameter = guardian_education_better_outcomes } } } localization_key = autoedu.tt.empty }
+}
+
+AutoEduTTHouse = {
+  type = character
+  text = { trigger = { house ?= { has_house_aspiration_parameter = service_house_improved_educator_outcome_chance } } localization_key = autoedu.tt.reason_house_educator_bonus }
+  text = { trigger = { NOT = { house ?= { has_house_aspiration_parameter = service_house_improved_educator_outcome_chance } } } localization_key = autoedu.tt.empty }
+}
+
+AutoEduTTKnownWitch = {
+  type = character
+  text = { trigger = { is_witch_known_by_trigger = { CHARACTER = scope:second } } localization_key = autoedu.tt.reason_prefer_witch }
+  text = { trigger = { NOT = { is_witch_known_by_trigger = { CHARACTER = scope:second } } } localization_key = autoedu.tt.empty }
+}
+
+AutoEduTTSameGender = {
+  type = character
+  text = {
+    trigger = {
+      OR = {
+        AND = { is_female = yes scope:second = { is_female = yes } }
+        AND = { is_female = no scope:second = { is_female = no } }
+      }
+    }
+    localization_key = autoedu.tt.reason_prefer_same_gender
+  }
+  text = {
+    trigger = {
+      OR = {
+        AND = { is_female = yes scope:second = { is_female = no } }
+        AND = { is_female = no scope:second = { is_female = yes } }
+      }
+    }
+    localization_key = autoedu.tt.empty
+  }
+}
+
+
+AutoEduTTRiskWounded = {
+  type = character
+  text = { trigger = { has_trait = wounded_1 } localization_key = autoedu.tt.reason_trait_wounded }
+  text = { trigger = { NOT = { has_trait = wounded_1 } } localization_key = autoedu.tt.empty }
+}
+AutoEduTTRiskGout = {
+  type = character
+  text = { trigger = { has_trait = gout_ridden } localization_key = autoedu.tt.reason_trait_gout }
+  text = { trigger = { NOT = { has_trait = gout_ridden } } localization_key = autoedu.tt.empty }
+}
+AutoEduTTRiskIll = {
+  type = character
+  text = { trigger = { has_trait = ill } localization_key = autoedu.tt.reason_trait_ill }
+  text = { trigger = { NOT = { has_trait = ill } } localization_key = autoedu.tt.empty }
+}
+AutoEduTTRiskAge = {
+  type = character
+  text = { trigger = { age >= 60 } localization_key = autoedu.tt.reason_old_age_operational }
+  text = { trigger = { age < 60 } localization_key = autoedu.tt.empty }
+}

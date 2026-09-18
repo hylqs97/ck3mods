@@ -1,0 +1,6 @@
+﻿msg_autoedu_good = {
+  icon = "learning"
+  title = event_message_title
+  desc = event_message_text
+  style = good
+}

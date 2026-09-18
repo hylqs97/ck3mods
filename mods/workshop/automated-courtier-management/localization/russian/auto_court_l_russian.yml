@@ -1,0 +1,119 @@
+﻿l_russian:
+
+ # Decisions
+ auto_court_settings_decision_title:0 "Настройки автоматизации двора"
+ auto_court_settings_decision_desc:0 "Настройте ежегодную автоматическую оценку вашего двора. Установите правила для тех, кто останется, а кто будет изгнан, а также брачные правила и меры защиты."
+ auto_court_settings_decision_tooltip:0 "Открыть панель автоматизации двора для настройки критериев оценки, брачных правил и мер защиты."
+ auto_court_settings_decision_confirm_text:0 "Открыть панель"
+
+ # Character Interactions
+ auto_court_protect_courtier_interaction:0 "Исключить из автоматизации двора"
+ auto_court_protect_courtier_interaction_desc:0 "Отметить персонажа [recipient.GetShortUINameNoTooltip] как исключение из системы автоматизации двора. Этот персонаж #G никогда#! не будет изгнан или автоматически выдан замуж/женат."
+ auto_court_protect_courtier_interaction_outcome:0 "Больше не будет учитываться при автоматизации двора (защита от изгнания и брака)."
+ 
+ auto_court_unprotect_courtier_interaction:0 "Снять исключение из автоматизации"
+ auto_court_unprotect_courtier_interaction_desc:0 "Снять исключение из системы автоматизации для персонажа [recipient.GetShortUINameNoTooltip]. Теперь он будет оцениваться и вступать в брак на общих основаниях во время автоматического управления двором."
+ auto_court_unprotect_courtier_interaction_outcome:0 "Будет учитываться при автоматизации двора."
+ 
+ auto_court_run_now_decision_title:0 "Управлять придворными сейчас"
+ auto_court_run_now_decision_desc:0 "Немедленно оценить всех придворных, изгнав некомпетентных и устроив браки для подходящих холостяков и незамужних дам."
+ auto_court_run_now_decision_tooltip:0 "Немедленно запустить оценку придворных и подбор супругов."
+ auto_court_run_now_decision_confirm_text:0 "Начать управление"
+
+ auto_court_debug_populate_decision_title:0 "(ОТЛАДКА) Создать тестовую группу придворных"
+ auto_court_debug_populate_decision_desc:0 "Мгновенно создает 7 тестовых придворных (с низкими навыками, высокими навыками, любовника, друга, гения) при вашем дворе для тестирования системы автоматизации."
+ auto_court_debug_populate_decision_tooltip:0 "Создать полный набор тестовых придворных с различными свойствами, навыками и отношениями."
+ auto_court_debug_populate_decision_confirm_text:0 "Создать придворных"
+
+ auto_court_debug_setup_master_admin_decision_title:0 "(ОТЛАДКА) Назначить мастера-администратора"
+ auto_court_debug_setup_master_admin_decision_desc:0 "Мгновенно назначает мастера-администратора с навыком 20+ (Сенешаля / Канцлера / Помощника) и включает режим способностей администратора."
+ auto_court_debug_setup_master_admin_decision_tooltip:0 "Создать и назначить мастера-администратора для тестирования идеального подбора браков и 100% точных изгнаний."
+ auto_court_debug_setup_master_admin_decision_confirm_text:0 "Назначить мастера-админ."
+
+ auto_court_debug_setup_incompetent_admin_decision_title:0 "(ОТЛАДКА) Назначить некомпетентного администратора"
+ auto_court_debug_setup_incompetent_admin_decision_desc:0 "Мгновенно назначает некомпетентного администратора с навыком 2 (Сенешаля / Канцлера / Помощника) и включает режим способностей администратора."
+ auto_court_debug_setup_incompetent_admin_decision_tooltip:0 "Создать и назначить некомпетентного администратора для тестирования административных ошибок и стандартного найма."
+ auto_court_debug_setup_incompetent_admin_decision_confirm_text:0 "Назначить некомпетентного админ."
+
+ # Notifications & Reports
+ auto_court_yearly_report_toast_title:0 "Управление придворными завершено"
+ auto_court_yearly_report_toast_desc:0 "Отчет об оценке придворных:\n• Изгнано: [TopScope.GetValue('auto_court_dismissed_val')|0]\n• Вступили в брак: [TopScope.GetValue('auto_court_married_val')|0]\n• Талантливые супруги: [TopScope.GetValue('auto_court_bonus_val')|0]\n• Пощажены по недосмотру: [TopScope.GetValue('auto_court_oversight_val')|0]"
+
+ auto_court_debug_spawn_toast_title:0 "Тестовые придворные созданы"
+ auto_court_debug_spawn_toast_desc:0 "При вашем дворе появилось 7 тестовых придворных с различными профилями (с низкими навыками, высокими навыками, любовник, друг, гений)."
+
+ auto_court_debug_master_admin_toast_title:0 "Назначен мастер-администратор"
+ auto_court_debug_master_admin_toast_desc:0 "При вашем дворе назначен мастер-администратор (навык 20+). Включен режим способностей администратора: подбор идеальных пар и безупречная оценка гарантированы."
+
+ auto_court_debug_incompetent_admin_toast_title:0 "Назначен некомпетентный администратор"
+ auto_court_debug_incompetent_admin_toast_desc:0 "При вашем дворе назначен некомпетентный администратор (навык 2). Включен режим способностей администратора: высок риск серьезных административных ошибок."
+
+ # Game Rules
+ rule_auto_court_rule_status:0 "Автоматизация двора"
+ rule_auto_court_rule_status_desc:0 "Определяет, включена ли по умолчанию система ежегодного автоматического управления придворными для правителей-игроков."
+ setting_auto_court_rule_status_enabled:0 "Включено"
+ setting_auto_court_rule_status_enabled_desc:0 "Управление придворными выполняется автоматически один раз в год."
+ setting_auto_court_rule_status_disabled:0 "Отключено"
+ setting_auto_court_rule_status_disabled_desc:0 "Управление придворными отключено до тех пор, пока не будет активировано вручную в решениях."
+
+ rule_auto_court_rule_aptitude:0 "Автоматизация двора: Точность оценки"
+ rule_auto_court_rule_aptitude_desc:0 "Определяет, будет ли управление двором работать на 100% точно в соответствии с правилами, или же будет зависеть от способностей вашего Канцлера/Сенешаля (или Помощника для безземельных авантюристов)."
+ setting_auto_court_rule_aptitude_strict:0 "Строго (По умолчанию)"
+ setting_auto_court_rule_aptitude_strict_desc:0 "Оценка строго соответствует заданным вами порогам, без ошибок."
+ setting_auto_court_rule_aptitude_influenced:0 "Влияние способностей администратора"
+ setting_auto_court_rule_aptitude_influenced_desc:0 "Компетентность вашего администратора (Канцлера/Сенешаля для земельных правителей, Помощника для безземельных) влияет на качество подобранных супругов и несет небольшой риск административных ошибок."
+
+ # Event 0001: Main Dashboard
+ auto_court_event.0001.t:0 "Автоматизация двора: Панель управления державой"
+ auto_court_event.0001.desc:0 "Обширный двор требует тщательного управления. Отсюда вы можете указывать своим писарям и чиновникам, как отсеивать бесполезных придворных, заключать выгодные браки и сохранять ценные связи.\n\n#V Текущая конфигурация:#! \n• Статус: [Select_CString(ROOT.Var('auto_court_disabled').IsSet, '#N Отключено#!', '#G Активно#!')]\n• Изгнания: [Select_CString(ROOT.Var('auto_court_dismiss_disabled').IsSet, '#N Отключены#!', '#G Активны#!')]\n• Порог навыков для отсева: [ROOT.Var('auto_court_min_stat_threshold').GetValue|0]\n• Автоматические браки: [Select_CString(ROOT.Var('auto_court_marry_disabled').IsSet, '#N Отключены#!', '#G Включены#!')]\n• Режим оценки: [Select_CString(ROOT.Var('auto_court_aptitude_mode').IsSet, '#italic Влияние администратора#!', '#high 100% Строго#!')]"
+ auto_court_event.0001.toggle_status:0 "Переключить статус автоматизации"
+ auto_court_event.0001.configure_stats:0 "Настроить порог навыков для изгнания..."
+ auto_court_event.0001.configure_marriage:0 "Настроить брачные правила..."
+ auto_court_event.0001.configure_safeguards:0 "Настроить меры защиты и исключения..."
+ auto_court_event.0001.configure_aptitude:0 "Настроить точность оценки и способности..."
+ auto_court_event.0001.run_now:0 "#G Запустить оценку придворных прямо сейчас#!"
+ auto_court_event.0001.configuration_menu:0 "Параметры конфигурации..."
+ auto_court_event.0001.debug_spawn:0 "#P (ОТЛАДКА: Создать тестовую группу придворных)#!"
+ auto_court_event.0001.close:0 "Готово"
+
+ # Event 0002: Dismissal Submenu
+ auto_court_event.0002.t:0 "Критерии изгнания и компетентности"
+ auto_court_event.0002.desc:0 "Выберите минимальный стандарт компетентности, которому должен соответствовать придворный, чтобы остаться при вашем дворе. Вы также можете полностью отключить изгнания, если хотите автоматизировать только браки.\n\n#V Текущий статус:#! [Select_CString(ROOT.Var('auto_court_dismiss_disabled').IsSet, '#N Отключены#!', '#G Активны#!')]\n#V Текущий порог:#! [ROOT.Var('auto_court_min_stat_threshold').GetValue|0]"
+ auto_court_event.0002.toggle_dismissal:0 "Переключить изгнание придворных"
+ auto_court_event.0002.threshold_8:0 "Мягко: Минимальный навык 8"
+ auto_court_event.0002.threshold_10:0 "Стандартно: Минимальный навык 10 (По умолчанию)"
+ auto_court_event.0002.threshold_12:0 "Избирательно: Минимальный навык 12"
+ auto_court_event.0002.threshold_15:0 "Элита: Минимальный навык 15"
+
+ # Event 0003: Marriage Submenu
+ auto_court_event.0003.t:0 "Брачная политика"
+ auto_court_event.0003.desc:0 "Настройте автоматическое заключение браков. Если включено, неженатые придворные-мужчины вступают в патрилинейные браки (их жены переезжают к вам), а незамужние женщины — в матрилинейные (их мужья переходят к вашему двору).\n\n#V Текущие правила:#! \n• Статус: [Select_CString(ROOT.Var('auto_court_marry_disabled').IsSet, '#N Отключены#!', '#G Включены#!')]\n• Брак главного наследника: [Select_CString(ROOT.Var('auto_court_marry_heir_allowed').IsSet, '#high Разрешен#!', '#G Защищен (Только вручную)#!')]\n• Браки близких родственников: [Select_CString(ROOT.Var('auto_court_marry_close_family_allowed').IsSet, '#high Разрешены#!', '#G Защищены (Только вручную)#!')]\n• Браки династии: [Select_CString(ROOT.Var('auto_court_marry_dynasty_allowed').IsSet, '#high Разрешены#!', '#G Защищены (Только вручную)#!')]\n• Браки любовников и родственных душ: [Select_CString(ROOT.Var('auto_court_marry_lovers_allowed').IsSet, '#high Разрешены#!', '#G Защищены (Только вручную)#!')]"
+ auto_court_event.0003.toggle_marriage:0 "Переключить автоматические браки"
+ auto_court_event.0003.toggle_heir:0 "Переключить защиту брака наследника"
+ auto_court_event.0003.toggle_close_family:0 "Переключить защиту браков близких родственников"
+ auto_court_event.0003.toggle_dynasty:0 "Переключить защиту браков династии"
+ auto_court_event.0003.toggle_lovers:0 "Переключить защиту браков любовников и родственных душ"
+
+ # Event 0004: Safeguards Submenu
+ auto_court_event.0004.t:0 "Меры защиты и неприкосновенные персонажи"
+ auto_court_event.0004.desc:0 "Меры защиты гарантируют, что важные персонажи НИКОГДА не будут изгнаны, независимо от их навыков.\n\n• Династия и семья: [Select_CString(ROOT.Var('auto_court_safeguard_dynasty_disabled').IsSet, '#N Выкл#!', '#G Защищено#!')]\n• Любовники и друзья: [Select_CString(ROOT.Var('auto_court_safeguard_relationships_disabled').IsSet, '#N Выкл#!', '#G Защищено#!')]\n• Должности и их семьи: [Select_CString(ROOT.Var('auto_court_safeguard_positions_disabled').IsSet, '#N Выкл#!', '#G Защищено#!')]\n• Врожденные свойства: [Select_CString(ROOT.Var('auto_court_safeguard_traits_disabled').IsSet, '#N Выкл#!', '#G Защищено#!')]\n• Закрепленные персонажи: [Select_CString(ROOT.Var('auto_court_safeguard_pinned_disabled').IsSet, '#N Выкл#!', '#G Защищено#!')]"
+ auto_court_event.0004.toggle_dynasty:0 "Переключить защиту династии и семьи"
+ auto_court_event.0004.toggle_relations:0 "Переключить защиту любовников и друзей"
+ auto_court_event.0004.toggle_positions:0 "Переключить защиту должностей и их семей"
+ auto_court_event.0004.toggle_traits:0 "Переключить защиту врожденных свойств"
+ auto_court_event.0004.toggle_pinned:0 "Переключить защиту закрепленных персонажей"
+
+ # Event 0005: Aptitude Submenu
+ auto_court_event.0005.t:0 "Точность оценки и способности"
+ auto_court_event.0005.desc:0 "Настройте способ выполнения оценки придворных:\n\n• #high 100% Строгие правила#!: Чисто математическое выполнение, строго следующее вашим указаниям.\n• #italic Влияние способностей администратора#!: Компетентность вашего администратора (Канцлера/Сенешаля для земельных правителей, Помощника для безземельных) определяет качество подобранных супругов (шанс на высокие свойства/образование) и вносит реалистичный человеческий фактор с возможными ошибками.\n\n#V Текущий режим:#! [Select_CString(ROOT.Var('auto_court_aptitude_mode').IsSet, '#italic Влияние администратора#!', '#high 100% Строго#!')]"
+ auto_court_event.0005.strict_mode:0 "Установить 100% строгие правила (Детерминированно)"
+ auto_court_event.0005.aptitude_mode:0 "Установить режим способностей администратора"
+ auto_court_event.0005.debug_master:0 "#P (ОТЛАДКА: Назначить мастера-администратора)#!"
+ auto_court_event.0005.debug_incompetent:0 "#N (ОТЛАДКА: Назначить некомпетентного администратора)#!"
+
+ # Event 0006: Configuration Submenu
+ auto_court_event.0006.t:0 "Автоматизация двора: Конфигурация и правила"
+ auto_court_event.0006.desc:0 "Тонкая настройка постоянных директив для управления вашим двором. Выберите категорию ниже, чтобы отрегулировать стандарты компетентности, правила заключения браков, защиту персонажей или точность оценки администратора.\n\n#V Текущая конфигурация:#! \n• Статус: [Select_CString(ROOT.Var('auto_court_disabled').IsSet, '#N Отключено#!', '#G Активно#!')]\n• Изгнания: [Select_CString(ROOT.Var('auto_court_dismiss_disabled').IsSet, '#N Отключены#!', '#G Активны#!')]\n• Порог навыков для отсева: [ROOT.Var('auto_court_min_stat_threshold').GetValue|0]\n• Автоматические браки: [Select_CString(ROOT.Var('auto_court_marry_disabled').IsSet, '#N Отключены#!', '#G Включены#!')]\n• Режим оценки: [Select_CString(ROOT.Var('auto_court_aptitude_mode').IsSet, '#italic Влияние администратора#!', '#high 100% Строго#!')]"
+ 
+ # Common Strings
+ auto_court_event.common.back:0 "« Вернуться в главное меню"

@@ -1,0 +1,8 @@
+﻿autoedu_release_scheduler_schema_compatible_trigger = {
+  OR = {
+    autoedu_editor_current_schema_valid_trigger = yes
+    autoedu_editor_schema_12_valid_trigger = yes
+    autoedu_editor_schema_11_valid_trigger = yes
+    AND = { exists = var:autoedu_settings_initialized NOT = { exists = var:autoedu_editor_schema_version } }
+  }
+}

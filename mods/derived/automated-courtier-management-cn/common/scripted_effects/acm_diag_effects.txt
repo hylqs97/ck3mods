@@ -1,0 +1,433 @@
+﻿acm_diag_visit_guardian_source_candidate_fast_body_effect = {
+ set_variable = { name = acm_diag_guardian_seen_marker value = 1 }
+ save_scope_as = acm_diag_guardian_hard_iter
+ scope:autoedu_owner = { add_to_variable_list = { name = acm_diag_guardian_raw_candidates target = scope:acm_diag_guardian_hard_iter } }
+ clear_saved_scope = acm_diag_guardian_hard_iter
+}
+
+acm_diag_collect_guardian_candidates_effect = {
+  clear_variable_list = acm_diag_guardian_raw_candidates
+  if = {
+    limit = { var:acm_diag_selected_policy = 0 }
+    if = { limit = { var:autoedu_editor_policy_0_guardian_area_player_courtiers = 1 } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_0_guardian_area_direct_vassal_realms = 1 } every_vassal = { if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_0_guardian_area_indirect_vassal_realms = 1 } every_vassal_or_below = { limit = { NOT = { is_vassal_of = scope:autoedu_owner } } if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_0_guardian_area_close_relatives = 1 } every_close_family_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_0_guardian_area_distant_relatives = 1 } every_close_or_extended_family_member = { limit = { NOT = { is_close_family_of = scope:autoedu_owner } acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_0_guardian_area_house_members = 1 exists = house } house = { every_house_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_0_guardian_area_dynasty_members = 1 exists = dynasty } dynasty = { every_dynasty_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+  }
+  else_if = {
+    limit = { var:acm_diag_selected_policy = 1 }
+    if = { limit = { var:autoedu_editor_policy_1_guardian_area_player_courtiers = 1 } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_1_guardian_area_direct_vassal_realms = 1 } every_vassal = { if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_1_guardian_area_indirect_vassal_realms = 1 } every_vassal_or_below = { limit = { NOT = { is_vassal_of = scope:autoedu_owner } } if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_1_guardian_area_close_relatives = 1 } every_close_family_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_1_guardian_area_distant_relatives = 1 } every_close_or_extended_family_member = { limit = { NOT = { is_close_family_of = scope:autoedu_owner } acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_1_guardian_area_house_members = 1 exists = house } house = { every_house_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_1_guardian_area_dynasty_members = 1 exists = dynasty } dynasty = { every_dynasty_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+  }
+  else_if = {
+    limit = { var:acm_diag_selected_policy = 2 }
+    if = { limit = { var:autoedu_editor_policy_2_guardian_area_player_courtiers = 1 } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_2_guardian_area_direct_vassal_realms = 1 } every_vassal = { if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_2_guardian_area_indirect_vassal_realms = 1 } every_vassal_or_below = { limit = { NOT = { is_vassal_of = scope:autoedu_owner } } if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_2_guardian_area_close_relatives = 1 } every_close_family_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_2_guardian_area_distant_relatives = 1 } every_close_or_extended_family_member = { limit = { NOT = { is_close_family_of = scope:autoedu_owner } acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_2_guardian_area_house_members = 1 exists = house } house = { every_house_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_2_guardian_area_dynasty_members = 1 exists = dynasty } dynasty = { every_dynasty_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+  }
+  else_if = {
+    limit = { var:acm_diag_selected_policy = 3 }
+    if = { limit = { var:autoedu_editor_policy_3_guardian_area_player_courtiers = 1 } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_3_guardian_area_direct_vassal_realms = 1 } every_vassal = { if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_3_guardian_area_indirect_vassal_realms = 1 } every_vassal_or_below = { limit = { NOT = { is_vassal_of = scope:autoedu_owner } } if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_3_guardian_area_close_relatives = 1 } every_close_family_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_3_guardian_area_distant_relatives = 1 } every_close_or_extended_family_member = { limit = { NOT = { is_close_family_of = scope:autoedu_owner } acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_3_guardian_area_house_members = 1 exists = house } house = { every_house_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_3_guardian_area_dynasty_members = 1 exists = dynasty } dynasty = { every_dynasty_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+  }
+  else_if = {
+    limit = { var:acm_diag_selected_policy = 4 }
+    if = { limit = { var:autoedu_editor_policy_4_guardian_area_player_courtiers = 1 } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_4_guardian_area_direct_vassal_realms = 1 } every_vassal = { if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_4_guardian_area_indirect_vassal_realms = 1 } every_vassal_or_below = { limit = { NOT = { is_vassal_of = scope:autoedu_owner } } if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_4_guardian_area_close_relatives = 1 } every_close_family_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_4_guardian_area_distant_relatives = 1 } every_close_or_extended_family_member = { limit = { NOT = { is_close_family_of = scope:autoedu_owner } acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_4_guardian_area_house_members = 1 exists = house } house = { every_house_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_4_guardian_area_dynasty_members = 1 exists = dynasty } dynasty = { every_dynasty_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+  }
+  else_if = {
+    limit = { var:acm_diag_selected_policy = 5 }
+    if = { limit = { var:autoedu_editor_policy_5_guardian_area_player_courtiers = 1 } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_5_guardian_area_direct_vassal_realms = 1 } every_vassal = { if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_5_guardian_area_indirect_vassal_realms = 1 } every_vassal_or_below = { limit = { NOT = { is_vassal_of = scope:autoedu_owner } } if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_5_guardian_area_close_relatives = 1 } every_close_family_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_5_guardian_area_distant_relatives = 1 } every_close_or_extended_family_member = { limit = { NOT = { is_close_family_of = scope:autoedu_owner } acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_5_guardian_area_house_members = 1 exists = house } house = { every_house_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_5_guardian_area_dynasty_members = 1 exists = dynasty } dynasty = { every_dynasty_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+  }
+  else_if = {
+    limit = { var:acm_diag_selected_policy = 6 }
+    if = { limit = { var:autoedu_editor_policy_6_guardian_area_player_courtiers = 1 } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_6_guardian_area_direct_vassal_realms = 1 } every_vassal = { if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_6_guardian_area_indirect_vassal_realms = 1 } every_vassal_or_below = { limit = { NOT = { is_vassal_of = scope:autoedu_owner } } if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_6_guardian_area_close_relatives = 1 } every_close_family_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_6_guardian_area_distant_relatives = 1 } every_close_or_extended_family_member = { limit = { NOT = { is_close_family_of = scope:autoedu_owner } acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_6_guardian_area_house_members = 1 exists = house } house = { every_house_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_6_guardian_area_dynasty_members = 1 exists = dynasty } dynasty = { every_dynasty_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+  }
+  else_if = {
+    limit = { var:acm_diag_selected_policy = 7 }
+    if = { limit = { var:autoedu_editor_policy_7_guardian_area_player_courtiers = 1 } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_7_guardian_area_direct_vassal_realms = 1 } every_vassal = { if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_7_guardian_area_indirect_vassal_realms = 1 } every_vassal_or_below = { limit = { NOT = { is_vassal_of = scope:autoedu_owner } } if = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } every_courtier = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_7_guardian_area_close_relatives = 1 } every_close_family_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_7_guardian_area_distant_relatives = 1 } every_close_or_extended_family_member = { limit = { NOT = { is_close_family_of = scope:autoedu_owner } acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } }
+    if = { limit = { var:autoedu_editor_policy_7_guardian_area_house_members = 1 exists = house } house = { every_house_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+    if = { limit = { var:autoedu_editor_policy_7_guardian_area_dynasty_members = 1 exists = dynasty } dynasty = { every_dynasty_member = { limit = { acm_diag_guardian_source_fast_gate_trigger = yes } acm_diag_visit_guardian_source_candidate_fast_body_effect = yes } } }
+  }
+
+  every_in_list = { variable = acm_diag_guardian_raw_candidates remove_variable = acm_diag_guardian_seen_marker }
+}
+
+acm_diag_run_effect = {
+ set_variable = { name = acm_diag_raw value = 0 }
+ set_variable = { name = acm_diag_base value = 0 }
+ set_variable = { name = acm_diag_pass value = 0 }
+ set_variable = { name = acm_diag_reject_capacity value = 0 }
+ set_variable = { name = acm_diag_reject_physical value = 0 }
+ set_variable = { name = acm_diag_reject_permission value = 0 }
+ set_variable = { name = acm_diag_reject_age value = 0 }
+ set_variable = { name = acm_diag_reject_gender value = 0 }
+ set_variable = { name = acm_diag_reject_faith value = 0 }
+ set_variable = { name = acm_diag_reject_culture value = 0 }
+ set_variable = { name = acm_diag_reject_witch value = 0 }
+
+
+ if = { limit = { var:acm_diag_selected_policy = 0 }
+  set_variable = { name = acm_diag_mode value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_0_guardian_mode } set_variable = { name = acm_diag_mode value = var:autoedu_editor_policy_0_guardian_mode } }
+  set_variable = { name = acm_diag_enabled value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_0_enabled } set_variable = { name = acm_diag_enabled value = var:autoedu_editor_policy_0_enabled } }
+  set_variable = { name = acm_diag_guardian_min_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_0_guardian_min_age } set_variable = { name = acm_diag_guardian_min_age value = var:autoedu_editor_policy_0_guardian_min_age } }
+  set_variable = { name = acm_diag_guardian_max_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_0_guardian_max_age } set_variable = { name = acm_diag_guardian_max_age value = var:autoedu_editor_policy_0_guardian_max_age } }
+  set_variable = { name = acm_diag_guardian_gender value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_0_guardian_gender } set_variable = { name = acm_diag_guardian_gender value = var:autoedu_editor_policy_0_guardian_gender } }
+  set_variable = { name = acm_diag_guardian_faith value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_0_guardian_faith } set_variable = { name = acm_diag_guardian_faith value = var:autoedu_editor_policy_0_guardian_faith } }
+  set_variable = { name = acm_diag_guardian_culture value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_0_guardian_culture } set_variable = { name = acm_diag_guardian_culture value = var:autoedu_editor_policy_0_guardian_culture } }
+  set_variable = { name = acm_diag_guardian_witch value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_0_guardian_witch_attitude } set_variable = { name = acm_diag_guardian_witch value = var:autoedu_editor_policy_0_guardian_witch_attitude } }
+ }
+
+ if = { limit = { var:acm_diag_selected_policy = 1 }
+  set_variable = { name = acm_diag_mode value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_1_guardian_mode } set_variable = { name = acm_diag_mode value = var:autoedu_editor_policy_1_guardian_mode } }
+  set_variable = { name = acm_diag_enabled value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_1_enabled } set_variable = { name = acm_diag_enabled value = var:autoedu_editor_policy_1_enabled } }
+  set_variable = { name = acm_diag_guardian_min_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_1_guardian_min_age } set_variable = { name = acm_diag_guardian_min_age value = var:autoedu_editor_policy_1_guardian_min_age } }
+  set_variable = { name = acm_diag_guardian_max_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_1_guardian_max_age } set_variable = { name = acm_diag_guardian_max_age value = var:autoedu_editor_policy_1_guardian_max_age } }
+  set_variable = { name = acm_diag_guardian_gender value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_1_guardian_gender } set_variable = { name = acm_diag_guardian_gender value = var:autoedu_editor_policy_1_guardian_gender } }
+  set_variable = { name = acm_diag_guardian_faith value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_1_guardian_faith } set_variable = { name = acm_diag_guardian_faith value = var:autoedu_editor_policy_1_guardian_faith } }
+  set_variable = { name = acm_diag_guardian_culture value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_1_guardian_culture } set_variable = { name = acm_diag_guardian_culture value = var:autoedu_editor_policy_1_guardian_culture } }
+  set_variable = { name = acm_diag_guardian_witch value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_1_guardian_witch_attitude } set_variable = { name = acm_diag_guardian_witch value = var:autoedu_editor_policy_1_guardian_witch_attitude } }
+ }
+
+ if = { limit = { var:acm_diag_selected_policy = 2 }
+  set_variable = { name = acm_diag_mode value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_2_guardian_mode } set_variable = { name = acm_diag_mode value = var:autoedu_editor_policy_2_guardian_mode } }
+  set_variable = { name = acm_diag_enabled value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_2_enabled } set_variable = { name = acm_diag_enabled value = var:autoedu_editor_policy_2_enabled } }
+  set_variable = { name = acm_diag_guardian_min_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_2_guardian_min_age } set_variable = { name = acm_diag_guardian_min_age value = var:autoedu_editor_policy_2_guardian_min_age } }
+  set_variable = { name = acm_diag_guardian_max_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_2_guardian_max_age } set_variable = { name = acm_diag_guardian_max_age value = var:autoedu_editor_policy_2_guardian_max_age } }
+  set_variable = { name = acm_diag_guardian_gender value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_2_guardian_gender } set_variable = { name = acm_diag_guardian_gender value = var:autoedu_editor_policy_2_guardian_gender } }
+  set_variable = { name = acm_diag_guardian_faith value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_2_guardian_faith } set_variable = { name = acm_diag_guardian_faith value = var:autoedu_editor_policy_2_guardian_faith } }
+  set_variable = { name = acm_diag_guardian_culture value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_2_guardian_culture } set_variable = { name = acm_diag_guardian_culture value = var:autoedu_editor_policy_2_guardian_culture } }
+  set_variable = { name = acm_diag_guardian_witch value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_2_guardian_witch_attitude } set_variable = { name = acm_diag_guardian_witch value = var:autoedu_editor_policy_2_guardian_witch_attitude } }
+ }
+
+ if = { limit = { var:acm_diag_selected_policy = 3 }
+  set_variable = { name = acm_diag_mode value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_3_guardian_mode } set_variable = { name = acm_diag_mode value = var:autoedu_editor_policy_3_guardian_mode } }
+  set_variable = { name = acm_diag_enabled value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_3_enabled } set_variable = { name = acm_diag_enabled value = var:autoedu_editor_policy_3_enabled } }
+  set_variable = { name = acm_diag_guardian_min_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_3_guardian_min_age } set_variable = { name = acm_diag_guardian_min_age value = var:autoedu_editor_policy_3_guardian_min_age } }
+  set_variable = { name = acm_diag_guardian_max_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_3_guardian_max_age } set_variable = { name = acm_diag_guardian_max_age value = var:autoedu_editor_policy_3_guardian_max_age } }
+  set_variable = { name = acm_diag_guardian_gender value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_3_guardian_gender } set_variable = { name = acm_diag_guardian_gender value = var:autoedu_editor_policy_3_guardian_gender } }
+  set_variable = { name = acm_diag_guardian_faith value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_3_guardian_faith } set_variable = { name = acm_diag_guardian_faith value = var:autoedu_editor_policy_3_guardian_faith } }
+  set_variable = { name = acm_diag_guardian_culture value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_3_guardian_culture } set_variable = { name = acm_diag_guardian_culture value = var:autoedu_editor_policy_3_guardian_culture } }
+  set_variable = { name = acm_diag_guardian_witch value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_3_guardian_witch_attitude } set_variable = { name = acm_diag_guardian_witch value = var:autoedu_editor_policy_3_guardian_witch_attitude } }
+ }
+
+ if = { limit = { var:acm_diag_selected_policy = 4 }
+  set_variable = { name = acm_diag_mode value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_4_guardian_mode } set_variable = { name = acm_diag_mode value = var:autoedu_editor_policy_4_guardian_mode } }
+  set_variable = { name = acm_diag_enabled value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_4_enabled } set_variable = { name = acm_diag_enabled value = var:autoedu_editor_policy_4_enabled } }
+  set_variable = { name = acm_diag_guardian_min_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_4_guardian_min_age } set_variable = { name = acm_diag_guardian_min_age value = var:autoedu_editor_policy_4_guardian_min_age } }
+  set_variable = { name = acm_diag_guardian_max_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_4_guardian_max_age } set_variable = { name = acm_diag_guardian_max_age value = var:autoedu_editor_policy_4_guardian_max_age } }
+  set_variable = { name = acm_diag_guardian_gender value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_4_guardian_gender } set_variable = { name = acm_diag_guardian_gender value = var:autoedu_editor_policy_4_guardian_gender } }
+  set_variable = { name = acm_diag_guardian_faith value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_4_guardian_faith } set_variable = { name = acm_diag_guardian_faith value = var:autoedu_editor_policy_4_guardian_faith } }
+  set_variable = { name = acm_diag_guardian_culture value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_4_guardian_culture } set_variable = { name = acm_diag_guardian_culture value = var:autoedu_editor_policy_4_guardian_culture } }
+  set_variable = { name = acm_diag_guardian_witch value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_4_guardian_witch_attitude } set_variable = { name = acm_diag_guardian_witch value = var:autoedu_editor_policy_4_guardian_witch_attitude } }
+ }
+
+ if = { limit = { var:acm_diag_selected_policy = 5 }
+  set_variable = { name = acm_diag_mode value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_5_guardian_mode } set_variable = { name = acm_diag_mode value = var:autoedu_editor_policy_5_guardian_mode } }
+  set_variable = { name = acm_diag_enabled value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_5_enabled } set_variable = { name = acm_diag_enabled value = var:autoedu_editor_policy_5_enabled } }
+  set_variable = { name = acm_diag_guardian_min_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_5_guardian_min_age } set_variable = { name = acm_diag_guardian_min_age value = var:autoedu_editor_policy_5_guardian_min_age } }
+  set_variable = { name = acm_diag_guardian_max_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_5_guardian_max_age } set_variable = { name = acm_diag_guardian_max_age value = var:autoedu_editor_policy_5_guardian_max_age } }
+  set_variable = { name = acm_diag_guardian_gender value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_5_guardian_gender } set_variable = { name = acm_diag_guardian_gender value = var:autoedu_editor_policy_5_guardian_gender } }
+  set_variable = { name = acm_diag_guardian_faith value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_5_guardian_faith } set_variable = { name = acm_diag_guardian_faith value = var:autoedu_editor_policy_5_guardian_faith } }
+  set_variable = { name = acm_diag_guardian_culture value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_5_guardian_culture } set_variable = { name = acm_diag_guardian_culture value = var:autoedu_editor_policy_5_guardian_culture } }
+  set_variable = { name = acm_diag_guardian_witch value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_5_guardian_witch_attitude } set_variable = { name = acm_diag_guardian_witch value = var:autoedu_editor_policy_5_guardian_witch_attitude } }
+ }
+
+ if = { limit = { var:acm_diag_selected_policy = 6 }
+  set_variable = { name = acm_diag_mode value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_6_guardian_mode } set_variable = { name = acm_diag_mode value = var:autoedu_editor_policy_6_guardian_mode } }
+  set_variable = { name = acm_diag_enabled value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_6_enabled } set_variable = { name = acm_diag_enabled value = var:autoedu_editor_policy_6_enabled } }
+  set_variable = { name = acm_diag_guardian_min_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_6_guardian_min_age } set_variable = { name = acm_diag_guardian_min_age value = var:autoedu_editor_policy_6_guardian_min_age } }
+  set_variable = { name = acm_diag_guardian_max_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_6_guardian_max_age } set_variable = { name = acm_diag_guardian_max_age value = var:autoedu_editor_policy_6_guardian_max_age } }
+  set_variable = { name = acm_diag_guardian_gender value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_6_guardian_gender } set_variable = { name = acm_diag_guardian_gender value = var:autoedu_editor_policy_6_guardian_gender } }
+  set_variable = { name = acm_diag_guardian_faith value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_6_guardian_faith } set_variable = { name = acm_diag_guardian_faith value = var:autoedu_editor_policy_6_guardian_faith } }
+  set_variable = { name = acm_diag_guardian_culture value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_6_guardian_culture } set_variable = { name = acm_diag_guardian_culture value = var:autoedu_editor_policy_6_guardian_culture } }
+  set_variable = { name = acm_diag_guardian_witch value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_6_guardian_witch_attitude } set_variable = { name = acm_diag_guardian_witch value = var:autoedu_editor_policy_6_guardian_witch_attitude } }
+ }
+
+ if = { limit = { var:acm_diag_selected_policy = 7 }
+  set_variable = { name = acm_diag_mode value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_7_guardian_mode } set_variable = { name = acm_diag_mode value = var:autoedu_editor_policy_7_guardian_mode } }
+  set_variable = { name = acm_diag_enabled value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_7_enabled } set_variable = { name = acm_diag_enabled value = var:autoedu_editor_policy_7_enabled } }
+  set_variable = { name = acm_diag_guardian_min_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_7_guardian_min_age } set_variable = { name = acm_diag_guardian_min_age value = var:autoedu_editor_policy_7_guardian_min_age } }
+  set_variable = { name = acm_diag_guardian_max_age value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_7_guardian_max_age } set_variable = { name = acm_diag_guardian_max_age value = var:autoedu_editor_policy_7_guardian_max_age } }
+  set_variable = { name = acm_diag_guardian_gender value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_7_guardian_gender } set_variable = { name = acm_diag_guardian_gender value = var:autoedu_editor_policy_7_guardian_gender } }
+  set_variable = { name = acm_diag_guardian_faith value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_7_guardian_faith } set_variable = { name = acm_diag_guardian_faith value = var:autoedu_editor_policy_7_guardian_faith } }
+  set_variable = { name = acm_diag_guardian_culture value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_7_guardian_culture } set_variable = { name = acm_diag_guardian_culture value = var:autoedu_editor_policy_7_guardian_culture } }
+  set_variable = { name = acm_diag_guardian_witch value = 0 }
+  if = { limit = { exists = var:autoedu_editor_policy_7_guardian_witch_attitude } set_variable = { name = acm_diag_guardian_witch value = var:autoedu_editor_policy_7_guardian_witch_attitude } }
+ }
+
+ acm_diag_collect_guardian_candidates_effect = yes
+ every_in_list = {
+  variable = acm_diag_guardian_raw_candidates
+  scope:autoedu_owner = { change_variable = { name = acm_diag_raw add = 1 } }
+  if = { limit = { autoedu_guardian_base_trigger = yes } scope:autoedu_owner = { change_variable = { name = acm_diag_base add = 1 } } }
+  if = { limit = { autoedu_guardian_base_trigger = yes acm_diag_guardian_policy_filter_trigger = yes } scope:autoedu_owner = { change_variable = { name = acm_diag_pass add = 1 } } }
+
+  if = { limit = { num_of_relation_ward >= 2 } scope:autoedu_owner = { change_variable = { name = acm_diag_reject_capacity add = 1 } } }
+
+  if = { limit = { NOT = { is_physically_able_adult = yes } } scope:autoedu_owner = { change_variable = { name = acm_diag_reject_physical add = 1 } } }
+
+  if = { limit = { NOT = { autoedu_guardian_availability_permission_trigger = yes } } scope:autoedu_owner = { change_variable = { name = acm_diag_reject_permission add = 1 } } }
+
+  if = { limit = { NOT = {   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_min_age = 1 } age >= 20 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_min_age = 2 } age >= 30 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_min_age = 3 } age >= 40 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_min_age = 4 } age >= 50 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_min_age = 5 } age >= 60 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_min_age = 6 } age >= 70 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_max_age = 1 } age <= 20 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_max_age = 2 } age <= 30 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_max_age = 3 } age <= 40 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_max_age = 4 } age <= 50 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_max_age = 5 } age <= 60 }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_max_age = 6 } age <= 70 } } } scope:autoedu_owner = { change_variable = { name = acm_diag_reject_age add = 1 } } }
+
+  if = { limit = { NOT = {   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_gender = 2 } autoedu_same_gender_guardian_candidate_trigger = yes }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_gender = 3 } is_male = yes }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_gender = 4 } is_female = yes } } } scope:autoedu_owner = { change_variable = { name = acm_diag_reject_gender add = 1 } } }
+
+  if = { limit = { NOT = {   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_faith = 2 } faith = scope:autoedu_child.faith }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_faith = 4 } faith = scope:autoedu_owner.faith } } } scope:autoedu_owner = { change_variable = { name = acm_diag_reject_faith add = 1 } } }
+
+  if = { limit = { NOT = {   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_culture = 2 } culture = scope:autoedu_child.culture }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_culture = 4 } culture = scope:autoedu_owner.culture } } } scope:autoedu_owner = { change_variable = { name = acm_diag_reject_culture add = 1 } } }
+
+  if = { limit = { NOT = {   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_witch = 2 } autoedu_known_witch_guardian_candidate_trigger = yes }   trigger_if = { limit = { scope:autoedu_owner.var:acm_diag_guardian_witch = 3 } NOT = { autoedu_known_witch_guardian_candidate_trigger = yes } } } } scope:autoedu_owner = { change_variable = { name = acm_diag_reject_witch add = 1 } } }
+
+ }
+ clear_variable_list = acm_diag_guardian_raw_candidates
+}
+
+acm_diag_snapshot_effect = {
+ debug_log = "ACM_DIAG BEGIN cn.5"
+ set_variable = { name = acm_diag_context_valid value = 0 }
+ if = { limit = { exists = scope:autoedu_child exists = scope:autoedu_owner }
+ set_variable = { name = acm_diag_context_valid value = 1 }
+ set_variable = { name = acm_diag_view_acm_diag_check_setup value = 1 }
+ if = { limit = { autoedu_editor_current_schema_valid_trigger = yes } set_variable = { name = acm_diag_view_acm_diag_check_setup value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_setup = 0 } debug_log = "ACM_DIAG acm_diag_check_setup=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_setup = 1 } debug_log = "ACM_DIAG acm_diag_check_setup=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_age value = 1 }
+ if = { limit = { scope:autoedu_child = { age >= 0 age < 16 } } set_variable = { name = acm_diag_view_acm_diag_check_age value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_age = 0 } debug_log = "ACM_DIAG acm_diag_check_age=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_age = 1 } debug_log = "ACM_DIAG acm_diag_check_age=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_ai value = 1 }
+ if = { limit = { scope:autoedu_child = { is_alive = yes is_ai = yes is_adult = no } } set_variable = { name = acm_diag_view_acm_diag_check_ai value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_ai = 0 } debug_log = "ACM_DIAG acm_diag_check_ai=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_ai = 1 } debug_log = "ACM_DIAG acm_diag_check_ai=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_excluded value = 1 }
+ if = { limit = { scope:autoedu_child = { NOT = { has_character_flag = autoedu_excluded_from_automatic_education } } } set_variable = { name = acm_diag_view_acm_diag_check_excluded value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_excluded = 0 } debug_log = "ACM_DIAG acm_diag_check_excluded=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_excluded = 1 } debug_log = "ACM_DIAG acm_diag_check_excluded=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_guardian value = 1 }
+ if = { limit = { scope:autoedu_child = { num_of_relation_guardian = 0 } } set_variable = { name = acm_diag_view_acm_diag_check_guardian value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_guardian = 0 } debug_log = "ACM_DIAG acm_diag_check_guardian=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_guardian = 1 } debug_log = "ACM_DIAG acm_diag_check_guardian=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_available value = 1 }
+ if = { limit = { scope:autoedu_child = { is_hostage = no is_imprisoned = no is_travelling = no is_physically_able = yes NOT = { has_trait = incapable } NOT = { exists = var:ward_travelling_to_guardian } } } set_variable = { name = acm_diag_view_acm_diag_check_available value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_available = 0 } debug_log = "ACM_DIAG acm_diag_check_available=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_available = 1 } debug_log = "ACM_DIAG acm_diag_check_available=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_permission value = 1 }
+ if = { limit = { scope:autoedu_child = { autoedu_child_guardianship_permission_trigger = yes } } set_variable = { name = acm_diag_view_acm_diag_check_permission value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_permission = 0 } debug_log = "ACM_DIAG acm_diag_check_permission=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_permission = 1 } debug_log = "ACM_DIAG acm_diag_check_permission=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_subject value = 1 }
+ if = { limit = { scope:autoedu_child = { acm_infant_guardian_subject_trigger = yes } } set_variable = { name = acm_diag_view_acm_diag_check_subject value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_subject = 0 } debug_log = "ACM_DIAG acm_diag_check_subject=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_subject = 1 } debug_log = "ACM_DIAG acm_diag_check_subject=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_recent value = 1 }
+ if = { limit = { scope:autoedu_child = { NOT = { has_character_flag = autoedu_guardian_assignment_recently_done } } } set_variable = { name = acm_diag_view_acm_diag_check_recent value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_recent = 0 } debug_log = "ACM_DIAG acm_diag_check_recent=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_recent = 1 } debug_log = "ACM_DIAG acm_diag_check_recent=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_postponed value = 1 }
+ if = { limit = { scope:autoedu_child = { NOT = { has_character_flag = autoedu_guardian_postponed } } } set_variable = { name = acm_diag_view_acm_diag_check_postponed value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_postponed = 0 } debug_log = "ACM_DIAG acm_diag_check_postponed=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_postponed = 1 } debug_log = "ACM_DIAG acm_diag_check_postponed=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_policy value = 1 }
+ if = { limit = { scope:autoedu_child = { autoedu_release_child_matches_any_guardian_policy_trigger = yes } } set_variable = { name = acm_diag_view_acm_diag_check_policy value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_policy = 0 } debug_log = "ACM_DIAG acm_diag_check_policy=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_policy = 1 } debug_log = "ACM_DIAG acm_diag_check_policy=1" }
+ set_variable = { name = acm_diag_view_acm_diag_check_self value = 1 }
+ if = { limit = { autoedu_player_can_be_guardian_trigger = yes } set_variable = { name = acm_diag_view_acm_diag_check_self value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_check_self = 0 } debug_log = "ACM_DIAG acm_diag_check_self=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_check_self = 1 } debug_log = "ACM_DIAG acm_diag_check_self=1" }
+ set_variable = { name = acm_diag_view_acm_diag_policy_name value = 8 }
+ if = { limit = { var:acm_diag_selected_policy = 0 } set_variable = { name = acm_diag_view_acm_diag_policy_name value = 0 } }
+ else_if = { limit = { var:acm_diag_selected_policy = 1 } set_variable = { name = acm_diag_view_acm_diag_policy_name value = 1 } }
+ else_if = { limit = { var:acm_diag_selected_policy = 2 } set_variable = { name = acm_diag_view_acm_diag_policy_name value = 2 } }
+ else_if = { limit = { var:acm_diag_selected_policy = 3 } set_variable = { name = acm_diag_view_acm_diag_policy_name value = 3 } }
+ else_if = { limit = { var:acm_diag_selected_policy = 4 } set_variable = { name = acm_diag_view_acm_diag_policy_name value = 4 } }
+ else_if = { limit = { var:acm_diag_selected_policy = 5 } set_variable = { name = acm_diag_view_acm_diag_policy_name value = 5 } }
+ else_if = { limit = { var:acm_diag_selected_policy = 6 } set_variable = { name = acm_diag_view_acm_diag_policy_name value = 6 } }
+ else_if = { limit = { var:acm_diag_selected_policy = 7 } set_variable = { name = acm_diag_view_acm_diag_policy_name value = 7 } }
+ if = { limit = { var:acm_diag_view_acm_diag_policy_name = 0 } debug_log = "ACM_DIAG acm_diag_policy_name=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_policy_name = 1 } debug_log = "ACM_DIAG acm_diag_policy_name=1" }
+ if = { limit = { var:acm_diag_view_acm_diag_policy_name = 2 } debug_log = "ACM_DIAG acm_diag_policy_name=2" }
+ if = { limit = { var:acm_diag_view_acm_diag_policy_name = 3 } debug_log = "ACM_DIAG acm_diag_policy_name=3" }
+ if = { limit = { var:acm_diag_view_acm_diag_policy_name = 4 } debug_log = "ACM_DIAG acm_diag_policy_name=4" }
+ if = { limit = { var:acm_diag_view_acm_diag_policy_name = 5 } debug_log = "ACM_DIAG acm_diag_policy_name=5" }
+ if = { limit = { var:acm_diag_view_acm_diag_policy_name = 6 } debug_log = "ACM_DIAG acm_diag_policy_name=6" }
+ if = { limit = { var:acm_diag_view_acm_diag_policy_name = 7 } debug_log = "ACM_DIAG acm_diag_policy_name=7" }
+ if = { limit = { var:acm_diag_view_acm_diag_policy_name = 8 } debug_log = "ACM_DIAG acm_diag_policy_name=8" }
+ set_variable = { name = acm_diag_view_acm_diag_mode value = 3 }
+ if = { limit = { var:acm_diag_mode = 0 } set_variable = { name = acm_diag_view_acm_diag_mode value = 0 } }
+ else_if = { limit = { var:acm_diag_mode = 1 } set_variable = { name = acm_diag_view_acm_diag_mode value = 1 } }
+ else_if = { limit = { var:acm_diag_mode = 2 } set_variable = { name = acm_diag_view_acm_diag_mode value = 2 } }
+ if = { limit = { var:acm_diag_view_acm_diag_mode = 0 } debug_log = "ACM_DIAG acm_diag_mode=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_mode = 1 } debug_log = "ACM_DIAG acm_diag_mode=1" }
+ if = { limit = { var:acm_diag_view_acm_diag_mode = 2 } debug_log = "ACM_DIAG acm_diag_mode=2" }
+ if = { limit = { var:acm_diag_view_acm_diag_mode = 3 } debug_log = "ACM_DIAG acm_diag_mode=3" }
+ set_variable = { name = acm_diag_view_acm_diag_enabled value = 1 }
+ if = { limit = { var:acm_diag_enabled = 1 } set_variable = { name = acm_diag_view_acm_diag_enabled value = 0 } }
+ if = { limit = { var:acm_diag_view_acm_diag_enabled = 0 } debug_log = "ACM_DIAG acm_diag_enabled=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_enabled = 1 } debug_log = "ACM_DIAG acm_diag_enabled=1" }
+ set_variable = { name = acm_diag_view_acm_diag_result value = 8 }
+ if = { limit = { NOT = { autoedu_editor_current_schema_valid_trigger = yes } } set_variable = { name = acm_diag_view_acm_diag_result value = 0 } }
+ else_if = { limit = { NOT = { var:acm_diag_enabled = 1 } } set_variable = { name = acm_diag_view_acm_diag_result value = 1 } }
+ else_if = { limit = { var:acm_diag_mode = 0 } set_variable = { name = acm_diag_view_acm_diag_result value = 2 } }
+ else_if = { limit = { scope:autoedu_child = { NOT = { autoedu_child_guardian_scan_trigger = yes } } } set_variable = { name = acm_diag_view_acm_diag_result value = 3 } }
+ else_if = { limit = { var:acm_diag_mode = 1 autoedu_player_can_be_guardian_trigger = yes } set_variable = { name = acm_diag_view_acm_diag_result value = 4 } }
+ else_if = { limit = { var:acm_diag_pass > 0 } set_variable = { name = acm_diag_view_acm_diag_result value = 5 } }
+ else_if = { limit = { var:acm_diag_raw = 0 } set_variable = { name = acm_diag_view_acm_diag_result value = 6 } }
+ else_if = { limit = { var:acm_diag_base = 0 } set_variable = { name = acm_diag_view_acm_diag_result value = 7 } }
+ if = { limit = { var:acm_diag_view_acm_diag_result = 0 } debug_log = "ACM_DIAG acm_diag_result=0" }
+ if = { limit = { var:acm_diag_view_acm_diag_result = 1 } debug_log = "ACM_DIAG acm_diag_result=1" }
+ if = { limit = { var:acm_diag_view_acm_diag_result = 2 } debug_log = "ACM_DIAG acm_diag_result=2" }
+ if = { limit = { var:acm_diag_view_acm_diag_result = 3 } debug_log = "ACM_DIAG acm_diag_result=3" }
+ if = { limit = { var:acm_diag_view_acm_diag_result = 4 } debug_log = "ACM_DIAG acm_diag_result=4" }
+ if = { limit = { var:acm_diag_view_acm_diag_result = 5 } debug_log = "ACM_DIAG acm_diag_result=5" }
+ if = { limit = { var:acm_diag_view_acm_diag_result = 6 } debug_log = "ACM_DIAG acm_diag_result=6" }
+ if = { limit = { var:acm_diag_view_acm_diag_result = 7 } debug_log = "ACM_DIAG acm_diag_result=7" }
+ if = { limit = { var:acm_diag_view_acm_diag_result = 8 } debug_log = "ACM_DIAG acm_diag_result=8" }
+ }
+ else = { debug_log = "ACM_DIAG CONTEXT_MISSING" }
+ debug_log = "ACM_DIAG END"
+}
+
+acm_diag_cleanup_effect = {
+ remove_variable = acm_diag_raw
+ remove_variable = acm_diag_base
+ remove_variable = acm_diag_pass
+ remove_variable = acm_diag_reject_capacity
+ remove_variable = acm_diag_reject_physical
+ remove_variable = acm_diag_reject_permission
+ remove_variable = acm_diag_reject_age
+ remove_variable = acm_diag_reject_gender
+ remove_variable = acm_diag_reject_faith
+ remove_variable = acm_diag_reject_culture
+ remove_variable = acm_diag_reject_witch
+ remove_variable = acm_diag_selected_policy
+ remove_variable = acm_diag_mode
+ remove_variable = acm_diag_enabled
+ remove_variable = acm_diag_child
+ remove_variable = acm_diag_context_valid
+ remove_variable = acm_diag_guardian_min_age
+ remove_variable = acm_diag_guardian_max_age
+ remove_variable = acm_diag_guardian_gender
+ remove_variable = acm_diag_guardian_faith
+ remove_variable = acm_diag_guardian_culture
+ remove_variable = acm_diag_guardian_witch
+ remove_variable = acm_diag_view_acm_diag_check_setup
+ remove_variable = acm_diag_view_acm_diag_check_age
+ remove_variable = acm_diag_view_acm_diag_check_ai
+ remove_variable = acm_diag_view_acm_diag_check_excluded
+ remove_variable = acm_diag_view_acm_diag_check_guardian
+ remove_variable = acm_diag_view_acm_diag_check_available
+ remove_variable = acm_diag_view_acm_diag_check_permission
+ remove_variable = acm_diag_view_acm_diag_check_subject
+ remove_variable = acm_diag_view_acm_diag_check_recent
+ remove_variable = acm_diag_view_acm_diag_check_postponed
+ remove_variable = acm_diag_view_acm_diag_check_policy
+ remove_variable = acm_diag_view_acm_diag_check_self
+ remove_variable = acm_diag_view_acm_diag_policy_name
+ remove_variable = acm_diag_view_acm_diag_mode
+ remove_variable = acm_diag_view_acm_diag_enabled
+ remove_variable = acm_diag_view_acm_diag_result
+ clear_variable_list = acm_diag_guardian_raw_candidates
+}

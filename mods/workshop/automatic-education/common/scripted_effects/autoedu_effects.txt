@@ -1,0 +1,683 @@
+﻿autoedu_copy_settings_from_predecessor_effect = {
+  autoedu_release_copy_settings_from_predecessor_effect = yes
+}
+
+autoedu_mark_scan_found_effect = {
+  add_character_flag = {
+    flag = autoedu_scan_found
+    days = 1
+  }
+}
+
+autoedu_exclude_child_from_automatic_education_effect = {
+  add_character_flag = {
+    flag = autoedu_excluded_from_automatic_education
+    years = 16
+  }
+}
+
+autoedu_return_child_to_automatic_education_effect = {
+  remove_character_flag = autoedu_excluded_from_automatic_education
+}
+
+autoedu_apply_guardian_conversion_flags_effect = {
+  if = {
+    limit = {
+      exists = scope:autoedu_child
+      exists = scope:autoedu_owner.var:autoedu_convert_faith_policy
+      trigger_if = {
+        limit = { exists = scope:autoedu_owner.var:autoedu_convert_faith_policy }
+        scope:autoedu_owner.var:autoedu_convert_faith_policy = flag:guardian
+      }
+      $GUARDIAN$ = { NOT = { faith = scope:autoedu_child.faith } }
+    }
+    $GUARDIAN$ = {
+      add_relation_flag = {
+        relation = ward
+        target = scope:autoedu_child
+        flag = convert_faith
+      }
+    }
+  }
+  if = {
+    limit = {
+      exists = scope:autoedu_child
+      exists = scope:autoedu_owner.var:autoedu_convert_culture_policy
+      trigger_if = {
+        limit = { exists = scope:autoedu_owner.var:autoedu_convert_culture_policy }
+        scope:autoedu_owner.var:autoedu_convert_culture_policy = flag:guardian
+      }
+      $GUARDIAN$ = { NOT = { culture = scope:autoedu_child.culture } }
+    }
+    $GUARDIAN$ = {
+      add_relation_flag = {
+        relation = ward
+        target = scope:autoedu_child
+        flag = convert_culture
+      }
+    }
+  }
+}
+
+autoedu_assign_guardian_effect = {
+  $GUARDIAN$ = {
+    save_scope_as = autoedu_guardian
+  }
+
+  if = {
+    limit = {
+      exists = scope:autoedu_child
+      scope:autoedu_child = {
+        is_alive = yes
+        is_hostage = no
+        is_adult = no
+        num_of_relation_guardian = 0
+        NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+        NOT = { has_character_flag = autoedu_guardian_assignment_recently_done }
+      }
+    }
+
+    scope:autoedu_child = {
+      add_character_flag = {
+        flag = autoedu_guardian_assignment_recently_done
+        days = 14
+      }
+
+      set_relation_guardian = $GUARDIAN$
+
+      scope:autoedu_owner = {
+        autoedu_apply_guardian_conversion_flags_effect = { GUARDIAN = $GUARDIAN$ }
+      }
+
+      if = {
+        limit = {
+          $GUARDIAN$ = { is_landed = yes }
+          is_landed = no
+          is_hostage = no
+          NOT = { $GUARDIAN$ = host }
+        }
+        visit_court_of = $GUARDIAN$
+      }
+      else_if = {
+        limit = {
+          $GUARDIAN$ = {
+            is_landed = no
+            is_hostage = no
+          }
+          is_landed = yes
+          NOT = { host = $GUARDIAN$ }
+        }
+        $GUARDIAN$ = {
+          visit_court_of = scope:autoedu_child
+        }
+      }
+      else_if = {
+        limit = {
+          $GUARDIAN$ = { is_landed = no }
+          is_landed = no
+          is_hostage = no
+          exists = $GUARDIAN$.host
+          NOT = { $GUARDIAN$.host = host }
+        }
+        visit_court_of = $GUARDIAN$.host
+      }
+    }
+
+    if = {
+      limit = { scope:autoedu_owner.var:autoedu_notifications = yes }
+      scope:autoedu_owner = {
+        send_interface_message = {
+          type = msg_autoedu_good
+          title = autoedu_guardian_assigned_title
+          desc = autoedu_guardian_assigned_desc
+          left_icon = scope:autoedu_child
+          right_icon = scope:autoedu_guardian
+        }
+      }
+    }
+  }
+
+  scope:autoedu_owner = { autoedu_finish_guardian_loss_child_effect = yes }
+}
+
+autoedu_clear_ward_reminder_queue_effect = {
+  remove_variable = autoedu_ward_reminder_queue_head_type
+  remove_variable = autoedu_ward_reminder_queue_head_child
+  remove_variable = autoedu_ward_reminder_queue_tail_type
+  remove_variable = autoedu_ward_reminder_queue_tail_child
+  remove_variable = autoedu_ward_reminder_personality_queued
+  remove_variable = autoedu_ward_reminder_martial_queued
+}
+
+autoedu_enqueue_ward_reminder_effect = {
+  if = {
+    limit = { NOT = { exists = var:autoedu_ward_reminder_queue_head_type } }
+    set_variable = { name = autoedu_ward_reminder_queue_head_type value = $TYPE$ }
+    set_variable = { name = autoedu_ward_reminder_queue_head_child value = $CHILD$ }
+    set_variable = { name = $QUEUED_VAR$ value = yes }
+  }
+  else_if = {
+    limit = { NOT = { exists = var:autoedu_ward_reminder_queue_tail_type } }
+    set_variable = { name = autoedu_ward_reminder_queue_tail_type value = $TYPE$ }
+    set_variable = { name = autoedu_ward_reminder_queue_tail_child value = $CHILD$ }
+    set_variable = { name = $QUEUED_VAR$ value = yes }
+  }
+}
+
+autoedu_pop_ward_reminder_queue_head_effect = {
+  remove_variable = $QUEUED_VAR$
+  if = {
+    limit = {
+      exists = var:autoedu_ward_reminder_queue_tail_type
+      exists = var:autoedu_ward_reminder_queue_tail_child
+    }
+    set_variable = { name = autoedu_ward_reminder_queue_head_type value = var:autoedu_ward_reminder_queue_tail_type }
+    set_variable = { name = autoedu_ward_reminder_queue_head_child value = var:autoedu_ward_reminder_queue_tail_child }
+    remove_variable = autoedu_ward_reminder_queue_tail_type
+    remove_variable = autoedu_ward_reminder_queue_tail_child
+  }
+  else = {
+    remove_variable = autoedu_ward_reminder_queue_head_type
+    remove_variable = autoedu_ward_reminder_queue_head_child
+  }
+}
+
+autoedu_dispatch_ward_reminder_queue_head_effect = {
+  if = {
+    limit = {
+      NOT = { has_character_flag = autoedu_ward_reminder_event_spacing }
+      exists = var:autoedu_ward_reminder_queue_head_type
+      exists = var:autoedu_ward_reminder_queue_head_child
+      var:autoedu_ward_reminder_queue_head_type = 1
+    }
+    if = {
+      limit = {
+        autoedu_editor_current_schema_valid_trigger = yes
+        has_bp2_dlc_trigger = yes
+        var:autoedu_editor_general_personality_mode = 1
+        var:autoedu_ward_reminder_queue_head_child = {
+          autoedu_ward_interaction_reminder_subject_trigger = yes
+          NOT = { has_character_flag = autoedu_personality_event_recently_shown }
+          has_relation_guardian = root
+        }
+        is_character_interaction_valid = {
+          interaction = influence_child_personality_interaction
+          recipient = var:autoedu_ward_reminder_queue_head_child
+        }
+      }
+      clear_saved_scope = autoedu_personality_child
+      var:autoedu_ward_reminder_queue_head_child = { save_scope_as = autoedu_personality_child }
+      autoedu_pop_ward_reminder_queue_head_effect = { QUEUED_VAR = autoedu_ward_reminder_personality_queued }
+      add_character_flag = { flag = autoedu_ward_reminder_event_spacing days = 7 }
+      trigger_event = { id = autoedu.4100 }
+    }
+    else = { autoedu_pop_ward_reminder_queue_head_effect = { QUEUED_VAR = autoedu_ward_reminder_personality_queued } }
+  }
+  else_if = {
+    limit = {
+      NOT = { has_character_flag = autoedu_ward_reminder_event_spacing }
+      exists = var:autoedu_ward_reminder_queue_head_type
+      exists = var:autoedu_ward_reminder_queue_head_child
+      var:autoedu_ward_reminder_queue_head_type = 2
+    }
+    if = {
+      limit = {
+        autoedu_editor_current_schema_valid_trigger = yes
+        has_mpo_dlc_trigger = yes
+        var:autoedu_editor_general_martial_training_mode = 1
+        var:autoedu_ward_reminder_queue_head_child = {
+          autoedu_ward_interaction_reminder_subject_trigger = yes
+          NOT = { has_character_flag = autoedu_martial_training_event_recently_shown }
+          has_relation_guardian = root
+        }
+        is_character_interaction_valid = {
+          interaction = influence_child_commander_interaction
+          recipient = var:autoedu_ward_reminder_queue_head_child
+        }
+      }
+      clear_saved_scope = autoedu_martial_training_child
+      var:autoedu_ward_reminder_queue_head_child = { save_scope_as = autoedu_martial_training_child }
+      autoedu_pop_ward_reminder_queue_head_effect = { QUEUED_VAR = autoedu_ward_reminder_martial_queued }
+      add_character_flag = { flag = autoedu_ward_reminder_event_spacing days = 7 }
+      trigger_event = { id = autoedu.4150 }
+    }
+    else = { autoedu_pop_ward_reminder_queue_head_effect = { QUEUED_VAR = autoedu_ward_reminder_martial_queued } }
+  }
+  else_if = {
+    limit = {
+      NOT = { has_character_flag = autoedu_ward_reminder_event_spacing }
+      exists = var:autoedu_ward_reminder_queue_head_type
+      NOR = {
+        var:autoedu_ward_reminder_queue_head_type = 1
+        var:autoedu_ward_reminder_queue_head_type = 2
+      }
+    }
+    autoedu_clear_ward_reminder_queue_effect = yes
+  }
+}
+
+autoedu_dispatch_ward_reminder_queue_effect = {
+  autoedu_dispatch_ward_reminder_queue_head_effect = yes
+  autoedu_dispatch_ward_reminder_queue_head_effect = yes
+}
+
+autoedu_event_candidate_native_section_tooltips_effect = {
+  $CANDIDATE$ = {
+    if = {
+      limit = { scope:autoedu_owner = { var:autoedu_tt_no_focus = 1 } }
+      custom_tooltip = autoedu.tt.candidate_no_focus_note
+    }
+    if = {
+      limit = { scope:autoedu_owner = { var:$EDUCATION_ANY_VAR$ = 1 } }
+      custom_tooltip = $EDUCATION_TT$
+    }
+    if = {
+      limit = { scope:autoedu_owner = { var:$ENVIRONMENT_ANY_VAR$ = 1 } }
+      custom_tooltip = $ENVIRONMENT_TT$
+    }
+    if = {
+      limit = { scope:autoedu_owner = { var:$SECONDARY_ANY_VAR$ = 1 } }
+      custom_tooltip = $SECONDARY_TT$
+    }
+    if = {
+      limit = { scope:autoedu_owner = { var:$RISK_ANY_VAR$ = 1 } }
+      custom_tooltip = $RISK_TT$
+    }
+    if = {
+      limit = {
+        scope:autoedu_owner = {
+          var:$NORMAL_ANY_VAR$ = 0
+          var:autoedu_tt_no_focus = 0
+        }
+      }
+      custom_tooltip = autoedu.tt.candidate_neutral_fallback
+    }
+    if = {
+      limit = {
+        debug_only = yes
+        scope:autoedu_owner = { var:$DEBUG_READY_VAR$ = 1 }
+      }
+      custom_tooltip = $DEBUG_TT$
+    }
+  }
+}
+
+autoedu_set_child_focus_effect = {
+  hidden_effect = {
+    set_focus = $FOCUS$
+  }
+}
+
+autoedu_continue_guardian_assignment_effect = {
+  if = {
+    limit = {
+      scope:autoedu_owner.var:autoedu_guardian_mode = flag:auto
+      exists = scope:autoedu_child
+      scope:autoedu_child = {
+        is_alive = yes
+        is_hostage = no
+        is_travelling = no
+        is_adult = no
+        num_of_relation_guardian = 0
+        NOT = { exists = var:ward_travelling_to_guardian }
+        NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+      }
+    }
+    autoedu_find_best_guardian_effect = yes
+  }
+  else_if = {
+    limit = {
+      scope:autoedu_owner.var:autoedu_guardian_mode = flag:event
+      exists = scope:autoedu_child
+      scope:autoedu_child = {
+        is_alive = yes
+        is_hostage = no
+        is_travelling = no
+        is_adult = no
+        num_of_relation_guardian = 0
+        NOT = { exists = var:ward_travelling_to_guardian }
+        NOT = { has_character_flag = autoedu_excluded_from_automatic_education }
+      }
+    }
+
+    clear_saved_scope = autoedu_candidate_1
+    clear_saved_scope = autoedu_candidate_2
+    clear_saved_scope = autoedu_candidate_3
+    autoedu_release_collect_guardian_candidates_effect = yes
+    scope:autoedu_owner = { autoedu_gsel_prepare_top_three_tooltip_presentation_effect = yes }
+
+    if = {
+      limit = { exists = scope:autoedu_candidate_1 }
+      trigger_event = { id = autoedu.1000 }
+    }
+    else = {
+      scope:autoedu_child = {
+        add_character_flag = {
+          flag = autoedu_guardian_postponed
+          months = 6
+        }
+      }
+      if = {
+        limit = { scope:autoedu_owner.var:autoedu_notifications = yes }
+        scope:autoedu_owner = {
+          send_interface_message = {
+            type = msg_autoedu_good
+            title = autoedu_no_guardian_found_title
+            desc = autoedu_no_guardian_found_desc
+            left_icon = scope:autoedu_child
+          }
+        }
+      }
+      scope:autoedu_owner = { autoedu_finish_guardian_loss_child_effect = yes }
+    }
+  }
+}
+
+autoedu_prepare_focus_or_guardian_effect = {
+  if = {
+    limit = {
+      exists = scope:autoedu_child
+      scope:autoedu_child = { autoedu_child_focus_candidate_trigger = yes }
+      exists = scope:autoedu_owner.var:autoedu_focus_mode
+      trigger_if = {
+        limit = { exists = scope:autoedu_owner.var:autoedu_focus_mode }
+        scope:autoedu_owner.var:autoedu_focus_mode = flag:auto
+      }
+    }
+    scope:autoedu_child = { save_scope_as = autoedu_focus_subject }
+    scope:autoedu_owner = {
+      autoedu_focus_resolve_selected_effect = yes
+      if = { limit = { var:autoedu_focus_resolve_valid = 1 } autoedu_focus_apply_resolved_effect = yes }
+    }
+    clear_saved_scope = autoedu_focus_subject
+    if = { limit = { scope:autoedu_owner.var:autoedu_focus_resolve_valid = 1 } autoedu_continue_guardian_assignment_effect = yes }
+  }
+  else_if = {
+    limit = {
+      exists = scope:autoedu_child
+      scope:autoedu_child = { autoedu_child_focus_candidate_trigger = yes }
+      exists = scope:autoedu_owner.var:autoedu_focus_mode
+      trigger_if = {
+        limit = { exists = scope:autoedu_owner.var:autoedu_focus_mode }
+        scope:autoedu_owner.var:autoedu_focus_mode = flag:event
+      }
+    }
+    trigger_event = { id = autoedu.1200 }
+  }
+  else = {
+    autoedu_continue_guardian_assignment_effect = yes
+  }
+}
+
+autoedu_finish_guardian_loss_child_effect = {
+  if = {
+    limit = {
+      exists = scope:autoedu_child
+      scope:autoedu_child = { has_character_flag = autoedu_guardian_loss_event_pending }
+    }
+    remove_list_variable = {
+      name = autoedu_guardian_loss_queue
+      target = scope:autoedu_child
+    }
+    scope:autoedu_child = {
+      remove_character_flag = autoedu_guardian_loss_event_pending
+      if = {
+        limit = { exists = var:autoedu_dead_guardian }
+        remove_variable = autoedu_dead_guardian
+      }
+    }
+    if = {
+      limit = { has_character_flag = autoedu_guardian_loss_queue_active }
+      trigger_event = { id = autoedu.0140 }
+    }
+  }
+}
+
+autoedu_find_focus_batch_child_for_owner_effect = {
+  autoedu_release_find_focus_batch_child_effect = yes
+}
+
+autoedu_try_set_one_focus_effect = {
+  if = {
+    limit = {
+      NOT = { exists = var:autoedu_focus_batch_stopped }
+      exists = var:autoedu_focus_mode
+      trigger_if = {
+        limit = { exists = var:autoedu_focus_mode }
+        var:autoedu_focus_mode = flag:auto
+      }
+    }
+    autoedu_find_focus_batch_child_for_owner_effect = yes
+
+    if = {
+      limit = {
+        exists = var:autoedu_focus_batch_candidate_found
+        exists = scope:autoedu_focus_batch_child
+        scope:autoedu_focus_batch_child = {
+          autoedu_child_focus_candidate_trigger = yes
+          autoedu_child_guardianship_permission_trigger = yes
+          autoedu_guardian_child_scope_setting_trigger = yes
+        }
+      }
+      scope:autoedu_focus_batch_child = { save_scope_as = autoedu_focus_subject }
+      autoedu_focus_resolve_selected_effect = yes
+      if = {
+        limit = { var:autoedu_focus_resolve_valid = 1 }
+        autoedu_focus_apply_resolved_effect = yes
+        set_variable = { name = autoedu_focus_batch_changed value = yes }
+      }
+      else = { set_variable = { name = autoedu_focus_batch_stopped value = yes } }
+      clear_saved_scope = autoedu_focus_subject
+    }
+    else = {
+      set_variable = { name = autoedu_focus_batch_stopped value = yes }
+    }
+    remove_variable = autoedu_focus_batch_candidate_found
+  }
+  else = {
+    set_variable = { name = autoedu_focus_batch_stopped value = yes }
+  }
+}
+
+autoedu_focus_batch_effect = {
+  remove_variable = autoedu_focus_batch_stopped
+  remove_variable = autoedu_focus_batch_changed
+  remove_variable = autoedu_focus_batch_candidate_found
+  autoedu_try_set_one_focus_effect = yes
+  autoedu_try_set_one_focus_effect = yes
+  autoedu_try_set_one_focus_effect = yes
+  autoedu_try_set_one_focus_effect = yes
+  autoedu_try_set_one_focus_effect = yes
+  autoedu_try_set_one_focus_effect = yes
+  autoedu_try_set_one_focus_effect = yes
+  autoedu_try_set_one_focus_effect = yes
+  autoedu_try_set_one_focus_effect = yes
+  autoedu_try_set_one_focus_effect = yes
+  remove_variable = autoedu_focus_batch_stopped
+  remove_variable = autoedu_focus_batch_candidate_found
+}
+
+autoedu_find_personality_influence_ward_for_owner_effect = {
+  scope:autoedu_owner = {
+    ordered_relation = {
+      type = ward
+      limit = {
+        autoedu_ward_interaction_reminder_subject_trigger = yes
+        NOT = { has_character_flag = autoedu_personality_event_recently_shown }
+        scope:autoedu_owner = {
+          has_bp2_dlc_trigger = yes
+          is_character_interaction_valid = {
+            interaction = influence_child_personality_interaction
+            recipient = prev
+          }
+        }
+      }
+      order_by = age
+      position = 0
+      save_scope_as = autoedu_personality_child
+    }
+  }
+}
+
+autoedu_find_martial_training_ward_for_owner_effect = {
+  scope:autoedu_owner = {
+    ordered_relation = {
+      type = ward
+      limit = {
+        autoedu_ward_interaction_reminder_subject_trigger = yes
+        NOT = { has_character_flag = autoedu_martial_training_event_recently_shown }
+        scope:autoedu_owner = {
+          has_mpo_dlc_trigger = yes
+          is_character_interaction_valid = {
+            interaction = influence_child_commander_interaction
+            recipient = prev
+          }
+        }
+      }
+      order_by = age
+      position = 0
+      save_scope_as = autoedu_martial_training_child
+    }
+  }
+}
+
+autoedu_send_child_to_examination_effect = {
+  if = {
+    limit = {
+      exists = scope:autoedu_owner
+      exists = scope:autoedu_child_exam_child
+      scope:autoedu_owner = {
+        influence >= minor_influence_value
+        is_character_interaction_valid = {
+          interaction = send_child_to_examination_interaction
+          recipient = scope:autoedu_child_exam_child
+        }
+      }
+      scope:autoedu_child_exam_child = { autoedu_child_exam_candidate_trigger = yes }
+    }
+    scope:autoedu_child_exam_child = {
+      add_character_flag = {
+        flag = autoedu_child_exam_processed_in_batch
+        days = 1
+      }
+    }
+    run_interaction = {
+      interaction = send_child_to_examination_interaction
+      actor = scope:autoedu_owner
+      recipient = scope:autoedu_child_exam_child
+      send_threshold = accept
+    }
+    scope:autoedu_owner = { set_variable = { name = autoedu_child_exam_batch_sent value = yes } }
+  }
+}
+
+autoedu_find_child_exam_candidate_for_owner_effect = {
+  autoedu_release_find_child_exam_candidate_effect = yes
+}
+
+autoedu_try_send_one_child_exam_effect = {
+  if = {
+    limit = {
+      NOT = { exists = var:autoedu_child_exam_batch_stopped }
+      has_tgp_dlc_trigger = yes
+      government_allows = merit
+      influence >= minor_influence_value
+    }
+    autoedu_find_child_exam_candidate_for_owner_effect = yes
+
+    if = {
+      limit = {
+        exists = var:autoedu_child_exam_candidate_found
+        exists = scope:autoedu_child_exam_child
+        scope:autoedu_child_exam_child = { autoedu_child_exam_candidate_trigger = yes }
+        is_character_interaction_valid = {
+          interaction = send_child_to_examination_interaction
+          recipient = scope:autoedu_child_exam_child
+        }
+      }
+      autoedu_send_child_to_examination_effect = yes
+    }
+    else = {
+      set_variable = { name = autoedu_child_exam_batch_stopped value = yes }
+    }
+    remove_variable = autoedu_child_exam_candidate_found
+  }
+  else = {
+    set_variable = { name = autoedu_child_exam_batch_stopped value = yes }
+  }
+}
+
+autoedu_child_exam_batch_effect = {
+  remove_variable = autoedu_child_exam_batch_stopped
+  remove_variable = autoedu_child_exam_batch_sent
+  remove_variable = autoedu_child_exam_candidate_found
+  autoedu_try_send_one_child_exam_effect = yes
+  autoedu_try_send_one_child_exam_effect = yes
+  autoedu_try_send_one_child_exam_effect = yes
+  autoedu_try_send_one_child_exam_effect = yes
+  autoedu_try_send_one_child_exam_effect = yes
+  remove_variable = autoedu_child_exam_batch_stopped
+  remove_variable = autoedu_child_exam_candidate_found
+}
+
+autoedu_find_best_guardian_effect = {
+  autoedu_release_collect_guardian_candidates_effect = yes
+
+  if = {
+    limit = { exists = scope:autoedu_candidate_1 }
+    autoedu_assign_guardian_effect = { GUARDIAN = scope:autoedu_candidate_1 }
+  }
+  else_if = {
+    limit = { scope:autoedu_owner.var:autoedu_notifications = yes }
+    scope:autoedu_child = {
+      add_character_flag = {
+        flag = autoedu_guardian_postponed
+        months = 6
+      }
+    }
+    scope:autoedu_owner = {
+      send_interface_message = {
+        type = msg_autoedu_good
+        title = autoedu_no_guardian_found_title
+        desc = autoedu_no_guardian_found_desc
+        left_icon = scope:autoedu_child
+      }
+    }
+    scope:autoedu_owner = { autoedu_finish_guardian_loss_child_effect = yes }
+  }
+  else = {
+    scope:autoedu_child = {
+      add_character_flag = {
+        flag = autoedu_guardian_postponed
+        months = 6
+      }
+    }
+    scope:autoedu_owner = { autoedu_finish_guardian_loss_child_effect = yes }
+  }
+}
+
+autoedu_send_child_to_university_effect = {
+  scope:autoedu_owner = {
+    remove_short_term_gold = monumental_gold_value
+  }
+  scope:autoedu_child = {
+    add_character_modifier = {
+      modifier = studying_at_university_modifier
+    }
+    add_character_flag = {
+      flag = autoedu_university_postponed
+      years = 17
+    }
+  }
+  if = {
+    limit = { scope:autoedu_owner.var:autoedu_notifications = yes }
+    scope:autoedu_owner = {
+      send_interface_message = {
+        type = msg_autoedu_good
+        title = autoedu_university_sent_title
+        desc = autoedu_university_sent_desc
+        left_icon = scope:autoedu_child
+      }
+    }
+  }
+}

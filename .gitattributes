@@ -1,0 +1,3 @@
+# Preserve imported CK3 files byte-for-byte, including BOM and line endings.
+mods/workshop/** -text
+mods/derived/** -text

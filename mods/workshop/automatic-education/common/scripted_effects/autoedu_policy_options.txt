@@ -1,0 +1,1657 @@
+﻿autoedu_editor_ensure_global_preset_options_effect = {
+  if = {
+    limit = { NOT = { exists = global_var:autoedu_editor_preset_options_global_v1 } }
+    clear_global_variable_list = autoedu_editor_preset_options
+    add_to_global_variable_list = { name = autoedu_editor_preset_options target = flag:editor_preset_0 }
+    add_to_global_variable_list = { name = autoedu_editor_preset_options target = flag:editor_preset_1 }
+    add_to_global_variable_list = { name = autoedu_editor_preset_options target = flag:editor_preset_2 }
+    add_to_global_variable_list = { name = autoedu_editor_preset_options target = flag:editor_preset_3 }
+    add_to_global_variable_list = { name = autoedu_editor_preset_options target = flag:editor_preset_4 }
+    add_to_global_variable_list = { name = autoedu_editor_preset_options target = flag:editor_preset_5 }
+    add_to_global_variable_list = { name = autoedu_editor_preset_options target = flag:editor_preset_6 }
+    set_global_variable = { name = autoedu_editor_preset_options_global_v1 value = 1 }
+  }
+}
+
+autoedu_editor_prepare_dropdown_options_effect = {
+
+  if = {
+    limit = { NOT = { exists = global_var:autoedu_editor_dropdown_options_global_v3 } }
+    clear_global_variable_list = autoedu_editor_policy_guardian_mode_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_mode_options target = flag:policy_guardian_mode_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_mode_options target = flag:policy_guardian_mode_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_mode_options target = flag:policy_guardian_mode_2 }
+    clear_global_variable_list = autoedu_editor_policy_guardian_min_age_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_min_age_options target = flag:policy_guardian_min_age_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_min_age_options target = flag:policy_guardian_min_age_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_min_age_options target = flag:policy_guardian_min_age_2 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_min_age_options target = flag:policy_guardian_min_age_3 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_min_age_options target = flag:policy_guardian_min_age_4 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_min_age_options target = flag:policy_guardian_min_age_5 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_min_age_options target = flag:policy_guardian_min_age_6 }
+    clear_global_variable_list = autoedu_editor_policy_guardian_max_age_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_max_age_options target = flag:policy_guardian_max_age_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_max_age_options target = flag:policy_guardian_max_age_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_max_age_options target = flag:policy_guardian_max_age_2 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_max_age_options target = flag:policy_guardian_max_age_3 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_max_age_options target = flag:policy_guardian_max_age_4 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_max_age_options target = flag:policy_guardian_max_age_5 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_max_age_options target = flag:policy_guardian_max_age_6 }
+    clear_global_variable_list = autoedu_editor_policy_guardian_gender_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_gender_options target = flag:policy_guardian_gender_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_gender_options target = flag:policy_guardian_gender_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_gender_options target = flag:policy_guardian_gender_2 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_gender_options target = flag:policy_guardian_gender_3 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_gender_options target = flag:policy_guardian_gender_4 }
+    clear_global_variable_list = autoedu_editor_policy_guardian_faith_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_faith_options target = flag:policy_guardian_faith_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_faith_options target = flag:policy_guardian_faith_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_faith_options target = flag:policy_guardian_faith_2 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_faith_options target = flag:policy_guardian_faith_3 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_faith_options target = flag:policy_guardian_faith_4 }
+    clear_global_variable_list = autoedu_editor_policy_guardian_culture_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_culture_options target = flag:policy_guardian_culture_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_culture_options target = flag:policy_guardian_culture_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_culture_options target = flag:policy_guardian_culture_2 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_culture_options target = flag:policy_guardian_culture_3 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_culture_options target = flag:policy_guardian_culture_4 }
+    clear_global_variable_list = autoedu_editor_policy_guardian_witch_attitude_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_witch_attitude_options target = flag:policy_guardian_witch_attitude_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_witch_attitude_options target = flag:policy_guardian_witch_attitude_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_witch_attitude_options target = flag:policy_guardian_witch_attitude_2 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_guardian_witch_attitude_options target = flag:policy_guardian_witch_attitude_3 }
+    clear_global_variable_list = autoedu_editor_policy_faith_upbringing_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_faith_upbringing_options target = flag:policy_faith_upbringing_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_faith_upbringing_options target = flag:policy_faith_upbringing_1 }
+    clear_global_variable_list = autoedu_editor_policy_culture_upbringing_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_culture_upbringing_options target = flag:policy_culture_upbringing_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_culture_upbringing_options target = flag:policy_culture_upbringing_1 }
+    clear_global_variable_list = autoedu_editor_policy_focus_mode_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_focus_mode_options target = flag:policy_focus_mode_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_focus_mode_options target = flag:policy_focus_mode_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_focus_mode_options target = flag:policy_focus_mode_2 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_focus_mode_options target = flag:policy_focus_mode_3 }
+    clear_global_variable_list = autoedu_editor_policy_university_mode_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_university_mode_options target = flag:policy_university_mode_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_university_mode_options target = flag:policy_university_mode_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_university_mode_options target = flag:policy_university_mode_2 }
+    clear_global_variable_list = autoedu_editor_policy_university_gender_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_university_gender_options target = flag:policy_university_gender_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_university_gender_options target = flag:policy_university_gender_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_university_gender_options target = flag:policy_university_gender_2 }
+    clear_global_variable_list = autoedu_editor_policy_examination_mode_options
+    add_to_global_variable_list = { name = autoedu_editor_policy_examination_mode_options target = flag:policy_examination_mode_0 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_examination_mode_options target = flag:policy_examination_mode_1 }
+    add_to_global_variable_list = { name = autoedu_editor_policy_examination_mode_options target = flag:policy_examination_mode_2 }
+    clear_global_variable_list = autoedu_editor_general_personality_mode_options
+    add_to_global_variable_list = { name = autoedu_editor_general_personality_mode_options target = flag:general_personality_mode_0 }
+    add_to_global_variable_list = { name = autoedu_editor_general_personality_mode_options target = flag:general_personality_mode_1 }
+    clear_global_variable_list = autoedu_editor_general_martial_training_mode_options
+    add_to_global_variable_list = { name = autoedu_editor_general_martial_training_mode_options target = flag:general_martial_training_mode_0 }
+    add_to_global_variable_list = { name = autoedu_editor_general_martial_training_mode_options target = flag:general_martial_training_mode_1 }
+    clear_global_variable_list = autoedu_editor_general_university_reserve_options
+    add_to_global_variable_list = { name = autoedu_editor_general_university_reserve_options target = flag:general_university_reserve_0 }
+    add_to_global_variable_list = { name = autoedu_editor_general_university_reserve_options target = flag:general_university_reserve_1 }
+    add_to_global_variable_list = { name = autoedu_editor_general_university_reserve_options target = flag:general_university_reserve_2 }
+    add_to_global_variable_list = { name = autoedu_editor_general_university_reserve_options target = flag:general_university_reserve_3 }
+    set_global_variable = { name = autoedu_editor_dropdown_options_global_v3 value = 1 }
+  }
+}
+
+autoedu_editor_reset_policy_slot_0_effect = {
+  set_variable = { name = autoedu_editor_policy_0_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_dynasty_members value = 1 }
+}
+
+autoedu_editor_reset_policy_slot_1_effect = {
+  set_variable = { name = autoedu_editor_policy_1_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_dynasty_members value = 1 }
+}
+
+autoedu_editor_reset_policy_slot_2_effect = {
+  set_variable = { name = autoedu_editor_policy_2_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_dynasty_members value = 1 }
+}
+
+autoedu_editor_reset_policy_slot_3_effect = {
+  set_variable = { name = autoedu_editor_policy_3_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_3_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_dynasty_members value = 1 }
+}
+
+autoedu_editor_reset_policy_slot_4_effect = {
+  set_variable = { name = autoedu_editor_policy_4_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_4_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_dynasty_members value = 1 }
+}
+
+autoedu_editor_reset_policy_slot_5_effect = {
+  set_variable = { name = autoedu_editor_policy_5_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_5_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_dynasty_members value = 1 }
+}
+
+autoedu_editor_reset_policy_slot_6_effect = {
+  set_variable = { name = autoedu_editor_policy_6_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_6_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_dynasty_members value = 1 }
+}
+
+autoedu_editor_reset_policy_slot_7_effect = {
+  set_variable = { name = autoedu_editor_policy_7_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_7_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_dynasty_members value = 1 }
+}
+
+autoedu_editor_reset_general_values_effect = {
+  set_variable = { name = autoedu_editor_general_personality_mode value = 0 }
+  set_variable = { name = autoedu_editor_general_martial_training_mode value = 0 }
+  set_variable = { name = autoedu_editor_general_university_reserve value = 0 }
+  set_variable = { name = autoedu_editor_general_notifications value = 1 }
+}
+
+autoedu_editor_apply_current_defaults_effect = {
+  set_variable = { name = autoedu_editor_selected_policy value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_dynasty_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_dynasty_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_dynasty_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_3_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_3_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_3_guardian_area_dynasty_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_4_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_4_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_4_guardian_area_dynasty_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_5_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_5_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_5_guardian_area_dynasty_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_6_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_6_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_6_guardian_area_dynasty_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_7_enabled value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_faith value = 3 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_culture value = 3 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_faith_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_culture_upbringing value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_7_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_player_courtiers value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_close_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_7_guardian_area_dynasty_members value = 1 }
+  set_variable = { name = autoedu_editor_general_personality_mode value = 0 }
+  set_variable = { name = autoedu_editor_general_martial_training_mode value = 0 }
+  set_variable = { name = autoedu_editor_general_university_reserve value = 0 }
+  set_variable = { name = autoedu_editor_general_notifications value = 1 }
+  set_variable = { name = autoedu_editor_schema_version value = 13 }
+  set_variable = { name = autoedu_editor_last_action value = 0 }
+}
+
+autoedu_editor_migrate_schema_11_to_12_effect = {
+  if = {
+    limit = { autoedu_editor_schema_11_valid_trigger = yes }
+    set_variable = { name = autoedu_editor_schema_version value = 12 }
+  }
+}
+
+autoedu_editor_migrate_schema_12_to_13_effect = {
+  if = {
+    limit = { autoedu_editor_schema_12_valid_trigger = yes }
+    set_variable = { name = autoedu_editor_general_martial_training_mode value = 0 }
+    set_variable = { name = autoedu_editor_schema_version value = 13 }
+  }
+}
+
+autoedu_editor_prepare_effect = {
+  autoedu_editor_ensure_global_preset_options_effect = yes
+  autoedu_editor_prepare_dropdown_options_effect = yes
+
+  set_variable = { name = autoedu_editor_ui_tab value = 0 }
+  set_variable = { name = autoedu_editor_last_action value = 0 }
+  set_variable = { name = autoedu_editor_selected_preset value = 0 }
+  set_variable = { name = autoedu_editor_confirm_action value = 0 }
+  set_variable = { name = autoedu_editor_section_guardian_open value = 0 }
+  set_variable = { name = autoedu_editor_section_guardian_filters_open value = 0 }
+  set_variable = { name = autoedu_editor_section_upbringing_open value = 0 }
+  set_variable = { name = autoedu_editor_section_focus_open value = 0 }
+  set_variable = { name = autoedu_editor_section_university_open value = 0 }
+  set_variable = { name = autoedu_editor_section_examination_open value = 0 }
+
+  if = {
+    limit = { NOT = { exists = var:autoedu_editor_schema_version } }
+    if = {
+      limit = { exists = var:autoedu_settings_initialized }
+      autoedu_release_migrate_legacy_1_10_effect = yes
+    }
+    else = {
+      autoedu_editor_apply_current_defaults_effect = yes
+    }
+    if = {
+      limit = { autoedu_editor_current_schema_valid_trigger = yes }
+      set_variable = { name = autoedu_editor_schema_state value = 1 }
+      set_variable = { name = autoedu_editor_ui_open value = yes }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_schema_state value = 4 }
+      trigger_event = { id = autoedu.5000 }
+    }
+  }
+  else_if = {
+    limit = { autoedu_editor_current_schema_valid_trigger = yes }
+    set_variable = { name = autoedu_editor_schema_state value = 1 }
+    set_variable = { name = autoedu_editor_ui_open value = yes }
+  }
+  else_if = {
+    limit = { autoedu_editor_schema_12_valid_trigger = yes }
+    autoedu_editor_migrate_schema_12_to_13_effect = yes
+    if = {
+      limit = { autoedu_editor_current_schema_valid_trigger = yes }
+      set_variable = { name = autoedu_editor_schema_state value = 1 }
+      set_variable = { name = autoedu_editor_ui_open value = yes }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_schema_state value = 4 }
+      trigger_event = { id = autoedu.5000 }
+    }
+  }
+  else_if = {
+    limit = { autoedu_editor_schema_11_valid_trigger = yes }
+    autoedu_editor_migrate_schema_11_to_12_effect = yes
+    autoedu_editor_migrate_schema_12_to_13_effect = yes
+    if = {
+      limit = { autoedu_editor_current_schema_valid_trigger = yes }
+      set_variable = { name = autoedu_editor_schema_state value = 1 }
+      set_variable = { name = autoedu_editor_ui_open value = yes }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_schema_state value = 4 }
+      trigger_event = { id = autoedu.5000 }
+    }
+  }
+  else_if = {
+    limit = { exists = var:autoedu_editor_schema_version var:autoedu_editor_schema_version = 10 autoedu_editor_schema_10_valid_trigger = yes }
+    if = { limit = { var:autoedu_editor_policy_0_focus_mode >= 2 } set_variable = { name = autoedu_editor_policy_0_focus_mode value = 2 } }
+    if = { limit = { var:autoedu_editor_policy_1_focus_mode >= 2 } set_variable = { name = autoedu_editor_policy_1_focus_mode value = 2 } }
+    if = { limit = { var:autoedu_editor_policy_2_focus_mode >= 2 } set_variable = { name = autoedu_editor_policy_2_focus_mode value = 2 } }
+    if = { limit = { var:autoedu_editor_policy_3_focus_mode >= 2 } set_variable = { name = autoedu_editor_policy_3_focus_mode value = 2 } }
+    if = { limit = { var:autoedu_editor_policy_4_focus_mode >= 2 } set_variable = { name = autoedu_editor_policy_4_focus_mode value = 2 } }
+    if = { limit = { var:autoedu_editor_policy_5_focus_mode >= 2 } set_variable = { name = autoedu_editor_policy_5_focus_mode value = 2 } }
+    if = { limit = { var:autoedu_editor_policy_6_focus_mode >= 2 } set_variable = { name = autoedu_editor_policy_6_focus_mode value = 2 } }
+    if = { limit = { var:autoedu_editor_policy_7_focus_mode >= 2 } set_variable = { name = autoedu_editor_policy_7_focus_mode value = 2 } }
+    set_variable = { name = autoedu_editor_general_notifications value = 1 }
+    set_variable = { name = autoedu_editor_schema_version value = 12 }
+    autoedu_editor_migrate_schema_12_to_13_effect = yes
+    if = {
+      limit = { autoedu_editor_current_schema_valid_trigger = yes }
+      set_variable = { name = autoedu_editor_schema_state value = 1 }
+      set_variable = { name = autoedu_editor_ui_open value = yes }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_schema_state value = 4 }
+      trigger_event = { id = autoedu.5000 }
+    }
+  }
+  else_if = {
+    limit = { exists = var:autoedu_editor_schema_version var:autoedu_editor_schema_version = 10 }
+    set_variable = { name = autoedu_editor_schema_state value = 4 }
+    trigger_event = { id = autoedu.5000 }
+  }
+  else_if = {
+    limit = { exists = var:autoedu_editor_schema_version OR = { var:autoedu_editor_schema_version = 8 var:autoedu_editor_schema_version = 9 } }
+    set_variable = { name = autoedu_editor_schema_state value = 2 }
+    trigger_event = { id = autoedu.5000 }
+  }
+  else_if = {
+    limit = { exists = var:autoedu_editor_schema_version OR = { var:autoedu_editor_schema_version = 11 var:autoedu_editor_schema_version = 12 var:autoedu_editor_schema_version = 13 } }
+    set_variable = { name = autoedu_editor_schema_state value = 4 }
+    trigger_event = { id = autoedu.5000 }
+  }
+  else = {
+    set_variable = { name = autoedu_editor_schema_state value = 3 }
+    trigger_event = { id = autoedu.5000 }
+  }
+  autoedu_release_after_editor_prepare_effect = yes
+}
+
+autoedu_editor_reset_policy_effect = {
+  if = {
+    limit = { var:autoedu_editor_selected_policy = 0 }
+    autoedu_editor_reset_policy_slot_0_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 1 }
+    autoedu_editor_reset_policy_slot_1_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 2 }
+    autoedu_editor_reset_policy_slot_2_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 3 }
+    autoedu_editor_reset_policy_slot_3_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 4 }
+    autoedu_editor_reset_policy_slot_4_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 5 }
+    autoedu_editor_reset_policy_slot_5_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 6 }
+    autoedu_editor_reset_policy_slot_6_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 7 }
+    autoedu_editor_reset_policy_slot_7_effect = yes
+  }
+  set_variable = { name = autoedu_editor_last_action value = 7 }
+}
+
+autoedu_editor_reset_general_effect = {
+  autoedu_editor_reset_general_values_effect = yes
+  set_variable = { name = autoedu_editor_last_action value = 12 }
+}
+
+autoedu_editor_reset_all_effect = {
+  autoedu_editor_reset_policy_slot_0_effect = yes
+  autoedu_editor_reset_policy_slot_1_effect = yes
+  autoedu_editor_reset_policy_slot_2_effect = yes
+  autoedu_editor_reset_policy_slot_3_effect = yes
+  autoedu_editor_reset_policy_slot_4_effect = yes
+  autoedu_editor_reset_policy_slot_5_effect = yes
+  autoedu_editor_reset_policy_slot_6_effect = yes
+  autoedu_editor_reset_policy_slot_7_effect = yes
+  autoedu_editor_reset_general_values_effect = yes
+  set_variable = { name = autoedu_editor_last_action value = 15 }
+}
+
+autoedu_editor_apply_preset_1_effect = {
+  autoedu_editor_reset_policy_slot_0_effect = yes
+  autoedu_editor_reset_policy_slot_1_effect = yes
+  autoedu_editor_reset_policy_slot_2_effect = yes
+  autoedu_editor_reset_policy_slot_3_effect = yes
+  autoedu_editor_reset_policy_slot_4_effect = yes
+  autoedu_editor_reset_policy_slot_5_effect = yes
+  autoedu_editor_reset_policy_slot_6_effect = yes
+  autoedu_editor_reset_policy_slot_7_effect = yes
+  set_variable = { name = autoedu_editor_policy_0_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_last_action value = 14 }
+  set_variable = { name = autoedu_editor_selected_preset value = 0 }
+}
+
+autoedu_editor_apply_preset_2_effect = {
+  autoedu_editor_reset_policy_slot_0_effect = yes
+  autoedu_editor_reset_policy_slot_1_effect = yes
+  autoedu_editor_reset_policy_slot_2_effect = yes
+  autoedu_editor_reset_policy_slot_3_effect = yes
+  autoedu_editor_reset_policy_slot_4_effect = yes
+  autoedu_editor_reset_policy_slot_5_effect = yes
+  autoedu_editor_reset_policy_slot_6_effect = yes
+  autoedu_editor_reset_policy_slot_7_effect = yes
+  set_variable = { name = autoedu_editor_policy_0_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = 1 }
+  set_variable = { name = autoedu_editor_last_action value = 14 }
+  set_variable = { name = autoedu_editor_selected_preset value = 0 }
+}
+
+autoedu_editor_apply_preset_3_effect = {
+  autoedu_editor_reset_policy_slot_0_effect = yes
+  autoedu_editor_reset_policy_slot_1_effect = yes
+  autoedu_editor_reset_policy_slot_2_effect = yes
+  autoedu_editor_reset_policy_slot_3_effect = yes
+  autoedu_editor_reset_policy_slot_4_effect = yes
+  autoedu_editor_reset_policy_slot_5_effect = yes
+  autoedu_editor_reset_policy_slot_6_effect = yes
+  autoedu_editor_reset_policy_slot_7_effect = yes
+  set_variable = { name = autoedu_editor_policy_0_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = 4 }
+  set_variable = { name = autoedu_editor_last_action value = 14 }
+  set_variable = { name = autoedu_editor_selected_preset value = 0 }
+}
+
+autoedu_editor_apply_preset_4_effect = {
+  autoedu_editor_reset_policy_slot_0_effect = yes
+  autoedu_editor_reset_policy_slot_1_effect = yes
+  autoedu_editor_reset_policy_slot_2_effect = yes
+  autoedu_editor_reset_policy_slot_3_effect = yes
+  autoedu_editor_reset_policy_slot_4_effect = yes
+  autoedu_editor_reset_policy_slot_5_effect = yes
+  autoedu_editor_reset_policy_slot_6_effect = yes
+  autoedu_editor_reset_policy_slot_7_effect = yes
+  set_variable = { name = autoedu_editor_policy_0_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = 3 }
+  set_variable = { name = autoedu_editor_last_action value = 14 }
+  set_variable = { name = autoedu_editor_selected_preset value = 0 }
+}
+
+autoedu_editor_apply_preset_5_effect = {
+  autoedu_editor_reset_policy_slot_0_effect = yes
+  autoedu_editor_reset_policy_slot_1_effect = yes
+  autoedu_editor_reset_policy_slot_2_effect = yes
+  autoedu_editor_reset_policy_slot_3_effect = yes
+  autoedu_editor_reset_policy_slot_4_effect = yes
+  autoedu_editor_reset_policy_slot_5_effect = yes
+  autoedu_editor_reset_policy_slot_6_effect = yes
+  autoedu_editor_reset_policy_slot_7_effect = yes
+  set_variable = { name = autoedu_editor_policy_0_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = 1 }
+  set_variable = { name = autoedu_editor_last_action value = 14 }
+  set_variable = { name = autoedu_editor_selected_preset value = 0 }
+}
+
+autoedu_editor_apply_preset_6_effect = {
+  autoedu_editor_reset_policy_slot_0_effect = yes
+  autoedu_editor_reset_policy_slot_1_effect = yes
+  autoedu_editor_reset_policy_slot_2_effect = yes
+  autoedu_editor_reset_policy_slot_3_effect = yes
+  autoedu_editor_reset_policy_slot_4_effect = yes
+  autoedu_editor_reset_policy_slot_5_effect = yes
+  autoedu_editor_reset_policy_slot_6_effect = yes
+  autoedu_editor_reset_policy_slot_7_effect = yes
+  set_variable = { name = autoedu_editor_policy_0_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_0_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = 4 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = 2 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = 0 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_1_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = 4 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = 2 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = 0 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_enabled value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_faith_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_culture_upbringing value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_focus_mode value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_university_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_university_gender value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_examination_mode value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_player_courtiers value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_direct_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_indirect_vassal_realms value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_close_relatives value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_distant_relatives value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_house_members value = 1 }
+  set_variable = { name = autoedu_editor_policy_2_guardian_area_dynasty_members value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = 4 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = 2 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = 0 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = 3 }
+  set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = 1 }
+  set_variable = { name = autoedu_editor_last_action value = 14 }
+  set_variable = { name = autoedu_editor_selected_preset value = 0 }
+}
+
+autoedu_editor_apply_selected_preset_effect = {
+  if = {
+    limit = { var:autoedu_editor_selected_preset = 1 }
+    autoedu_editor_apply_preset_1_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_preset = 2 }
+    autoedu_editor_apply_preset_2_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_preset = 3 }
+    autoedu_editor_apply_preset_3_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_preset = 4 }
+    autoedu_editor_apply_preset_4_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_preset = 5 }
+    autoedu_editor_apply_preset_5_effect = yes
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_preset = 6 }
+    autoedu_editor_apply_preset_6_effect = yes
+  }
+}
+
+autoedu_editor_copy_selected_focus_order_to_all_effect = {
+  if = {
+    limit = { var:autoedu_editor_selected_policy = 0 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = var:autoedu_editor_policy_0_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = var:autoedu_editor_policy_0_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = var:autoedu_editor_policy_0_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = var:autoedu_editor_policy_0_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = var:autoedu_editor_policy_0_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = var:autoedu_editor_policy_0_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = var:autoedu_editor_policy_0_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = var:autoedu_editor_policy_0_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = var:autoedu_editor_policy_0_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = var:autoedu_editor_policy_0_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = var:autoedu_editor_policy_0_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = var:autoedu_editor_policy_0_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = var:autoedu_editor_policy_0_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = var:autoedu_editor_policy_0_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = var:autoedu_editor_policy_0_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = var:autoedu_editor_policy_0_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = var:autoedu_editor_policy_0_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = var:autoedu_editor_policy_0_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = var:autoedu_editor_policy_0_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = var:autoedu_editor_policy_0_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = var:autoedu_editor_policy_0_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = var:autoedu_editor_policy_0_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = var:autoedu_editor_policy_0_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = var:autoedu_editor_policy_0_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = var:autoedu_editor_policy_0_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = var:autoedu_editor_policy_0_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = var:autoedu_editor_policy_0_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = var:autoedu_editor_policy_0_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = var:autoedu_editor_policy_0_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = var:autoedu_editor_policy_0_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = var:autoedu_editor_policy_0_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = var:autoedu_editor_policy_0_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = var:autoedu_editor_policy_0_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = var:autoedu_editor_policy_0_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = var:autoedu_editor_policy_0_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = var:autoedu_editor_policy_0_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = var:autoedu_editor_policy_0_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = var:autoedu_editor_policy_0_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = var:autoedu_editor_policy_0_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = var:autoedu_editor_policy_0_focus_priority_5 }
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 1 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = var:autoedu_editor_policy_1_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = var:autoedu_editor_policy_1_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = var:autoedu_editor_policy_1_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = var:autoedu_editor_policy_1_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = var:autoedu_editor_policy_1_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = var:autoedu_editor_policy_1_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = var:autoedu_editor_policy_1_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = var:autoedu_editor_policy_1_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = var:autoedu_editor_policy_1_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = var:autoedu_editor_policy_1_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = var:autoedu_editor_policy_1_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = var:autoedu_editor_policy_1_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = var:autoedu_editor_policy_1_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = var:autoedu_editor_policy_1_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = var:autoedu_editor_policy_1_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = var:autoedu_editor_policy_1_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = var:autoedu_editor_policy_1_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = var:autoedu_editor_policy_1_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = var:autoedu_editor_policy_1_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = var:autoedu_editor_policy_1_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = var:autoedu_editor_policy_1_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = var:autoedu_editor_policy_1_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = var:autoedu_editor_policy_1_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = var:autoedu_editor_policy_1_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = var:autoedu_editor_policy_1_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = var:autoedu_editor_policy_1_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = var:autoedu_editor_policy_1_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = var:autoedu_editor_policy_1_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = var:autoedu_editor_policy_1_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = var:autoedu_editor_policy_1_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = var:autoedu_editor_policy_1_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = var:autoedu_editor_policy_1_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = var:autoedu_editor_policy_1_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = var:autoedu_editor_policy_1_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = var:autoedu_editor_policy_1_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = var:autoedu_editor_policy_1_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = var:autoedu_editor_policy_1_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = var:autoedu_editor_policy_1_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = var:autoedu_editor_policy_1_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = var:autoedu_editor_policy_1_focus_priority_5 }
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 2 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = var:autoedu_editor_policy_2_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = var:autoedu_editor_policy_2_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = var:autoedu_editor_policy_2_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = var:autoedu_editor_policy_2_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = var:autoedu_editor_policy_2_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = var:autoedu_editor_policy_2_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = var:autoedu_editor_policy_2_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = var:autoedu_editor_policy_2_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = var:autoedu_editor_policy_2_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = var:autoedu_editor_policy_2_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = var:autoedu_editor_policy_2_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = var:autoedu_editor_policy_2_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = var:autoedu_editor_policy_2_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = var:autoedu_editor_policy_2_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = var:autoedu_editor_policy_2_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = var:autoedu_editor_policy_2_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = var:autoedu_editor_policy_2_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = var:autoedu_editor_policy_2_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = var:autoedu_editor_policy_2_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = var:autoedu_editor_policy_2_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = var:autoedu_editor_policy_2_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = var:autoedu_editor_policy_2_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = var:autoedu_editor_policy_2_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = var:autoedu_editor_policy_2_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = var:autoedu_editor_policy_2_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = var:autoedu_editor_policy_2_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = var:autoedu_editor_policy_2_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = var:autoedu_editor_policy_2_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = var:autoedu_editor_policy_2_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = var:autoedu_editor_policy_2_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = var:autoedu_editor_policy_2_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = var:autoedu_editor_policy_2_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = var:autoedu_editor_policy_2_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = var:autoedu_editor_policy_2_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = var:autoedu_editor_policy_2_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = var:autoedu_editor_policy_2_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = var:autoedu_editor_policy_2_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = var:autoedu_editor_policy_2_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = var:autoedu_editor_policy_2_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = var:autoedu_editor_policy_2_focus_priority_5 }
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 3 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = var:autoedu_editor_policy_3_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = var:autoedu_editor_policy_3_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = var:autoedu_editor_policy_3_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = var:autoedu_editor_policy_3_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = var:autoedu_editor_policy_3_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = var:autoedu_editor_policy_3_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = var:autoedu_editor_policy_3_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = var:autoedu_editor_policy_3_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = var:autoedu_editor_policy_3_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = var:autoedu_editor_policy_3_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = var:autoedu_editor_policy_3_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = var:autoedu_editor_policy_3_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = var:autoedu_editor_policy_3_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = var:autoedu_editor_policy_3_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = var:autoedu_editor_policy_3_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = var:autoedu_editor_policy_3_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = var:autoedu_editor_policy_3_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = var:autoedu_editor_policy_3_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = var:autoedu_editor_policy_3_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = var:autoedu_editor_policy_3_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = var:autoedu_editor_policy_3_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = var:autoedu_editor_policy_3_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = var:autoedu_editor_policy_3_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = var:autoedu_editor_policy_3_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = var:autoedu_editor_policy_3_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = var:autoedu_editor_policy_3_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = var:autoedu_editor_policy_3_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = var:autoedu_editor_policy_3_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = var:autoedu_editor_policy_3_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = var:autoedu_editor_policy_3_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = var:autoedu_editor_policy_3_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = var:autoedu_editor_policy_3_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = var:autoedu_editor_policy_3_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = var:autoedu_editor_policy_3_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = var:autoedu_editor_policy_3_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = var:autoedu_editor_policy_3_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = var:autoedu_editor_policy_3_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = var:autoedu_editor_policy_3_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = var:autoedu_editor_policy_3_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = var:autoedu_editor_policy_3_focus_priority_5 }
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 4 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = var:autoedu_editor_policy_4_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = var:autoedu_editor_policy_4_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = var:autoedu_editor_policy_4_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = var:autoedu_editor_policy_4_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = var:autoedu_editor_policy_4_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = var:autoedu_editor_policy_4_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = var:autoedu_editor_policy_4_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = var:autoedu_editor_policy_4_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = var:autoedu_editor_policy_4_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = var:autoedu_editor_policy_4_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = var:autoedu_editor_policy_4_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = var:autoedu_editor_policy_4_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = var:autoedu_editor_policy_4_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = var:autoedu_editor_policy_4_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = var:autoedu_editor_policy_4_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = var:autoedu_editor_policy_4_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = var:autoedu_editor_policy_4_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = var:autoedu_editor_policy_4_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = var:autoedu_editor_policy_4_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = var:autoedu_editor_policy_4_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = var:autoedu_editor_policy_4_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = var:autoedu_editor_policy_4_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = var:autoedu_editor_policy_4_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = var:autoedu_editor_policy_4_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = var:autoedu_editor_policy_4_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = var:autoedu_editor_policy_4_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = var:autoedu_editor_policy_4_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = var:autoedu_editor_policy_4_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = var:autoedu_editor_policy_4_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = var:autoedu_editor_policy_4_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = var:autoedu_editor_policy_4_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = var:autoedu_editor_policy_4_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = var:autoedu_editor_policy_4_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = var:autoedu_editor_policy_4_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = var:autoedu_editor_policy_4_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = var:autoedu_editor_policy_4_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = var:autoedu_editor_policy_4_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = var:autoedu_editor_policy_4_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = var:autoedu_editor_policy_4_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = var:autoedu_editor_policy_4_focus_priority_5 }
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 5 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = var:autoedu_editor_policy_5_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = var:autoedu_editor_policy_5_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = var:autoedu_editor_policy_5_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = var:autoedu_editor_policy_5_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = var:autoedu_editor_policy_5_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = var:autoedu_editor_policy_5_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = var:autoedu_editor_policy_5_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = var:autoedu_editor_policy_5_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = var:autoedu_editor_policy_5_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = var:autoedu_editor_policy_5_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = var:autoedu_editor_policy_5_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = var:autoedu_editor_policy_5_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = var:autoedu_editor_policy_5_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = var:autoedu_editor_policy_5_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = var:autoedu_editor_policy_5_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = var:autoedu_editor_policy_5_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = var:autoedu_editor_policy_5_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = var:autoedu_editor_policy_5_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = var:autoedu_editor_policy_5_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = var:autoedu_editor_policy_5_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = var:autoedu_editor_policy_5_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = var:autoedu_editor_policy_5_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = var:autoedu_editor_policy_5_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = var:autoedu_editor_policy_5_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = var:autoedu_editor_policy_5_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = var:autoedu_editor_policy_5_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = var:autoedu_editor_policy_5_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = var:autoedu_editor_policy_5_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = var:autoedu_editor_policy_5_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = var:autoedu_editor_policy_5_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = var:autoedu_editor_policy_5_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = var:autoedu_editor_policy_5_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = var:autoedu_editor_policy_5_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = var:autoedu_editor_policy_5_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = var:autoedu_editor_policy_5_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = var:autoedu_editor_policy_5_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = var:autoedu_editor_policy_5_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = var:autoedu_editor_policy_5_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = var:autoedu_editor_policy_5_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = var:autoedu_editor_policy_5_focus_priority_5 }
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 6 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = var:autoedu_editor_policy_6_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = var:autoedu_editor_policy_6_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = var:autoedu_editor_policy_6_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = var:autoedu_editor_policy_6_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = var:autoedu_editor_policy_6_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = var:autoedu_editor_policy_6_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = var:autoedu_editor_policy_6_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = var:autoedu_editor_policy_6_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = var:autoedu_editor_policy_6_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = var:autoedu_editor_policy_6_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = var:autoedu_editor_policy_6_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = var:autoedu_editor_policy_6_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = var:autoedu_editor_policy_6_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = var:autoedu_editor_policy_6_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = var:autoedu_editor_policy_6_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = var:autoedu_editor_policy_6_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = var:autoedu_editor_policy_6_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = var:autoedu_editor_policy_6_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = var:autoedu_editor_policy_6_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = var:autoedu_editor_policy_6_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = var:autoedu_editor_policy_6_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = var:autoedu_editor_policy_6_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = var:autoedu_editor_policy_6_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = var:autoedu_editor_policy_6_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = var:autoedu_editor_policy_6_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = var:autoedu_editor_policy_6_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = var:autoedu_editor_policy_6_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = var:autoedu_editor_policy_6_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = var:autoedu_editor_policy_6_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = var:autoedu_editor_policy_6_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = var:autoedu_editor_policy_6_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = var:autoedu_editor_policy_6_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = var:autoedu_editor_policy_6_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = var:autoedu_editor_policy_6_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = var:autoedu_editor_policy_6_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = var:autoedu_editor_policy_6_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = var:autoedu_editor_policy_6_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = var:autoedu_editor_policy_6_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = var:autoedu_editor_policy_6_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = var:autoedu_editor_policy_6_focus_priority_5 }
+  }
+  else_if = {
+    limit = { var:autoedu_editor_selected_policy = 7 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = var:autoedu_editor_policy_7_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = var:autoedu_editor_policy_7_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = var:autoedu_editor_policy_7_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = var:autoedu_editor_policy_7_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = var:autoedu_editor_policy_7_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = var:autoedu_editor_policy_7_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = var:autoedu_editor_policy_7_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = var:autoedu_editor_policy_7_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = var:autoedu_editor_policy_7_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = var:autoedu_editor_policy_7_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = var:autoedu_editor_policy_7_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = var:autoedu_editor_policy_7_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = var:autoedu_editor_policy_7_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = var:autoedu_editor_policy_7_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = var:autoedu_editor_policy_7_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = var:autoedu_editor_policy_7_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = var:autoedu_editor_policy_7_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = var:autoedu_editor_policy_7_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = var:autoedu_editor_policy_7_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = var:autoedu_editor_policy_7_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = var:autoedu_editor_policy_7_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = var:autoedu_editor_policy_7_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = var:autoedu_editor_policy_7_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = var:autoedu_editor_policy_7_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = var:autoedu_editor_policy_7_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = var:autoedu_editor_policy_7_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = var:autoedu_editor_policy_7_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = var:autoedu_editor_policy_7_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = var:autoedu_editor_policy_7_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = var:autoedu_editor_policy_7_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = var:autoedu_editor_policy_7_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = var:autoedu_editor_policy_7_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = var:autoedu_editor_policy_7_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = var:autoedu_editor_policy_7_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = var:autoedu_editor_policy_7_focus_priority_5 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = var:autoedu_editor_policy_7_focus_priority_1 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = var:autoedu_editor_policy_7_focus_priority_2 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = var:autoedu_editor_policy_7_focus_priority_3 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = var:autoedu_editor_policy_7_focus_priority_4 }
+    set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = var:autoedu_editor_policy_7_focus_priority_5 }
+  }
+  set_variable = { name = autoedu_editor_last_action value = 13 }
+}

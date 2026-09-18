@@ -1,0 +1,543 @@
+﻿namespace = auto_court_event
+
+# -------------------------------------------------------------------
+# Event 0001: Main Configuration Dashboard
+# -------------------------------------------------------------------
+auto_court_event.0001 = {
+	type = character_event
+	title = auto_court_event.0001.t
+	desc = auto_court_event.0001.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = council_chamber }
+
+	right_portrait = {
+		character = root
+		animation = happy_teacher
+		camera = camera_body_left_slight
+	}
+	
+	immediate = {
+		auto_court_initialize_settings_effect = yes
+	}
+
+	# Option: Toggle Main Automation On/Off
+	option = {
+		name = auto_court_event.0001.toggle_status
+		if = {
+			limit = {
+				has_variable = auto_court_enabled
+			}
+			remove_variable = auto_court_enabled
+			set_variable = {
+				name = auto_court_disabled
+				value = 1
+			}
+		}
+		else = {
+			remove_variable = auto_court_disabled
+			set_variable = {
+				name = auto_court_enabled
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0001
+		}
+	}
+
+	# Option: Configuration Submenu
+	option = {
+		name = auto_court_event.0001.configuration_menu
+		trigger_event = {
+			id = auto_court_event.0006
+		}
+	}
+
+	# Option: Run Evaluation Now
+	option = {
+		name = auto_court_event.0001.run_now
+		auto_court_run_yearly_management_effect = yes
+	}
+
+	# Debug Option (Commented out for production)
+	# option = {
+	# 	name = auto_court_event.0001.debug_spawn
+	# 	auto_court_debug_spawn_test_courtiers_effect = yes
+	# 	trigger_event = {
+	# 		id = auto_court_event.0001
+	# 	}
+	# }
+
+	# Option: Finish & Close
+	option = {
+		name = auto_court_event.0001.close
+	}
+}
+
+# -------------------------------------------------------------------
+# Event 0002: Dismissal & Competence Cutoffs Submenu
+# -------------------------------------------------------------------
+auto_court_event.0002 = {
+	type = character_event
+	title = auto_court_event.0002.t
+	desc = auto_court_event.0002.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = council_chamber }
+
+	right_portrait = {
+		character = root
+		animation = happy_teacher
+		camera = camera_body_left_slight
+	}
+
+	# Toggle Dismissals On/Off Completely
+	option = {
+		name = auto_court_event.0002.toggle_dismissal
+		if = {
+			limit = {
+				has_variable = auto_court_dismiss_disabled
+			}
+			remove_variable = auto_court_dismiss_disabled
+		}
+		else = {
+			set_variable = {
+				name = auto_court_dismiss_disabled
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0002
+		}
+	}
+
+	# Stat threshold = 8
+	option = {
+		name = auto_court_event.0002.threshold_8
+		set_variable = {
+			name = auto_court_min_stat_threshold
+			value = 8
+		}
+		trigger_event = {
+			id = auto_court_event.0002
+		}
+	}
+
+	# Stat threshold = 10 (Default)
+	option = {
+		name = auto_court_event.0002.threshold_10
+		set_variable = {
+			name = auto_court_min_stat_threshold
+			value = 10
+		}
+		trigger_event = {
+			id = auto_court_event.0002
+		}
+	}
+
+	# Stat threshold = 12
+	option = {
+		name = auto_court_event.0002.threshold_12
+		set_variable = {
+			name = auto_court_min_stat_threshold
+			value = 12
+		}
+		trigger_event = {
+			id = auto_court_event.0002
+		}
+	}
+
+	# Stat threshold = 15 (Elite)
+	option = {
+		name = auto_court_event.0002.threshold_15
+		set_variable = {
+			name = auto_court_min_stat_threshold
+			value = 15
+		}
+		trigger_event = {
+			id = auto_court_event.0002
+		}
+	}
+
+	# Return to Main Menu
+	option = {
+		name = auto_court_event.common.back
+		trigger_event = {
+			id = auto_court_event.0006
+		}
+	}
+}
+
+# -------------------------------------------------------------------
+# Event 0003: Marriage Rules Submenu
+# -------------------------------------------------------------------
+auto_court_event.0003 = {
+	type = character_event
+	title = auto_court_event.0003.t
+	desc = auto_court_event.0003.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = council_chamber }
+
+	right_portrait = {
+		character = root
+		animation = happy_teacher
+		camera = camera_body_left_slight
+	}
+
+	# Toggle Marriage Automation
+	option = {
+		name = auto_court_event.0003.toggle_marriage
+		if = {
+			limit = {
+				has_variable = auto_court_marry_disabled
+			}
+			remove_variable = auto_court_marry_disabled
+			set_variable = {
+				name = auto_court_marry_enabled
+				value = 1
+			}
+		}
+		else = {
+			remove_variable = auto_court_marry_enabled
+			set_variable = {
+				name = auto_court_marry_disabled
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0003
+		}
+	}
+
+	# Toggle Marry Primary Heir
+	option = {
+		name = auto_court_event.0003.toggle_heir
+		if = {
+			limit = {
+				has_variable = auto_court_marry_heir_allowed
+			}
+			remove_variable = auto_court_marry_heir_allowed
+		}
+		else = {
+			set_variable = {
+				name = auto_court_marry_heir_allowed
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0003
+		}
+	}
+
+	# Toggle Marry Close Family
+	option = {
+		name = auto_court_event.0003.toggle_close_family
+		if = {
+			limit = {
+				has_variable = auto_court_marry_close_family_allowed
+			}
+			remove_variable = auto_court_marry_close_family_allowed
+		}
+		else = {
+			set_variable = {
+				name = auto_court_marry_close_family_allowed
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0003
+		}
+	}
+
+	# Toggle Marry Dynasty
+	option = {
+		name = auto_court_event.0003.toggle_dynasty
+		if = {
+			limit = {
+				has_variable = auto_court_marry_dynasty_allowed
+			}
+			remove_variable = auto_court_marry_dynasty_allowed
+		}
+		else = {
+			set_variable = {
+				name = auto_court_marry_dynasty_allowed
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0003
+		}
+	}
+
+	# Toggle Marry Lovers & Soulmates
+	option = {
+		name = auto_court_event.0003.toggle_lovers
+		if = {
+			limit = {
+				has_variable = auto_court_marry_lovers_allowed
+			}
+			remove_variable = auto_court_marry_lovers_allowed
+		}
+		else = {
+			set_variable = {
+				name = auto_court_marry_lovers_allowed
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0003
+		}
+	}
+
+	# Return to Main Menu
+	option = {
+		name = auto_court_event.common.back
+		trigger_event = {
+			id = auto_court_event.0006
+		}
+	}
+}
+
+# -------------------------------------------------------------------
+# Event 0004: Safeguards Submenu
+# -------------------------------------------------------------------
+auto_court_event.0004 = {
+	type = character_event
+	title = auto_court_event.0004.t
+	desc = auto_court_event.0004.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = council_chamber }
+
+	right_portrait = {
+		character = root
+		animation = happy_teacher
+		camera = camera_body_left_slight
+	}
+
+	# Toggle Dynasty & Family Safeguard
+	option = {
+		name = auto_court_event.0004.toggle_dynasty
+		if = {
+			limit = {
+				has_variable = auto_court_safeguard_dynasty_disabled
+			}
+			remove_variable = auto_court_safeguard_dynasty_disabled
+		}
+		else = {
+			set_variable = {
+				name = auto_court_safeguard_dynasty_disabled
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0004
+		}
+	}
+
+	# Toggle Relationships (Lovers/Friends) Safeguard
+	option = {
+		name = auto_court_event.0004.toggle_relations
+		if = {
+			limit = {
+				has_variable = auto_court_safeguard_relationships_disabled
+			}
+			remove_variable = auto_court_safeguard_relationships_disabled
+		}
+		else = {
+			set_variable = {
+				name = auto_court_safeguard_relationships_disabled
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0004
+		}
+	}
+
+	# Toggle Positions & Knights Safeguard
+	option = {
+		name = auto_court_event.0004.toggle_positions
+		if = {
+			limit = {
+				has_variable = auto_court_safeguard_positions_disabled
+			}
+			remove_variable = auto_court_safeguard_positions_disabled
+		}
+		else = {
+			set_variable = {
+				name = auto_court_safeguard_positions_disabled
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0004
+		}
+	}
+
+	# Toggle Congenital Traits Safeguard
+	option = {
+		name = auto_court_event.0004.toggle_traits
+		if = {
+			limit = {
+				has_variable = auto_court_safeguard_traits_disabled
+			}
+			remove_variable = auto_court_safeguard_traits_disabled
+		}
+		else = {
+			set_variable = {
+				name = auto_court_safeguard_traits_disabled
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0004
+		}
+	}
+
+	# Toggle Pinned Characters Safeguard
+	option = {
+		name = auto_court_event.0004.toggle_pinned
+		if = {
+			limit = {
+				has_variable = auto_court_safeguard_pinned_disabled
+			}
+			remove_variable = auto_court_safeguard_pinned_disabled
+		}
+		else = {
+			set_variable = {
+				name = auto_court_safeguard_pinned_disabled
+				value = 1
+			}
+		}
+		trigger_event = {
+			id = auto_court_event.0004
+		}
+	}
+
+	# Return to Main Menu
+	option = {
+		name = auto_court_event.common.back
+		trigger_event = {
+			id = auto_court_event.0006
+		}
+	}
+}
+
+# -------------------------------------------------------------------
+# Event 0005: Aptitude & Evaluation Precision Submenu
+# -------------------------------------------------------------------
+auto_court_event.0005 = {
+	type = character_event
+	title = auto_court_event.0005.t
+	desc = auto_court_event.0005.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = council_chamber }
+
+	right_portrait = {
+		character = root
+		animation = happy_teacher
+		camera = camera_body_left_slight
+	}
+
+	# Set 100% Strict Rules (Deterministic)
+	option = {
+		name = auto_court_event.0005.strict_mode
+		remove_variable = auto_court_aptitude_mode
+		trigger_event = {
+			id = auto_court_event.0005
+		}
+	}
+
+	# Set Administrator Aptitude Mode (Seneschal/Chancellor / Second influence)
+	option = {
+		name = auto_court_event.0005.aptitude_mode
+		set_variable = {
+			name = auto_court_aptitude_mode
+			value = 1
+		}
+		trigger_event = {
+			id = auto_court_event.0005
+		}
+	}
+
+	# Debug Options (Commented out for production)
+	# option = {
+	# 	name = auto_court_event.0005.debug_master
+	# 	auto_court_debug_setup_master_admin_effect = yes
+	# 	trigger_event = {
+	# 		id = auto_court_event.0005
+	# 	}
+	# }
+
+	# option = {
+	# 	name = auto_court_event.0005.debug_incompetent
+	# 	auto_court_debug_setup_incompetent_admin_effect = yes
+	# 	trigger_event = {
+	# 		id = auto_court_event.0005
+	# 	}
+	# }
+
+	# Return to Main Menu
+	option = {
+		name = auto_court_event.common.back
+		trigger_event = {
+			id = auto_court_event.0006
+		}
+	}
+}
+
+# -------------------------------------------------------------------
+# Event 0006: Configuration Submenu
+# -------------------------------------------------------------------
+auto_court_event.0006 = {
+	type = character_event
+	title = auto_court_event.0006.t
+	desc = auto_court_event.0006.desc
+	theme = stewardship_duty_focus
+	override_background = { reference = council_chamber }
+
+	right_portrait = {
+		character = root
+		animation = happy_teacher
+		camera = camera_body_left_slight
+	}
+
+	# Option: Dismissal Thresholds Submenu
+	option = {
+		name = auto_court_event.0001.configure_stats
+		trigger_event = {
+			id = auto_court_event.0002
+		}
+	}
+
+	# Option: Marriage Rules Submenu
+	option = {
+		name = auto_court_event.0001.configure_marriage
+		trigger_event = {
+			id = auto_court_event.0003
+		}
+	}
+
+	# Option: Safeguards Submenu
+	option = {
+		name = auto_court_event.0001.configure_safeguards
+		trigger_event = {
+			id = auto_court_event.0004
+		}
+	}
+
+	# Option: Aptitude / Precision Mode Submenu
+	option = {
+		name = auto_court_event.0001.configure_aptitude
+		trigger_event = {
+			id = auto_court_event.0005
+		}
+	}
+
+	# Return to Main Menu
+	option = {
+		name = auto_court_event.common.back
+		trigger_event = {
+			id = auto_court_event.0001
+		}
+	}
+}

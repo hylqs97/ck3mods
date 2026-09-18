@@ -1,0 +1,145 @@
+﻿# Script values - loyalty reporting, v2.4
+#
+# Separate file so deleting it plus _decisions_loyalty.txt removes the whole
+# reporting feature and returns you to 2.3, per the file-layout convention in
+# docs/ARCHITECTURE.md section 9.
+#
+# Every count here excludes protected characters, so the numbers shown match
+# what a mass operation would actually touch. If you change a limit here,
+# change the matching decision effect too.
+
+# --- how many vassals the contract decisions can actually reach ------------
+# See advancedvassalmanager_decisions_contracts.txt for why this is gated on
+# the feudal flag rather than counting all vassals.
+
+avm_count_feudal_contract_vassals = {
+	value = 0
+	every_vassal = {
+		limit = {
+			NOT = { has_character_flag = avm_protected }
+			government_has_flag = government_is_feudal
+		}
+		add = 1
+	}
+}
+
+# --- how many it cannot, so the player can see the gap --------------------
+
+avm_count_other_contract_vassals = {
+	value = 0
+	every_vassal = {
+		limit = {
+			NOT = { has_character_flag = avm_protected }
+			NOT = { government_has_flag = government_is_feudal }
+		}
+		add = 1
+	}
+}
+
+
+# --- opinion bands --------------------------------------------------------
+# Bands are exclusive: each else_if excludes everything above it. The
+# thresholds match avm_contracts_by_loyalty_decision so the report and the
+# action agree with each other.
+
+avm_count_vassals_devoted = {
+	value = 0
+	every_vassal = {
+		limit = {
+			NOT = { has_character_flag = avm_protected }
+			opinion = {
+				target = root
+				value >= 50
+			}
+		}
+		add = 1
+	}
+}
+
+avm_count_vassals_content = {
+	value = 0
+	every_vassal = {
+		limit = {
+			NOT = { has_character_flag = avm_protected }
+			opinion = {
+				target = root
+				value >= 0
+			}
+			NOT = {
+				opinion = {
+					target = root
+					value >= 50
+				}
+			}
+		}
+		add = 1
+	}
+}
+
+avm_count_vassals_wavering = {
+	value = 0
+	every_vassal = {
+		limit = {
+			NOT = { has_character_flag = avm_protected }
+			opinion = {
+				target = root
+				value >= -25
+			}
+			NOT = {
+				opinion = {
+					target = root
+					value >= 0
+				}
+			}
+		}
+		add = 1
+	}
+}
+
+avm_count_vassals_hostile = {
+	value = 0
+	every_vassal = {
+		limit = {
+			NOT = { has_character_flag = avm_protected }
+			NOT = {
+				opinion = {
+					target = root
+					value >= -25
+				}
+			}
+		}
+		add = 1
+	}
+}
+
+
+# --- the number that actually predicts a civil war ------------------------
+# A hostile powerless vassal is noise. A hostile powerful vassal is a faction
+# with an army. This is the single most useful figure in the report.
+
+avm_count_powerful_hostile = {
+	value = 0
+	every_vassal = {
+		limit = {
+			NOT = { has_character_flag = avm_protected }
+			is_powerful_vassal = yes
+			NOT = {
+				opinion = {
+					target = root
+					value >= 0
+				}
+			}
+		}
+		add = 1
+	}
+}
+
+# --- protected roster size, so Clear All Protection is not a surprise -----
+
+avm_count_protected = {
+	value = 0
+	every_vassal = {
+		limit = { has_character_flag = avm_protected }
+		add = 1
+	}
+}

@@ -1,0 +1,63 @@
+﻿# Protected characters - v1.4
+# Flags a character so that NO mass grant or revoke operation in this mod
+# will ever touch them, whatever filter is used. Applied through the
+# character window, not the decisions menu.
+
+avm_protect_character_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	# v2.3: was friendly_interaction, which is not a vanilla icon key -
+	# the interaction rendered with a missing icon. Keys resolve literally to
+	# gfx/interface/icons/character_interactions/<key>.dds.
+	icon = powerful_family_shield
+
+	desc = avm_protect_character_interaction_desc
+
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+			has_character_flag = advanced_vassal_manager
+		}
+		scope:recipient = {
+			NOT = { has_character_flag = avm_protected }
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:recipient = {
+			add_character_flag = avm_protected
+		}
+	}
+
+	ai_will_do = { base = 0 }
+}
+
+avm_unprotect_character_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+	icon = powerful_family_shield
+
+	desc = avm_unprotect_character_interaction_desc
+
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+			has_character_flag = advanced_vassal_manager
+		}
+		scope:recipient = {
+			has_character_flag = avm_protected
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:recipient = {
+			remove_character_flag = avm_protected
+		}
+	}
+
+	ai_will_do = { base = 0 }
+}

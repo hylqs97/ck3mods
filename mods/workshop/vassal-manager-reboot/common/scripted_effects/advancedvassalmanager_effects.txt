@@ -1,0 +1,105 @@
+﻿# Scripted effects - v2.1
+#
+# IMPORTANT: ethnicity and appearance are generated at create_character time
+# from the culture the character is created WITH. Setting culture afterwards
+# changes the culture but leaves the face alone, which is what produced the
+# "right culture, wrong ethnicity" bug reported against 2.0.
+#
+# So the intended culture and faith are resolved into scopes FIRST, then
+# passed into create_character. Nothing identity-related is set afterwards.
+#
+# Call on the title being granted. Requires root = the player.
+
+avm_resolve_spawn_identity_effect = {
+	if = {
+		limit = { root = { has_variable = avm_spawn_culture_self } }
+		root.culture = { save_scope_as = avm_spawn_culture }
+	}
+	else_if = {
+		limit = { root = { has_variable = avm_spawn_culture_chosen } }
+		root.var:avm_spawn_culture_chosen = { save_scope_as = avm_spawn_culture }
+	}
+	else = {
+		title_province = {
+			culture = { save_scope_as = avm_spawn_culture }
+		}
+	}
+
+	if = {
+		limit = { root = { has_variable = avm_spawn_faith_self } }
+		root.faith = { save_scope_as = avm_spawn_faith }
+	}
+	else_if = {
+		limit = { root = { has_variable = avm_spawn_faith_chosen } }
+		root.var:avm_spawn_faith_chosen = { save_scope_as = avm_spawn_faith }
+	}
+	else = {
+		title_province = {
+			faith = { save_scope_as = avm_spawn_faith }
+		}
+	}
+}
+
+
+# --- v2.2: prefer an existing courtier over inventing a new person -------
+#
+# Every grant decision used to spawn a fresh dynasty-less character. Over a
+# long game that is hundreds of invented people and real save bloat. This
+# looks for a suitable unlanded adult courtier first and only creates one
+# when the court has nobody to spare.
+#
+# Requires scope:avm_spawn_culture and scope:avm_spawn_faith (set by
+# avm_resolve_spawn_identity_effect). Saves scope:receiver either way.
+
+avm_get_or_make_holder_effect = {
+	if = {
+		limit = {
+			root = { has_variable = avm_prefer_new_characters }
+		}
+		create_character = {
+			template = avm_county_holder_character
+			location = root.location
+			culture = scope:avm_spawn_culture
+			faith = scope:avm_spawn_faith
+
+			save_scope_as = receiver
+		}
+	}
+	else_if = {
+		limit = {
+			root = {
+				any_courtier = {
+					is_adult = yes
+					is_landed = no
+					is_imprisoned = no
+					NOT = { has_character_flag = avm_protected }
+					NOT = { is_councillor = yes }
+					count >= 1
+				}
+			}
+		}
+		root = {
+			random_courtier = {
+				limit = {
+					is_adult = yes
+					is_landed = no
+					is_imprisoned = no
+					NOT = { has_character_flag = avm_protected }
+					NOT = { is_councillor = yes }
+				}
+				save_scope_as = receiver
+			}
+		}
+	}
+	else = {
+		create_character = {
+			template = avm_county_holder_character
+			location = root.location
+			culture = scope:avm_spawn_culture
+			faith = scope:avm_spawn_faith
+
+			save_scope_as = receiver
+		}
+	}
+}
+

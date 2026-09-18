@@ -1,0 +1,285 @@
+﻿# Scripted Triggers for Automated Courtier Management
+# Root = Liege / Ruler
+# This = Courtier being evaluated
+
+auto_court_is_safeguarded_trigger = {
+	OR = {
+		# Always protect ruler, spouse, concubines, betrothed
+		this = root
+		is_spouse_of = root
+		is_concubine_of = root
+		betrothed = root
+		
+		# Manual Character Exemption
+		has_variable = auto_court_manually_exempt
+		
+		# Close Family Safeguard
+		is_close_family_of = root
+		is_primary_heir_of = root
+		
+		# Mentorship / Education Safeguard
+		has_relation_ward = root
+		has_relation_guardian = root
+		
+		# Prisoners
+		is_imprisoned = yes
+		
+		# Inspirations
+		exists = inspiration
+		
+		# Dynasty Safeguard
+		AND = {
+			root = { NOT = { has_variable = auto_court_safeguard_dynasty_disabled } }
+			OR = {
+				AND = {
+					exists = dynasty
+					exists = root.dynasty
+					dynasty = root.dynasty
+				}
+				is_close_family_of = root
+				is_extended_family_of = root
+			}
+		}
+		
+		# Relationships Safeguard
+		AND = {
+			root = { NOT = { has_variable = auto_court_safeguard_relationships_disabled } }
+			OR = {
+				has_relation_lover = root
+				has_relation_soulmate = root
+				has_relation_friend = root
+				has_relation_best_friend = root
+				has_relation_crush = root
+			}
+		}
+		
+		# Role & Position Safeguard (Councillors, Court Positions, Camp Officers, Knights, & their immediate families)
+		AND = {
+			root = { NOT = { has_variable = auto_court_safeguard_positions_disabled } }
+			OR = {
+				# Direct Position Holders
+				is_councillor_of = root
+				is_councillor = yes
+				has_any_court_position = yes
+				is_knight_of = root
+				is_knight = yes
+				is_acclaimed = yes
+				is_accolade_successor = yes
+				
+				# Spouses of Position Holders
+				any_spouse = {
+					is_courtier_of = root
+					OR = {
+						is_councillor_of = root
+						is_councillor = yes
+						has_any_court_position = yes
+						is_knight_of = root
+						is_knight = yes
+						is_acclaimed = yes
+						is_accolade_successor = yes
+					}
+				}
+				
+				# Children of Position Holders
+				any_parent = {
+					is_courtier_of = root
+					OR = {
+						is_councillor_of = root
+						is_councillor = yes
+						has_any_court_position = yes
+						is_knight_of = root
+						is_knight = yes
+						is_acclaimed = yes
+						is_accolade_successor = yes
+					}
+				}
+			}
+		}
+		
+		# Pinned Characters Safeguard
+		AND = {
+			root = { NOT = { has_variable = auto_court_safeguard_pinned_disabled } }
+			OR = {
+				any_pinning_character = { this = root }
+				root = { any_pinned_character = { this = prev } }
+			}
+		}
+	
+		# Genetic / Congenital Trait Safeguard
+		AND = {
+			root = { NOT = { has_variable = auto_court_safeguard_traits_disabled } }
+			OR = {
+				has_trait = intellect_good_3
+				has_trait = intellect_good_2
+				has_trait = intellect_good_1
+				has_trait = beauty_good_3
+				has_trait = beauty_good_2
+				has_trait = beauty_good_1
+				has_trait = physique_good_3
+				has_trait = physique_good_2
+				has_trait = physique_good_1
+				has_trait = fecund
+				has_trait = giant
+				has_trait = pure_blooded
+				has_trait = strong
+			}
+		}
+	}
+}
+
+auto_court_meets_competence_criteria_trigger = {
+	trigger_if = {
+		limit = {
+			root = {
+				has_variable = auto_court_min_stat_threshold
+				var:auto_court_min_stat_threshold >= 15
+			}
+		}
+		OR = {
+			diplomacy >= 15
+			martial >= 15
+			stewardship >= 15
+			intrigue >= 15
+			learning >= 15
+			prowess >= 15
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			root = {
+				has_variable = auto_court_min_stat_threshold
+				var:auto_court_min_stat_threshold >= 12
+			}
+		}
+		OR = {
+			diplomacy >= 12
+			martial >= 12
+			stewardship >= 12
+			intrigue >= 12
+			learning >= 12
+			prowess >= 12
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			root = {
+				has_variable = auto_court_min_stat_threshold
+				var:auto_court_min_stat_threshold >= 10
+			}
+		}
+		OR = {
+			diplomacy >= 10
+			martial >= 10
+			stewardship >= 10
+			intrigue >= 10
+			learning >= 10
+			prowess >= 10
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			root = {
+				has_variable = auto_court_min_stat_threshold
+				var:auto_court_min_stat_threshold >= 8
+			}
+		}
+		OR = {
+			diplomacy >= 8
+			martial >= 8
+			stewardship >= 8
+			intrigue >= 8
+			learning >= 8
+			prowess >= 8
+		}
+	}
+	trigger_else = {
+		OR = {
+			diplomacy >= 10
+			martial >= 10
+			stewardship >= 10
+			intrigue >= 10
+			learning >= 10
+			prowess >= 10
+		}
+	}
+}
+
+auto_court_should_dismiss_courtier_trigger = {
+	root = { NOT = { has_variable = auto_court_dismiss_disabled } }
+	is_adult = yes
+	is_ruler = no
+	is_courtier_of = root
+	NOT = { this = root }
+	NOT = { auto_court_is_safeguarded_trigger = yes }
+	NOT = { auto_court_meets_competence_criteria_trigger = yes }
+}
+
+auto_court_eligible_for_marriage_trigger = {
+	is_adult = yes
+	is_ruler = no
+	is_courtier_of = root
+	NOT = { this = root }
+	is_imprisoned = no
+	is_married = no
+	is_betrothed = no
+	is_concubine = no
+	
+	trigger_if = {
+		limit = { is_female = yes }
+		age <= 45
+		fertility > 0
+	}
+	trigger_else = {
+		age <= 65
+		fertility > 0
+	}
+	
+	NOT = { has_trait = devoted }
+	NOT = { has_trait = order_member }
+	NOT = { has_trait = celibate }
+	NOT = { has_trait = eunuch }
+	NOT = { has_trait = incapable }
+
+	# Manual Character Exemption
+	NOT = { has_variable = auto_court_manually_exempt }
+
+	# Marriage Exemption 1: Primary Heir & Heirs (Protected by default unless player allows)
+	trigger_if = {
+		limit = {
+			root = { NOT = { has_variable = auto_court_marry_heir_allowed } }
+		}
+		NOT = { is_primary_heir_of = root }
+	}
+
+	# Marriage Exemption 2: Close Family (Protected by default unless player allows)
+	trigger_if = {
+		limit = {
+			root = { NOT = { has_variable = auto_court_marry_close_family_allowed } }
+		}
+		NOT = { is_close_family_of = root }
+	}
+
+	# Marriage Exemption 3: Dynasty Members (Protected by default unless player allows)
+	trigger_if = {
+		limit = {
+			root = { NOT = { has_variable = auto_court_marry_dynasty_allowed } }
+		}
+		NOT = {
+			AND = {
+				exists = dynasty
+				exists = root.dynasty
+				dynasty = root.dynasty
+			}
+		}
+	}
+
+	# Marriage Exemption 4: Lovers & Soulmates (Protected by default unless player allows)
+	trigger_if = {
+		limit = {
+			root = { NOT = { has_variable = auto_court_marry_lovers_allowed } }
+		}
+		NOT = { has_relation_lover = root }
+		NOT = { has_relation_soulmate = root }
+		NOT = { has_relation_crush = root }
+	}
+}

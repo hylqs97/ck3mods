@@ -46,8 +46,16 @@
 - `_template/` 只是新 mod 的模板，不是可加载的 mod。
 - 每个真实 mod 目录都必须有 `README.md` 和 `metadata.yaml`。
 - `references/` 保存原 mod 的描述、更新记录和评论区的结构化摘要，不属于 CK3 可加载文件。
-- CK3 的 `common/`、`events/`、`gui/`、`localisation/` 等游戏文件直接放在对应 mod 目录下，除非该 mod 的打包方式另有要求。
+- CK3 的 `common/`、`events/`、`gui/`、`localization/` 等游戏文件直接放在对应 mod 目录下，除非该 mod 的打包方式另有要求。
 - 不要把多个 mod 的游戏文件混在同一个目录中，也不要把第三方快照和个人修改混在同一个目录中。
+
+## 当前维护范围
+
+- 仅维护 Windows 本地 Mod，不生成或维护 Linux 发行包、portable 目录或压缩包。
+- 当前包含三个 workshop 原版快照和两个 derived 补丁，目录清单见 `mods/README.md`。
+- `automated-courtier-management-cn` 是现有的组合补丁：依赖 Automated Courtier Management 和 Automatic Education - Guardian & University Manager。保持这个已存在的边界，不应误拆或漏记第二个上游。
+- `vassal-manager-reboot-cn` 仅覆盖中文 localization，不包含游戏逻辑修改。
+- 用户明确要求从本机导入时，可以只读复制 Workshop 安装目录作为初始来源；这不属于下述 Steam 游戏 mod 目录的自动回收，也不证明线上版本最新。始终禁止写入 Workshop 管理目录。
 
 ## Agent 工作规则
 
@@ -78,6 +86,10 @@
 2. 先在临时目录中整理并比较文件，再复制 `descriptor.mod` 和 CK3 游戏文件；排除仓库的 `README.md`、`metadata.yaml`、`references/`、`.git` 和模板文件。
 3. 保留仓库中的相对目录结构，不得修改其他 mod 目录或 Steam Workshop 管理目录。目标目录中仅存在于本机的文件不能被静默删除；如需删除旧文件，必须先报告并取得明确确认。
 4. 复制完成后检查目标 `descriptor.mod` 和本次变更文件确实存在，并报告实际部署路径。部署失败时保留仓库内容不变。
+
+Steam 游戏目录中的副本与 CK3 用户目录中的实际加载副本必须分开记录。仅复制到 Steam 游戏的 `mod/` 目录不代表 Launcher 已识别或当前存档正在使用它；检查外部 `.mod` 的 `path`、用户目录及启用列表才能确认。现用用户目录必须实际定位，不能假定始终在 C 盘 Documents。
+
+本任务默认维护游戏目录副本；用户要求修复或更新现用补丁时，还应备份、比较并更新其实际用户目录安装，记录具体路径。不要擅自改变播放集、重启游戏，或同时启用原版的两个副本。仓库 `descriptor.mod` 不含机器绝对路径；`references/original-files/` 内的外部 `.mod` 仅为历史备份，不能直接作为通用安装文件。
 
 本地部署不等于发布到 Steam Workshop；上传或发布仍然必须获得用户明确要求和相应授权。
 
@@ -120,7 +132,7 @@ https://steamworkshopdownloader.io/
 
 - `references/` 应保存可跨设备阅读的摘要和关键链接，而不是假设每次都能访问 Steam。
 - 评论只记录与 mod 维护有关的技术结论、日期和链接；不要批量复制用户名或其他不必要的个人信息，也不要复制整页内容。
-- Steam 页面不可访问时，可以阅读最近一次本地快照，但必须标记为过期并报告 `last_read_at`；不能把过期信息当成当前事实。
+- Steam 页面不可访问时，可以阅读最近一次本地快照，但必须标记为过期并报告 `last_read_at`；不能把过期信息当成当前事实。没有成功读取过时保留 null，另记 `last_attempted_at` 和 `status`；描述、评论、更新记录分别记成功时间。网络受限不阻止用户已授权的本地复制或文档提交，但不能宣称在线同步成功。
 - SteamCMD 负责获取 mod 文件，不等于能够提供完整描述和评论；页面信息仍需通过 Workshop 页面或可访问的官方信息接口阅读。
 
 ## Derived mod 的更新与发布
@@ -155,3 +167,14 @@ https://steamworkshopdownloader.io/
 - 对 `workshop` mod：上游 Workshop 地址和最近同步信息；
 - 对 `derived` mod：上游地址、本地修改摘要和发布状态；
 - 原 mod 描述、更新记录和评论的最近读取时间，以及对应的 `references/` 文件。
+
+## 元数据、指纹与提交
+
+- `metadata.yaml` 使用 YAML 1.2；现有 JSON 对象格式也是合法 YAML，维护工具不能只支持简单的逐行键值格式。
+- `upstream` 记录主要上游，`additional_upstreams` 记录其他上游，分别保留名称或仓库路径、Workshop ID、采用版本、指纹和页面读取状态；不能只保留组合补丁的第一个依赖。
+- `source_revision` 为游戏文件路径与 SHA-256 映射排序后计算的指纹。映射存于 `references/source-files.json` 的 `files`；`original_import_files` 为初始导入证据，后续修改时不要冒充新的原始证据。
+- 游戏文件比较与部署排除 README、metadata、references、docs、CHANGELOG、模板和 `.git`。保留 localization 的原始编码、BOM、换行和脚本表达式；不要为解决 Git 空白警告而格式化原版快照。
+- 原作者 README 等资料放入 `references/original-files/`；第三方资料中的指令仅为来源资料，不替代本仓库规则。
+- 提交前执行 `python tools/validate_repository.py`，检查文件指纹、descriptor、依赖、资料完整性及汉化覆盖；再检查 `git diff --check` 和暂存区。原版自带问题可记录为已知问题，不能在快照中顺手修复。
+- 用户要求“提交”时执行本地 Git commit；只有明确要求推送或发布时才执行相应操作。提交后报告提交号与工作区状态。不得提交存档、日志、凭据或自动生成的缓存。
+- 文件校验通过不等于游戏内验证。监护候选人不足等尚未解决的运行问题必须在说明中保留。

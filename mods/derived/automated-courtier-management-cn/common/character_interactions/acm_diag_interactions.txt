@@ -1,0 +1,19 @@
+﻿acm_diag_interaction = {
+ category = interaction_category_friendly
+ icon = child
+ interface_priority = 33
+ desc = acm_diag_interaction_desc
+ auto_accept = yes
+ use_diplomatic_range = no
+ ignores_pending_interaction_block = yes
+ popup_on_receive = no
+ is_shown = {
+  scope:actor = { is_ai = no }
+  scope:recipient = { is_alive = yes is_adult = no }
+ }
+ on_accept = {
+  scope:recipient = { save_scope_as = autoedu_child }
+  scope:actor = { save_scope_as = autoedu_owner set_variable = { name = acm_diag_child value = scope:recipient } trigger_event = { id = acm_diag.1 } }
+ }
+ ai_will_do = { base = 0 }
+}

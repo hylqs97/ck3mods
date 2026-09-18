@@ -1,0 +1,642 @@
+﻿# Scripted Effects for Automated Courtier Management
+
+# Initializes default settings for the ruler if not already set, checking game rules
+auto_court_initialize_settings_effect = {
+	if = {
+		limit = { NOT = { has_variable = auto_court_settings_initialized } }
+		set_variable = { name = auto_court_settings_initialized value = 1 }
+		set_variable = { name = auto_court_min_stat_threshold value = 10 }
+		
+		if = {
+			limit = { has_game_rule = auto_court_rule_status_disabled }
+			set_variable = { name = auto_court_disabled value = 1 }
+		}
+		else = {
+			set_variable = { name = auto_court_enabled value = 1 }
+		}
+		
+		if = {
+			limit = { has_game_rule = auto_court_rule_aptitude_influenced }
+			set_variable = { name = auto_court_aptitude_mode value = 1 }
+		}
+		
+		set_variable = { name = auto_court_marry_enabled value = 1 }
+	}
+}
+
+# Main management routine triggered either yearly or on-demand
+# Root = Liege / Ruler
+auto_court_run_yearly_management_effect = {
+	auto_court_initialize_settings_effect = yes
+	set_variable = { name = auto_court_last_dismissed_count value = 0 }
+	set_variable = { name = auto_court_last_married_count value = 0 }
+	set_variable = { name = auto_court_last_bonus_spouses_count value = 0 }
+	set_variable = { name = auto_court_last_oversight_count value = 0 }
+	
+	# Phase 1: Evaluate and Dismiss Low-Value Courtiers (Skipped if dismissals disabled)
+	if = {
+		limit = {
+			NOT = { has_variable = auto_court_dismiss_disabled }
+		}
+		every_courtier = {
+			limit = { auto_court_should_dismiss_courtier_trigger = yes }
+			save_scope_as = auto_court_target_to_dismiss
+			
+			if = {
+				limit = { root = { has_variable = auto_court_aptitude_mode } }
+				
+				# Tier 3 (Master):
+				# - For Landless Adventurers: Second-in-Command (second_camp_officer) with aptitude >= 4
+				# - For Landed Rulers: Seneschal with aptitude >= 4 OR Chancellor with diplomacy >= 16
+				if = {
+					limit = {
+						root = {
+							OR = {
+								AND = {
+									government_has_flag = government_is_landless_adventurer
+									any_courtier = {
+										has_court_position = second_camp_officer
+										aptitude = { court_position = second_camp_officer value >= 4 }
+									}
+								}
+								AND = {
+									NOT = { government_has_flag = government_is_landless_adventurer }
+									OR = {
+										any_courtier = {
+											has_court_position = seneschal_court_position
+											aptitude = { court_position = seneschal_court_position value >= 4 }
+										}
+										any_councillor = {
+											has_council_position = councillor_chancellor
+											diplomacy >= 16
+										}
+									}
+								}
+							}
+						}
+					}
+					root = {
+						remove_courtier_or_guest = scope:auto_court_target_to_dismiss
+						change_variable = { name = auto_court_last_dismissed_count add = 1 }
+					}
+				}
+				# Tier 2 (Average):
+				# - For Landless Adventurers: Second-in-Command with aptitude >= 3
+				# - For Landed Rulers: Seneschal with aptitude >= 3 OR Chancellor with diplomacy >= 9
+				else_if = {
+					limit = {
+						root = {
+							OR = {
+								AND = {
+									government_has_flag = government_is_landless_adventurer
+									any_courtier = {
+										has_court_position = second_camp_officer
+										aptitude = { court_position = second_camp_officer value >= 3 }
+									}
+								}
+								AND = {
+									NOT = { government_has_flag = government_is_landless_adventurer }
+									OR = {
+										any_courtier = {
+											has_court_position = seneschal_court_position
+											aptitude = { court_position = seneschal_court_position value >= 3 }
+										}
+										any_councillor = {
+											has_council_position = councillor_chancellor
+											diplomacy >= 9
+										}
+									}
+								}
+							}
+						}
+					}
+					random_list = {
+						85 = {
+							root = {
+								remove_courtier_or_guest = scope:auto_court_target_to_dismiss
+								change_variable = { name = auto_court_last_dismissed_count add = 1 }
+							}
+						}
+						15 = {
+							root = {
+								change_variable = { name = auto_court_last_oversight_count add = 1 }
+							}
+						}
+					}
+				}
+				# Tier 1 (Low / Incompetent): Both officials are poor or unassigned
+				else = {
+					random_list = {
+						60 = {
+							root = {
+								remove_courtier_or_guest = scope:auto_court_target_to_dismiss
+								change_variable = { name = auto_court_last_dismissed_count add = 1 }
+							}
+						}
+						40 = {
+							root = {
+								change_variable = { name = auto_court_last_oversight_count add = 1 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				# 100% Strict Mode (Deterministic)
+				root = {
+					remove_courtier_or_guest = scope:auto_court_target_to_dismiss
+					change_variable = { name = auto_court_last_dismissed_count add = 1 }
+				}
+			}
+		}
+	}
+	
+	# Phase 2: Marry Retained Unmarried Courtiers
+	if = {
+		limit = {
+			has_variable = auto_court_marry_enabled
+			NOT = { has_variable = auto_court_marry_disabled }
+		}
+		every_courtier = {
+			limit = { auto_court_eligible_for_marriage_trigger = yes }
+			if = {
+				limit = { is_female = yes }
+				auto_court_marry_female_courtier_effect = yes
+			}
+			else = {
+				auto_court_marry_male_courtier_effect = yes
+			}
+		}
+	}
+	
+	# Save scope values explicitly for the message toast interface
+	save_scope_value_as = {
+		name = auto_court_dismissed_val
+		value = root.var:auto_court_last_dismissed_count
+	}
+	save_scope_value_as = {
+		name = auto_court_married_val
+		value = root.var:auto_court_last_married_count
+	}
+	save_scope_value_as = {
+		name = auto_court_bonus_val
+		value = root.var:auto_court_last_bonus_spouses_count
+	}
+	save_scope_value_as = {
+		name = auto_court_oversight_val
+		value = root.var:auto_court_last_oversight_count
+	}
+	
+	# Phase 3: Send feedback notification
+	send_interface_toast = {
+		type = event_generic_neutral_text
+		title = auto_court_yearly_report_toast_title
+		desc = auto_court_yearly_report_toast_desc
+		left_icon = root
+	}
+}
+
+# Matches and marries a male courtier patrilineally to an external female spouse
+auto_court_marry_male_courtier_effect = {
+	save_scope_as = auto_court_groom
+	
+	# For landless adventurers: adopt local province culture & faith from current location
+	if = {
+		limit = {
+			root = {
+				government_has_flag = government_is_landless_adventurer
+				exists = location
+			}
+		}
+		create_character = {
+			employer = root
+			gender = female
+			age = { 18 24 }
+			faith = root.location.faith
+			culture = root.location.culture
+			dynasty = generate
+			random_traits = yes
+			save_scope_as = auto_court_bride
+		}
+	}
+	# For landed rulers: match the groom's culture & faith
+	else = {
+		create_character = {
+			employer = root
+			gender = female
+			age = { 18 24 }
+			faith = scope:auto_court_groom.faith
+			culture = scope:auto_court_groom.culture
+			dynasty = generate
+			random_traits = yes
+			save_scope_as = auto_court_bride
+		}
+	}
+	
+	scope:auto_court_groom = {
+		marry = scope:auto_court_bride
+	}
+	if = {
+		limit = { root = { has_variable = auto_court_aptitude_mode } }
+		scope:auto_court_bride = {
+			auto_court_apply_aptitude_spouse_bonus_effect = yes
+		}
+	}
+	root = {
+		change_variable = { name = auto_court_last_married_count add = 1 }
+	}
+}
+
+# Matches and marries a female courtier matrilineally to an external male spouse
+auto_court_marry_female_courtier_effect = {
+	save_scope_as = auto_court_bride
+	
+	# For landless adventurers: adopt local province culture & faith from current location
+	if = {
+		limit = {
+			root = {
+				government_has_flag = government_is_landless_adventurer
+				exists = location
+			}
+		}
+		create_character = {
+			employer = root
+			gender = male
+			age = { 18 26 }
+			faith = root.location.faith
+			culture = root.location.culture
+			dynasty = generate
+			random_traits = yes
+			save_scope_as = auto_court_groom
+		}
+	}
+	# For landed rulers: match the bride's culture & faith
+	else = {
+		create_character = {
+			employer = root
+			gender = male
+			age = { 18 26 }
+			faith = scope:auto_court_bride.faith
+			culture = scope:auto_court_bride.culture
+			dynasty = generate
+			random_traits = yes
+			save_scope_as = auto_court_groom
+		}
+	}
+	
+	scope:auto_court_bride = {
+		marry_matrilineal = scope:auto_court_groom
+	}
+	if = {
+		limit = { root = { has_variable = auto_court_aptitude_mode } }
+		scope:auto_court_groom = {
+			auto_court_apply_aptitude_spouse_bonus_effect = yes
+		}
+	}
+	root = {
+		change_variable = { name = auto_court_last_married_count add = 1 }
+	}
+}
+
+# Bonus effect applied to generated spouses based on administrator / Second competence
+auto_court_apply_aptitude_spouse_bonus_effect = {
+	# Master Administrator (Second 4+ stars for Adventurers OR Seneschal 4+ stars / Chancellor diplomacy >= 16 for Landed)
+	if = {
+		limit = {
+			root = {
+				OR = {
+					AND = {
+						government_has_flag = government_is_landless_adventurer
+						any_courtier = {
+							has_court_position = second_camp_officer
+							aptitude = { court_position = second_camp_officer value >= 4 }
+						}
+					}
+					AND = {
+						NOT = { government_has_flag = government_is_landless_adventurer }
+						OR = {
+							any_courtier = {
+								has_court_position = seneschal_court_position
+								aptitude = { court_position = seneschal_court_position value >= 4 }
+							}
+							any_councillor = {
+								has_council_position = councillor_chancellor
+								diplomacy >= 16
+							}
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			25 = {
+				add_trait = intellect_good_2
+				root = { change_variable = { name = auto_court_last_bonus_spouses_count add = 1 } }
+			}
+			25 = {
+				add_trait = physique_good_2
+				root = { change_variable = { name = auto_court_last_bonus_spouses_count add = 1 } }
+			}
+			25 = {
+				add_trait = beauty_good_2
+				root = { change_variable = { name = auto_court_last_bonus_spouses_count add = 1 } }
+			}
+			15 = {
+				add_trait = education_stewardship_4
+				root = { change_variable = { name = auto_court_last_bonus_spouses_count add = 1 } }
+			}
+			10 = { }
+		}
+	}
+	# Average Administrator (Second 3+ stars for Adventurers OR Seneschal 3+ stars / Chancellor diplomacy 9-15 for Landed)
+	else_if = {
+		limit = {
+			root = {
+				OR = {
+					AND = {
+						government_has_flag = government_is_landless_adventurer
+						any_courtier = {
+							has_court_position = second_camp_officer
+							aptitude = { court_position = second_camp_officer value >= 3 }
+						}
+					}
+					AND = {
+						NOT = { government_has_flag = government_is_landless_adventurer }
+						OR = {
+							any_courtier = {
+								has_court_position = seneschal_court_position
+								aptitude = { court_position = seneschal_court_position value >= 3 }
+							}
+							any_councillor = {
+								has_council_position = councillor_chancellor
+								diplomacy >= 9
+							}
+						}
+					}
+				}
+			}
+		}
+		random_list = {
+			15 = {
+				add_trait = intellect_good_1
+				root = { change_variable = { name = auto_court_last_bonus_spouses_count add = 1 } }
+			}
+			15 = {
+				add_trait = physique_good_1
+				root = { change_variable = { name = auto_court_last_bonus_spouses_count add = 1 } }
+			}
+			10 = {
+				add_trait = beauty_good_1
+				root = { change_variable = { name = auto_court_last_bonus_spouses_count add = 1 } }
+			}
+			60 = { }
+		}
+	}
+	# Low / Incompetent Administrator: 0% bonus traits
+	else = { }
+}
+
+# -------------------------------------------------------------------
+# DEBUG & TESTING HELPER EFFECTS (Preserved for internal testing)
+# -------------------------------------------------------------------
+
+# 1. Spawns 7 test courtiers
+auto_court_debug_spawn_test_courtiers_effect = {
+	create_character = {
+		employer = root
+		gender = male
+		age = 28
+		faith = root.faith
+		culture = root.culture
+		dynasty = generate
+		random_traits = no
+		save_scope_as = test_low_male
+	}
+	scope:test_low_male = {
+		add_trait = education_learning_1
+		add_trait = lazy
+		add_trait = craven
+		add_trait = trusting
+	}
+
+	create_character = {
+		employer = root
+		gender = female
+		age = 26
+		faith = root.faith
+		culture = root.culture
+		dynasty = generate
+		random_traits = no
+		save_scope_as = test_low_female
+	}
+	scope:test_low_female = {
+		add_trait = education_intrigue_1
+		add_trait = lazy
+		add_trait = craven
+		add_trait = content
+	}
+
+	create_character = {
+		employer = root
+		gender = male
+		age = 24
+		faith = root.faith
+		culture = root.culture
+		dynasty = generate
+		random_traits = no
+		save_scope_as = test_high_male
+	}
+	scope:test_high_male = {
+		add_trait = education_stewardship_4
+		add_trait = diligent
+		add_trait = ambitious
+		add_trait = temperate
+	}
+
+	create_character = {
+		employer = root
+		gender = female
+		age = 22
+		faith = root.faith
+		culture = root.culture
+		dynasty = generate
+		random_traits = no
+		save_scope_as = test_high_female
+	}
+	scope:test_high_female = {
+		add_trait = education_learning_4
+		add_trait = diligent
+		add_trait = patient
+		add_trait = scholar
+	}
+
+	create_character = {
+		employer = root
+		gender = female
+		age = 23
+		faith = root.faith
+		culture = root.culture
+		dynasty = generate
+		random_traits = no
+		save_scope_as = test_lover
+	}
+	scope:test_lover = {
+		add_trait = education_diplomacy_1
+		add_trait = lazy
+		add_trait = craven
+		set_relation_lover = root
+	}
+
+	create_character = {
+		employer = root
+		gender = male
+		age = 25
+		faith = root.faith
+		culture = root.culture
+		dynasty = generate
+		random_traits = no
+		save_scope_as = test_friend
+	}
+	scope:test_friend = {
+		add_trait = education_martial_1
+		add_trait = lazy
+		add_trait = craven
+		set_relation_friend = root
+	}
+
+	create_character = {
+		employer = root
+		gender = female
+		age = 20
+		faith = root.faith
+		culture = root.culture
+		dynasty = generate
+		random_traits = no
+		save_scope_as = test_genius
+	}
+	scope:test_genius = {
+		add_trait = education_learning_1
+		add_trait = lazy
+		add_trait = craven
+		add_trait = intellect_good_3
+	}
+
+	send_interface_toast = {
+		type = event_generic_good
+		title = auto_court_debug_spawn_toast_title
+		left_icon = root
+	}
+}
+
+# 2. Spawns and assigns a Master Administrator (22 Diplomacy, 20 Stewardship)
+auto_court_debug_setup_master_admin_effect = {
+	create_character = {
+		employer = root
+		gender = male
+		age = 32
+		faith = root.faith
+		culture = root.culture
+		dynasty = generate
+		random_traits = no
+		save_scope_as = test_master_admin
+	}
+	scope:test_master_admin = {
+		add_trait = education_diplomacy_4
+		add_trait = diligent
+		add_trait = gregarious
+		add_trait = temperate
+		add_trait = intellect_good_3
+	}
+	
+	# For Landless Adventurers: appoint as Second
+	if = {
+		limit = { government_has_flag = government_is_landless_adventurer }
+		appoint_court_position = {
+			recipient = scope:test_master_admin
+			court_position = second_camp_officer
+		}
+	}
+	# For Landed Rulers: appoint as Chancellor & Seneschal
+	else = {
+		assign_councillor_type = {
+			type = councillor_chancellor
+			target = scope:test_master_admin
+			remove_existing_councillor = yes
+		}
+		if = {
+			limit = { has_royal_court = yes }
+			appoint_court_position = {
+				recipient = scope:test_master_admin
+				court_position = seneschal_court_position
+			}
+		}
+	}
+	
+	# Activate Aptitude Mode
+	set_variable = {
+		name = auto_court_aptitude_mode
+		value = 1
+	}
+	
+	send_interface_toast = {
+		type = event_generic_good
+		title = auto_court_debug_master_admin_toast_title
+		left_icon = scope:test_master_admin
+	}
+}
+
+# 3. Spawns and assigns an Incompetent Administrator (2 Diplomacy, 2 Stewardship)
+auto_court_debug_setup_incompetent_admin_effect = {
+	create_character = {
+		employer = root
+		gender = male
+		age = 35
+		faith = root.faith
+		culture = root.culture
+		dynasty = generate
+		random_traits = no
+		save_scope_as = test_incompetent_admin
+	}
+	scope:test_incompetent_admin = {
+		add_trait = education_diplomacy_1
+		add_trait = lazy
+		add_trait = craven
+		add_trait = drunkard
+	}
+	
+	# For Landless Adventurers: appoint as Second
+	if = {
+		limit = { government_has_flag = government_is_landless_adventurer }
+		appoint_court_position = {
+			recipient = scope:test_incompetent_admin
+			court_position = second_camp_officer
+		}
+	}
+	# For Landed Rulers: appoint as Chancellor & Seneschal
+	else = {
+		assign_councillor_type = {
+			type = councillor_chancellor
+			target = scope:test_incompetent_admin
+			remove_existing_councillor = yes
+		}
+		if = {
+			limit = { has_royal_court = yes }
+			appoint_court_position = {
+				recipient = scope:test_incompetent_admin
+				court_position = seneschal_court_position
+			}
+		}
+	}
+	
+	# Activate Aptitude Mode
+	set_variable = {
+		name = auto_court_aptitude_mode
+		value = 1
+	}
+	
+	send_interface_toast = {
+		type = event_generic_bad
+		title = auto_court_debug_incompetent_admin_toast_title
+		left_icon = scope:test_incompetent_admin
+	}
+}

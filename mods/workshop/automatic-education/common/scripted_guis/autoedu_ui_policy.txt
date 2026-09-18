@@ -1,0 +1,3215 @@
+﻿autoedu_editor_ui_close = {
+  scope = character
+  effect = {
+    remove_variable = autoedu_editor_ui_open
+    remove_variable = autoedu_editor_selected_preset
+    remove_variable = autoedu_editor_confirm_action
+    remove_variable = autoedu_editor_section_guardian_open
+    remove_variable = autoedu_editor_section_guardian_filters_open
+    remove_variable = autoedu_editor_section_upbringing_open
+    remove_variable = autoedu_editor_section_focus_open
+    remove_variable = autoedu_editor_section_university_open
+    remove_variable = autoedu_editor_section_examination_open
+  }
+}
+
+autoedu_editor_set_tab_policies = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_ui_tab value = 0 }
+  }
+}
+
+autoedu_editor_set_tab_general = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_ui_tab value = 1 }
+  }
+}
+
+autoedu_editor_select_policy_0 = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_selected_policy value = 0 }
+  }
+}
+
+autoedu_editor_select_policy_1 = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_selected_policy value = 1 }
+  }
+}
+
+autoedu_editor_select_policy_2 = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_selected_policy value = 2 }
+  }
+}
+
+autoedu_editor_select_policy_3 = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_selected_policy value = 3 }
+  }
+}
+
+autoedu_editor_select_policy_4 = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_selected_policy value = 4 }
+  }
+}
+
+autoedu_editor_select_policy_5 = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_selected_policy value = 5 }
+  }
+}
+
+autoedu_editor_select_policy_6 = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_selected_policy value = 6 }
+  }
+}
+
+autoedu_editor_select_policy_7 = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_selected_policy value = 7 }
+  }
+}
+
+autoedu_editor_toggle_policy_enabled = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      if = {
+        limit = { var:autoedu_editor_policy_0_enabled = 1 }
+        set_variable = { name = autoedu_editor_policy_0_enabled value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_0_enabled value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      if = {
+        limit = { var:autoedu_editor_policy_1_enabled = 1 }
+        set_variable = { name = autoedu_editor_policy_1_enabled value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_1_enabled value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      if = {
+        limit = { var:autoedu_editor_policy_2_enabled = 1 }
+        set_variable = { name = autoedu_editor_policy_2_enabled value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_2_enabled value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      if = {
+        limit = { var:autoedu_editor_policy_3_enabled = 1 }
+        set_variable = { name = autoedu_editor_policy_3_enabled value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_3_enabled value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      if = {
+        limit = { var:autoedu_editor_policy_4_enabled = 1 }
+        set_variable = { name = autoedu_editor_policy_4_enabled value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_4_enabled value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      if = {
+        limit = { var:autoedu_editor_policy_5_enabled = 1 }
+        set_variable = { name = autoedu_editor_policy_5_enabled value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_5_enabled value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      if = {
+        limit = { var:autoedu_editor_policy_6_enabled = 1 }
+        set_variable = { name = autoedu_editor_policy_6_enabled value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_6_enabled value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      if = {
+        limit = { var:autoedu_editor_policy_7_enabled = 1 }
+        set_variable = { name = autoedu_editor_policy_7_enabled value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_7_enabled value = 1 }
+      }
+    }
+  }
+}
+
+autoedu_editor_toggle_policy_guardian_area_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      if = {
+        limit = { var:autoedu_editor_policy_0_guardian_area_player_courtiers = 1 }
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_player_courtiers value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_player_courtiers value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      if = {
+        limit = { var:autoedu_editor_policy_1_guardian_area_player_courtiers = 1 }
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_player_courtiers value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_player_courtiers value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      if = {
+        limit = { var:autoedu_editor_policy_2_guardian_area_player_courtiers = 1 }
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_player_courtiers value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_player_courtiers value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      if = {
+        limit = { var:autoedu_editor_policy_3_guardian_area_player_courtiers = 1 }
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_player_courtiers value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_player_courtiers value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      if = {
+        limit = { var:autoedu_editor_policy_4_guardian_area_player_courtiers = 1 }
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_player_courtiers value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_player_courtiers value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      if = {
+        limit = { var:autoedu_editor_policy_5_guardian_area_player_courtiers = 1 }
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_player_courtiers value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_player_courtiers value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      if = {
+        limit = { var:autoedu_editor_policy_6_guardian_area_player_courtiers = 1 }
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_player_courtiers value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_player_courtiers value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      if = {
+        limit = { var:autoedu_editor_policy_7_guardian_area_player_courtiers = 1 }
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_player_courtiers value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_player_courtiers value = 1 }
+      }
+    }
+  }
+}
+
+autoedu_editor_toggle_policy_guardian_area_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      if = {
+        limit = { var:autoedu_editor_policy_0_guardian_area_direct_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_direct_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_direct_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      if = {
+        limit = { var:autoedu_editor_policy_1_guardian_area_direct_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_direct_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_direct_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      if = {
+        limit = { var:autoedu_editor_policy_2_guardian_area_direct_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_direct_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_direct_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      if = {
+        limit = { var:autoedu_editor_policy_3_guardian_area_direct_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_direct_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_direct_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      if = {
+        limit = { var:autoedu_editor_policy_4_guardian_area_direct_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_direct_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_direct_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      if = {
+        limit = { var:autoedu_editor_policy_5_guardian_area_direct_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_direct_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_direct_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      if = {
+        limit = { var:autoedu_editor_policy_6_guardian_area_direct_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_direct_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_direct_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      if = {
+        limit = { var:autoedu_editor_policy_7_guardian_area_direct_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_direct_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_direct_vassal_realms value = 1 }
+      }
+    }
+  }
+}
+
+autoedu_editor_toggle_policy_guardian_area_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      if = {
+        limit = { var:autoedu_editor_policy_0_guardian_area_indirect_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_indirect_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_indirect_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      if = {
+        limit = { var:autoedu_editor_policy_1_guardian_area_indirect_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_indirect_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_indirect_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      if = {
+        limit = { var:autoedu_editor_policy_2_guardian_area_indirect_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_indirect_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_indirect_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      if = {
+        limit = { var:autoedu_editor_policy_3_guardian_area_indirect_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_indirect_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_indirect_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      if = {
+        limit = { var:autoedu_editor_policy_4_guardian_area_indirect_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_indirect_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_indirect_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      if = {
+        limit = { var:autoedu_editor_policy_5_guardian_area_indirect_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_indirect_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_indirect_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      if = {
+        limit = { var:autoedu_editor_policy_6_guardian_area_indirect_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_indirect_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_indirect_vassal_realms value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      if = {
+        limit = { var:autoedu_editor_policy_7_guardian_area_indirect_vassal_realms = 1 }
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_indirect_vassal_realms value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_indirect_vassal_realms value = 1 }
+      }
+    }
+  }
+}
+
+autoedu_editor_toggle_policy_guardian_area_3 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      if = {
+        limit = { var:autoedu_editor_policy_0_guardian_area_close_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_close_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_close_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      if = {
+        limit = { var:autoedu_editor_policy_1_guardian_area_close_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_close_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_close_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      if = {
+        limit = { var:autoedu_editor_policy_2_guardian_area_close_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_close_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_close_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      if = {
+        limit = { var:autoedu_editor_policy_3_guardian_area_close_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_close_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_close_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      if = {
+        limit = { var:autoedu_editor_policy_4_guardian_area_close_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_close_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_close_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      if = {
+        limit = { var:autoedu_editor_policy_5_guardian_area_close_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_close_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_close_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      if = {
+        limit = { var:autoedu_editor_policy_6_guardian_area_close_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_close_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_close_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      if = {
+        limit = { var:autoedu_editor_policy_7_guardian_area_close_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_close_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_close_relatives value = 1 }
+      }
+    }
+  }
+}
+
+autoedu_editor_toggle_policy_guardian_area_4 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      if = {
+        limit = { var:autoedu_editor_policy_0_guardian_area_distant_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_distant_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_distant_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      if = {
+        limit = { var:autoedu_editor_policy_1_guardian_area_distant_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_distant_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_distant_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      if = {
+        limit = { var:autoedu_editor_policy_2_guardian_area_distant_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_distant_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_distant_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      if = {
+        limit = { var:autoedu_editor_policy_3_guardian_area_distant_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_distant_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_distant_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      if = {
+        limit = { var:autoedu_editor_policy_4_guardian_area_distant_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_distant_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_distant_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      if = {
+        limit = { var:autoedu_editor_policy_5_guardian_area_distant_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_distant_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_distant_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      if = {
+        limit = { var:autoedu_editor_policy_6_guardian_area_distant_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_distant_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_distant_relatives value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      if = {
+        limit = { var:autoedu_editor_policy_7_guardian_area_distant_relatives = 1 }
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_distant_relatives value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_distant_relatives value = 1 }
+      }
+    }
+  }
+}
+
+autoedu_editor_toggle_policy_guardian_area_5 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      if = {
+        limit = { var:autoedu_editor_policy_0_guardian_area_house_members = 1 }
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_house_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_house_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      if = {
+        limit = { var:autoedu_editor_policy_1_guardian_area_house_members = 1 }
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_house_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_house_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      if = {
+        limit = { var:autoedu_editor_policy_2_guardian_area_house_members = 1 }
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_house_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_house_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      if = {
+        limit = { var:autoedu_editor_policy_3_guardian_area_house_members = 1 }
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_house_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_house_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      if = {
+        limit = { var:autoedu_editor_policy_4_guardian_area_house_members = 1 }
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_house_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_house_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      if = {
+        limit = { var:autoedu_editor_policy_5_guardian_area_house_members = 1 }
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_house_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_house_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      if = {
+        limit = { var:autoedu_editor_policy_6_guardian_area_house_members = 1 }
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_house_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_house_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      if = {
+        limit = { var:autoedu_editor_policy_7_guardian_area_house_members = 1 }
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_house_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_house_members value = 1 }
+      }
+    }
+  }
+}
+
+autoedu_editor_toggle_policy_guardian_area_6 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      if = {
+        limit = { var:autoedu_editor_policy_0_guardian_area_dynasty_members = 1 }
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_dynasty_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_0_guardian_area_dynasty_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      if = {
+        limit = { var:autoedu_editor_policy_1_guardian_area_dynasty_members = 1 }
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_dynasty_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_1_guardian_area_dynasty_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      if = {
+        limit = { var:autoedu_editor_policy_2_guardian_area_dynasty_members = 1 }
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_dynasty_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_2_guardian_area_dynasty_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      if = {
+        limit = { var:autoedu_editor_policy_3_guardian_area_dynasty_members = 1 }
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_dynasty_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_3_guardian_area_dynasty_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      if = {
+        limit = { var:autoedu_editor_policy_4_guardian_area_dynasty_members = 1 }
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_dynasty_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_4_guardian_area_dynasty_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      if = {
+        limit = { var:autoedu_editor_policy_5_guardian_area_dynasty_members = 1 }
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_dynasty_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_5_guardian_area_dynasty_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      if = {
+        limit = { var:autoedu_editor_policy_6_guardian_area_dynasty_members = 1 }
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_dynasty_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_6_guardian_area_dynasty_members value = 1 }
+      }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      if = {
+        limit = { var:autoedu_editor_policy_7_guardian_area_dynasty_members = 1 }
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_dynasty_members value = 0 }
+      }
+      else = {
+        set_variable = { name = autoedu_editor_policy_7_guardian_area_dynasty_members value = 1 }
+      }
+    }
+  }
+}
+
+autoedu_editor_toggle_section_guardian = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_section_guardian_open = 1 }
+      set_variable = { name = autoedu_editor_section_guardian_open value = 0 }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_section_guardian_open value = 1 }
+    }
+  }
+}
+
+autoedu_editor_toggle_section_guardian_filters = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_section_guardian_filters_open = 1 }
+      set_variable = { name = autoedu_editor_section_guardian_filters_open value = 0 }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_section_guardian_filters_open value = 1 }
+    }
+  }
+}
+
+autoedu_editor_toggle_section_upbringing = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_section_upbringing_open = 1 }
+      set_variable = { name = autoedu_editor_section_upbringing_open value = 0 }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_section_upbringing_open value = 1 }
+    }
+  }
+}
+
+autoedu_editor_toggle_section_focus = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_section_focus_open = 1 }
+      set_variable = { name = autoedu_editor_section_focus_open value = 0 }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_section_focus_open value = 1 }
+    }
+  }
+}
+
+autoedu_editor_toggle_section_university = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_section_university_open = 1 }
+      set_variable = { name = autoedu_editor_section_university_open value = 0 }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_section_university_open value = 1 }
+    }
+  }
+}
+
+autoedu_editor_toggle_section_examination = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_section_examination_open = 1 }
+      set_variable = { name = autoedu_editor_section_examination_open value = 0 }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_section_examination_open value = 1 }
+    }
+  }
+}
+
+autoedu_editor_toggle_notifications = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_general_notifications = 1 }
+      set_variable = { name = autoedu_editor_general_notifications value = 0 }
+    }
+    else = {
+      set_variable = { name = autoedu_editor_general_notifications value = 1 }
+    }
+  }
+}
+
+autoedu_editor_reset_policy = {
+  scope = character
+  effect = {
+    autoedu_editor_reset_policy_effect = yes
+  }
+}
+
+autoedu_editor_reset_general = {
+  scope = character
+  effect = {
+    autoedu_editor_reset_general_effect = yes
+  }
+}
+
+autoedu_editor_request_apply_preset = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_preset > 0 }
+      set_variable = { name = autoedu_editor_confirm_action value = 1 }
+    }
+  }
+}
+
+autoedu_editor_request_reset_all = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_confirm_action value = 2 }
+  }
+}
+
+autoedu_editor_cancel_pending_action = {
+  scope = character
+  effect = {
+    set_variable = { name = autoedu_editor_confirm_action value = 0 }
+  }
+}
+
+autoedu_editor_confirm_pending_action = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_confirm_action = 1 }
+      autoedu_editor_apply_selected_preset_effect = yes
+    }
+    else_if = {
+      limit = { var:autoedu_editor_confirm_action = 2 }
+      autoedu_editor_reset_all_effect = yes
+    }
+    set_variable = { name = autoedu_editor_confirm_action value = 0 }
+  }
+}
+
+autoedu_editor_copy_focus_order_to_all = {
+  scope = character
+  effect = {
+    autoedu_editor_copy_selected_focus_order_to_all_effect = yes
+  }
+}
+
+autoedu_editor_check_now = {
+  scope = character
+  effect = {
+
+    trigger_event = { id = autoedu.0090 }
+  }
+}
+
+autoedu_editor_swap_focus_rank_1_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_0_focus_priority_1 }
+      set_variable = { name = autoedu_editor_policy_0_focus_priority_1 value = var:autoedu_editor_policy_0_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_1_focus_priority_1 }
+      set_variable = { name = autoedu_editor_policy_1_focus_priority_1 value = var:autoedu_editor_policy_1_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_2_focus_priority_1 }
+      set_variable = { name = autoedu_editor_policy_2_focus_priority_1 value = var:autoedu_editor_policy_2_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_3_focus_priority_1 }
+      set_variable = { name = autoedu_editor_policy_3_focus_priority_1 value = var:autoedu_editor_policy_3_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_4_focus_priority_1 }
+      set_variable = { name = autoedu_editor_policy_4_focus_priority_1 value = var:autoedu_editor_policy_4_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_5_focus_priority_1 }
+      set_variable = { name = autoedu_editor_policy_5_focus_priority_1 value = var:autoedu_editor_policy_5_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_6_focus_priority_1 }
+      set_variable = { name = autoedu_editor_policy_6_focus_priority_1 value = var:autoedu_editor_policy_6_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_7_focus_priority_1 }
+      set_variable = { name = autoedu_editor_policy_7_focus_priority_1 value = var:autoedu_editor_policy_7_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+  }
+}
+
+autoedu_editor_swap_focus_rank_2_3 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_0_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_0_focus_priority_2 value = var:autoedu_editor_policy_0_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_1_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_1_focus_priority_2 value = var:autoedu_editor_policy_1_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_2_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_2_focus_priority_2 value = var:autoedu_editor_policy_2_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_3_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_3_focus_priority_2 value = var:autoedu_editor_policy_3_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_4_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_4_focus_priority_2 value = var:autoedu_editor_policy_4_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_5_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_5_focus_priority_2 value = var:autoedu_editor_policy_5_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_6_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_6_focus_priority_2 value = var:autoedu_editor_policy_6_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_7_focus_priority_2 }
+      set_variable = { name = autoedu_editor_policy_7_focus_priority_2 value = var:autoedu_editor_policy_7_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+  }
+}
+
+autoedu_editor_swap_focus_rank_3_4 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_0_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_0_focus_priority_3 value = var:autoedu_editor_policy_0_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_1_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_1_focus_priority_3 value = var:autoedu_editor_policy_1_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_2_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_2_focus_priority_3 value = var:autoedu_editor_policy_2_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_3_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_3_focus_priority_3 value = var:autoedu_editor_policy_3_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_4_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_4_focus_priority_3 value = var:autoedu_editor_policy_4_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_5_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_5_focus_priority_3 value = var:autoedu_editor_policy_5_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_6_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_6_focus_priority_3 value = var:autoedu_editor_policy_6_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_7_focus_priority_3 }
+      set_variable = { name = autoedu_editor_policy_7_focus_priority_3 value = var:autoedu_editor_policy_7_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+  }
+}
+
+autoedu_editor_swap_focus_rank_4_5 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_0_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_0_focus_priority_4 value = var:autoedu_editor_policy_0_focus_priority_5 }
+      set_variable = { name = autoedu_editor_policy_0_focus_priority_5 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_1_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_1_focus_priority_4 value = var:autoedu_editor_policy_1_focus_priority_5 }
+      set_variable = { name = autoedu_editor_policy_1_focus_priority_5 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_2_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_2_focus_priority_4 value = var:autoedu_editor_policy_2_focus_priority_5 }
+      set_variable = { name = autoedu_editor_policy_2_focus_priority_5 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_3_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_3_focus_priority_4 value = var:autoedu_editor_policy_3_focus_priority_5 }
+      set_variable = { name = autoedu_editor_policy_3_focus_priority_5 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_4_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_4_focus_priority_4 value = var:autoedu_editor_policy_4_focus_priority_5 }
+      set_variable = { name = autoedu_editor_policy_4_focus_priority_5 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_5_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_5_focus_priority_4 value = var:autoedu_editor_policy_5_focus_priority_5 }
+      set_variable = { name = autoedu_editor_policy_5_focus_priority_5 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_6_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_6_focus_priority_4 value = var:autoedu_editor_policy_6_focus_priority_5 }
+      set_variable = { name = autoedu_editor_policy_6_focus_priority_5 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_focus_swap_temp value = var:autoedu_editor_policy_7_focus_priority_4 }
+      set_variable = { name = autoedu_editor_policy_7_focus_priority_4 value = var:autoedu_editor_policy_7_focus_priority_5 }
+      set_variable = { name = autoedu_editor_policy_7_focus_priority_5 value = var:autoedu_editor_focus_swap_temp }
+      remove_variable = autoedu_editor_focus_swap_temp
+    }
+  }
+}
+
+autoedu_editor_set_policy_guardian_mode_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_mode value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_mode_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_mode value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_mode_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_mode value = 2 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_min_age_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_min_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_min_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_min_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_min_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_min_age value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_min_age_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_min_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_min_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_min_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_min_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_min_age value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_min_age_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_min_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_min_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_min_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_min_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_min_age value = 2 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_min_age_3 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_min_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_min_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_min_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_min_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_min_age value = 3 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_min_age_4 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_min_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_min_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_min_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_min_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_min_age value = 4 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_min_age_5 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_min_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_min_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_min_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_min_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_min_age value = 5 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_min_age_6 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_min_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_min_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_min_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_min_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_min_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_min_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_min_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_min_age value = 6 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_max_age_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_max_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_max_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_max_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_max_age value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_max_age value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_max_age_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_max_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_max_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_max_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_max_age value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_max_age value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_max_age_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_max_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_max_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_max_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_max_age value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_max_age value = 2 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_max_age_3 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_max_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_max_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_max_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_max_age value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_max_age value = 3 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_max_age_4 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_max_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_max_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_max_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_max_age value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_max_age value = 4 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_max_age_5 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_max_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_max_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_max_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_max_age value = 5 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_max_age value = 5 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_max_age_6 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_max_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_max_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_max_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_max_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_max_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_max_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_max_age value = 6 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_max_age value = 6 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_gender_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_gender value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_gender_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_gender value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_gender_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_gender value = 2 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_gender_3 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_gender value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_gender value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_gender value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_gender value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_gender value = 3 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_gender_4 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_gender value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_gender value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_gender value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_gender value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_gender value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_gender value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_gender value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_gender value = 4 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_faith_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_faith value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_faith value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_faith value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_faith value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_faith value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_faith_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_faith value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_faith value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_faith value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_faith value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_faith value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_faith_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_faith value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_faith value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_faith value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_faith value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_faith value = 2 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_faith_3 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_faith value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_faith value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_faith value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_faith value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_faith value = 3 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_faith_4 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_faith value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_faith value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_faith value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_faith value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_faith value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_faith value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_faith value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_faith value = 4 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_culture_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_culture value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_culture value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_culture value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_culture value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_culture value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_culture_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_culture value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_culture value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_culture value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_culture value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_culture value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_culture_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_culture value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_culture value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_culture value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_culture value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_culture value = 2 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_culture_3 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_culture value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_culture value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_culture value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_culture value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_culture value = 3 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_culture_4 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_culture value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_culture value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_culture value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_culture value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_culture value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_culture value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_culture value = 4 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_culture value = 4 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_witch_attitude_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_witch_attitude value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_witch_attitude value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_witch_attitude value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_witch_attitude value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_witch_attitude value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_witch_attitude_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_witch_attitude value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_witch_attitude value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_witch_attitude value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_witch_attitude value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_witch_attitude value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_witch_attitude_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_witch_attitude value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_witch_attitude value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_witch_attitude value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_witch_attitude value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_witch_attitude value = 2 }
+    }
+  }
+}
+autoedu_editor_set_policy_guardian_witch_attitude_3 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_guardian_witch_attitude value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_guardian_witch_attitude value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_guardian_witch_attitude value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_guardian_witch_attitude value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_guardian_witch_attitude value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_guardian_witch_attitude value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_guardian_witch_attitude value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_guardian_witch_attitude value = 3 }
+    }
+  }
+}
+autoedu_editor_set_policy_faith_upbringing_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_faith_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_faith_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_faith_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_faith_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_faith_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_faith_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_faith_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_faith_upbringing value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_faith_upbringing_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_faith_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_faith_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_faith_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_faith_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_faith_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_faith_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_faith_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_faith_upbringing value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_culture_upbringing_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_culture_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_culture_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_culture_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_culture_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_culture_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_culture_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_culture_upbringing value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_culture_upbringing value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_culture_upbringing_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_culture_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_culture_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_culture_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_culture_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_culture_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_culture_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_culture_upbringing value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_culture_upbringing value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_focus_mode_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_focus_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_focus_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_focus_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_focus_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_focus_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_focus_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_focus_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_focus_mode value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_focus_mode_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_focus_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_focus_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_focus_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_focus_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_focus_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_focus_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_focus_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_focus_mode value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_focus_mode_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_focus_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_focus_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_focus_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_focus_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_focus_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_focus_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_focus_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_focus_mode value = 2 }
+    }
+  }
+}
+autoedu_editor_set_policy_focus_mode_3 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_focus_mode value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_focus_mode value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_focus_mode value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_focus_mode value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_focus_mode value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_focus_mode value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_focus_mode value = 3 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_focus_mode value = 3 }
+    }
+  }
+}
+autoedu_editor_set_policy_university_mode_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_university_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_university_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_university_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_university_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_university_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_university_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_university_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_university_mode value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_university_mode_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_university_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_university_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_university_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_university_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_university_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_university_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_university_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_university_mode value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_university_mode_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_university_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_university_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_university_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_university_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_university_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_university_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_university_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_university_mode value = 2 }
+    }
+  }
+}
+autoedu_editor_set_policy_university_gender_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_university_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_university_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_university_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_university_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_university_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_university_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_university_gender value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_university_gender value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_university_gender_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_university_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_university_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_university_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_university_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_university_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_university_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_university_gender value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_university_gender value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_university_gender_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_university_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_university_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_university_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_university_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_university_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_university_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_university_gender value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_university_gender value = 2 }
+    }
+  }
+}
+autoedu_editor_set_policy_examination_mode_0 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_examination_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_examination_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_examination_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_examination_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_examination_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_examination_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_examination_mode value = 0 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_examination_mode value = 0 }
+    }
+  }
+}
+autoedu_editor_set_policy_examination_mode_1 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_examination_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_examination_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_examination_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_examination_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_examination_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_examination_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_examination_mode value = 1 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_examination_mode value = 1 }
+    }
+  }
+}
+autoedu_editor_set_policy_examination_mode_2 = {
+  scope = character
+  effect = {
+    if = {
+      limit = { var:autoedu_editor_selected_policy = 0 }
+      set_variable = { name = autoedu_editor_policy_0_examination_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 1 }
+      set_variable = { name = autoedu_editor_policy_1_examination_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 2 }
+      set_variable = { name = autoedu_editor_policy_2_examination_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 3 }
+      set_variable = { name = autoedu_editor_policy_3_examination_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 4 }
+      set_variable = { name = autoedu_editor_policy_4_examination_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 5 }
+      set_variable = { name = autoedu_editor_policy_5_examination_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 6 }
+      set_variable = { name = autoedu_editor_policy_6_examination_mode value = 2 }
+    }
+    else_if = {
+      limit = { var:autoedu_editor_selected_policy = 7 }
+      set_variable = { name = autoedu_editor_policy_7_examination_mode value = 2 }
+    }
+  }
+}
+autoedu_editor_set_general_personality_mode_0 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_general_personality_mode value = 0 } }
+}
+
+autoedu_editor_set_general_personality_mode_1 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_general_personality_mode value = 1 } }
+}
+
+autoedu_editor_set_general_martial_training_mode_0 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_general_martial_training_mode value = 0 } }
+}
+
+autoedu_editor_set_general_martial_training_mode_1 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_general_martial_training_mode value = 1 } }
+}
+
+autoedu_editor_set_general_university_reserve_0 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_general_university_reserve value = 0 } }
+}
+
+autoedu_editor_set_general_university_reserve_1 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_general_university_reserve value = 1 } }
+}
+
+autoedu_editor_set_general_university_reserve_2 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_general_university_reserve value = 2 } }
+}
+
+autoedu_editor_set_general_university_reserve_3 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_general_university_reserve value = 3 } }
+}
+
+autoedu_editor_set_editor_preset_0 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_selected_preset value = 0 } }
+}
+
+autoedu_editor_set_editor_preset_1 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_selected_preset value = 1 } }
+}
+
+autoedu_editor_set_editor_preset_2 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_selected_preset value = 2 } }
+}
+
+autoedu_editor_set_editor_preset_3 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_selected_preset value = 3 } }
+}
+
+autoedu_editor_set_editor_preset_4 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_selected_preset value = 4 } }
+}
+
+autoedu_editor_set_editor_preset_5 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_selected_preset value = 5 } }
+}
+
+autoedu_editor_set_editor_preset_6 = {
+  scope = character
+  effect = { set_variable = { name = autoedu_editor_selected_preset value = 6 } }
+}

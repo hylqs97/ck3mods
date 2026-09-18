@@ -13,6 +13,8 @@ source_info:
   last_read_at: null
   last_comments_read_at: null
   last_updates_read_at: null
+  last_attempted_at: null
+  status: "not_read"
   snapshot_dir: "references"
 license_or_permission: "填写原作者许可或待确认"
 local_deployment:
@@ -25,3 +27,9 @@ local_sync:
   enabled: true
   source: "steam_game_mod_dir"
   last_imported_at: null
+
+version: null
+supported_version: null
+dependencies: []
+imported_at: null
+import_source: null

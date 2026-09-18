@@ -1,0 +1,51 @@
+{
+  "kind": "derived",
+  "mod_id": "vassal-manager-reboot-cn",
+  "name": "Vassal Manager Reboot - 简体中文",
+  "version": "2.4-cn.1",
+  "supported_version": "1.19.*",
+  "dependencies": [
+    "Vassal Manager Reboot"
+  ],
+  "license_or_permission": "待确认；仅本地备份，未获再发布授权",
+  "local_deployment": {
+    "enabled": true,
+    "steam_app_id": 1158310,
+    "game_name": "Crusader Kings III",
+    "mod_dir_name": "vassal-manager-reboot-cn",
+    "last_deployed_at": "2026-09-18T15:56:38+08:00"
+  },
+  "source_revision": "sha256:49f02e12f84fb679e7d76027dfdd3673b5104814d586efcdb591346bd4122f06",
+  "imported_at": "2026-09-18T15:56:38+08:00",
+  "import_source": "G:\\Documents\\Paradox Interactive\\Crusader Kings III\\mod\\vassal_manager_reboot_cn",
+  "upstream": {
+    "workshop_item_id": "3773800577",
+    "workshop_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3773800577",
+    "repository_path": "../../workshop/vassal-manager-reboot",
+    "version": "2.4",
+    "source_revision": "sha256:8967338d65387c6205d05a2e9ef677c2253bb99eb1125485bbe5fd2104ebef32",
+    "last_synced_at": "2026-09-18T15:56:38+08:00",
+    "downloader_url": "https://steamworkshopdownloader.io/",
+    "source_info": {
+      "description_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3773800577",
+      "comments_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3773800577#comments",
+      "updates_url": "https://steamcommunity.com/sharedfiles/filedetails/changelog/3773800577",
+      "last_read_at": null,
+      "last_comments_read_at": null,
+      "last_updates_read_at": null,
+      "last_attempted_at": "2026-09-18T15:56:38+08:00",
+      "status": "unavailable",
+      "snapshot_dir": "references"
+    }
+  },
+  "additional_upstreams": [],
+  "local_changes": [
+    "完整汉化215项，仅覆盖localization，不改动游戏逻辑。"
+  ],
+  "publication": {
+    "status": "unpublished",
+    "workshop_item_id": null,
+    "workshop_url": null,
+    "last_published_at": null
+  }
+}

@@ -1,0 +1,116 @@
+﻿# Script values - v1.7
+# The cost of the funding decisions scales with the number of landed vassals
+# who will actually receive gold. The limit here MUST match the limit in the
+# decision effect, or you will pay for vassals who get nothing.
+
+avm_funding_cost_modest = {
+	value = 0
+	every_vassal = {
+		limit = {
+			is_landed = yes
+			NOT = { has_character_flag = avm_protected }
+		}
+		add = 50
+	}
+}
+
+avm_funding_cost_standard = {
+	value = 0
+	every_vassal = {
+		limit = {
+			is_landed = yes
+			NOT = { has_character_flag = avm_protected }
+		}
+		add = 150
+	}
+}
+
+avm_funding_cost_lavish = {
+	value = 0
+	every_vassal = {
+		limit = {
+			is_landed = yes
+			NOT = { has_character_flag = avm_protected }
+		}
+		add = 400
+	}
+}
+
+
+# --- v2.2: counts, so decisions can say how much they will do -------------
+# Each of these MUST mirror the limit in the matching decision effect.
+
+avm_count_all_titles = {
+	value = 0
+	every_sub_realm_title = {
+		limit = {
+			tier <= tier_empire
+			is_capital_barony = no
+			is_titular = no
+			NOT = { holder = { has_character_flag = avm_protected } }
+		}
+		add = 1
+	}
+}
+
+avm_count_infidel_titles = {
+	value = 0
+	every_sub_realm_title = {
+		limit = {
+			tier <= tier_empire
+			is_capital_barony = no
+			is_titular = no
+			NOT = { holder = { has_character_flag = avm_protected } }
+			NOT = { holder = { faith = root.faith } }
+		}
+		add = 1
+	}
+}
+
+avm_count_barbarian_titles = {
+	value = 0
+	every_sub_realm_title = {
+		limit = {
+			tier <= tier_empire
+			is_capital_barony = no
+			is_titular = no
+			NOT = { holder = { has_character_flag = avm_protected } }
+			NOT = { holder = { culture = root.culture } }
+		}
+		add = 1
+	}
+}
+
+avm_count_tribal_vassals = {
+	value = 0
+	every_vassal_or_below = {
+		limit = {
+			government_has_flag = government_is_tribal
+			NOT = { has_character_flag = avm_protected }
+		}
+		add = 1
+	}
+}
+
+avm_count_clan_vassals = {
+	value = 0
+	every_vassal_or_below = {
+		limit = {
+			government_has_flag = government_is_clan
+			NOT = { has_character_flag = avm_protected }
+		}
+		add = 1
+	}
+}
+
+# --- domain and vassal headroom ------------------------------------------
+# Positive means you have room. Negative means you are already over.
+
+avm_domain_headroom = {
+	value = domain_limit_available
+}
+
+avm_vassal_headroom = {
+	value = vassal_limit_available
+}
+

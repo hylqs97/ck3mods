@@ -1,0 +1,1323 @@
+﻿# Advanced Vassal Manager (Continued) - v1.2
+# Original mod by the author of Workshop item 2453359354, released for
+# continuation. Changes in this version:
+#   - hegemony-tier titles (added in patch 1.18) excluded from all mass
+#     revoke operations, which is what was causing the crashes
+#   - removed while-loop wrappers whose exit condition could never be met
+#   - grant_duchies_to_dynasty now picks a random recipient per duchy
+# See README.md for detail and for what is still outstanding.
+
+grant_cities_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = grant_cities_decision_desc
+	selection_tooltip = grant_cities_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_grant_titles
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_held_title = {
+			limit = {
+				tier = tier_barony
+				# v1.2: capital baronies move with their county, not on their own
+				is_capital_barony = no
+				title_province = {
+					has_holding_type = city_holding
+				}
+			}
+			add_to_temporary_list = held_cities
+		}
+		while = {
+			limit = {
+				any_in_list = {
+					list = held_cities
+					count >= 1
+				}
+			}
+			random_in_list = {
+				list = held_cities
+
+				save_scope_as = avm_target_title
+				# v2.1: resolve culture and faith BEFORE creating the character.
+				# Ethnicity is generated from the culture passed in here, so
+				# setting culture afterwards leaves the appearance wrong.
+				avm_resolve_spawn_identity_effect = yes
+				create_character = {
+					template = avm_city_holder_character
+					location = root.location
+					culture = scope:avm_spawn_culture
+					faith = scope:avm_spawn_faith
+
+					save_scope_as = receiver
+				}
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:receiver
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change_two
+					add_claim_on_loss = no
+				}
+				scope:receiver = {
+					change_liege = {
+						liege = root
+						change = scope:change_two
+					}
+				}
+				resolve_title_and_vassal_change = scope:change_two
+
+				remove_from_list = held_cities
+			}
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+grant_temples_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = grant_temples_decision_desc
+	selection_tooltip = grant_temples_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_grant_titles
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_held_title = {
+			limit = {
+				tier = tier_barony
+				# v1.2: capital baronies move with their county, not on their own
+				is_capital_barony = no
+				title_province = {
+					has_holding_type = church_holding
+				}
+			}
+			add_to_temporary_list = held_churches
+		}
+		while = {
+			limit = {
+				any_in_list = {
+					list = held_churches
+					count >= 1
+				}
+			}
+			random_in_list = {
+				list = held_churches
+
+				save_scope_as = avm_target_title
+				# v2.1: resolve culture and faith BEFORE creating the character.
+				# Ethnicity is generated from the culture passed in here, so
+				# setting culture afterwards leaves the appearance wrong.
+				avm_resolve_spawn_identity_effect = yes
+				create_character = {
+					template = avm_temple_holder_character
+					location = root.location
+					culture = scope:avm_spawn_culture
+					faith = scope:avm_spawn_faith
+
+					save_scope_as = receiver
+				}
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:receiver
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change_two
+					add_claim_on_loss = no
+				}
+				scope:receiver = {
+					change_liege = {
+						liege = root
+						change = scope:change_two
+					}
+				}
+				resolve_title_and_vassal_change = scope:change_two
+
+				remove_from_list = held_churches
+			}
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+grant_castles_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = grant_castles_decision_desc
+	selection_tooltip = grant_castles_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_grant_titles
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_held_title = {
+			limit = {
+				tier = tier_barony
+				# v1.2: capital baronies move with their county, not on their own
+				is_capital_barony = no
+				title_province = {
+					has_holding_type = castle_holding
+				}
+			}
+			add_to_temporary_list = held_castles
+		}
+		while = {
+			limit = {
+				any_in_list = {
+					list = held_castles
+					count >= 1
+				}
+			}
+			random_in_list = {
+				list = held_castles
+
+				save_scope_as = avm_target_title
+				# v2.1: resolve culture and faith BEFORE creating the character.
+				# Ethnicity is generated from the culture passed in here, so
+				# setting culture afterwards leaves the appearance wrong.
+				avm_resolve_spawn_identity_effect = yes
+				create_character = {
+					template = avm_castle_holder_character
+					location = root.location
+					culture = scope:avm_spawn_culture
+					faith = scope:avm_spawn_faith
+
+					save_scope_as = receiver
+				}
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:receiver
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change_two
+					add_claim_on_loss = no
+				}
+				scope:receiver = {
+					change_liege = {
+						liege = root
+						change = scope:change_two
+					}
+				}
+				resolve_title_and_vassal_change = scope:change_two
+
+				remove_from_list = held_castles
+			}
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+grant_counties_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = grant_counties_decision_desc
+	selection_tooltip = grant_counties_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_grant_titles
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_held_title = {
+			limit = {
+				tier = tier_county
+				is_titular = no
+				not = { title_province = { duchy = root.capital_province.duchy } }
+			}
+			add_to_temporary_list = held_counties
+		}
+		while = {
+			limit = {
+				any_in_list = {
+					list = held_counties
+					count >= 1
+				}
+			}
+			random_in_list = {
+				list = held_counties
+				
+				save_scope_as = avm_target_title
+				# v2.1: resolve culture and faith BEFORE creating the character.
+				# Ethnicity is generated from the culture passed in here, so
+				# setting culture afterwards leaves the appearance wrong.
+				avm_resolve_spawn_identity_effect = yes
+				# v2.2: use an existing courtier where possible
+				avm_get_or_make_holder_effect = yes
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:receiver
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change_two
+					add_claim_on_loss = no
+				}
+				scope:receiver = {
+					change_liege = {
+						liege = root
+						change = scope:change_two
+					}
+				}
+				resolve_title_and_vassal_change = scope:change_two
+
+				remove_from_list = held_counties
+			}
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+grant_duchies_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = grant_duchies_decision_desc
+	selection_tooltip = grant_duchies_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_grant_titles
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_held_title = {
+			limit = {
+				tier = tier_duchy
+				is_titular = no
+				not = { this = root.capital_province.duchy }
+			}
+			add_to_temporary_list = held_duchies
+		}
+		while = {
+			limit = {
+				any_in_list = {
+					list = held_duchies
+					count >= 1
+				}
+			}
+			random_in_list = {
+				list = held_duchies
+	
+				# v1.8: prefer whoever holds the duchy's de jure capital county,
+				# so the Duke of Paris actually holds Paris. Falls back to any
+				# count in the duchy when nobody holds the capital.
+				save_scope_as = avm_duchy
+				random_in_de_jure_hierarchy = {
+					limit = {
+						tier = tier_county
+						holder.liege = root
+					}
+					weight = {
+						base = 1
+						modifier = {
+							add = 1000
+							this = scope:avm_duchy.title_capital_county
+						}
+					}
+					holder = {
+						save_scope_as = receiver
+					}
+				}
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:receiver
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+				#Grants vassals to new duke
+				every_in_de_jure_hierarchy = {
+					limit = {
+						tier = tier_county
+						holder.liege = root
+						not = { holder = { this = scope:receiver } }
+					}
+					add_to_temporary_list = every_duke_vassals
+				}
+				while = {
+					limit = {
+						any_in_list = {
+							list = every_duke_vassals
+							count >= 1
+						}
+					}
+					random_in_list = {
+						list = every_duke_vassals
+
+						create_title_and_vassal_change = {
+							type = granted
+							save_scope_as = change_two
+							add_claim_on_loss = no
+						}
+						holder = {
+							change_liege = {
+								liege = scope:receiver
+								change = scope:change_two
+							}
+						}
+						resolve_title_and_vassal_change = scope:change_two
+
+						remove_from_list = every_duke_vassals
+					}
+				}
+				remove_from_list = held_duchies
+			}
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+grant_kingdoms_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = grant_kingdoms_decision_desc
+	selection_tooltip = grant_kingdoms_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_grant_titles
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		every_held_title = {
+			limit = {
+				tier = tier_kingdom
+				is_titular = no
+				not = { this = root.capital_province.kingdom }
+			}
+			add_to_temporary_list = held_kingdoms
+		}
+		while = {
+			limit = {
+				any_in_list = {
+					list = held_kingdoms
+					count >= 1
+				}
+			}
+			random_in_list = {
+				list = held_kingdoms
+
+				random_in_de_jure_hierarchy = {
+					limit = {
+						or = {
+							tier = tier_duchy
+							tier = tier_county
+						}
+						holder.liege = root
+					}
+					weight = {
+						base = 1
+						modifier = {
+							tier = tier_duchy
+							add = 1000
+						}
+					}
+					holder = {
+						save_scope_as = receiver
+					}
+				}
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:receiver
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+				#Grants vassals to new king
+				every_in_de_jure_hierarchy = {
+					limit = {
+						or = {
+							tier = tier_duchy
+							tier = tier_county
+						}
+						holder.liege = root
+						not = { holder = { this = scope:receiver } }
+					}
+					add_to_temporary_list = every_kingdom_vassals
+				}
+				while = {
+					limit = {
+						any_in_list = {
+							list = every_kingdom_vassals
+							count >= 1
+						}
+					}
+					random_in_list = {
+						list = every_kingdom_vassals
+
+						create_title_and_vassal_change = {
+							type = granted
+							save_scope_as = change_two
+							add_claim_on_loss = no
+						}
+						holder = {
+							change_liege = {
+								liege = scope:receiver
+								change = scope:change_two
+							}
+						}
+						resolve_title_and_vassal_change = scope:change_two
+
+						remove_from_list = every_kingdom_vassals
+					}
+				}
+				remove_from_list = held_kingdoms
+			}
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+grant_duchies_to_dynasty_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = grant_duchies_to_dynasty_decision_desc
+	selection_tooltip = grant_duchies_to_dynasty_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_grant_titles
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		dynasty = {
+			every_dynasty_member = {
+				limit = {
+					highest_held_title_tier < tier_duchy
+				}
+				add_to_temporary_list = viable_dynasty_members
+			}
+		}
+		every_sub_realm_duchy = {
+			limit = {
+				holder = root
+				is_titular = no
+				not = { this = root.capital_province.duchy }
+				any_in_de_jure_hierarchy = {
+					tier = tier_county
+					holder = root
+					}
+				}
+			random_in_list = {
+				list = viable_dynasty_members
+				save_scope_as = receiver
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				}
+			change_title_holder = {
+				holder = scope:receiver
+				change = scope:change
+				}
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier = tier_county
+					holder = root
+				}
+				change_title_holder = {
+					holder = scope:receiver
+					change = scope:change
+				}
+			}
+			#Transfers existing de jure vassals to receiver
+			every_in_de_jure_hierarchy = {
+				limit = {
+					tier = tier_county
+					holder.liege = root
+					not = { holder = { this = scope:receiver } }
+					# v1.2: a king holding a county here cannot be vassalised
+					# under a duke - skip anyone who outranks the receiver
+					holder = { highest_held_title_tier < tier_duchy }
+				}
+				holder = {
+					change_liege = {
+						liege = scope:receiver
+						change = scope:change
+					}
+				}
+			}
+			scope:receiver = {
+				remove_from_list = viable_dynasty_members
+			}
+			resolve_title_and_vassal_change = scope:change
+		}		
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+revoke_every_title_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = revoke_every_title_decision_desc
+	selection_tooltip = revoke_every_title_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_revoke_titles
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = avm_count_all_tt
+			always = yes
+		}
+		avm_domain_warning_trigger = yes
+		custom_tooltip = {
+			text = avm_requires_arming_tt
+			has_character_flag = avm_armed
+		}
+	}
+
+	cooldown = { days = 1 }
+	
+	effect = {
+		# v1.4: this operation replaces any earlier undo record
+		clear_variable_list = avm_undo_titles
+		every_sub_realm_title = {
+			limit = {
+				tier <= tier_empire
+				# v1.4: match the other revoke decisions
+				is_titular = no
+				is_capital_barony = no
+				# v1.4: never touch a protected character
+				NOT = { holder = { has_character_flag = avm_protected } }
+			}
+			add_to_temporary_list = target_title_counties
+		}
+		every_in_list = {
+			list = target_title_counties
+
+			limit = {
+				holder = {
+					target_is_liege_or_above = root
+				}
+			}
+			# v1.4: remember the previous holder so Restore can put it back
+			save_scope_as = avm_undo_title
+			set_variable = {
+				name = avm_prev_holder
+				value = this.holder
+			}
+			root = {
+				add_to_variable_list = {
+					name = avm_undo_titles
+					target = scope:avm_undo_title
+				}
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+revoke_every_infidel_title_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = revoke_every_infidel_title_decision_desc
+	selection_tooltip = revoke_every_infidel_title_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_revoke_titles
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = avm_count_infidel_tt
+			always = yes
+		}
+		avm_domain_warning_trigger = yes
+	}
+
+	cooldown = { days = 1 }
+	
+	effect = {
+		# v1.4: this operation replaces any earlier undo record
+		clear_variable_list = avm_undo_titles
+		every_sub_realm_title = {
+			limit= {
+				tier <= tier_empire
+				is_capital_barony = no
+				# v1.4: never touch a protected character
+				NOT = { holder = { has_character_flag = avm_protected } }
+				is_titular = no
+				not = { holder.faith = root.faith}
+			}
+			add_to_temporary_list = target_title_faith_limited_counties
+		}
+		every_in_list = {
+			list = target_title_faith_limited_counties
+
+			limit = {
+				holder = {
+					target_is_liege_or_above = root
+				}
+			}
+			# v1.4: remember the previous holder so Restore can put it back
+			save_scope_as = avm_undo_title
+			set_variable = {
+				name = avm_prev_holder
+				value = this.holder
+			}
+			root = {
+				add_to_variable_list = {
+					name = avm_undo_titles
+					target = scope:avm_undo_title
+				}
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+revoke_every_barbarian_title_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = revoke_every_barbarian_title_decision_desc
+	selection_tooltip = revoke_every_barbarian_title_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_revoke_titles
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = avm_count_barbarian_tt
+			always = yes
+		}
+		avm_domain_warning_trigger = yes
+	}
+
+	cooldown = { days = 1 }
+	
+	effect = {
+		# v1.4: this operation replaces any earlier undo record
+		clear_variable_list = avm_undo_titles
+		every_sub_realm_title = {
+			limit= {
+				tier <= tier_empire
+				is_capital_barony = no
+				# v1.4: never touch a protected character
+				NOT = { holder = { has_character_flag = avm_protected } }
+				is_titular = no
+				not = { holder.culture = root.culture}
+			}
+			add_to_temporary_list = target_title_culture_limited_counties
+		}
+		every_in_list = {
+			list = target_title_culture_limited_counties
+
+			limit = {
+				holder = {
+					target_is_liege_or_above = root
+				}
+			}
+			# v1.4: remember the previous holder so Restore can put it back
+			save_scope_as = avm_undo_title
+			set_variable = {
+				name = avm_prev_holder
+				value = this.holder
+			}
+			root = {
+				add_to_variable_list = {
+					name = avm_undo_titles
+					target = scope:avm_undo_title
+				}
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+revoke_every_nondynasty_title_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = revoke_every_nondynasty_title_decision_desc
+	selection_tooltip = revoke_every_nondynasty_title_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_revoke_titles
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = avm_requires_arming_tt
+			has_character_flag = avm_armed
+		}
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		# v1.4: this operation replaces any earlier undo record
+		clear_variable_list = avm_undo_titles
+		every_sub_realm_title = {
+			limit = {
+				tier <= tier_empire
+				is_capital_barony = no
+				# v1.4: never touch a protected character
+				NOT = { holder = { has_character_flag = avm_protected } }
+				nor = {
+					holder.dynasty = root.dynasty
+					holder = {
+						any_liege_or_above = {
+							dynasty = root.dynasty
+							count > 1
+						}
+					}
+				}
+			}
+			add_to_temporary_list = target_title_dynasty_limited_counties
+		}
+		every_in_list = {
+			list = target_title_dynasty_limited_counties
+
+			limit = {
+				holder = {
+					target_is_liege_or_above = root
+				}
+			}
+			# v1.4: remember the previous holder so Restore can put it back
+			save_scope_as = avm_undo_title
+			set_variable = {
+				name = avm_prev_holder
+				value = this.holder
+			}
+			root = {
+				add_to_variable_list = {
+					name = avm_undo_titles
+					target = scope:avm_undo_title
+				}
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+revoke_every_notpinned_title_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = revoke_every_notpinned_title_decision_desc
+	selection_tooltip = revoke_every_notpinned_title_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_revoke_titles
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = avm_requires_arming_tt
+			has_character_flag = avm_armed
+		}
+	}
+
+	cooldown = { days = 1 }
+	
+	effect = {
+		# v1.4: this operation replaces any earlier undo record
+		clear_variable_list = avm_undo_titles
+		every_pinned_character = {	add_to_temporary_list = pinned_characters	}
+		every_sub_realm_title = {
+			limit = {
+				tier <= tier_empire
+				is_capital_barony = no
+				# v1.4: never touch a protected character
+				NOT = { holder = { has_character_flag = avm_protected } }
+				is_titular = no
+				holder = {
+					nor = {
+						is_in_list = pinned_characters
+						any_liege_or_above = {	is_in_list = pinned_characters	}
+					}
+				}
+			}
+			add_to_temporary_list = target_title_pin_limited_counties
+		}
+		every_in_list = {
+			list = target_title_pin_limited_counties
+
+			limit = {
+				holder = {
+						target_is_liege_or_above = root
+				}
+			}
+			# v1.4: remember the previous holder so Restore can put it back
+			save_scope_as = avm_undo_title
+			set_variable = {
+				name = avm_prev_holder
+				value = this.holder
+			}
+			root = {
+				add_to_variable_list = {
+					name = avm_undo_titles
+					target = scope:avm_undo_title
+				}
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+revoke_every_pinned_title_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = revoke_every_pinned_title_decision_desc
+	selection_tooltip = revoke_every_pinned_title_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_revoke_titles
+	}
+
+	cooldown = { days = 1 }
+	
+	effect = {
+		# v1.4: this operation replaces any earlier undo record
+		clear_variable_list = avm_undo_titles
+		every_pinned_character = { add_to_temporary_list = pinned_characters }
+		every_sub_realm_title = {
+			limit = {
+				tier <= tier_empire
+				is_capital_barony = no
+				# v1.4: never touch a protected character
+				NOT = { holder = { has_character_flag = avm_protected } }
+				holder = {	is_in_list = pinned_characters	}
+			}
+			add_to_temporary_list = target_title_pin_limited_counties
+		}
+		every_in_list = {
+			list = target_title_pin_limited_counties
+
+			limit = {
+				holder = {
+						target_is_liege_or_above = root
+				}
+			}
+			# v1.4: remember the previous holder so Restore can put it back
+			save_scope_as = avm_undo_title
+			set_variable = {
+				name = avm_prev_holder
+				value = this.holder
+			}
+			root = {
+				add_to_variable_list = {
+					name = avm_undo_titles
+					target = scope:avm_undo_title
+				}
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+convert_subjects_faith_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = convert_subjects_faith_decision_desc
+	selection_tooltip = convert_subjects_faith_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_misc
+	}
+
+	cooldown = { days = 1 }
+	
+	effect = {
+		# v1.5: courtiers are not vassals, so they need their own pass
+		every_vassal_or_below = {
+			limit = {
+				NOT = { has_character_flag = avm_protected }
+			}
+			set_character_faith_with_conversion = root.faith
+			every_courtier = {
+				limit = {
+					NOT = { has_character_flag = avm_protected }
+				}
+				set_character_faith_with_conversion = root.faith
+			}
+		}
+		every_courtier = {
+			limit = {
+				NOT = { has_character_flag = avm_protected }
+			}
+			set_character_faith_with_conversion = root.faith
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+feudalize_all_tribal_holdings_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = feudalize_all_tribal_holdings_decision_desc
+	selection_tooltip = feudalize_all_tribal_holdings_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_misc
+		not = { government_has_flag = government_is_tribal }
+	}
+
+	cooldown = { days = 1 }
+	
+	effect = {
+		every_sub_realm_title = {
+			limit= {
+				is_capital_barony = no
+				tier <= tier_county
+				title_province = {
+					has_holding_type = tribal_holding
+				}
+			}
+			add_to_temporary_list = target_title_tribal_counties
+			
+		}
+		every_in_list = {
+			list = target_title_tribal_counties
+			limit = {
+				or = {
+					holder = {
+						target_is_liege_or_above = root
+						not = { government_has_flag = government_is_tribal }
+					}
+					holder = root
+				}
+			}
+			title_province = {
+				set_holding_type = castle_holding
+			}
+		}
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+depose_abdicate_decision = {
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = courtier
+	desc = depose_abdicate_decision_desc
+	selection_tooltip = depose_abdicate_decision_tooltip
+	confirm_text = CONFIRM_OKAY
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_ai = no
+		has_character_flag = advanced_vassal_manager
+		has_character_flag = avm_misc
+	}
+
+	cooldown = { days = 1 }
+
+	effect = {
+		depose = yes
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}

@@ -1,0 +1,112 @@
+﻿l_simp_chinese:
+
+ # 决议
+ auto_court_settings_decision_title:0 "自动廷臣管理设置"
+ auto_court_settings_decision_desc:0 "配置每年自动进行的宫廷评估，制定廷臣留任、驱逐、婚姻安排及保护规则。"
+ auto_court_settings_decision_tooltip:0 "打开廷臣自动管理总览，调整评估标准、婚姻规则及保护规则。"
+ auto_court_settings_decision_confirm_text:0 "打开管理总览"
+
+ # 角色互动
+ auto_court_protect_courtier_interaction:0 "豁免廷臣自动管理"
+ auto_court_protect_courtier_interaction_desc:0 "将[recipient.GetShortUINameNoTooltip]设为受保护角色。自动管理将#G 绝不#!驱逐该角色或为其安排婚姻。"
+ auto_court_protect_courtier_interaction_outcome:0 "不再纳入廷臣自动管理，免于自动驱逐和婚姻安排。"
+ auto_court_unprotect_courtier_interaction:0 "取消自动管理豁免"
+ auto_court_unprotect_courtier_interaction_desc:0 "取消[recipient.GetShortUINameNoTooltip]的自动管理豁免。此后将依照你的领地规则，正常评估该角色并为其安排婚姻。"
+ auto_court_unprotect_courtier_interaction_outcome:0 "将纳入廷臣自动管理。"
+
+ auto_court_run_now_decision_title:0 "立即管理廷臣"
+ auto_court_run_now_decision_desc:0 "立即评估宫廷中的所有廷臣，驱逐不符合条件的角色，并为符合条件的未婚角色安排婚姻。"
+ auto_court_run_now_decision_tooltip:0 "立即执行廷臣评估与婚姻安排。"
+ auto_court_run_now_decision_confirm_text:0 "立即执行"
+
+ auto_court_debug_populate_decision_title:0 "（调试）批量生成测试廷臣"
+ auto_court_debug_populate_decision_desc:0 "立即在你的宫廷中生成7名测试廷臣，涵盖低属性、高属性、情人、朋友及天才等类型，以测试自动管理系统。"
+ auto_court_debug_populate_decision_tooltip:0 "生成一组具有不同特质、属性和关系的测试廷臣。"
+ auto_court_debug_populate_decision_confirm_text:0 "生成廷臣"
+ auto_court_debug_setup_master_admin_decision_title:0 "（调试）任命卓越管理者"
+ auto_court_debug_setup_master_admin_decision_desc:0 "立即任命一名相关能力达到20以上的卓越管理者（总管、掌玺大臣或次官），并启用管理者称职度模式。"
+ auto_court_debug_setup_master_admin_decision_tooltip:0 "生成并任命一名卓越管理者，测试高称职度下的婚姻安排与完全准确的驱逐评估。"
+ auto_court_debug_setup_master_admin_decision_confirm_text:0 "任命卓越管理者"
+ auto_court_debug_setup_incompetent_admin_decision_title:0 "（调试）任命无能管理者"
+ auto_court_debug_setup_incompetent_admin_decision_desc:0 "立即任命一名相关能力仅为2的无能管理者（总管、掌玺大臣或次官），并启用管理者称职度模式。"
+ auto_court_debug_setup_incompetent_admin_decision_tooltip:0 "生成并任命一名无能管理者，测试管理疏漏与普通配偶招募。"
+ auto_court_debug_setup_incompetent_admin_decision_confirm_text:0 "任命无能管理者"
+
+ # 通知与报告
+ auto_court_yearly_report_toast_title:0 "廷臣管理已完成"
+ auto_court_yearly_report_toast_desc:0 "廷臣评估报告：\n• 已驱逐：[TopScope.GetValue('auto_court_dismissed_val')|0]\n• 已安排婚姻：[TopScope.GetValue('auto_court_married_val')|0]\n• 优秀配偶：[TopScope.GetValue('auto_court_bonus_val')|0]\n• 因疏漏而留任：[TopScope.GetValue('auto_court_oversight_val')|0]"
+ auto_court_debug_spawn_toast_title:0 "测试廷臣已生成"
+ auto_court_debug_spawn_toast_desc:0 "7名各具特点的测试廷臣已抵达你的宫廷，涵盖低属性、高属性、情人、朋友及天才等类型。"
+ auto_court_debug_master_admin_toast_title:0 "卓越管理者已任命"
+ auto_court_debug_master_admin_toast_desc:0 "一名相关能力达到20以上的卓越管理者已在你的宫廷任职。管理者称职度模式现已启用，可安排优质婚姻并准确无误地进行评估。"
+ auto_court_debug_incompetent_admin_toast_title:0 "无能管理者已任命"
+ auto_court_debug_incompetent_admin_toast_desc:0 "一名相关能力仅为2的无能管理者已在你的宫廷任职。管理者称职度模式现已启用，管理疏漏的风险较高。"
+
+ # 游戏规则
+ rule_auto_court_rule_status:0 "廷臣自动管理"
+ rule_auto_court_rule_status_desc:0 "决定是否默认为玩家统治者启用每年一次的廷臣自动管理。"
+ setting_auto_court_rule_status_enabled:0 "启用"
+ setting_auto_court_rule_status_enabled_desc:0 "每年自动执行一次廷臣管理。"
+ setting_auto_court_rule_status_disabled:0 "禁用"
+ setting_auto_court_rule_status_disabled_desc:0 "廷臣自动管理保持禁用，直至通过决议手动启用。"
+ rule_auto_court_rule_aptitude:0 "廷臣自动管理：评估精度"
+ rule_auto_court_rule_aptitude_desc:0 "决定廷臣管理是否完全遵循既定规则，或受掌玺大臣、总管（无地冒险者则为次官）的称职度影响。"
+ setting_auto_court_rule_aptitude_strict:0 "严格执行（默认）"
+ setting_auto_court_rule_aptitude_strict_desc:0 "评估严格遵循你设定的属性阈值，不会出现差错。"
+ setting_auto_court_rule_aptitude_influenced:0 "受管理者称职度影响"
+ setting_auto_court_rule_aptitude_influenced_desc:0 "管理者的能力会影响配偶质量，并带来少量管理失误的风险。有地统治者由掌玺大臣或总管负责，无地冒险者则由次官负责。"
+
+ # 事件0001：管理总览
+ auto_court_event.0001.t:0 "廷臣自动管理：领地总览"
+ auto_court_event.0001.desc:0 "庞大的宫廷需要勤勉治理。你可以在此指示文书与官员，驱逐无所建树的廷臣、安排有益的婚姻，并保护珍视之人。\n\n#V 当前配置：#! \n• 状态：[Select_CString(ROOT.Var('auto_court_disabled').IsSet, '#N 禁用#!', '#G 启用#!')]\n• 驱逐廷臣：[Select_CString(ROOT.Var('auto_court_dismiss_disabled').IsSet, '#N 禁用#!', '#G 启用#!')]\n• 属性阈值：[ROOT.Var('auto_court_min_stat_threshold').GetValue|0]\n• 自动安排婚姻：[Select_CString(ROOT.Var('auto_court_marry_disabled').IsSet, '#N 禁用#!', '#G 启用#!')]\n• 评估模式：[Select_CString(ROOT.Var('auto_court_aptitude_mode').IsSet, '#italic 受称职度影响#!', '#high 完全严格执行#!')]"
+ auto_court_event.0001.toggle_status:0 "切换自动管理状态"
+ auto_court_event.0001.configure_stats:0 "配置驱逐属性阈值……"
+ auto_court_event.0001.configure_marriage:0 "配置婚姻规则……"
+ auto_court_event.0001.configure_safeguards:0 "配置保护规则与豁免……"
+ auto_court_event.0001.configure_aptitude:0 "配置评估精度与称职度……"
+ auto_court_event.0001.run_now:0 "#G 立即执行廷臣评估#!"
+ auto_court_event.0001.configuration_menu:0 "配置选项……"
+ auto_court_event.0001.debug_spawn:0 "#P （调试：批量生成测试廷臣）#!"
+ auto_court_event.0001.close:0 "完成"
+
+ # 事件0002：驱逐设置
+ auto_court_event.0002.t:0 "驱逐与能力标准"
+ auto_court_event.0002.desc:0 "设定廷臣留任所需的属性阈值，任一属性达到阈值即可符合条件。若只需自动安排婚姻，也可完全禁用驱逐。\n\n#V 当前状态：#! [Select_CString(ROOT.Var('auto_court_dismiss_disabled').IsSet, '#N 禁用#!', '#G 启用#!')]\n#V 当前属性阈值：#! [ROOT.Var('auto_court_min_stat_threshold').GetValue|0]"
+ auto_court_event.0002.toggle_dismissal:0 "切换廷臣驱逐状态"
+ auto_court_event.0002.threshold_8:0 "宽松：属性阈值为8"
+ auto_court_event.0002.threshold_10:0 "标准：属性阈值为10（默认）"
+ auto_court_event.0002.threshold_12:0 "严选：属性阈值为12"
+ auto_court_event.0002.threshold_15:0 "精英：属性阈值为15"
+
+ # 事件0003：婚姻设置
+ auto_court_event.0003.t:0 "婚姻规则"
+ auto_court_event.0003.desc:0 "配置自动婚姻安排。启用后，将为未婚男性廷臣安排父系婚姻，使其妻子迁入宫廷；为未婚女性廷臣安排母系婚姻，使其丈夫迁入宫廷。\n\n#V 当前规则：#! \n• 状态：[Select_CString(ROOT.Var('auto_court_marry_disabled').IsSet, '#N 禁用#!', '#G 启用#!')]\n• 为第一继承人安排婚姻：[Select_CString(ROOT.Var('auto_court_marry_heir_allowed').IsSet, '#high 允许#!', '#G 受保护（仅限手动安排）#!')]\n• 为近亲安排婚姻：[Select_CString(ROOT.Var('auto_court_marry_close_family_allowed').IsSet, '#high 允许#!', '#G 受保护（仅限手动安排）#!')]\n• 为宗族成员安排婚姻：[Select_CString(ROOT.Var('auto_court_marry_dynasty_allowed').IsSet, '#high 允许#!', '#G 受保护（仅限手动安排）#!')]\n• 为情人与灵魂伴侣安排婚姻：[Select_CString(ROOT.Var('auto_court_marry_lovers_allowed').IsSet, '#high 允许#!', '#G 受保护（仅限手动安排）#!')]"
+ auto_court_event.0003.toggle_marriage:0 "切换自动婚姻安排状态"
+ auto_court_event.0003.toggle_heir:0 "切换继承人婚姻豁免"
+ auto_court_event.0003.toggle_close_family:0 "切换近亲婚姻豁免"
+ auto_court_event.0003.toggle_dynasty:0 "切换宗族婚姻豁免"
+ auto_court_event.0003.toggle_lovers:0 "切换情人与灵魂伴侣婚姻豁免"
+
+ # 事件0004：保护规则
+ auto_court_event.0004.t:0 "保护规则与受保护角色"
+ auto_court_event.0004.desc:0 "保护规则确保重要角色无论属性如何，都绝不会被驱逐。\n\n• 宗族与亲属：[Select_CString(ROOT.Var('auto_court_safeguard_dynasty_disabled').IsSet, '#N 禁用#!', '#G 受保护#!')]\n• 情人与朋友：[Select_CString(ROOT.Var('auto_court_safeguard_relationships_disabled').IsSet, '#N 禁用#!', '#G 受保护#!')]\n• 任职者及其亲属：[Select_CString(ROOT.Var('auto_court_safeguard_positions_disabled').IsSet, '#N 禁用#!', '#G 受保护#!')]\n• 先天特质：[Select_CString(ROOT.Var('auto_court_safeguard_traits_disabled').IsSet, '#N 禁用#!', '#G 受保护#!')]\n• 已关注角色：[Select_CString(ROOT.Var('auto_court_safeguard_pinned_disabled').IsSet, '#N 禁用#!', '#G 受保护#!')]"
+ auto_court_event.0004.toggle_dynasty:0 "切换宗族与亲属保护规则"
+ auto_court_event.0004.toggle_relations:0 "切换情人与朋友保护规则"
+ auto_court_event.0004.toggle_positions:0 "切换任职者及其亲属保护规则"
+ auto_court_event.0004.toggle_traits:0 "切换先天特质保护规则"
+ auto_court_event.0004.toggle_pinned:0 "切换已关注角色保护规则"
+
+ # 事件0005：评估模式
+ auto_court_event.0005.t:0 "评估精度与称职度"
+ auto_court_event.0005.desc:0 "配置评估的执行方式：\n\n• #high 完全严格执行规则#!：严格依照你设定的规则进行数值判定。\n• #italic 受管理者称职度影响#!：管理者的能力决定所招募配偶的质量（获得优良特质或高等教育的概率），也会带来人为失误。有地统治者由掌玺大臣或总管负责，无地冒险者则由次官负责。\n\n#V 当前模式：#! [Select_CString(ROOT.Var('auto_court_aptitude_mode').IsSet, '#italic 受称职度影响#!', '#high 完全严格执行#!')]"
+ auto_court_event.0005.strict_mode:0 "设为完全严格执行规则（无随机误差）"
+ auto_court_event.0005.aptitude_mode:0 "设为管理者称职度模式"
+ auto_court_event.0005.debug_master:0 "#P （调试：任命卓越管理者）#!"
+ auto_court_event.0005.debug_incompetent:0 "#N （调试：任命无能管理者）#!"
+
+ # 事件0006：配置菜单
+ auto_court_event.0006.t:0 "廷臣自动管理：配置与规则"
+ auto_court_event.0006.desc:0 "调整宫廷管理的常设规则。选择下方类别，设置能力标准、婚姻安排、角色保护规则或管理者的评估精度。\n\n#V 当前配置：#! \n• 状态：[Select_CString(ROOT.Var('auto_court_disabled').IsSet, '#N 禁用#!', '#G 启用#!')]\n• 驱逐廷臣：[Select_CString(ROOT.Var('auto_court_dismiss_disabled').IsSet, '#N 禁用#!', '#G 启用#!')]\n• 属性阈值：[ROOT.Var('auto_court_min_stat_threshold').GetValue|0]\n• 自动安排婚姻：[Select_CString(ROOT.Var('auto_court_marry_disabled').IsSet, '#N 禁用#!', '#G 启用#!')]\n• 评估模式：[Select_CString(ROOT.Var('auto_court_aptitude_mode').IsSet, '#italic 受称职度影响#!', '#high 完全严格执行#!')]"
+
+ # 通用文本
+ auto_court_event.common.back:0 "« 返回上级菜单"

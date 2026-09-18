@@ -1,0 +1,84 @@
+﻿# Character Interactions for Automated Courtier Management
+
+# Exempt / Protect a specific courtier from automated dismissal
+auto_court_protect_courtier_interaction = {
+	category = interaction_category_friendly
+	icon = icon_culture
+	use_diplomatic_range = no
+    interface_priority = 32
+	ignores_pending_interaction_block = yes
+	auto_accept = yes
+	popup_on_receive = no
+	pause_on_receive = no
+
+	desc = auto_court_protect_courtier_interaction_desc
+
+	is_shown = {
+		scope:actor = { is_ai = no }
+		scope:recipient = {
+			is_courtier_of = scope:actor
+			NOT = { this = scope:actor }
+			NOT = { has_variable = auto_court_manually_exempt }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			is_alive = yes
+		}
+	}
+	
+	on_accept = {
+		show_as_tooltip = {
+			scope:recipient = {
+				custom_tooltip = auto_court_protect_courtier_interaction_outcome
+			}
+		}
+		scope:recipient = {
+			set_variable = {
+				name = auto_court_manually_exempt
+				value = 1
+			}
+		}
+	}
+}
+
+# Remove exemption / Allow courtier to be evaluated normally
+auto_court_unprotect_courtier_interaction = {
+	category = interaction_category_friendly
+	icon = icon_culture
+	use_diplomatic_range = no
+    interface_priority = 32
+	ignores_pending_interaction_block = yes
+	auto_accept = yes
+	popup_on_receive = no
+	pause_on_receive = no
+
+	desc = auto_court_unprotect_courtier_interaction_desc
+
+	is_shown = {
+		scope:actor = { is_ai = no }
+		scope:recipient = {
+			is_courtier_of = scope:actor
+			NOT = { this = scope:actor }
+			has_variable = auto_court_manually_exempt
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			is_alive = yes
+		}
+	}
+	
+	on_accept = {
+		show_as_tooltip = {
+			scope:recipient = {
+				custom_tooltip = auto_court_unprotect_courtier_interaction_outcome
+			}
+		}
+		scope:recipient = {
+			remove_variable = auto_court_manually_exempt
+		}
+	}
+}

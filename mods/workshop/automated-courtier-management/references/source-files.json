@@ -1,0 +1,29 @@
+{
+  "source_revision": "sha256:6cb351080d858523b6c7c20b8f9b8b52fc7bf6397471d95a1730d9d839cadcd8",
+  "files": {
+    "descriptor.mod": "a5c4f0ea9ef8d6d43b11b04036de886c513a6522765494d10a38205e6a288b04",
+    "thumbnail.png": "6a642f1a412158103881a8368951765c088894398ef04062a97bf48513714072",
+    "events/auto_court_events.txt": "6865108e345939725d092083b1e7aa26a4be0da09c8a749f2b27b83be5e34e93",
+    "common/character_interactions/auto_court_interactions.txt": "b3c30ba994a1c4a5e823fac8d181c2e5a8a15026c22b0cc7163f8ba055db447c",
+    "common/decisions/auto_court_decisions.txt": "5b76ea5c8396555dcf10820b97d84db585ba2fe80dc050bc512bf1369c30fce9",
+    "common/game_rules/auto_court_game_rules.txt": "dffa9ebe8189fc539abae9fea24b5f88440a9b8efa1607742c692c7ea0d462a9",
+    "common/on_action/auto_court_on_actions.txt": "ef9ebe375e089e4d039b4f4740aabba39382eccf385b98f0ddd86450140cf6c8",
+    "common/scripted_effects/auto_court_effects.txt": "bf46da934b7c35ae7647796a6f215bb24e838cd201cdd666f1567eeb9459ef38",
+    "common/scripted_triggers/auto_court_triggers.txt": "aa209492dc9e48765b114a634ca9ade8db66a8c5136a8ca12aac2049cd3f20e9",
+    "localization/english/auto_court_l_english.yml": "87b8bc4a6a95ebff258639521dfdb0691a75b3f6fd453efa361c465b0aaa0ed4",
+    "localization/russian/auto_court_l_russian.yml": "4bdbbe87d5fc271bbe316c7860997c74754231688d4f5e3ab403f3bc44c9fb80"
+  },
+  "original_import_files": {
+    "descriptor.mod": "a5c4f0ea9ef8d6d43b11b04036de886c513a6522765494d10a38205e6a288b04",
+    "thumbnail.png": "6a642f1a412158103881a8368951765c088894398ef04062a97bf48513714072",
+    "events/auto_court_events.txt": "6865108e345939725d092083b1e7aa26a4be0da09c8a749f2b27b83be5e34e93",
+    "common/character_interactions/auto_court_interactions.txt": "b3c30ba994a1c4a5e823fac8d181c2e5a8a15026c22b0cc7163f8ba055db447c",
+    "common/decisions/auto_court_decisions.txt": "5b76ea5c8396555dcf10820b97d84db585ba2fe80dc050bc512bf1369c30fce9",
+    "common/game_rules/auto_court_game_rules.txt": "dffa9ebe8189fc539abae9fea24b5f88440a9b8efa1607742c692c7ea0d462a9",
+    "common/on_action/auto_court_on_actions.txt": "ef9ebe375e089e4d039b4f4740aabba39382eccf385b98f0ddd86450140cf6c8",
+    "common/scripted_effects/auto_court_effects.txt": "bf46da934b7c35ae7647796a6f215bb24e838cd201cdd666f1567eeb9459ef38",
+    "common/scripted_triggers/auto_court_triggers.txt": "aa209492dc9e48765b114a634ca9ade8db66a8c5136a8ca12aac2049cd3f20e9",
+    "localization/english/auto_court_l_english.yml": "87b8bc4a6a95ebff258639521dfdb0691a75b3f6fd453efa361c465b0aaa0ed4",
+    "localization/russian/auto_court_l_russian.yml": "4bdbbe87d5fc271bbe316c7860997c74754231688d4f5e3ab403f3bc44c9fb80"
+  }
+}

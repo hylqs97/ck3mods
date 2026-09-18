@@ -1,0 +1,73 @@
+{
+  "kind": "derived",
+  "mod_id": "automated-courtier-management-cn",
+  "name": "Automated Courtier Management - 简体中文",
+  "version": "1.3.2-cn.5",
+  "supported_version": "1.19.*",
+  "dependencies": [
+    "Automated Courtier Management",
+    "Automatic Education - Guardian & University Manager"
+  ],
+  "license_or_permission": "待确认；仅本地备份，未获再发布授权",
+  "local_deployment": {
+    "enabled": true,
+    "steam_app_id": 1158310,
+    "game_name": "Crusader Kings III",
+    "mod_dir_name": "automated-courtier-management-cn",
+    "last_deployed_at": "2026-09-18T15:56:38+08:00"
+  },
+  "source_revision": "sha256:0c75030bcb67b5e8494eeab1ebe574827be8ba03842c9f7ff5b9dc27f8e03a68",
+  "imported_at": "2026-09-18T15:56:38+08:00",
+  "import_source": "G:\\Documents\\Paradox Interactive\\Crusader Kings III\\mod\\automated_courtier_management_cn",
+  "upstream": {
+    "workshop_item_id": "3785023981",
+    "workshop_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785023981",
+    "repository_path": "../../workshop/automated-courtier-management",
+    "version": "1.3.2",
+    "source_revision": "sha256:6cb351080d858523b6c7c20b8f9b8b52fc7bf6397471d95a1730d9d839cadcd8",
+    "last_synced_at": "2026-09-18T15:56:38+08:00",
+    "downloader_url": "https://steamworkshopdownloader.io/",
+    "source_info": {
+      "description_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785023981",
+      "comments_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3785023981#comments",
+      "updates_url": "https://steamcommunity.com/sharedfiles/filedetails/changelog/3785023981",
+      "last_read_at": null,
+      "last_comments_read_at": null,
+      "last_updates_read_at": "2026-09-18T15:56:38+08:00",
+      "last_attempted_at": "2026-09-18T15:56:38+08:00",
+      "status": "partial: changelog read; description/comments unavailable",
+      "snapshot_dir": "references"
+    }
+  },
+  "additional_upstreams": [
+    {
+      "workshop_item_id": "3717349873",
+      "workshop_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3717349873",
+      "repository_path": "../../workshop/automatic-education",
+      "version": "2.1.0",
+      "source_revision": "sha256:dd2400650269c17ac9a3ecb37e3d35ee496d49626cb966e74f5017ff54ddd652",
+      "last_synced_at": "2026-09-18T15:56:38+08:00",
+      "downloader_url": "https://steamworkshopdownloader.io/",
+      "source_info": {
+        "description_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3717349873",
+        "comments_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3717349873#comments",
+        "updates_url": "https://steamcommunity.com/sharedfiles/filedetails/changelog/3717349873",
+        "last_read_at": null,
+        "last_comments_read_at": null,
+        "last_updates_read_at": "2026-09-18T15:56:38+08:00",
+        "last_attempted_at": "2026-09-18T15:56:38+08:00",
+        "status": "partial: changelog read; description/comments unavailable",
+        "snapshot_dir": "references"
+      }
+    }
+  ],
+  "local_changes": [
+    "廷臣汉化87项；自动教育诊断；监护筛选最低年龄0岁，未满4岁免教育特质要求。"
+  ],
+  "publication": {
+    "status": "unpublished",
+    "workshop_item_id": null,
+    "workshop_url": null,
+    "last_published_at": null
+  }
+}

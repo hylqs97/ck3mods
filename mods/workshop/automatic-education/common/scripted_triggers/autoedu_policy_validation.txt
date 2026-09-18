@@ -1,0 +1,1563 @@
+﻿autoedu_editor_policy_0_schema_valid_trigger = {
+  exists = var:autoedu_editor_policy_0_enabled
+  var:autoedu_editor_policy_0_enabled >= 0
+  var:autoedu_editor_policy_0_enabled <= 1
+  exists = var:autoedu_editor_policy_0_guardian_mode
+  var:autoedu_editor_policy_0_guardian_mode >= 0
+  var:autoedu_editor_policy_0_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_0_guardian_min_age
+  var:autoedu_editor_policy_0_guardian_min_age >= 0
+  var:autoedu_editor_policy_0_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_0_guardian_max_age
+  var:autoedu_editor_policy_0_guardian_max_age >= 0
+  var:autoedu_editor_policy_0_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_0_guardian_gender
+  var:autoedu_editor_policy_0_guardian_gender >= 0
+  var:autoedu_editor_policy_0_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_0_guardian_faith
+  var:autoedu_editor_policy_0_guardian_faith >= 0
+  var:autoedu_editor_policy_0_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_0_guardian_culture
+  var:autoedu_editor_policy_0_guardian_culture >= 0
+  var:autoedu_editor_policy_0_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_0_guardian_witch_attitude
+  var:autoedu_editor_policy_0_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_0_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_0_faith_upbringing
+  var:autoedu_editor_policy_0_faith_upbringing >= 0
+  var:autoedu_editor_policy_0_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_0_culture_upbringing
+  var:autoedu_editor_policy_0_culture_upbringing >= 0
+  var:autoedu_editor_policy_0_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_0_focus_mode
+  var:autoedu_editor_policy_0_focus_mode >= 0
+  var:autoedu_editor_policy_0_focus_mode <= 3
+  exists = var:autoedu_editor_policy_0_university_mode
+  var:autoedu_editor_policy_0_university_mode >= 0
+  var:autoedu_editor_policy_0_university_mode <= 2
+  exists = var:autoedu_editor_policy_0_university_gender
+  var:autoedu_editor_policy_0_university_gender >= 0
+  var:autoedu_editor_policy_0_university_gender <= 2
+  exists = var:autoedu_editor_policy_0_examination_mode
+  var:autoedu_editor_policy_0_examination_mode >= 0
+  var:autoedu_editor_policy_0_examination_mode <= 2
+  exists = var:autoedu_editor_policy_0_guardian_area_player_courtiers
+  var:autoedu_editor_policy_0_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_0_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_0_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_0_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_0_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_0_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_close_relatives
+  var:autoedu_editor_policy_0_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_0_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_distant_relatives
+  var:autoedu_editor_policy_0_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_0_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_house_members
+  var:autoedu_editor_policy_0_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_0_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_dynasty_members
+  var:autoedu_editor_policy_0_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_0_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_0_focus_priority_1
+  var:autoedu_editor_policy_0_focus_priority_1 >= 0
+  var:autoedu_editor_policy_0_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_0_focus_priority_2
+  var:autoedu_editor_policy_0_focus_priority_2 >= 0
+  var:autoedu_editor_policy_0_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_0_focus_priority_3
+  var:autoedu_editor_policy_0_focus_priority_3 >= 0
+  var:autoedu_editor_policy_0_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_0_focus_priority_4
+  var:autoedu_editor_policy_0_focus_priority_4 >= 0
+  var:autoedu_editor_policy_0_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_0_focus_priority_5
+  var:autoedu_editor_policy_0_focus_priority_5 >= 0
+  var:autoedu_editor_policy_0_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_0_focus_priority_1 = var:autoedu_editor_policy_0_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_1 = var:autoedu_editor_policy_0_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_1 = var:autoedu_editor_policy_0_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_1 = var:autoedu_editor_policy_0_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_2 = var:autoedu_editor_policy_0_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_2 = var:autoedu_editor_policy_0_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_2 = var:autoedu_editor_policy_0_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_3 = var:autoedu_editor_policy_0_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_3 = var:autoedu_editor_policy_0_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_4 = var:autoedu_editor_policy_0_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_0_guardian_min_age = 0 var:autoedu_editor_policy_0_guardian_max_age = 0 var:autoedu_editor_policy_0_guardian_min_age <= var:autoedu_editor_policy_0_guardian_max_age }
+}
+
+autoedu_editor_policy_1_schema_valid_trigger = {
+  exists = var:autoedu_editor_policy_1_enabled
+  var:autoedu_editor_policy_1_enabled >= 0
+  var:autoedu_editor_policy_1_enabled <= 1
+  exists = var:autoedu_editor_policy_1_guardian_mode
+  var:autoedu_editor_policy_1_guardian_mode >= 0
+  var:autoedu_editor_policy_1_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_1_guardian_min_age
+  var:autoedu_editor_policy_1_guardian_min_age >= 0
+  var:autoedu_editor_policy_1_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_1_guardian_max_age
+  var:autoedu_editor_policy_1_guardian_max_age >= 0
+  var:autoedu_editor_policy_1_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_1_guardian_gender
+  var:autoedu_editor_policy_1_guardian_gender >= 0
+  var:autoedu_editor_policy_1_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_1_guardian_faith
+  var:autoedu_editor_policy_1_guardian_faith >= 0
+  var:autoedu_editor_policy_1_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_1_guardian_culture
+  var:autoedu_editor_policy_1_guardian_culture >= 0
+  var:autoedu_editor_policy_1_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_1_guardian_witch_attitude
+  var:autoedu_editor_policy_1_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_1_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_1_faith_upbringing
+  var:autoedu_editor_policy_1_faith_upbringing >= 0
+  var:autoedu_editor_policy_1_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_1_culture_upbringing
+  var:autoedu_editor_policy_1_culture_upbringing >= 0
+  var:autoedu_editor_policy_1_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_1_focus_mode
+  var:autoedu_editor_policy_1_focus_mode >= 0
+  var:autoedu_editor_policy_1_focus_mode <= 3
+  exists = var:autoedu_editor_policy_1_university_mode
+  var:autoedu_editor_policy_1_university_mode >= 0
+  var:autoedu_editor_policy_1_university_mode <= 2
+  exists = var:autoedu_editor_policy_1_university_gender
+  var:autoedu_editor_policy_1_university_gender >= 0
+  var:autoedu_editor_policy_1_university_gender <= 2
+  exists = var:autoedu_editor_policy_1_examination_mode
+  var:autoedu_editor_policy_1_examination_mode >= 0
+  var:autoedu_editor_policy_1_examination_mode <= 2
+  exists = var:autoedu_editor_policy_1_guardian_area_player_courtiers
+  var:autoedu_editor_policy_1_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_1_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_1_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_1_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_1_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_1_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_close_relatives
+  var:autoedu_editor_policy_1_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_1_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_distant_relatives
+  var:autoedu_editor_policy_1_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_1_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_house_members
+  var:autoedu_editor_policy_1_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_1_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_dynasty_members
+  var:autoedu_editor_policy_1_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_1_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_1_focus_priority_1
+  var:autoedu_editor_policy_1_focus_priority_1 >= 0
+  var:autoedu_editor_policy_1_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_1_focus_priority_2
+  var:autoedu_editor_policy_1_focus_priority_2 >= 0
+  var:autoedu_editor_policy_1_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_1_focus_priority_3
+  var:autoedu_editor_policy_1_focus_priority_3 >= 0
+  var:autoedu_editor_policy_1_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_1_focus_priority_4
+  var:autoedu_editor_policy_1_focus_priority_4 >= 0
+  var:autoedu_editor_policy_1_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_1_focus_priority_5
+  var:autoedu_editor_policy_1_focus_priority_5 >= 0
+  var:autoedu_editor_policy_1_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_1_focus_priority_1 = var:autoedu_editor_policy_1_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_1 = var:autoedu_editor_policy_1_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_1 = var:autoedu_editor_policy_1_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_1 = var:autoedu_editor_policy_1_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_2 = var:autoedu_editor_policy_1_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_2 = var:autoedu_editor_policy_1_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_2 = var:autoedu_editor_policy_1_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_3 = var:autoedu_editor_policy_1_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_3 = var:autoedu_editor_policy_1_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_4 = var:autoedu_editor_policy_1_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_1_guardian_min_age = 0 var:autoedu_editor_policy_1_guardian_max_age = 0 var:autoedu_editor_policy_1_guardian_min_age <= var:autoedu_editor_policy_1_guardian_max_age }
+}
+
+autoedu_editor_policy_2_schema_valid_trigger = {
+  exists = var:autoedu_editor_policy_2_enabled
+  var:autoedu_editor_policy_2_enabled >= 0
+  var:autoedu_editor_policy_2_enabled <= 1
+  exists = var:autoedu_editor_policy_2_guardian_mode
+  var:autoedu_editor_policy_2_guardian_mode >= 0
+  var:autoedu_editor_policy_2_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_2_guardian_min_age
+  var:autoedu_editor_policy_2_guardian_min_age >= 0
+  var:autoedu_editor_policy_2_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_2_guardian_max_age
+  var:autoedu_editor_policy_2_guardian_max_age >= 0
+  var:autoedu_editor_policy_2_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_2_guardian_gender
+  var:autoedu_editor_policy_2_guardian_gender >= 0
+  var:autoedu_editor_policy_2_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_2_guardian_faith
+  var:autoedu_editor_policy_2_guardian_faith >= 0
+  var:autoedu_editor_policy_2_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_2_guardian_culture
+  var:autoedu_editor_policy_2_guardian_culture >= 0
+  var:autoedu_editor_policy_2_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_2_guardian_witch_attitude
+  var:autoedu_editor_policy_2_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_2_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_2_faith_upbringing
+  var:autoedu_editor_policy_2_faith_upbringing >= 0
+  var:autoedu_editor_policy_2_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_2_culture_upbringing
+  var:autoedu_editor_policy_2_culture_upbringing >= 0
+  var:autoedu_editor_policy_2_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_2_focus_mode
+  var:autoedu_editor_policy_2_focus_mode >= 0
+  var:autoedu_editor_policy_2_focus_mode <= 3
+  exists = var:autoedu_editor_policy_2_university_mode
+  var:autoedu_editor_policy_2_university_mode >= 0
+  var:autoedu_editor_policy_2_university_mode <= 2
+  exists = var:autoedu_editor_policy_2_university_gender
+  var:autoedu_editor_policy_2_university_gender >= 0
+  var:autoedu_editor_policy_2_university_gender <= 2
+  exists = var:autoedu_editor_policy_2_examination_mode
+  var:autoedu_editor_policy_2_examination_mode >= 0
+  var:autoedu_editor_policy_2_examination_mode <= 2
+  exists = var:autoedu_editor_policy_2_guardian_area_player_courtiers
+  var:autoedu_editor_policy_2_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_2_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_2_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_2_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_2_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_2_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_close_relatives
+  var:autoedu_editor_policy_2_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_2_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_distant_relatives
+  var:autoedu_editor_policy_2_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_2_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_house_members
+  var:autoedu_editor_policy_2_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_2_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_dynasty_members
+  var:autoedu_editor_policy_2_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_2_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_2_focus_priority_1
+  var:autoedu_editor_policy_2_focus_priority_1 >= 0
+  var:autoedu_editor_policy_2_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_2_focus_priority_2
+  var:autoedu_editor_policy_2_focus_priority_2 >= 0
+  var:autoedu_editor_policy_2_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_2_focus_priority_3
+  var:autoedu_editor_policy_2_focus_priority_3 >= 0
+  var:autoedu_editor_policy_2_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_2_focus_priority_4
+  var:autoedu_editor_policy_2_focus_priority_4 >= 0
+  var:autoedu_editor_policy_2_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_2_focus_priority_5
+  var:autoedu_editor_policy_2_focus_priority_5 >= 0
+  var:autoedu_editor_policy_2_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_2_focus_priority_1 = var:autoedu_editor_policy_2_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_1 = var:autoedu_editor_policy_2_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_1 = var:autoedu_editor_policy_2_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_1 = var:autoedu_editor_policy_2_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_2 = var:autoedu_editor_policy_2_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_2 = var:autoedu_editor_policy_2_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_2 = var:autoedu_editor_policy_2_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_3 = var:autoedu_editor_policy_2_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_3 = var:autoedu_editor_policy_2_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_4 = var:autoedu_editor_policy_2_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_2_guardian_min_age = 0 var:autoedu_editor_policy_2_guardian_max_age = 0 var:autoedu_editor_policy_2_guardian_min_age <= var:autoedu_editor_policy_2_guardian_max_age }
+}
+
+autoedu_editor_policy_3_schema_valid_trigger = {
+  exists = var:autoedu_editor_policy_3_enabled
+  var:autoedu_editor_policy_3_enabled >= 0
+  var:autoedu_editor_policy_3_enabled <= 1
+  exists = var:autoedu_editor_policy_3_guardian_mode
+  var:autoedu_editor_policy_3_guardian_mode >= 0
+  var:autoedu_editor_policy_3_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_3_guardian_min_age
+  var:autoedu_editor_policy_3_guardian_min_age >= 0
+  var:autoedu_editor_policy_3_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_3_guardian_max_age
+  var:autoedu_editor_policy_3_guardian_max_age >= 0
+  var:autoedu_editor_policy_3_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_3_guardian_gender
+  var:autoedu_editor_policy_3_guardian_gender >= 0
+  var:autoedu_editor_policy_3_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_3_guardian_faith
+  var:autoedu_editor_policy_3_guardian_faith >= 0
+  var:autoedu_editor_policy_3_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_3_guardian_culture
+  var:autoedu_editor_policy_3_guardian_culture >= 0
+  var:autoedu_editor_policy_3_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_3_guardian_witch_attitude
+  var:autoedu_editor_policy_3_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_3_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_3_faith_upbringing
+  var:autoedu_editor_policy_3_faith_upbringing >= 0
+  var:autoedu_editor_policy_3_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_3_culture_upbringing
+  var:autoedu_editor_policy_3_culture_upbringing >= 0
+  var:autoedu_editor_policy_3_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_3_focus_mode
+  var:autoedu_editor_policy_3_focus_mode >= 0
+  var:autoedu_editor_policy_3_focus_mode <= 3
+  exists = var:autoedu_editor_policy_3_university_mode
+  var:autoedu_editor_policy_3_university_mode >= 0
+  var:autoedu_editor_policy_3_university_mode <= 2
+  exists = var:autoedu_editor_policy_3_university_gender
+  var:autoedu_editor_policy_3_university_gender >= 0
+  var:autoedu_editor_policy_3_university_gender <= 2
+  exists = var:autoedu_editor_policy_3_examination_mode
+  var:autoedu_editor_policy_3_examination_mode >= 0
+  var:autoedu_editor_policy_3_examination_mode <= 2
+  exists = var:autoedu_editor_policy_3_guardian_area_player_courtiers
+  var:autoedu_editor_policy_3_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_3_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_3_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_3_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_3_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_3_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_close_relatives
+  var:autoedu_editor_policy_3_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_3_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_distant_relatives
+  var:autoedu_editor_policy_3_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_3_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_house_members
+  var:autoedu_editor_policy_3_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_3_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_dynasty_members
+  var:autoedu_editor_policy_3_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_3_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_3_focus_priority_1
+  var:autoedu_editor_policy_3_focus_priority_1 >= 0
+  var:autoedu_editor_policy_3_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_3_focus_priority_2
+  var:autoedu_editor_policy_3_focus_priority_2 >= 0
+  var:autoedu_editor_policy_3_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_3_focus_priority_3
+  var:autoedu_editor_policy_3_focus_priority_3 >= 0
+  var:autoedu_editor_policy_3_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_3_focus_priority_4
+  var:autoedu_editor_policy_3_focus_priority_4 >= 0
+  var:autoedu_editor_policy_3_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_3_focus_priority_5
+  var:autoedu_editor_policy_3_focus_priority_5 >= 0
+  var:autoedu_editor_policy_3_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_3_focus_priority_1 = var:autoedu_editor_policy_3_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_1 = var:autoedu_editor_policy_3_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_1 = var:autoedu_editor_policy_3_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_1 = var:autoedu_editor_policy_3_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_2 = var:autoedu_editor_policy_3_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_2 = var:autoedu_editor_policy_3_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_2 = var:autoedu_editor_policy_3_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_3 = var:autoedu_editor_policy_3_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_3 = var:autoedu_editor_policy_3_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_4 = var:autoedu_editor_policy_3_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_3_guardian_min_age = 0 var:autoedu_editor_policy_3_guardian_max_age = 0 var:autoedu_editor_policy_3_guardian_min_age <= var:autoedu_editor_policy_3_guardian_max_age }
+}
+
+autoedu_editor_policy_4_schema_valid_trigger = {
+  exists = var:autoedu_editor_policy_4_enabled
+  var:autoedu_editor_policy_4_enabled >= 0
+  var:autoedu_editor_policy_4_enabled <= 1
+  exists = var:autoedu_editor_policy_4_guardian_mode
+  var:autoedu_editor_policy_4_guardian_mode >= 0
+  var:autoedu_editor_policy_4_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_4_guardian_min_age
+  var:autoedu_editor_policy_4_guardian_min_age >= 0
+  var:autoedu_editor_policy_4_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_4_guardian_max_age
+  var:autoedu_editor_policy_4_guardian_max_age >= 0
+  var:autoedu_editor_policy_4_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_4_guardian_gender
+  var:autoedu_editor_policy_4_guardian_gender >= 0
+  var:autoedu_editor_policy_4_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_4_guardian_faith
+  var:autoedu_editor_policy_4_guardian_faith >= 0
+  var:autoedu_editor_policy_4_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_4_guardian_culture
+  var:autoedu_editor_policy_4_guardian_culture >= 0
+  var:autoedu_editor_policy_4_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_4_guardian_witch_attitude
+  var:autoedu_editor_policy_4_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_4_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_4_faith_upbringing
+  var:autoedu_editor_policy_4_faith_upbringing >= 0
+  var:autoedu_editor_policy_4_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_4_culture_upbringing
+  var:autoedu_editor_policy_4_culture_upbringing >= 0
+  var:autoedu_editor_policy_4_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_4_focus_mode
+  var:autoedu_editor_policy_4_focus_mode >= 0
+  var:autoedu_editor_policy_4_focus_mode <= 3
+  exists = var:autoedu_editor_policy_4_university_mode
+  var:autoedu_editor_policy_4_university_mode >= 0
+  var:autoedu_editor_policy_4_university_mode <= 2
+  exists = var:autoedu_editor_policy_4_university_gender
+  var:autoedu_editor_policy_4_university_gender >= 0
+  var:autoedu_editor_policy_4_university_gender <= 2
+  exists = var:autoedu_editor_policy_4_examination_mode
+  var:autoedu_editor_policy_4_examination_mode >= 0
+  var:autoedu_editor_policy_4_examination_mode <= 2
+  exists = var:autoedu_editor_policy_4_guardian_area_player_courtiers
+  var:autoedu_editor_policy_4_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_4_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_4_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_4_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_4_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_4_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_close_relatives
+  var:autoedu_editor_policy_4_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_4_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_distant_relatives
+  var:autoedu_editor_policy_4_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_4_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_house_members
+  var:autoedu_editor_policy_4_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_4_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_dynasty_members
+  var:autoedu_editor_policy_4_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_4_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_4_focus_priority_1
+  var:autoedu_editor_policy_4_focus_priority_1 >= 0
+  var:autoedu_editor_policy_4_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_4_focus_priority_2
+  var:autoedu_editor_policy_4_focus_priority_2 >= 0
+  var:autoedu_editor_policy_4_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_4_focus_priority_3
+  var:autoedu_editor_policy_4_focus_priority_3 >= 0
+  var:autoedu_editor_policy_4_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_4_focus_priority_4
+  var:autoedu_editor_policy_4_focus_priority_4 >= 0
+  var:autoedu_editor_policy_4_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_4_focus_priority_5
+  var:autoedu_editor_policy_4_focus_priority_5 >= 0
+  var:autoedu_editor_policy_4_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_4_focus_priority_1 = var:autoedu_editor_policy_4_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_1 = var:autoedu_editor_policy_4_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_1 = var:autoedu_editor_policy_4_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_1 = var:autoedu_editor_policy_4_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_2 = var:autoedu_editor_policy_4_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_2 = var:autoedu_editor_policy_4_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_2 = var:autoedu_editor_policy_4_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_3 = var:autoedu_editor_policy_4_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_3 = var:autoedu_editor_policy_4_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_4 = var:autoedu_editor_policy_4_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_4_guardian_min_age = 0 var:autoedu_editor_policy_4_guardian_max_age = 0 var:autoedu_editor_policy_4_guardian_min_age <= var:autoedu_editor_policy_4_guardian_max_age }
+}
+
+autoedu_editor_policy_5_schema_valid_trigger = {
+  exists = var:autoedu_editor_policy_5_enabled
+  var:autoedu_editor_policy_5_enabled >= 0
+  var:autoedu_editor_policy_5_enabled <= 1
+  exists = var:autoedu_editor_policy_5_guardian_mode
+  var:autoedu_editor_policy_5_guardian_mode >= 0
+  var:autoedu_editor_policy_5_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_5_guardian_min_age
+  var:autoedu_editor_policy_5_guardian_min_age >= 0
+  var:autoedu_editor_policy_5_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_5_guardian_max_age
+  var:autoedu_editor_policy_5_guardian_max_age >= 0
+  var:autoedu_editor_policy_5_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_5_guardian_gender
+  var:autoedu_editor_policy_5_guardian_gender >= 0
+  var:autoedu_editor_policy_5_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_5_guardian_faith
+  var:autoedu_editor_policy_5_guardian_faith >= 0
+  var:autoedu_editor_policy_5_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_5_guardian_culture
+  var:autoedu_editor_policy_5_guardian_culture >= 0
+  var:autoedu_editor_policy_5_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_5_guardian_witch_attitude
+  var:autoedu_editor_policy_5_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_5_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_5_faith_upbringing
+  var:autoedu_editor_policy_5_faith_upbringing >= 0
+  var:autoedu_editor_policy_5_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_5_culture_upbringing
+  var:autoedu_editor_policy_5_culture_upbringing >= 0
+  var:autoedu_editor_policy_5_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_5_focus_mode
+  var:autoedu_editor_policy_5_focus_mode >= 0
+  var:autoedu_editor_policy_5_focus_mode <= 3
+  exists = var:autoedu_editor_policy_5_university_mode
+  var:autoedu_editor_policy_5_university_mode >= 0
+  var:autoedu_editor_policy_5_university_mode <= 2
+  exists = var:autoedu_editor_policy_5_university_gender
+  var:autoedu_editor_policy_5_university_gender >= 0
+  var:autoedu_editor_policy_5_university_gender <= 2
+  exists = var:autoedu_editor_policy_5_examination_mode
+  var:autoedu_editor_policy_5_examination_mode >= 0
+  var:autoedu_editor_policy_5_examination_mode <= 2
+  exists = var:autoedu_editor_policy_5_guardian_area_player_courtiers
+  var:autoedu_editor_policy_5_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_5_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_5_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_5_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_5_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_5_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_close_relatives
+  var:autoedu_editor_policy_5_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_5_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_distant_relatives
+  var:autoedu_editor_policy_5_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_5_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_house_members
+  var:autoedu_editor_policy_5_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_5_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_dynasty_members
+  var:autoedu_editor_policy_5_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_5_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_5_focus_priority_1
+  var:autoedu_editor_policy_5_focus_priority_1 >= 0
+  var:autoedu_editor_policy_5_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_5_focus_priority_2
+  var:autoedu_editor_policy_5_focus_priority_2 >= 0
+  var:autoedu_editor_policy_5_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_5_focus_priority_3
+  var:autoedu_editor_policy_5_focus_priority_3 >= 0
+  var:autoedu_editor_policy_5_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_5_focus_priority_4
+  var:autoedu_editor_policy_5_focus_priority_4 >= 0
+  var:autoedu_editor_policy_5_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_5_focus_priority_5
+  var:autoedu_editor_policy_5_focus_priority_5 >= 0
+  var:autoedu_editor_policy_5_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_5_focus_priority_1 = var:autoedu_editor_policy_5_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_1 = var:autoedu_editor_policy_5_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_1 = var:autoedu_editor_policy_5_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_1 = var:autoedu_editor_policy_5_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_2 = var:autoedu_editor_policy_5_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_2 = var:autoedu_editor_policy_5_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_2 = var:autoedu_editor_policy_5_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_3 = var:autoedu_editor_policy_5_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_3 = var:autoedu_editor_policy_5_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_4 = var:autoedu_editor_policy_5_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_5_guardian_min_age = 0 var:autoedu_editor_policy_5_guardian_max_age = 0 var:autoedu_editor_policy_5_guardian_min_age <= var:autoedu_editor_policy_5_guardian_max_age }
+}
+
+autoedu_editor_policy_6_schema_valid_trigger = {
+  exists = var:autoedu_editor_policy_6_enabled
+  var:autoedu_editor_policy_6_enabled >= 0
+  var:autoedu_editor_policy_6_enabled <= 1
+  exists = var:autoedu_editor_policy_6_guardian_mode
+  var:autoedu_editor_policy_6_guardian_mode >= 0
+  var:autoedu_editor_policy_6_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_6_guardian_min_age
+  var:autoedu_editor_policy_6_guardian_min_age >= 0
+  var:autoedu_editor_policy_6_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_6_guardian_max_age
+  var:autoedu_editor_policy_6_guardian_max_age >= 0
+  var:autoedu_editor_policy_6_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_6_guardian_gender
+  var:autoedu_editor_policy_6_guardian_gender >= 0
+  var:autoedu_editor_policy_6_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_6_guardian_faith
+  var:autoedu_editor_policy_6_guardian_faith >= 0
+  var:autoedu_editor_policy_6_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_6_guardian_culture
+  var:autoedu_editor_policy_6_guardian_culture >= 0
+  var:autoedu_editor_policy_6_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_6_guardian_witch_attitude
+  var:autoedu_editor_policy_6_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_6_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_6_faith_upbringing
+  var:autoedu_editor_policy_6_faith_upbringing >= 0
+  var:autoedu_editor_policy_6_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_6_culture_upbringing
+  var:autoedu_editor_policy_6_culture_upbringing >= 0
+  var:autoedu_editor_policy_6_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_6_focus_mode
+  var:autoedu_editor_policy_6_focus_mode >= 0
+  var:autoedu_editor_policy_6_focus_mode <= 3
+  exists = var:autoedu_editor_policy_6_university_mode
+  var:autoedu_editor_policy_6_university_mode >= 0
+  var:autoedu_editor_policy_6_university_mode <= 2
+  exists = var:autoedu_editor_policy_6_university_gender
+  var:autoedu_editor_policy_6_university_gender >= 0
+  var:autoedu_editor_policy_6_university_gender <= 2
+  exists = var:autoedu_editor_policy_6_examination_mode
+  var:autoedu_editor_policy_6_examination_mode >= 0
+  var:autoedu_editor_policy_6_examination_mode <= 2
+  exists = var:autoedu_editor_policy_6_guardian_area_player_courtiers
+  var:autoedu_editor_policy_6_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_6_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_6_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_6_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_6_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_6_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_close_relatives
+  var:autoedu_editor_policy_6_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_6_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_distant_relatives
+  var:autoedu_editor_policy_6_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_6_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_house_members
+  var:autoedu_editor_policy_6_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_6_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_dynasty_members
+  var:autoedu_editor_policy_6_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_6_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_6_focus_priority_1
+  var:autoedu_editor_policy_6_focus_priority_1 >= 0
+  var:autoedu_editor_policy_6_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_6_focus_priority_2
+  var:autoedu_editor_policy_6_focus_priority_2 >= 0
+  var:autoedu_editor_policy_6_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_6_focus_priority_3
+  var:autoedu_editor_policy_6_focus_priority_3 >= 0
+  var:autoedu_editor_policy_6_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_6_focus_priority_4
+  var:autoedu_editor_policy_6_focus_priority_4 >= 0
+  var:autoedu_editor_policy_6_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_6_focus_priority_5
+  var:autoedu_editor_policy_6_focus_priority_5 >= 0
+  var:autoedu_editor_policy_6_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_6_focus_priority_1 = var:autoedu_editor_policy_6_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_1 = var:autoedu_editor_policy_6_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_1 = var:autoedu_editor_policy_6_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_1 = var:autoedu_editor_policy_6_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_2 = var:autoedu_editor_policy_6_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_2 = var:autoedu_editor_policy_6_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_2 = var:autoedu_editor_policy_6_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_3 = var:autoedu_editor_policy_6_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_3 = var:autoedu_editor_policy_6_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_4 = var:autoedu_editor_policy_6_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_6_guardian_min_age = 0 var:autoedu_editor_policy_6_guardian_max_age = 0 var:autoedu_editor_policy_6_guardian_min_age <= var:autoedu_editor_policy_6_guardian_max_age }
+}
+
+autoedu_editor_policy_7_schema_valid_trigger = {
+  exists = var:autoedu_editor_policy_7_enabled
+  var:autoedu_editor_policy_7_enabled >= 0
+  var:autoedu_editor_policy_7_enabled <= 1
+  exists = var:autoedu_editor_policy_7_guardian_mode
+  var:autoedu_editor_policy_7_guardian_mode >= 0
+  var:autoedu_editor_policy_7_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_7_guardian_min_age
+  var:autoedu_editor_policy_7_guardian_min_age >= 0
+  var:autoedu_editor_policy_7_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_7_guardian_max_age
+  var:autoedu_editor_policy_7_guardian_max_age >= 0
+  var:autoedu_editor_policy_7_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_7_guardian_gender
+  var:autoedu_editor_policy_7_guardian_gender >= 0
+  var:autoedu_editor_policy_7_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_7_guardian_faith
+  var:autoedu_editor_policy_7_guardian_faith >= 0
+  var:autoedu_editor_policy_7_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_7_guardian_culture
+  var:autoedu_editor_policy_7_guardian_culture >= 0
+  var:autoedu_editor_policy_7_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_7_guardian_witch_attitude
+  var:autoedu_editor_policy_7_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_7_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_7_faith_upbringing
+  var:autoedu_editor_policy_7_faith_upbringing >= 0
+  var:autoedu_editor_policy_7_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_7_culture_upbringing
+  var:autoedu_editor_policy_7_culture_upbringing >= 0
+  var:autoedu_editor_policy_7_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_7_focus_mode
+  var:autoedu_editor_policy_7_focus_mode >= 0
+  var:autoedu_editor_policy_7_focus_mode <= 3
+  exists = var:autoedu_editor_policy_7_university_mode
+  var:autoedu_editor_policy_7_university_mode >= 0
+  var:autoedu_editor_policy_7_university_mode <= 2
+  exists = var:autoedu_editor_policy_7_university_gender
+  var:autoedu_editor_policy_7_university_gender >= 0
+  var:autoedu_editor_policy_7_university_gender <= 2
+  exists = var:autoedu_editor_policy_7_examination_mode
+  var:autoedu_editor_policy_7_examination_mode >= 0
+  var:autoedu_editor_policy_7_examination_mode <= 2
+  exists = var:autoedu_editor_policy_7_guardian_area_player_courtiers
+  var:autoedu_editor_policy_7_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_7_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_7_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_7_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_7_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_7_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_close_relatives
+  var:autoedu_editor_policy_7_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_7_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_distant_relatives
+  var:autoedu_editor_policy_7_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_7_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_house_members
+  var:autoedu_editor_policy_7_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_7_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_dynasty_members
+  var:autoedu_editor_policy_7_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_7_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_7_focus_priority_1
+  var:autoedu_editor_policy_7_focus_priority_1 >= 0
+  var:autoedu_editor_policy_7_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_7_focus_priority_2
+  var:autoedu_editor_policy_7_focus_priority_2 >= 0
+  var:autoedu_editor_policy_7_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_7_focus_priority_3
+  var:autoedu_editor_policy_7_focus_priority_3 >= 0
+  var:autoedu_editor_policy_7_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_7_focus_priority_4
+  var:autoedu_editor_policy_7_focus_priority_4 >= 0
+  var:autoedu_editor_policy_7_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_7_focus_priority_5
+  var:autoedu_editor_policy_7_focus_priority_5 >= 0
+  var:autoedu_editor_policy_7_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_7_focus_priority_1 = var:autoedu_editor_policy_7_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_1 = var:autoedu_editor_policy_7_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_1 = var:autoedu_editor_policy_7_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_1 = var:autoedu_editor_policy_7_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_2 = var:autoedu_editor_policy_7_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_2 = var:autoedu_editor_policy_7_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_2 = var:autoedu_editor_policy_7_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_3 = var:autoedu_editor_policy_7_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_3 = var:autoedu_editor_policy_7_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_4 = var:autoedu_editor_policy_7_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_7_guardian_min_age = 0 var:autoedu_editor_policy_7_guardian_max_age = 0 var:autoedu_editor_policy_7_guardian_min_age <= var:autoedu_editor_policy_7_guardian_max_age }
+}
+
+autoedu_editor_general_schema12_valid_trigger = {
+  exists = var:autoedu_editor_general_personality_mode
+  var:autoedu_editor_general_personality_mode >= 0
+  var:autoedu_editor_general_personality_mode <= 1
+  exists = var:autoedu_editor_general_university_reserve
+  var:autoedu_editor_general_university_reserve >= 0
+  var:autoedu_editor_general_university_reserve <= 3
+  exists = var:autoedu_editor_general_notifications
+  var:autoedu_editor_general_notifications >= 0
+  var:autoedu_editor_general_notifications <= 1
+}
+
+autoedu_editor_general_schema_valid_trigger = {
+  autoedu_editor_general_schema12_valid_trigger = yes
+  exists = var:autoedu_editor_general_martial_training_mode
+  var:autoedu_editor_general_martial_training_mode >= 0
+  var:autoedu_editor_general_martial_training_mode <= 1
+}
+
+autoedu_editor_policy_0_schema10_valid_trigger = {
+  exists = var:autoedu_editor_policy_0_enabled
+  var:autoedu_editor_policy_0_enabled >= 0
+  var:autoedu_editor_policy_0_enabled <= 1
+  exists = var:autoedu_editor_policy_0_guardian_mode
+  var:autoedu_editor_policy_0_guardian_mode >= 0
+  var:autoedu_editor_policy_0_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_0_guardian_min_age
+  var:autoedu_editor_policy_0_guardian_min_age >= 0
+  var:autoedu_editor_policy_0_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_0_guardian_max_age
+  var:autoedu_editor_policy_0_guardian_max_age >= 0
+  var:autoedu_editor_policy_0_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_0_guardian_gender
+  var:autoedu_editor_policy_0_guardian_gender >= 0
+  var:autoedu_editor_policy_0_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_0_guardian_faith
+  var:autoedu_editor_policy_0_guardian_faith >= 0
+  var:autoedu_editor_policy_0_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_0_guardian_culture
+  var:autoedu_editor_policy_0_guardian_culture >= 0
+  var:autoedu_editor_policy_0_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_0_guardian_witch_attitude
+  var:autoedu_editor_policy_0_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_0_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_0_faith_upbringing
+  var:autoedu_editor_policy_0_faith_upbringing >= 0
+  var:autoedu_editor_policy_0_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_0_culture_upbringing
+  var:autoedu_editor_policy_0_culture_upbringing >= 0
+  var:autoedu_editor_policy_0_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_0_focus_mode
+  var:autoedu_editor_policy_0_focus_mode >= 0
+  var:autoedu_editor_policy_0_focus_mode <= 3
+  exists = var:autoedu_editor_policy_0_university_mode
+  var:autoedu_editor_policy_0_university_mode >= 0
+  var:autoedu_editor_policy_0_university_mode <= 2
+  exists = var:autoedu_editor_policy_0_university_gender
+  var:autoedu_editor_policy_0_university_gender >= 0
+  var:autoedu_editor_policy_0_university_gender <= 2
+  exists = var:autoedu_editor_policy_0_examination_mode
+  var:autoedu_editor_policy_0_examination_mode >= 0
+  var:autoedu_editor_policy_0_examination_mode <= 2
+  exists = var:autoedu_editor_policy_0_guardian_area_player_courtiers
+  var:autoedu_editor_policy_0_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_0_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_0_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_0_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_0_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_0_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_close_relatives
+  var:autoedu_editor_policy_0_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_0_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_distant_relatives
+  var:autoedu_editor_policy_0_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_0_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_house_members
+  var:autoedu_editor_policy_0_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_0_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_0_guardian_area_dynasty_members
+  var:autoedu_editor_policy_0_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_0_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_0_focus_priority_1
+  var:autoedu_editor_policy_0_focus_priority_1 >= 0
+  var:autoedu_editor_policy_0_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_0_focus_priority_2
+  var:autoedu_editor_policy_0_focus_priority_2 >= 0
+  var:autoedu_editor_policy_0_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_0_focus_priority_3
+  var:autoedu_editor_policy_0_focus_priority_3 >= 0
+  var:autoedu_editor_policy_0_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_0_focus_priority_4
+  var:autoedu_editor_policy_0_focus_priority_4 >= 0
+  var:autoedu_editor_policy_0_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_0_focus_priority_5
+  var:autoedu_editor_policy_0_focus_priority_5 >= 0
+  var:autoedu_editor_policy_0_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_0_focus_priority_1 = var:autoedu_editor_policy_0_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_1 = var:autoedu_editor_policy_0_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_1 = var:autoedu_editor_policy_0_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_1 = var:autoedu_editor_policy_0_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_2 = var:autoedu_editor_policy_0_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_2 = var:autoedu_editor_policy_0_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_2 = var:autoedu_editor_policy_0_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_3 = var:autoedu_editor_policy_0_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_3 = var:autoedu_editor_policy_0_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_0_focus_priority_4 = var:autoedu_editor_policy_0_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_0_guardian_min_age = 0 var:autoedu_editor_policy_0_guardian_max_age = 0 var:autoedu_editor_policy_0_guardian_min_age <= var:autoedu_editor_policy_0_guardian_max_age }
+}
+
+autoedu_editor_policy_1_schema10_valid_trigger = {
+  exists = var:autoedu_editor_policy_1_enabled
+  var:autoedu_editor_policy_1_enabled >= 0
+  var:autoedu_editor_policy_1_enabled <= 1
+  exists = var:autoedu_editor_policy_1_guardian_mode
+  var:autoedu_editor_policy_1_guardian_mode >= 0
+  var:autoedu_editor_policy_1_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_1_guardian_min_age
+  var:autoedu_editor_policy_1_guardian_min_age >= 0
+  var:autoedu_editor_policy_1_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_1_guardian_max_age
+  var:autoedu_editor_policy_1_guardian_max_age >= 0
+  var:autoedu_editor_policy_1_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_1_guardian_gender
+  var:autoedu_editor_policy_1_guardian_gender >= 0
+  var:autoedu_editor_policy_1_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_1_guardian_faith
+  var:autoedu_editor_policy_1_guardian_faith >= 0
+  var:autoedu_editor_policy_1_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_1_guardian_culture
+  var:autoedu_editor_policy_1_guardian_culture >= 0
+  var:autoedu_editor_policy_1_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_1_guardian_witch_attitude
+  var:autoedu_editor_policy_1_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_1_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_1_faith_upbringing
+  var:autoedu_editor_policy_1_faith_upbringing >= 0
+  var:autoedu_editor_policy_1_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_1_culture_upbringing
+  var:autoedu_editor_policy_1_culture_upbringing >= 0
+  var:autoedu_editor_policy_1_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_1_focus_mode
+  var:autoedu_editor_policy_1_focus_mode >= 0
+  var:autoedu_editor_policy_1_focus_mode <= 3
+  exists = var:autoedu_editor_policy_1_university_mode
+  var:autoedu_editor_policy_1_university_mode >= 0
+  var:autoedu_editor_policy_1_university_mode <= 2
+  exists = var:autoedu_editor_policy_1_university_gender
+  var:autoedu_editor_policy_1_university_gender >= 0
+  var:autoedu_editor_policy_1_university_gender <= 2
+  exists = var:autoedu_editor_policy_1_examination_mode
+  var:autoedu_editor_policy_1_examination_mode >= 0
+  var:autoedu_editor_policy_1_examination_mode <= 2
+  exists = var:autoedu_editor_policy_1_guardian_area_player_courtiers
+  var:autoedu_editor_policy_1_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_1_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_1_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_1_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_1_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_1_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_close_relatives
+  var:autoedu_editor_policy_1_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_1_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_distant_relatives
+  var:autoedu_editor_policy_1_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_1_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_house_members
+  var:autoedu_editor_policy_1_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_1_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_1_guardian_area_dynasty_members
+  var:autoedu_editor_policy_1_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_1_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_1_focus_priority_1
+  var:autoedu_editor_policy_1_focus_priority_1 >= 0
+  var:autoedu_editor_policy_1_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_1_focus_priority_2
+  var:autoedu_editor_policy_1_focus_priority_2 >= 0
+  var:autoedu_editor_policy_1_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_1_focus_priority_3
+  var:autoedu_editor_policy_1_focus_priority_3 >= 0
+  var:autoedu_editor_policy_1_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_1_focus_priority_4
+  var:autoedu_editor_policy_1_focus_priority_4 >= 0
+  var:autoedu_editor_policy_1_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_1_focus_priority_5
+  var:autoedu_editor_policy_1_focus_priority_5 >= 0
+  var:autoedu_editor_policy_1_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_1_focus_priority_1 = var:autoedu_editor_policy_1_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_1 = var:autoedu_editor_policy_1_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_1 = var:autoedu_editor_policy_1_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_1 = var:autoedu_editor_policy_1_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_2 = var:autoedu_editor_policy_1_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_2 = var:autoedu_editor_policy_1_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_2 = var:autoedu_editor_policy_1_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_3 = var:autoedu_editor_policy_1_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_3 = var:autoedu_editor_policy_1_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_1_focus_priority_4 = var:autoedu_editor_policy_1_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_1_guardian_min_age = 0 var:autoedu_editor_policy_1_guardian_max_age = 0 var:autoedu_editor_policy_1_guardian_min_age <= var:autoedu_editor_policy_1_guardian_max_age }
+}
+
+autoedu_editor_policy_2_schema10_valid_trigger = {
+  exists = var:autoedu_editor_policy_2_enabled
+  var:autoedu_editor_policy_2_enabled >= 0
+  var:autoedu_editor_policy_2_enabled <= 1
+  exists = var:autoedu_editor_policy_2_guardian_mode
+  var:autoedu_editor_policy_2_guardian_mode >= 0
+  var:autoedu_editor_policy_2_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_2_guardian_min_age
+  var:autoedu_editor_policy_2_guardian_min_age >= 0
+  var:autoedu_editor_policy_2_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_2_guardian_max_age
+  var:autoedu_editor_policy_2_guardian_max_age >= 0
+  var:autoedu_editor_policy_2_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_2_guardian_gender
+  var:autoedu_editor_policy_2_guardian_gender >= 0
+  var:autoedu_editor_policy_2_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_2_guardian_faith
+  var:autoedu_editor_policy_2_guardian_faith >= 0
+  var:autoedu_editor_policy_2_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_2_guardian_culture
+  var:autoedu_editor_policy_2_guardian_culture >= 0
+  var:autoedu_editor_policy_2_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_2_guardian_witch_attitude
+  var:autoedu_editor_policy_2_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_2_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_2_faith_upbringing
+  var:autoedu_editor_policy_2_faith_upbringing >= 0
+  var:autoedu_editor_policy_2_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_2_culture_upbringing
+  var:autoedu_editor_policy_2_culture_upbringing >= 0
+  var:autoedu_editor_policy_2_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_2_focus_mode
+  var:autoedu_editor_policy_2_focus_mode >= 0
+  var:autoedu_editor_policy_2_focus_mode <= 3
+  exists = var:autoedu_editor_policy_2_university_mode
+  var:autoedu_editor_policy_2_university_mode >= 0
+  var:autoedu_editor_policy_2_university_mode <= 2
+  exists = var:autoedu_editor_policy_2_university_gender
+  var:autoedu_editor_policy_2_university_gender >= 0
+  var:autoedu_editor_policy_2_university_gender <= 2
+  exists = var:autoedu_editor_policy_2_examination_mode
+  var:autoedu_editor_policy_2_examination_mode >= 0
+  var:autoedu_editor_policy_2_examination_mode <= 2
+  exists = var:autoedu_editor_policy_2_guardian_area_player_courtiers
+  var:autoedu_editor_policy_2_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_2_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_2_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_2_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_2_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_2_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_close_relatives
+  var:autoedu_editor_policy_2_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_2_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_distant_relatives
+  var:autoedu_editor_policy_2_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_2_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_house_members
+  var:autoedu_editor_policy_2_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_2_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_2_guardian_area_dynasty_members
+  var:autoedu_editor_policy_2_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_2_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_2_focus_priority_1
+  var:autoedu_editor_policy_2_focus_priority_1 >= 0
+  var:autoedu_editor_policy_2_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_2_focus_priority_2
+  var:autoedu_editor_policy_2_focus_priority_2 >= 0
+  var:autoedu_editor_policy_2_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_2_focus_priority_3
+  var:autoedu_editor_policy_2_focus_priority_3 >= 0
+  var:autoedu_editor_policy_2_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_2_focus_priority_4
+  var:autoedu_editor_policy_2_focus_priority_4 >= 0
+  var:autoedu_editor_policy_2_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_2_focus_priority_5
+  var:autoedu_editor_policy_2_focus_priority_5 >= 0
+  var:autoedu_editor_policy_2_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_2_focus_priority_1 = var:autoedu_editor_policy_2_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_1 = var:autoedu_editor_policy_2_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_1 = var:autoedu_editor_policy_2_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_1 = var:autoedu_editor_policy_2_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_2 = var:autoedu_editor_policy_2_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_2 = var:autoedu_editor_policy_2_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_2 = var:autoedu_editor_policy_2_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_3 = var:autoedu_editor_policy_2_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_3 = var:autoedu_editor_policy_2_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_2_focus_priority_4 = var:autoedu_editor_policy_2_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_2_guardian_min_age = 0 var:autoedu_editor_policy_2_guardian_max_age = 0 var:autoedu_editor_policy_2_guardian_min_age <= var:autoedu_editor_policy_2_guardian_max_age }
+}
+
+autoedu_editor_policy_3_schema10_valid_trigger = {
+  exists = var:autoedu_editor_policy_3_enabled
+  var:autoedu_editor_policy_3_enabled >= 0
+  var:autoedu_editor_policy_3_enabled <= 1
+  exists = var:autoedu_editor_policy_3_guardian_mode
+  var:autoedu_editor_policy_3_guardian_mode >= 0
+  var:autoedu_editor_policy_3_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_3_guardian_min_age
+  var:autoedu_editor_policy_3_guardian_min_age >= 0
+  var:autoedu_editor_policy_3_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_3_guardian_max_age
+  var:autoedu_editor_policy_3_guardian_max_age >= 0
+  var:autoedu_editor_policy_3_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_3_guardian_gender
+  var:autoedu_editor_policy_3_guardian_gender >= 0
+  var:autoedu_editor_policy_3_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_3_guardian_faith
+  var:autoedu_editor_policy_3_guardian_faith >= 0
+  var:autoedu_editor_policy_3_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_3_guardian_culture
+  var:autoedu_editor_policy_3_guardian_culture >= 0
+  var:autoedu_editor_policy_3_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_3_guardian_witch_attitude
+  var:autoedu_editor_policy_3_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_3_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_3_faith_upbringing
+  var:autoedu_editor_policy_3_faith_upbringing >= 0
+  var:autoedu_editor_policy_3_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_3_culture_upbringing
+  var:autoedu_editor_policy_3_culture_upbringing >= 0
+  var:autoedu_editor_policy_3_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_3_focus_mode
+  var:autoedu_editor_policy_3_focus_mode >= 0
+  var:autoedu_editor_policy_3_focus_mode <= 3
+  exists = var:autoedu_editor_policy_3_university_mode
+  var:autoedu_editor_policy_3_university_mode >= 0
+  var:autoedu_editor_policy_3_university_mode <= 2
+  exists = var:autoedu_editor_policy_3_university_gender
+  var:autoedu_editor_policy_3_university_gender >= 0
+  var:autoedu_editor_policy_3_university_gender <= 2
+  exists = var:autoedu_editor_policy_3_examination_mode
+  var:autoedu_editor_policy_3_examination_mode >= 0
+  var:autoedu_editor_policy_3_examination_mode <= 2
+  exists = var:autoedu_editor_policy_3_guardian_area_player_courtiers
+  var:autoedu_editor_policy_3_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_3_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_3_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_3_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_3_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_3_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_close_relatives
+  var:autoedu_editor_policy_3_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_3_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_distant_relatives
+  var:autoedu_editor_policy_3_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_3_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_house_members
+  var:autoedu_editor_policy_3_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_3_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_3_guardian_area_dynasty_members
+  var:autoedu_editor_policy_3_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_3_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_3_focus_priority_1
+  var:autoedu_editor_policy_3_focus_priority_1 >= 0
+  var:autoedu_editor_policy_3_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_3_focus_priority_2
+  var:autoedu_editor_policy_3_focus_priority_2 >= 0
+  var:autoedu_editor_policy_3_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_3_focus_priority_3
+  var:autoedu_editor_policy_3_focus_priority_3 >= 0
+  var:autoedu_editor_policy_3_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_3_focus_priority_4
+  var:autoedu_editor_policy_3_focus_priority_4 >= 0
+  var:autoedu_editor_policy_3_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_3_focus_priority_5
+  var:autoedu_editor_policy_3_focus_priority_5 >= 0
+  var:autoedu_editor_policy_3_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_3_focus_priority_1 = var:autoedu_editor_policy_3_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_1 = var:autoedu_editor_policy_3_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_1 = var:autoedu_editor_policy_3_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_1 = var:autoedu_editor_policy_3_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_2 = var:autoedu_editor_policy_3_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_2 = var:autoedu_editor_policy_3_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_2 = var:autoedu_editor_policy_3_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_3 = var:autoedu_editor_policy_3_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_3 = var:autoedu_editor_policy_3_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_3_focus_priority_4 = var:autoedu_editor_policy_3_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_3_guardian_min_age = 0 var:autoedu_editor_policy_3_guardian_max_age = 0 var:autoedu_editor_policy_3_guardian_min_age <= var:autoedu_editor_policy_3_guardian_max_age }
+}
+
+autoedu_editor_policy_4_schema10_valid_trigger = {
+  exists = var:autoedu_editor_policy_4_enabled
+  var:autoedu_editor_policy_4_enabled >= 0
+  var:autoedu_editor_policy_4_enabled <= 1
+  exists = var:autoedu_editor_policy_4_guardian_mode
+  var:autoedu_editor_policy_4_guardian_mode >= 0
+  var:autoedu_editor_policy_4_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_4_guardian_min_age
+  var:autoedu_editor_policy_4_guardian_min_age >= 0
+  var:autoedu_editor_policy_4_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_4_guardian_max_age
+  var:autoedu_editor_policy_4_guardian_max_age >= 0
+  var:autoedu_editor_policy_4_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_4_guardian_gender
+  var:autoedu_editor_policy_4_guardian_gender >= 0
+  var:autoedu_editor_policy_4_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_4_guardian_faith
+  var:autoedu_editor_policy_4_guardian_faith >= 0
+  var:autoedu_editor_policy_4_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_4_guardian_culture
+  var:autoedu_editor_policy_4_guardian_culture >= 0
+  var:autoedu_editor_policy_4_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_4_guardian_witch_attitude
+  var:autoedu_editor_policy_4_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_4_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_4_faith_upbringing
+  var:autoedu_editor_policy_4_faith_upbringing >= 0
+  var:autoedu_editor_policy_4_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_4_culture_upbringing
+  var:autoedu_editor_policy_4_culture_upbringing >= 0
+  var:autoedu_editor_policy_4_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_4_focus_mode
+  var:autoedu_editor_policy_4_focus_mode >= 0
+  var:autoedu_editor_policy_4_focus_mode <= 3
+  exists = var:autoedu_editor_policy_4_university_mode
+  var:autoedu_editor_policy_4_university_mode >= 0
+  var:autoedu_editor_policy_4_university_mode <= 2
+  exists = var:autoedu_editor_policy_4_university_gender
+  var:autoedu_editor_policy_4_university_gender >= 0
+  var:autoedu_editor_policy_4_university_gender <= 2
+  exists = var:autoedu_editor_policy_4_examination_mode
+  var:autoedu_editor_policy_4_examination_mode >= 0
+  var:autoedu_editor_policy_4_examination_mode <= 2
+  exists = var:autoedu_editor_policy_4_guardian_area_player_courtiers
+  var:autoedu_editor_policy_4_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_4_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_4_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_4_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_4_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_4_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_close_relatives
+  var:autoedu_editor_policy_4_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_4_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_distant_relatives
+  var:autoedu_editor_policy_4_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_4_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_house_members
+  var:autoedu_editor_policy_4_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_4_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_4_guardian_area_dynasty_members
+  var:autoedu_editor_policy_4_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_4_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_4_focus_priority_1
+  var:autoedu_editor_policy_4_focus_priority_1 >= 0
+  var:autoedu_editor_policy_4_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_4_focus_priority_2
+  var:autoedu_editor_policy_4_focus_priority_2 >= 0
+  var:autoedu_editor_policy_4_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_4_focus_priority_3
+  var:autoedu_editor_policy_4_focus_priority_3 >= 0
+  var:autoedu_editor_policy_4_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_4_focus_priority_4
+  var:autoedu_editor_policy_4_focus_priority_4 >= 0
+  var:autoedu_editor_policy_4_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_4_focus_priority_5
+  var:autoedu_editor_policy_4_focus_priority_5 >= 0
+  var:autoedu_editor_policy_4_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_4_focus_priority_1 = var:autoedu_editor_policy_4_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_1 = var:autoedu_editor_policy_4_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_1 = var:autoedu_editor_policy_4_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_1 = var:autoedu_editor_policy_4_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_2 = var:autoedu_editor_policy_4_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_2 = var:autoedu_editor_policy_4_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_2 = var:autoedu_editor_policy_4_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_3 = var:autoedu_editor_policy_4_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_3 = var:autoedu_editor_policy_4_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_4_focus_priority_4 = var:autoedu_editor_policy_4_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_4_guardian_min_age = 0 var:autoedu_editor_policy_4_guardian_max_age = 0 var:autoedu_editor_policy_4_guardian_min_age <= var:autoedu_editor_policy_4_guardian_max_age }
+}
+
+autoedu_editor_policy_5_schema10_valid_trigger = {
+  exists = var:autoedu_editor_policy_5_enabled
+  var:autoedu_editor_policy_5_enabled >= 0
+  var:autoedu_editor_policy_5_enabled <= 1
+  exists = var:autoedu_editor_policy_5_guardian_mode
+  var:autoedu_editor_policy_5_guardian_mode >= 0
+  var:autoedu_editor_policy_5_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_5_guardian_min_age
+  var:autoedu_editor_policy_5_guardian_min_age >= 0
+  var:autoedu_editor_policy_5_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_5_guardian_max_age
+  var:autoedu_editor_policy_5_guardian_max_age >= 0
+  var:autoedu_editor_policy_5_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_5_guardian_gender
+  var:autoedu_editor_policy_5_guardian_gender >= 0
+  var:autoedu_editor_policy_5_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_5_guardian_faith
+  var:autoedu_editor_policy_5_guardian_faith >= 0
+  var:autoedu_editor_policy_5_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_5_guardian_culture
+  var:autoedu_editor_policy_5_guardian_culture >= 0
+  var:autoedu_editor_policy_5_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_5_guardian_witch_attitude
+  var:autoedu_editor_policy_5_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_5_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_5_faith_upbringing
+  var:autoedu_editor_policy_5_faith_upbringing >= 0
+  var:autoedu_editor_policy_5_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_5_culture_upbringing
+  var:autoedu_editor_policy_5_culture_upbringing >= 0
+  var:autoedu_editor_policy_5_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_5_focus_mode
+  var:autoedu_editor_policy_5_focus_mode >= 0
+  var:autoedu_editor_policy_5_focus_mode <= 3
+  exists = var:autoedu_editor_policy_5_university_mode
+  var:autoedu_editor_policy_5_university_mode >= 0
+  var:autoedu_editor_policy_5_university_mode <= 2
+  exists = var:autoedu_editor_policy_5_university_gender
+  var:autoedu_editor_policy_5_university_gender >= 0
+  var:autoedu_editor_policy_5_university_gender <= 2
+  exists = var:autoedu_editor_policy_5_examination_mode
+  var:autoedu_editor_policy_5_examination_mode >= 0
+  var:autoedu_editor_policy_5_examination_mode <= 2
+  exists = var:autoedu_editor_policy_5_guardian_area_player_courtiers
+  var:autoedu_editor_policy_5_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_5_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_5_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_5_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_5_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_5_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_close_relatives
+  var:autoedu_editor_policy_5_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_5_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_distant_relatives
+  var:autoedu_editor_policy_5_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_5_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_house_members
+  var:autoedu_editor_policy_5_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_5_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_5_guardian_area_dynasty_members
+  var:autoedu_editor_policy_5_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_5_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_5_focus_priority_1
+  var:autoedu_editor_policy_5_focus_priority_1 >= 0
+  var:autoedu_editor_policy_5_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_5_focus_priority_2
+  var:autoedu_editor_policy_5_focus_priority_2 >= 0
+  var:autoedu_editor_policy_5_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_5_focus_priority_3
+  var:autoedu_editor_policy_5_focus_priority_3 >= 0
+  var:autoedu_editor_policy_5_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_5_focus_priority_4
+  var:autoedu_editor_policy_5_focus_priority_4 >= 0
+  var:autoedu_editor_policy_5_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_5_focus_priority_5
+  var:autoedu_editor_policy_5_focus_priority_5 >= 0
+  var:autoedu_editor_policy_5_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_5_focus_priority_1 = var:autoedu_editor_policy_5_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_1 = var:autoedu_editor_policy_5_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_1 = var:autoedu_editor_policy_5_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_1 = var:autoedu_editor_policy_5_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_2 = var:autoedu_editor_policy_5_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_2 = var:autoedu_editor_policy_5_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_2 = var:autoedu_editor_policy_5_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_3 = var:autoedu_editor_policy_5_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_3 = var:autoedu_editor_policy_5_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_5_focus_priority_4 = var:autoedu_editor_policy_5_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_5_guardian_min_age = 0 var:autoedu_editor_policy_5_guardian_max_age = 0 var:autoedu_editor_policy_5_guardian_min_age <= var:autoedu_editor_policy_5_guardian_max_age }
+}
+
+autoedu_editor_policy_6_schema10_valid_trigger = {
+  exists = var:autoedu_editor_policy_6_enabled
+  var:autoedu_editor_policy_6_enabled >= 0
+  var:autoedu_editor_policy_6_enabled <= 1
+  exists = var:autoedu_editor_policy_6_guardian_mode
+  var:autoedu_editor_policy_6_guardian_mode >= 0
+  var:autoedu_editor_policy_6_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_6_guardian_min_age
+  var:autoedu_editor_policy_6_guardian_min_age >= 0
+  var:autoedu_editor_policy_6_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_6_guardian_max_age
+  var:autoedu_editor_policy_6_guardian_max_age >= 0
+  var:autoedu_editor_policy_6_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_6_guardian_gender
+  var:autoedu_editor_policy_6_guardian_gender >= 0
+  var:autoedu_editor_policy_6_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_6_guardian_faith
+  var:autoedu_editor_policy_6_guardian_faith >= 0
+  var:autoedu_editor_policy_6_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_6_guardian_culture
+  var:autoedu_editor_policy_6_guardian_culture >= 0
+  var:autoedu_editor_policy_6_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_6_guardian_witch_attitude
+  var:autoedu_editor_policy_6_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_6_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_6_faith_upbringing
+  var:autoedu_editor_policy_6_faith_upbringing >= 0
+  var:autoedu_editor_policy_6_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_6_culture_upbringing
+  var:autoedu_editor_policy_6_culture_upbringing >= 0
+  var:autoedu_editor_policy_6_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_6_focus_mode
+  var:autoedu_editor_policy_6_focus_mode >= 0
+  var:autoedu_editor_policy_6_focus_mode <= 3
+  exists = var:autoedu_editor_policy_6_university_mode
+  var:autoedu_editor_policy_6_university_mode >= 0
+  var:autoedu_editor_policy_6_university_mode <= 2
+  exists = var:autoedu_editor_policy_6_university_gender
+  var:autoedu_editor_policy_6_university_gender >= 0
+  var:autoedu_editor_policy_6_university_gender <= 2
+  exists = var:autoedu_editor_policy_6_examination_mode
+  var:autoedu_editor_policy_6_examination_mode >= 0
+  var:autoedu_editor_policy_6_examination_mode <= 2
+  exists = var:autoedu_editor_policy_6_guardian_area_player_courtiers
+  var:autoedu_editor_policy_6_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_6_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_6_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_6_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_6_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_6_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_close_relatives
+  var:autoedu_editor_policy_6_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_6_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_distant_relatives
+  var:autoedu_editor_policy_6_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_6_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_house_members
+  var:autoedu_editor_policy_6_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_6_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_6_guardian_area_dynasty_members
+  var:autoedu_editor_policy_6_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_6_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_6_focus_priority_1
+  var:autoedu_editor_policy_6_focus_priority_1 >= 0
+  var:autoedu_editor_policy_6_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_6_focus_priority_2
+  var:autoedu_editor_policy_6_focus_priority_2 >= 0
+  var:autoedu_editor_policy_6_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_6_focus_priority_3
+  var:autoedu_editor_policy_6_focus_priority_3 >= 0
+  var:autoedu_editor_policy_6_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_6_focus_priority_4
+  var:autoedu_editor_policy_6_focus_priority_4 >= 0
+  var:autoedu_editor_policy_6_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_6_focus_priority_5
+  var:autoedu_editor_policy_6_focus_priority_5 >= 0
+  var:autoedu_editor_policy_6_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_6_focus_priority_1 = var:autoedu_editor_policy_6_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_1 = var:autoedu_editor_policy_6_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_1 = var:autoedu_editor_policy_6_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_1 = var:autoedu_editor_policy_6_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_2 = var:autoedu_editor_policy_6_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_2 = var:autoedu_editor_policy_6_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_2 = var:autoedu_editor_policy_6_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_3 = var:autoedu_editor_policy_6_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_3 = var:autoedu_editor_policy_6_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_6_focus_priority_4 = var:autoedu_editor_policy_6_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_6_guardian_min_age = 0 var:autoedu_editor_policy_6_guardian_max_age = 0 var:autoedu_editor_policy_6_guardian_min_age <= var:autoedu_editor_policy_6_guardian_max_age }
+}
+
+autoedu_editor_policy_7_schema10_valid_trigger = {
+  exists = var:autoedu_editor_policy_7_enabled
+  var:autoedu_editor_policy_7_enabled >= 0
+  var:autoedu_editor_policy_7_enabled <= 1
+  exists = var:autoedu_editor_policy_7_guardian_mode
+  var:autoedu_editor_policy_7_guardian_mode >= 0
+  var:autoedu_editor_policy_7_guardian_mode <= 2
+  exists = var:autoedu_editor_policy_7_guardian_min_age
+  var:autoedu_editor_policy_7_guardian_min_age >= 0
+  var:autoedu_editor_policy_7_guardian_min_age <= 6
+  exists = var:autoedu_editor_policy_7_guardian_max_age
+  var:autoedu_editor_policy_7_guardian_max_age >= 0
+  var:autoedu_editor_policy_7_guardian_max_age <= 6
+  exists = var:autoedu_editor_policy_7_guardian_gender
+  var:autoedu_editor_policy_7_guardian_gender >= 0
+  var:autoedu_editor_policy_7_guardian_gender <= 4
+  exists = var:autoedu_editor_policy_7_guardian_faith
+  var:autoedu_editor_policy_7_guardian_faith >= 0
+  var:autoedu_editor_policy_7_guardian_faith <= 4
+  exists = var:autoedu_editor_policy_7_guardian_culture
+  var:autoedu_editor_policy_7_guardian_culture >= 0
+  var:autoedu_editor_policy_7_guardian_culture <= 4
+  exists = var:autoedu_editor_policy_7_guardian_witch_attitude
+  var:autoedu_editor_policy_7_guardian_witch_attitude >= 0
+  var:autoedu_editor_policy_7_guardian_witch_attitude <= 3
+  exists = var:autoedu_editor_policy_7_faith_upbringing
+  var:autoedu_editor_policy_7_faith_upbringing >= 0
+  var:autoedu_editor_policy_7_faith_upbringing <= 1
+  exists = var:autoedu_editor_policy_7_culture_upbringing
+  var:autoedu_editor_policy_7_culture_upbringing >= 0
+  var:autoedu_editor_policy_7_culture_upbringing <= 1
+  exists = var:autoedu_editor_policy_7_focus_mode
+  var:autoedu_editor_policy_7_focus_mode >= 0
+  var:autoedu_editor_policy_7_focus_mode <= 3
+  exists = var:autoedu_editor_policy_7_university_mode
+  var:autoedu_editor_policy_7_university_mode >= 0
+  var:autoedu_editor_policy_7_university_mode <= 2
+  exists = var:autoedu_editor_policy_7_university_gender
+  var:autoedu_editor_policy_7_university_gender >= 0
+  var:autoedu_editor_policy_7_university_gender <= 2
+  exists = var:autoedu_editor_policy_7_examination_mode
+  var:autoedu_editor_policy_7_examination_mode >= 0
+  var:autoedu_editor_policy_7_examination_mode <= 2
+  exists = var:autoedu_editor_policy_7_guardian_area_player_courtiers
+  var:autoedu_editor_policy_7_guardian_area_player_courtiers >= 0
+  var:autoedu_editor_policy_7_guardian_area_player_courtiers <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_direct_vassal_realms
+  var:autoedu_editor_policy_7_guardian_area_direct_vassal_realms >= 0
+  var:autoedu_editor_policy_7_guardian_area_direct_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_indirect_vassal_realms
+  var:autoedu_editor_policy_7_guardian_area_indirect_vassal_realms >= 0
+  var:autoedu_editor_policy_7_guardian_area_indirect_vassal_realms <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_close_relatives
+  var:autoedu_editor_policy_7_guardian_area_close_relatives >= 0
+  var:autoedu_editor_policy_7_guardian_area_close_relatives <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_distant_relatives
+  var:autoedu_editor_policy_7_guardian_area_distant_relatives >= 0
+  var:autoedu_editor_policy_7_guardian_area_distant_relatives <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_house_members
+  var:autoedu_editor_policy_7_guardian_area_house_members >= 0
+  var:autoedu_editor_policy_7_guardian_area_house_members <= 1
+  exists = var:autoedu_editor_policy_7_guardian_area_dynasty_members
+  var:autoedu_editor_policy_7_guardian_area_dynasty_members >= 0
+  var:autoedu_editor_policy_7_guardian_area_dynasty_members <= 1
+  exists = var:autoedu_editor_policy_7_focus_priority_1
+  var:autoedu_editor_policy_7_focus_priority_1 >= 0
+  var:autoedu_editor_policy_7_focus_priority_1 <= 4
+  exists = var:autoedu_editor_policy_7_focus_priority_2
+  var:autoedu_editor_policy_7_focus_priority_2 >= 0
+  var:autoedu_editor_policy_7_focus_priority_2 <= 4
+  exists = var:autoedu_editor_policy_7_focus_priority_3
+  var:autoedu_editor_policy_7_focus_priority_3 >= 0
+  var:autoedu_editor_policy_7_focus_priority_3 <= 4
+  exists = var:autoedu_editor_policy_7_focus_priority_4
+  var:autoedu_editor_policy_7_focus_priority_4 >= 0
+  var:autoedu_editor_policy_7_focus_priority_4 <= 4
+  exists = var:autoedu_editor_policy_7_focus_priority_5
+  var:autoedu_editor_policy_7_focus_priority_5 >= 0
+  var:autoedu_editor_policy_7_focus_priority_5 <= 4
+  NOT = { var:autoedu_editor_policy_7_focus_priority_1 = var:autoedu_editor_policy_7_focus_priority_2 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_1 = var:autoedu_editor_policy_7_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_1 = var:autoedu_editor_policy_7_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_1 = var:autoedu_editor_policy_7_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_2 = var:autoedu_editor_policy_7_focus_priority_3 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_2 = var:autoedu_editor_policy_7_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_2 = var:autoedu_editor_policy_7_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_3 = var:autoedu_editor_policy_7_focus_priority_4 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_3 = var:autoedu_editor_policy_7_focus_priority_5 }
+  NOT = { var:autoedu_editor_policy_7_focus_priority_4 = var:autoedu_editor_policy_7_focus_priority_5 }
+  OR = { var:autoedu_editor_policy_7_guardian_min_age = 0 var:autoedu_editor_policy_7_guardian_max_age = 0 var:autoedu_editor_policy_7_guardian_min_age <= var:autoedu_editor_policy_7_guardian_max_age }
+}
+
+autoedu_editor_general_schema10_valid_trigger = {
+  exists = var:autoedu_editor_general_personality_mode
+  var:autoedu_editor_general_personality_mode >= 0
+  var:autoedu_editor_general_personality_mode <= 1
+  exists = var:autoedu_editor_general_university_reserve
+  var:autoedu_editor_general_university_reserve >= 0
+  var:autoedu_editor_general_university_reserve <= 3
+}
+
+autoedu_editor_schema_10_valid_trigger = {
+  exists = var:autoedu_editor_schema_version
+  var:autoedu_editor_schema_version = 10
+  autoedu_editor_policy_0_schema10_valid_trigger = yes
+  autoedu_editor_policy_1_schema10_valid_trigger = yes
+  autoedu_editor_policy_2_schema10_valid_trigger = yes
+  autoedu_editor_policy_3_schema10_valid_trigger = yes
+  autoedu_editor_policy_4_schema10_valid_trigger = yes
+  autoedu_editor_policy_5_schema10_valid_trigger = yes
+  autoedu_editor_policy_6_schema10_valid_trigger = yes
+  autoedu_editor_policy_7_schema10_valid_trigger = yes
+  autoedu_editor_general_schema10_valid_trigger = yes
+}
+
+autoedu_editor_schema_11_valid_trigger = {
+  exists = var:autoedu_editor_schema_version
+  var:autoedu_editor_schema_version = 11
+  autoedu_editor_policy_0_schema_valid_trigger = yes
+  var:autoedu_editor_policy_0_focus_mode <= 2
+  autoedu_editor_policy_1_schema_valid_trigger = yes
+  var:autoedu_editor_policy_1_focus_mode <= 2
+  autoedu_editor_policy_2_schema_valid_trigger = yes
+  var:autoedu_editor_policy_2_focus_mode <= 2
+  autoedu_editor_policy_3_schema_valid_trigger = yes
+  var:autoedu_editor_policy_3_focus_mode <= 2
+  autoedu_editor_policy_4_schema_valid_trigger = yes
+  var:autoedu_editor_policy_4_focus_mode <= 2
+  autoedu_editor_policy_5_schema_valid_trigger = yes
+  var:autoedu_editor_policy_5_focus_mode <= 2
+  autoedu_editor_policy_6_schema_valid_trigger = yes
+  var:autoedu_editor_policy_6_focus_mode <= 2
+  autoedu_editor_policy_7_schema_valid_trigger = yes
+  var:autoedu_editor_policy_7_focus_mode <= 2
+  autoedu_editor_general_schema12_valid_trigger = yes
+}
+
+autoedu_editor_schema_12_valid_trigger = {
+  exists = var:autoedu_editor_schema_version
+  var:autoedu_editor_schema_version = 12
+  autoedu_editor_policy_0_schema_valid_trigger = yes
+  autoedu_editor_policy_1_schema_valid_trigger = yes
+  autoedu_editor_policy_2_schema_valid_trigger = yes
+  autoedu_editor_policy_3_schema_valid_trigger = yes
+  autoedu_editor_policy_4_schema_valid_trigger = yes
+  autoedu_editor_policy_5_schema_valid_trigger = yes
+  autoedu_editor_policy_6_schema_valid_trigger = yes
+  autoedu_editor_policy_7_schema_valid_trigger = yes
+  autoedu_editor_general_schema12_valid_trigger = yes
+}
+
+autoedu_editor_current_schema_valid_trigger = {
+  exists = var:autoedu_editor_schema_version
+  var:autoedu_editor_schema_version = 13
+  autoedu_editor_policy_0_schema_valid_trigger = yes
+  autoedu_editor_policy_1_schema_valid_trigger = yes
+  autoedu_editor_policy_2_schema_valid_trigger = yes
+  autoedu_editor_policy_3_schema_valid_trigger = yes
+  autoedu_editor_policy_4_schema_valid_trigger = yes
+  autoedu_editor_policy_5_schema_valid_trigger = yes
+  autoedu_editor_policy_6_schema_valid_trigger = yes
+  autoedu_editor_policy_7_schema_valid_trigger = yes
+  autoedu_editor_general_schema_valid_trigger = yes
+}

@@ -1,0 +1,1 @@
+﻿gui/autoedu_policy_editor.gui = autoedu_policy_editor_root

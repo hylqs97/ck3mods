@@ -1,0 +1,161 @@
+﻿namespace = acm_diag
+
+acm_diag.1 = {
+ type = character_event
+ title = acm_diag_overview_title
+ desc = acm_diag_overview_desc
+ theme = education
+ left_portrait = { character = scope:autoedu_child }
+ right_portrait = root
+ immediate = {
+  save_scope_as = autoedu_owner
+  if = { limit = { exists = var:acm_diag_child } var:acm_diag_child = { save_scope_as = autoedu_child } }
+  
+  acm_diag_snapshot_effect = yes
+ }
+ option = { name = acm_diag_policy_0
+ trigger = { scope:autoedu_child = { autoedu_release_policy_0_child_trigger = yes } }
+ hidden_effect = { set_variable = { name = acm_diag_selected_policy value = 0 } trigger_event = { id = acm_diag.2 } }
+ }
+option = { name = acm_diag_policy_1
+ trigger = { scope:autoedu_child = { autoedu_release_policy_1_child_trigger = yes } }
+ hidden_effect = { set_variable = { name = acm_diag_selected_policy value = 1 } trigger_event = { id = acm_diag.2 } }
+ }
+option = { name = acm_diag_policy_2
+ trigger = { scope:autoedu_child = { autoedu_release_policy_2_child_trigger = yes } }
+ hidden_effect = { set_variable = { name = acm_diag_selected_policy value = 2 } trigger_event = { id = acm_diag.2 } }
+ }
+option = { name = acm_diag_policy_3
+ trigger = { scope:autoedu_child = { autoedu_release_policy_3_child_trigger = yes } }
+ hidden_effect = { set_variable = { name = acm_diag_selected_policy value = 3 } trigger_event = { id = acm_diag.2 } }
+ }
+option = { name = acm_diag_policy_4
+ trigger = { scope:autoedu_child = { autoedu_release_policy_4_child_trigger = yes } }
+ hidden_effect = { set_variable = { name = acm_diag_selected_policy value = 4 } trigger_event = { id = acm_diag.2 } }
+ }
+option = { name = acm_diag_policy_5
+ trigger = { scope:autoedu_child = { autoedu_release_policy_5_child_trigger = yes } }
+ hidden_effect = { set_variable = { name = acm_diag_selected_policy value = 5 } trigger_event = { id = acm_diag.2 } }
+ }
+option = { name = acm_diag_policy_6
+ trigger = { scope:autoedu_child = { autoedu_release_policy_6_child_trigger = yes } }
+ hidden_effect = { set_variable = { name = acm_diag_selected_policy value = 6 } trigger_event = { id = acm_diag.2 } }
+ }
+option = { name = acm_diag_policy_7
+ trigger = { scope:autoedu_child = { autoedu_release_policy_7_child_trigger = yes } }
+ hidden_effect = { set_variable = { name = acm_diag_selected_policy value = 7 } trigger_event = { id = acm_diag.2 } }
+ }
+option = { name = acm_diag_close hidden_effect = { acm_diag_cleanup_effect = yes } }
+}
+
+acm_diag.2 = {
+ type = character_event
+ title = acm_diag_policy_title
+ desc = acm_diag_policy_desc
+ theme = education
+ left_portrait = { character = scope:autoedu_child }
+ right_portrait = root
+ immediate = {
+  save_scope_as = autoedu_owner
+  if = { limit = { exists = var:acm_diag_child } var:acm_diag_child = { save_scope_as = autoedu_child } }
+  acm_diag_run_effect = yes
+  acm_diag_snapshot_effect = yes
+ }
+ option = { name = acm_diag_details hidden_effect = { trigger_event = { id = acm_diag.3 } } }
+ option = { name = acm_diag_refresh hidden_effect = { trigger_event = { id = acm_diag.2 } } }
+ option = { name = acm_diag_back hidden_effect = { trigger_event = { id = acm_diag.1 } } }
+ option = { name = acm_diag_close hidden_effect = { acm_diag_cleanup_effect = yes } }
+}
+
+acm_diag.3 = {
+ type = character_event
+ title = acm_diag_reject_title
+ desc = acm_diag_reject_desc
+ theme = education
+ left_portrait = { character = scope:autoedu_child }
+ right_portrait = root
+ immediate = {
+  save_scope_as = autoedu_owner
+  if = { limit = { exists = var:acm_diag_child } var:acm_diag_child = { save_scope_as = autoedu_child } }
+  
+  acm_diag_snapshot_effect = yes
+ }
+ option = { name = acm_diag_policy_back hidden_effect = { trigger_event = { id = acm_diag.2 } } }
+option = { name = acm_diag_close hidden_effect = { acm_diag_cleanup_effect = yes } }
+}
+
+acm_diag.4 = {
+ type = character_event
+ title = acm_diag_picker_title
+ desc = acm_diag_picker_desc
+ theme = education
+ right_portrait = root
+ immediate = {
+remove_variable = acm_diag_slot_0
+ clear_saved_scope = acm_diag_pick_child
+ ordered_in_list = { variable = acm_diag_picker_children order_by = age position = 0 check_range_bounds = no save_scope_as = acm_diag_pick_child }
+ if = { limit = { exists = scope:acm_diag_pick_child } set_variable = { name = acm_diag_slot_0 value = scope:acm_diag_pick_child } remove_list_variable = { name = acm_diag_picker_children target = scope:acm_diag_pick_child } }
+remove_variable = acm_diag_slot_1
+ clear_saved_scope = acm_diag_pick_child
+ ordered_in_list = { variable = acm_diag_picker_children order_by = age position = 0 check_range_bounds = no save_scope_as = acm_diag_pick_child }
+ if = { limit = { exists = scope:acm_diag_pick_child } set_variable = { name = acm_diag_slot_1 value = scope:acm_diag_pick_child } remove_list_variable = { name = acm_diag_picker_children target = scope:acm_diag_pick_child } }
+remove_variable = acm_diag_slot_2
+ clear_saved_scope = acm_diag_pick_child
+ ordered_in_list = { variable = acm_diag_picker_children order_by = age position = 0 check_range_bounds = no save_scope_as = acm_diag_pick_child }
+ if = { limit = { exists = scope:acm_diag_pick_child } set_variable = { name = acm_diag_slot_2 value = scope:acm_diag_pick_child } remove_list_variable = { name = acm_diag_picker_children target = scope:acm_diag_pick_child } }
+remove_variable = acm_diag_slot_3
+ clear_saved_scope = acm_diag_pick_child
+ ordered_in_list = { variable = acm_diag_picker_children order_by = age position = 0 check_range_bounds = no save_scope_as = acm_diag_pick_child }
+ if = { limit = { exists = scope:acm_diag_pick_child } set_variable = { name = acm_diag_slot_3 value = scope:acm_diag_pick_child } remove_list_variable = { name = acm_diag_picker_children target = scope:acm_diag_pick_child } }
+remove_variable = acm_diag_slot_4
+ clear_saved_scope = acm_diag_pick_child
+ ordered_in_list = { variable = acm_diag_picker_children order_by = age position = 0 check_range_bounds = no save_scope_as = acm_diag_pick_child }
+ if = { limit = { exists = scope:acm_diag_pick_child } set_variable = { name = acm_diag_slot_4 value = scope:acm_diag_pick_child } remove_list_variable = { name = acm_diag_picker_children target = scope:acm_diag_pick_child } }
+remove_variable = acm_diag_slot_5
+ clear_saved_scope = acm_diag_pick_child
+ ordered_in_list = { variable = acm_diag_picker_children order_by = age position = 0 check_range_bounds = no save_scope_as = acm_diag_pick_child }
+ if = { limit = { exists = scope:acm_diag_pick_child } set_variable = { name = acm_diag_slot_5 value = scope:acm_diag_pick_child } remove_list_variable = { name = acm_diag_picker_children target = scope:acm_diag_pick_child } }
+remove_variable = acm_diag_slot_6
+ clear_saved_scope = acm_diag_pick_child
+ ordered_in_list = { variable = acm_diag_picker_children order_by = age position = 0 check_range_bounds = no save_scope_as = acm_diag_pick_child }
+ if = { limit = { exists = scope:acm_diag_pick_child } set_variable = { name = acm_diag_slot_6 value = scope:acm_diag_pick_child } remove_list_variable = { name = acm_diag_picker_children target = scope:acm_diag_pick_child } }
+remove_variable = acm_diag_slot_7
+ clear_saved_scope = acm_diag_pick_child
+ ordered_in_list = { variable = acm_diag_picker_children order_by = age position = 0 check_range_bounds = no save_scope_as = acm_diag_pick_child }
+ if = { limit = { exists = scope:acm_diag_pick_child } set_variable = { name = acm_diag_slot_7 value = scope:acm_diag_pick_child } remove_list_variable = { name = acm_diag_picker_children target = scope:acm_diag_pick_child } }
+}
+option = { name = acm_diag_pick_0
+ trigger = { exists = var:acm_diag_slot_0 }
+ hidden_effect = { set_variable = { name = acm_diag_child value = var:acm_diag_slot_0 } acm_diag_picker_cleanup_effect = yes trigger_event = { id = acm_diag.1 } }
+ }
+option = { name = acm_diag_pick_1
+ trigger = { exists = var:acm_diag_slot_1 }
+ hidden_effect = { set_variable = { name = acm_diag_child value = var:acm_diag_slot_1 } acm_diag_picker_cleanup_effect = yes trigger_event = { id = acm_diag.1 } }
+ }
+option = { name = acm_diag_pick_2
+ trigger = { exists = var:acm_diag_slot_2 }
+ hidden_effect = { set_variable = { name = acm_diag_child value = var:acm_diag_slot_2 } acm_diag_picker_cleanup_effect = yes trigger_event = { id = acm_diag.1 } }
+ }
+option = { name = acm_diag_pick_3
+ trigger = { exists = var:acm_diag_slot_3 }
+ hidden_effect = { set_variable = { name = acm_diag_child value = var:acm_diag_slot_3 } acm_diag_picker_cleanup_effect = yes trigger_event = { id = acm_diag.1 } }
+ }
+option = { name = acm_diag_pick_4
+ trigger = { exists = var:acm_diag_slot_4 }
+ hidden_effect = { set_variable = { name = acm_diag_child value = var:acm_diag_slot_4 } acm_diag_picker_cleanup_effect = yes trigger_event = { id = acm_diag.1 } }
+ }
+option = { name = acm_diag_pick_5
+ trigger = { exists = var:acm_diag_slot_5 }
+ hidden_effect = { set_variable = { name = acm_diag_child value = var:acm_diag_slot_5 } acm_diag_picker_cleanup_effect = yes trigger_event = { id = acm_diag.1 } }
+ }
+option = { name = acm_diag_pick_6
+ trigger = { exists = var:acm_diag_slot_6 }
+ hidden_effect = { set_variable = { name = acm_diag_child value = var:acm_diag_slot_6 } acm_diag_picker_cleanup_effect = yes trigger_event = { id = acm_diag.1 } }
+ }
+option = { name = acm_diag_pick_7
+ trigger = { exists = var:acm_diag_slot_7 }
+ hidden_effect = { set_variable = { name = acm_diag_child value = var:acm_diag_slot_7 } acm_diag_picker_cleanup_effect = yes trigger_event = { id = acm_diag.1 } }
+ }
+option = { name = acm_diag_next trigger = { any_in_list = { variable = acm_diag_picker_children always = yes } } hidden_effect = { trigger_event = { id = acm_diag.4 } } }
+ option = { name = acm_diag_close hidden_effect = { acm_diag_picker_cleanup_effect = yes } }
+}

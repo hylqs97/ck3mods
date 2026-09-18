@@ -1,0 +1,127 @@
+﻿acm_diag_check_setup = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_setup = 0 } localization_key = acm_diag_check_setup_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_setup = 1 } localization_key = acm_diag_check_setup_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_age = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_age = 0 } localization_key = acm_diag_check_age_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_age = 1 } localization_key = acm_diag_check_age_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_ai = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_ai = 0 } localization_key = acm_diag_check_ai_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_ai = 1 } localization_key = acm_diag_check_ai_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_excluded = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_excluded = 0 } localization_key = acm_diag_check_excluded_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_excluded = 1 } localization_key = acm_diag_check_excluded_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_guardian = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_guardian = 0 } localization_key = acm_diag_check_guardian_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_guardian = 1 } localization_key = acm_diag_check_guardian_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_available = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_available = 0 } localization_key = acm_diag_check_available_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_available = 1 } localization_key = acm_diag_check_available_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_permission = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_permission = 0 } localization_key = acm_diag_check_permission_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_permission = 1 } localization_key = acm_diag_check_permission_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_subject = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_subject = 0 } localization_key = acm_diag_check_subject_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_subject = 1 } localization_key = acm_diag_check_subject_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_recent = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_recent = 0 } localization_key = acm_diag_check_recent_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_recent = 1 } localization_key = acm_diag_check_recent_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_postponed = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_postponed = 0 } localization_key = acm_diag_check_postponed_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_postponed = 1 } localization_key = acm_diag_check_postponed_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_policy = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_policy = 0 } localization_key = acm_diag_check_policy_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_policy = 1 } localization_key = acm_diag_check_policy_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_check_self = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_self = 0 } localization_key = acm_diag_check_self_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_check_self = 1 } localization_key = acm_diag_check_self_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_policy_name = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_policy_name = 0 } localization_key = acm_diag_policy_name_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_policy_name = 1 } localization_key = acm_diag_policy_name_1 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_policy_name = 2 } localization_key = acm_diag_policy_name_2 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_policy_name = 3 } localization_key = acm_diag_policy_name_3 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_policy_name = 4 } localization_key = acm_diag_policy_name_4 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_policy_name = 5 } localization_key = acm_diag_policy_name_5 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_policy_name = 6 } localization_key = acm_diag_policy_name_6 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_policy_name = 7 } localization_key = acm_diag_policy_name_7 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_policy_name = 8 } localization_key = acm_diag_policy_name_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_mode = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_mode = 0 } localization_key = acm_diag_mode_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_mode = 1 } localization_key = acm_diag_mode_1 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_mode = 2 } localization_key = acm_diag_mode_2 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_mode = 3 } localization_key = acm_diag_mode_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_enabled = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_enabled = 0 } localization_key = acm_diag_enabled_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_enabled = 1 } localization_key = acm_diag_enabled_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
+
+acm_diag_result = {
+ type = character
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_result = 0 } localization_key = acm_diag_result_0 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_result = 1 } localization_key = acm_diag_result_1 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_result = 2 } localization_key = acm_diag_result_2 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_result = 3 } localization_key = acm_diag_result_3 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_result = 4 } localization_key = acm_diag_result_4 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_result = 5 } localization_key = acm_diag_result_5 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_result = 6 } localization_key = acm_diag_result_6 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_result = 7 } localization_key = acm_diag_result_7 }
+ text = { trigger = { var:acm_diag_context_valid = 1 var:acm_diag_view_acm_diag_result = 8 } localization_key = acm_diag_result_default }
+ text = { fallback = yes localization_key = acm_diag_context_missing }
+}
