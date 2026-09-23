@@ -2,7 +2,7 @@
   "kind": "derived",
   "mod_id": "automated-courtier-management-cn",
   "name": "Automated Courtier Management - 简体中文",
-  "version": "1.3.2-cn.5",
+  "version": "1.3.2-cn.6",
   "supported_version": "1.19.*",
   "dependencies": [
     "Automated Courtier Management",
@@ -16,7 +16,7 @@
     "mod_dir_name": "automated-courtier-management-cn",
     "last_deployed_at": "2026-09-18T15:56:38+08:00"
   },
-  "source_revision": "sha256:0c75030bcb67b5e8494eeab1ebe574827be8ba03842c9f7ff5b9dc27f8e03a68",
+  "source_revision": "sha256:52099440c93bb01ff85a443c7d4c4e70492fdd8672a4a55c50f9bc38403988d5",
   "imported_at": "2026-09-18T15:56:38+08:00",
   "import_source": "G:\\Documents\\Paradox Interactive\\Crusader Kings III\\mod\\automated_courtier_management_cn",
   "upstream": {
@@ -62,7 +62,8 @@
     }
   ],
   "local_changes": [
-    "廷臣汉化87项；自动教育诊断；监护筛选最低年龄0岁，未满4岁免教育特质要求。"
+    "廷臣汉化87项；自动教育诊断；0至3岁儿童可在未设置教育重心或适用童年特质时进入监护筛选。",
+    "润色廷臣管理与监护诊断的中文表述。"
   ],
   "publication": {
     "status": "unpublished",

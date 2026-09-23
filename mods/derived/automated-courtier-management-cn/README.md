@@ -1,11 +1,11 @@
 # Automated Courtier Management - 简体中文
 
-- 标识：`automated-courtier-management-cn`；类型：`derived`；版本：`1.3.2-cn.5`；CK3：`1.19.*`。
-- 功能：廷臣汉化87项；自动教育诊断；监护筛选最低年龄0岁，未满4岁免教育特质要求。
+- 标识：`automated-courtier-management-cn`；类型：`derived`；版本：`1.3.2-cn.6`；CK3：`1.19.*`。
+- 功能：廷臣汉化87项；自动教育诊断；0至3岁儿童可在未设置教育重心或适用童年特质时进入监护筛选。本次润色了廷臣管理与监护诊断的中文表述。
 - 前置 Mod：Automated Courtier Management、Automatic Education - Guardian & University Manager。
 - 导入时间：2026-09-18T15:56:38+08:00。来源为本机已安装文件，不代表线上最新版本。
 - 上游：https://steamcommunity.com/sharedfiles/filedetails/?id=3785023981（1.3.2）; https://steamcommunity.com/sharedfiles/filedetails/?id=3717349873（2.1.0）。
-- 文件指纹：`sha256:0c75030bcb67b5e8494eeab1ebe574827be8ba03842c9f7ff5b9dc27f8e03a68`；明细见 references/source-files.json。
+- 文件指纹：`sha256:52099440c93bb01ff85a443c7d4c4e70492fdd8672a4a55c50f9bc38403988d5`；明细见 references/source-files.json。
 
 ## 安装与加载顺序
 
@@ -16,7 +16,7 @@
 
 ## 修改、同步与发布
 
-廷臣汉化87项；自动教育诊断；监护筛选最低年龄0岁，未满4岁免教育特质要求。
+廷臣汉化87项；自动教育诊断；0至3岁儿童可在未设置教育重心或适用童年特质时进入监护筛选。本次进一步润色中文表述。
 更新时对照上游快照合并，保留补丁修改；不可直接以原版覆盖。发布状态：unpublished。
 Git提交状态以仓库历史为准；提交不等于推送或发布Workshop。原作者再发布许可待确认。
 

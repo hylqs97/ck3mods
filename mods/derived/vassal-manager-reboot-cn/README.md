@@ -1,11 +1,11 @@
 # Vassal Manager Reboot - 简体中文
 
-- 标识：`vassal-manager-reboot-cn`；类型：`derived`；版本：`2.4-cn.1`；CK3：`1.19.*`。
-- 功能：完整汉化215项，仅覆盖localization，不改动游戏逻辑。
+- 标识：`vassal-manager-reboot-cn`；类型：`derived`；版本：`2.4-cn.2`；CK3：`1.19.*`。
+- 功能：完整汉化215项，仅覆盖localization，不改动游戏逻辑；本次润色头衔管理、封臣契约和好感报告等中文说明。
 - 前置 Mod：Vassal Manager Reboot。
 - 导入时间：2026-09-18T15:56:38+08:00。来源为本机已安装文件，不代表线上最新版本。
 - 上游：https://steamcommunity.com/sharedfiles/filedetails/?id=3773800577（2.4）。
-- 文件指纹：`sha256:49f02e12f84fb679e7d76027dfdd3673b5104814d586efcdb591346bd4122f06`；明细见 references/source-files.json。
+- 文件指纹：`sha256:3bde69f74ce4bede82165a4995b090c1819d43423326363eb001c7c3f3796835`；明细见 references/source-files.json。
 
 ## 安装与加载顺序
 
@@ -16,7 +16,7 @@
 
 ## 修改、同步与发布
 
-完整汉化215项，仅覆盖localization，不改动游戏逻辑。
+完整汉化215项，仅覆盖localization，不改动游戏逻辑；本次润色头衔管理、封臣契约和好感报告等中文说明。
 更新时对照上游快照合并，保留补丁修改；不可直接以原版覆盖。发布状态：unpublished。
 Git提交状态以仓库历史为准；提交不等于推送或发布Workshop。原作者再发布许可待确认。
 

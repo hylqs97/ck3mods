@@ -1,8 +1,8 @@
 {
-  "source_revision": "sha256:49f02e12f84fb679e7d76027dfdd3673b5104814d586efcdb591346bd4122f06",
+  "source_revision": "sha256:3bde69f74ce4bede82165a4995b090c1819d43423326363eb001c7c3f3796835",
   "files": {
-    "descriptor.mod": "ac00cf3f01b712d4971d2389ec90723af863088a5f630ef63134d1f737f4c5d9",
-    "localization/replace/simp_chinese/vassal_manager_reboot_l_simp_chinese.yml": "bd5f03de47ecab4ffb65d06688f7e0561f13304ada1c1ddbdf01863cb65bc29a"
+    "descriptor.mod": "2e6b4384b54788b77f518599304639e710458d081d00131677f4634f7c8aa04a",
+    "localization/replace/simp_chinese/vassal_manager_reboot_l_simp_chinese.yml": "bac5955a5127446dc47fcc5c784c67c7a9fc20ee05cbaf34d71b5a341e395d74"
   },
   "original_import_files": {
     "descriptor.mod": "ac00cf3f01b712d4971d2389ec90723af863088a5f630ef63134d1f737f4c5d9",
